@@ -68,8 +68,6 @@ int main(void)
 
 	vSemaphoreCreateBinary(sem);
 	configASSERT(sem != NULL);
-	/*xSemaphoreTake(sem, 0);*/
-	xSemaphoreGive(sem);
 
 	xTaskCreate(RED_LED_TASK, "RED LED TASK", configMINIMAL_STACK_SIZE, NULL, MAIN_PRIORITY, NULL);
 	xTaskCreate(GRN_LED_TASK, "GREEN LED TASK", configMINIMAL_STACK_SIZE, NULL, MAIN_PRIORITY+1, NULL);

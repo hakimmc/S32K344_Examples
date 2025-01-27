@@ -3963,154 +3963,155 @@ END GROUP
  *(.systeminit)
                 0x00400dfc                . = ALIGN (0x4)
  *(.text.startup)
- .text.startup  0x00400dfc       0xa4 ./src/main.o
+ .text.startup  0x00400dfc       0x9c ./src/main.o
                 0x00400dfc                main
-                0x00400ea0                . = ALIGN (0x4)
+                0x00400e98                . = ALIGN (0x4)
  *(.text)
- .text          0x00400ea0        0x0 ./FreeRTOS/Source/croutine.o
- .text          0x00400ea0      0x3b0 ./FreeRTOS/Source/event_groups.o
-                0x00400ea0                xEventGroupCreate
-                0x00400eba                xEventGroupWaitBits
-                0x00400fda                xEventGroupClearBits
-                0x00401028                vEventGroupClearBitsCallback
-                0x0040102c                xEventGroupClearBitsFromISR
-                0x0040103c                xEventGroupGetBitsFromISR
-                0x0040105c                xEventGroupSetBits
-                0x004010ea                xEventGroupSync
-                0x004011d2                vEventGroupSetBitsCallback
-                0x004011d6                vEventGroupDelete
-                0x00401232                xEventGroupSetBitsFromISR
-                0x00401244                uxEventGroupGetNumber
-                0x0040124a                vEventGroupSetNumber
- .text          0x00401250       0x82 ./FreeRTOS/Source/list.o
-                0x00401250                vListInitialise
-                0x00401266                vListInitialiseItem
-                0x0040126c                vListInsertEnd
-                0x00401284                vListInsert
-                0x004012b2                uxListRemove
- *fill*         0x004012d2        0x2 
- .text          0x004012d4      0xdfc ./FreeRTOS/Source/queue.o
-                0x004013ee                xQueueGenericReset
-                0x00401490                xQueueGenericCreate
-                0x004014e8                xQueueGetMutexHolder
-                0x0040151a                xQueueGetMutexHolderFromISR
-                0x0040153e                xQueueCreateCountingSemaphore
-                0x0040156c                xQueueGenericSend
-                0x004016e2                xQueueCreateMutex
-                0x00401706                xQueueGiveMutexRecursive
-                0x00401746                xQueueGenericSendFromISR
-                0x0040183c                xQueueGiveFromISR
-                0x00401916                xQueueReceive
-                0x00401a60                xQueueSemaphoreTake
-                0x00401bde                xQueueTakeMutexRecursive
-                0x00401c26                xQueuePeek
-                0x00401d70                xQueueReceiveFromISR
-                0x00401e3e                xQueuePeekFromISR
-                0x00401ec4                uxQueueMessagesWaiting
-                0x00401ef2                uxQueueSpacesAvailable
-                0x00401f24                uxQueueMessagesWaitingFromISR
-                0x00401f40                uxQueueGetQueueNumber
-                0x00401f44                vQueueSetQueueNumber
-                0x00401f48                ucQueueGetQueueType
-                0x00401f4e                xQueueIsQueueEmptyFromISR
-                0x00401f70                xQueueIsQueueFullFromISR
-                0x00401f94                vQueueAddToRegistry
-                0x00401fe8                pcQueueGetName
-                0x00402024                vQueueUnregisterQueue
-                0x00402064                vQueueDelete
-                0x0040208a                vQueueWaitForMessageRestricted
- .text          0x004020d0      0x82a ./FreeRTOS/Source/stream_buffer.o
-                0x0040229e                xStreamBufferGenericCreate
-                0x0040232c                vStreamBufferDelete
-                0x00402356                xStreamBufferReset
-                0x004023a6                xStreamBufferSetTriggerLevel
-                0x004023d2                xStreamBufferSpacesAvailable
-                0x00402408                xStreamBufferBytesAvailable
-                0x00402422                xStreamBufferSend
-                0x0040255a                xStreamBufferSendFromISR
-                0x00402602                xStreamBufferReceive
-                0x004026f0                xStreamBufferNextMessageLengthBytes
-                0x0040274a                xStreamBufferReceiveFromISR
-                0x004027e6                xStreamBufferIsEmpty
-                0x0040280a                xStreamBufferIsFull
-                0x0040283e                xStreamBufferSendCompletedFromISR
-                0x00402894                xStreamBufferReceiveCompletedFromISR
-                0x004028ea                uxStreamBufferGetStreamBufferNumber
-                0x004028ee                vStreamBufferSetStreamBufferNumber
-                0x004028f2                ucStreamBufferGetStreamBufferType
- *fill*         0x004028fa        0x2 
- .text          0x004028fc     0x1b14 ./FreeRTOS/Source/tasks.o
-                0x00402a70                xTaskCreate
-                0x00402c14                vTaskDelete
-                0x00402cbc                eTaskGetState
-                0x00402d38                uxTaskPriorityGet
-                0x00402d58                uxTaskPriorityGetFromISR
-                0x00402d8c                vTaskPrioritySet
-                0x00402e68                vTaskResume
-                0x00402efc                xTaskResumeFromISR
-                0x00402fb8                vTaskStartScheduler
-                0x00403034                vTaskEndScheduler
-                0x00403058                vTaskSuspendAll
-                0x0040306c                xTaskGetTickCount
-                0x00403078                xTaskGetTickCountFromISR
-                0x00403088                uxTaskGetNumberOfTasks
-                0x00403094                pcTaskGetName
-                0x004030bc                xTaskIncrementTick
-                0x004031fc                xTaskResumeAll
-                0x00403320                xTaskDelayUntil
-                0x004033c4                vTaskDelay
-                0x00403414                xTaskGetHandle
-                0x00403498                xTaskCatchUpTicks
-                0x004034dc                xTaskAbortDelay
-                0x00403578                vTaskSwitchContext
-                0x004035e8                vTaskSuspend
-                0x00403690                vTaskPlaceOnEventList
-                0x004036c8                vTaskPlaceOnUnorderedEventList
-                0x0040373c                vTaskPlaceOnEventListRestricted
-                0x0040379c                xTaskRemoveFromEventList
-                0x00403868                vTaskRemoveFromUnorderedEventList
-                0x00403928                vTaskSetTimeOutState
-                0x00403960                vTaskInternalSetTimeOutState
-                0x00403974                xTaskCheckForTimeOut
-                0x00403a04                vTaskMissedYield
-                0x00403a14                uxTaskGetTaskNumber
-                0x00403a1a                vTaskSetTaskNumber
-                0x00403a20                vTaskGetInfo
-                0x00403af8                uxTaskGetSystemState
-                0x00403b90                uxTaskGetStackHighWaterMark
-                0x00403bb0                xTaskGetCurrentTaskHandle
-                0x00403bbc                xTaskGetSchedulerState
-                0x00403bdc                xTaskPriorityInherit
-                0x00403c6c                xTaskPriorityDisinherit
-                0x00403d08                vTaskPriorityDisinheritAfterTimeout
-                0x00403db8                vTaskList
-                0x00403e7c                uxTaskResetEventItemValue
-                0x00403e94                pvTaskIncrementMutexHeldCount
-                0x00403eac                ulTaskGenericNotifyTake
-                0x00403f28                xTaskGenericNotifyWait
-                0x00403fd0                xTaskGenericNotify
-                0x004040fc                xTaskGenericNotifyFromISR
-                0x00404270                vTaskGenericNotifyGiveFromISR
-                0x00404398                xTaskGenericNotifyStateClear
-                0x004043e0                ulTaskGenericNotifyValueClear
- .text          0x00404410      0x580 ./FreeRTOS/Source/timers.o
-                0x0040469c                xTimerCreateTimerTask
-                0x004046e8                xTimerCreate
-                0x00404746                xTimerGenericCommand
-                0x004047a0                xTimerGetTimerDaemonTaskHandle
-                0x004047c4                xTimerGetPeriod
-                0x004047e0                vTimerSetReloadMode
-                0x0040481e                xTimerGetReloadMode
-                0x00404852                uxTimerGetReloadMode
-                0x00404856                xTimerGetExpiryTime
-                0x00404872                pcTimerGetName
-                0x0040488e                xTimerIsTimerActive
-                0x004048c2                pvTimerGetTimerID
-                0x004048f0                vTimerSetTimerID
-                0x0040491c                xTimerPendFunctionCallFromISR
-                0x00404944                xTimerPendFunctionCall
-                0x00404988                uxTimerGetTimerNumber
-                0x0040498c                vTimerSetTimerNumber
+ .text          0x00400e98        0x0 ./FreeRTOS/Source/croutine.o
+ .text          0x00400e98      0x3b0 ./FreeRTOS/Source/event_groups.o
+                0x00400e98                xEventGroupCreate
+                0x00400eb2                xEventGroupWaitBits
+                0x00400fd2                xEventGroupClearBits
+                0x00401020                vEventGroupClearBitsCallback
+                0x00401024                xEventGroupClearBitsFromISR
+                0x00401034                xEventGroupGetBitsFromISR
+                0x00401054                xEventGroupSetBits
+                0x004010e2                xEventGroupSync
+                0x004011ca                vEventGroupSetBitsCallback
+                0x004011ce                vEventGroupDelete
+                0x0040122a                xEventGroupSetBitsFromISR
+                0x0040123c                uxEventGroupGetNumber
+                0x00401242                vEventGroupSetNumber
+ .text          0x00401248       0x82 ./FreeRTOS/Source/list.o
+                0x00401248                vListInitialise
+                0x0040125e                vListInitialiseItem
+                0x00401264                vListInsertEnd
+                0x0040127c                vListInsert
+                0x004012aa                uxListRemove
+ *fill*         0x004012ca        0x2 
+ .text          0x004012cc      0xdfc ./FreeRTOS/Source/queue.o
+                0x004013e6                xQueueGenericReset
+                0x00401488                xQueueGenericCreate
+                0x004014e0                xQueueGetMutexHolder
+                0x00401512                xQueueGetMutexHolderFromISR
+                0x00401536                xQueueCreateCountingSemaphore
+                0x00401564                xQueueGenericSend
+                0x004016da                xQueueCreateMutex
+                0x004016fe                xQueueGiveMutexRecursive
+                0x0040173e                xQueueGenericSendFromISR
+                0x00401834                xQueueGiveFromISR
+                0x0040190e                xQueueReceive
+                0x00401a58                xQueueSemaphoreTake
+                0x00401bd6                xQueueTakeMutexRecursive
+                0x00401c1e                xQueuePeek
+                0x00401d68                xQueueReceiveFromISR
+                0x00401e36                xQueuePeekFromISR
+                0x00401ebc                uxQueueMessagesWaiting
+                0x00401eea                uxQueueSpacesAvailable
+                0x00401f1c                uxQueueMessagesWaitingFromISR
+                0x00401f38                uxQueueGetQueueNumber
+                0x00401f3c                vQueueSetQueueNumber
+                0x00401f40                ucQueueGetQueueType
+                0x00401f46                xQueueIsQueueEmptyFromISR
+                0x00401f68                xQueueIsQueueFullFromISR
+                0x00401f8c                vQueueAddToRegistry
+                0x00401fe0                pcQueueGetName
+                0x0040201c                vQueueUnregisterQueue
+                0x0040205c                vQueueDelete
+                0x00402082                vQueueWaitForMessageRestricted
+ .text          0x004020c8      0x82a ./FreeRTOS/Source/stream_buffer.o
+                0x00402296                xStreamBufferGenericCreate
+                0x00402324                vStreamBufferDelete
+                0x0040234e                xStreamBufferReset
+                0x0040239e                xStreamBufferSetTriggerLevel
+                0x004023ca                xStreamBufferSpacesAvailable
+                0x00402400                xStreamBufferBytesAvailable
+                0x0040241a                xStreamBufferSend
+                0x00402552                xStreamBufferSendFromISR
+                0x004025fa                xStreamBufferReceive
+                0x004026e8                xStreamBufferNextMessageLengthBytes
+                0x00402742                xStreamBufferReceiveFromISR
+                0x004027de                xStreamBufferIsEmpty
+                0x00402802                xStreamBufferIsFull
+                0x00402836                xStreamBufferSendCompletedFromISR
+                0x0040288c                xStreamBufferReceiveCompletedFromISR
+                0x004028e2                uxStreamBufferGetStreamBufferNumber
+                0x004028e6                vStreamBufferSetStreamBufferNumber
+                0x004028ea                ucStreamBufferGetStreamBufferType
+ *fill*         0x004028f2        0x2 
+ .text          0x004028f4     0x1b14 ./FreeRTOS/Source/tasks.o
+                0x00402a68                xTaskCreate
+                0x00402c0c                vTaskDelete
+                0x00402cb4                eTaskGetState
+                0x00402d30                uxTaskPriorityGet
+                0x00402d50                uxTaskPriorityGetFromISR
+                0x00402d84                vTaskPrioritySet
+                0x00402e60                vTaskResume
+                0x00402ef4                xTaskResumeFromISR
+                0x00402fb0                vTaskStartScheduler
+                0x0040302c                vTaskEndScheduler
+                0x00403050                vTaskSuspendAll
+                0x00403064                xTaskGetTickCount
+                0x00403070                xTaskGetTickCountFromISR
+                0x00403080                uxTaskGetNumberOfTasks
+                0x0040308c                pcTaskGetName
+                0x004030b4                xTaskIncrementTick
+                0x004031f4                xTaskResumeAll
+                0x00403318                xTaskDelayUntil
+                0x004033bc                vTaskDelay
+                0x0040340c                xTaskGetHandle
+                0x00403490                xTaskCatchUpTicks
+                0x004034d4                xTaskAbortDelay
+                0x00403570                vTaskSwitchContext
+                0x004035e0                vTaskSuspend
+                0x00403688                vTaskPlaceOnEventList
+                0x004036c0                vTaskPlaceOnUnorderedEventList
+                0x00403734                vTaskPlaceOnEventListRestricted
+                0x00403794                xTaskRemoveFromEventList
+                0x00403860                vTaskRemoveFromUnorderedEventList
+                0x00403920                vTaskSetTimeOutState
+                0x00403958                vTaskInternalSetTimeOutState
+                0x0040396c                xTaskCheckForTimeOut
+                0x004039fc                vTaskMissedYield
+                0x00403a0c                uxTaskGetTaskNumber
+                0x00403a12                vTaskSetTaskNumber
+                0x00403a18                vTaskGetInfo
+                0x00403af0                uxTaskGetSystemState
+                0x00403b88                uxTaskGetStackHighWaterMark
+                0x00403ba8                xTaskGetCurrentTaskHandle
+                0x00403bb4                xTaskGetSchedulerState
+                0x00403bd4                xTaskPriorityInherit
+                0x00403c64                xTaskPriorityDisinherit
+                0x00403d00                vTaskPriorityDisinheritAfterTimeout
+                0x00403db0                vTaskList
+                0x00403e74                uxTaskResetEventItemValue
+                0x00403e8c                pvTaskIncrementMutexHeldCount
+                0x00403ea4                ulTaskGenericNotifyTake
+                0x00403f20                xTaskGenericNotifyWait
+                0x00403fc8                xTaskGenericNotify
+                0x004040f4                xTaskGenericNotifyFromISR
+                0x00404268                vTaskGenericNotifyGiveFromISR
+                0x00404390                xTaskGenericNotifyStateClear
+                0x004043d8                ulTaskGenericNotifyValueClear
+ .text          0x00404408      0x580 ./FreeRTOS/Source/timers.o
+                0x00404694                xTimerCreateTimerTask
+                0x004046e0                xTimerCreate
+                0x0040473e                xTimerGenericCommand
+                0x00404798                xTimerGetTimerDaemonTaskHandle
+                0x004047bc                xTimerGetPeriod
+                0x004047d8                vTimerSetReloadMode
+                0x00404816                xTimerGetReloadMode
+                0x0040484a                uxTimerGetReloadMode
+                0x0040484e                xTimerGetExpiryTime
+                0x0040486a                pcTimerGetName
+                0x00404886                xTimerIsTimerActive
+                0x004048ba                pvTimerGetTimerID
+                0x004048e8                vTimerSetTimerID
+                0x00404914                xTimerPendFunctionCallFromISR
+                0x0040493c                xTimerPendFunctionCall
+                0x00404980                uxTimerGetTimerNumber
+                0x00404984                vTimerSetTimerNumber
+ *fill*         0x00404988        0x8 
  .text          0x00404990      0x33c ./FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1/port.o
                 0x00404a14                pxPortInitialiseStack
                 0x00404a38                SVC_Handler
@@ -4950,7 +4951,7 @@ END GROUP
 OUTPUT(Led_Blink_w_RTOS_K344.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000    0x27a4b
+.debug_info     0x00000000    0x27a2b
  .debug_info    0x00000000       0x6f ./FreeRTOS/Source/croutine.o
  .debug_info    0x0000006f      0xeef ./FreeRTOS/Source/event_groups.o
  .debug_info    0x00000f5e      0x2dd ./FreeRTOS/Source/list.o
@@ -4998,7 +4999,7 @@ LOAD linker stubs
  .debug_info    0x000237f7      0xe14 ./generate/src/Clock_Ip_Cfg.o
  .debug_info    0x0002460b       0x7d ./generate/src/Igf_Port_Ip_Cfg.o
  .debug_info    0x00024688       0x7d ./generate/src/OsIf_Cfg.o
- .debug_info    0x00024705     0x3346 ./src/main.o
+ .debug_info    0x00024705     0x3326 ./src/main.o
 
 .debug_abbrev   0x00000000     0x4f95
  .debug_abbrev  0x00000000       0x29 ./FreeRTOS/Source/croutine.o
@@ -5425,7 +5426,7 @@ LOAD linker stubs
  .debug_macro   0x000559e5      0x1ba ./src/main.o
  .debug_macro   0x00055b9f       0x85 ./src/main.o
 
-.debug_line     0x00000000    0x1be5f
+.debug_line     0x00000000    0x1be4e
  .debug_line    0x00000000      0x36f ./FreeRTOS/Source/croutine.o
  .debug_line    0x0000036f      0xb99 ./FreeRTOS/Source/event_groups.o
  .debug_line    0x00000f08      0x54f ./FreeRTOS/Source/list.o
@@ -5473,7 +5474,7 @@ LOAD linker stubs
  .debug_line    0x0001a441      0x613 ./generate/src/Clock_Ip_Cfg.o
  .debug_line    0x0001aa54      0x5a3 ./generate/src/Igf_Port_Ip_Cfg.o
  .debug_line    0x0001aff7      0x48e ./generate/src/OsIf_Cfg.o
- .debug_line    0x0001b485      0x9da ./src/main.o
+ .debug_line    0x0001b485      0x9c9 ./src/main.o
 
 .debug_str      0x00000000   0x21c323
  .debug_str     0x00000000     0x9230 ./FreeRTOS/Source/croutine.o
