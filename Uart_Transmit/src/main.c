@@ -163,7 +163,7 @@ void UART_TASK ( void *pvParameters )
 		counter = (counter+1)%100;
 		/* App Stop */
 
-/*#ifdef UART_SEMAPHORE_CUSTOM
+#ifdef UART_SEMAPHORE_CUSTOM
 		operation_status = xSemaphoreGive(sem);
 		configASSERT(operation_status == pdPASS);
 #endif
