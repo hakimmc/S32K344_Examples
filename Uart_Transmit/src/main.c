@@ -36,12 +36,14 @@
 #include "task.h"
 #include "semphr.h"
 #include "Lpuart_Uart_Ip.h"
-#include "Lpuart_Uart_Ip_Cfg.h"
-#include "string.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
 
 volatile int exit_code = 0;
 /* User includes */
-#define INST_LPUART1 (0U)
+#define INST_LPUART1 (1U)
 
 Siul2_Dio_Ip_GpioType* GPIOC_L = PTC_L_HALF;
 Siul2_Dio_Ip_GpioType* GPIOC_H = PTC_H_HALF;
@@ -68,20 +70,12 @@ void UART_TASK ( void *pvParameters );
 int main(void)
 {
     /* Write your code here */
-	Clock_Ip_Init(Clock_Ip_aClockConfig);
+	Clock_Ip_Init(&Clock_Ip_aClockConfig[0]);
+
+	Lpuart_Uart_Ip_Init(LPUART_UART_IP_INSTANCE_USING_1, &Lpuart_Uart_Ip_xHwConfigPB_1);
+
+	//Clock_Ip_Init(Clock_Ip_aClockConfig);
 	Siul2_Port_Ip_Init(NUM_OF_CONFIGURED_PINS0, g_pin_mux_InitConfigArr0);
-
-	const Lpuart_Uart_Ip_UserConfigType lpUartInitConfig1 = {
-	  .TransferType = LPUART_UART_IP_USING_INTERRUPTS,
-	  .BaudRate = 9600UL,
-	  .ParityMode = LPUART_UART_IP_PARITY_DISABLED,
-	  .StopBitsCount = LPUART_UART_IP_ONE_STOP_BIT,
-	  .BitCountPerChar = LPUART_UART_IP_8_BITS_PER_CHAR
-	  /*.RxDMAChannel = 0UL,
-	  .TxDMAChannel = 0UL*/
-	};
-
-	Lpuart_Uart_Ip_Init(INST_LPUART1, &lpUartInitConfig1);
 
 	Siul2_Dio_Ip_TogglePins(GPIOA_H, RED_LED);
 
@@ -141,24 +135,42 @@ void GRN_LED_TASK ( void *pvParameters )
 	}
 }
 
+//#define UART_SEMAPHORE_CUSTOM
+
 void UART_TASK ( void *pvParameters )
 {
+#ifdef UART_SEMAPHORE_CUSTOM
 	BaseType_t operation_status;
+#endif
+	char buff[8] = {'H','E','L','L','O','0','\r','\n'};
+	volatile int counter = 1;
+	char* string_counter;
 	(void)pvParameters;
-
 	for(;;)
 	{
+#ifdef UART_SEMAPHORE_CUSTOM
+
 		vTaskDelay(pdMS_TO_TICKS(1));
 		operation_status = xSemaphoreTake(sem, portMAX_DELAY);
-		configASSERT(operation_status == pdPASS);/**/
-
+		configASSERT(operation_status == pdPASS);
+#endif
 		/* App Start */
-		Lpuart_Uart_Ip_AsyncSend(INST_LPUART1, (uint8_t*)"HELLO WORLD!", 12);
-		vTaskDelay(pdMS_TO_TICKS(100));
+		/*Lpuart_Uart_Ip_AsyncSend(LPUART_UART_IP_INSTANCE_USING_1, (uint8_t*)"HELLO WORLD!", 20);*/
+		Lpuart_Uart_Ip_FlushTxBuffer(IP_LPUART_1);
+		buff[5] = (char)(counter+48);
+		Lpuart_Uart_Ip_SyncSend(LPUART_UART_IP_INSTANCE_USING_1, buff, sizeof(buff), 0xFFFF);
+		vTaskDelay(pdMS_TO_TICKS(1000));
+		counter = (counter+1)%100;
 		/* App Stop */
 
+/*#ifdef UART_SEMAPHORE_CUSTOM
 		operation_status = xSemaphoreGive(sem);
-		configASSERT(operation_status == pdPASS);/**/
+		configASSERT(operation_status == pdPASS);
+#endif
+
+		/*
+		 * Semaphore removed! But it is working. I want to make async;
+		 */
 	}
 }
 
