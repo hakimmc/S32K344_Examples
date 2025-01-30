@@ -1,0 +1,1 @@
+git https://github.com/hakimmc/S32K344_Examples.git
