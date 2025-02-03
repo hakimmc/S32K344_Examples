@@ -15,6 +15,7 @@ O_SRCS :=
 S_UPPER_SRCS := 
 EXECUTABLES := 
 OBJS := 
+SECONDARY_FLASH := 
 SECONDARY_SIZE := 
 C_DEPS := 
 
@@ -23,6 +24,7 @@ SUBDIRS := \
 FreeRTOS/Source \
 FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 \
 FreeRTOS/Source/portable/MemMang \
+Project_Settings/Linker_Files \
 Project_Settings/Startup_Code \
 RTD/src \
 board \

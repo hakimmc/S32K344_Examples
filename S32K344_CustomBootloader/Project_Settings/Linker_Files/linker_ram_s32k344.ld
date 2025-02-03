@@ -40,7 +40,7 @@ ENTRY(Reset_Handler)
 
 MEMORY
 {
-    int_itcm                : ORIGIN = 0x00000000, LENGTH = 0x00010000    /* 64KB */
+    int_itcm                : ORIGIN = 0x00000000, LENGTH = 0x00020000    /* 64KB */
     int_dtcm                : ORIGIN = 0x20000000, LENGTH = 0x0001F000    /* 124KB */
     int_stack_dtcm          : ORIGIN = 0x2001F000, LENGTH = 0x00001000    /* 4KB */
     int_sram                : ORIGIN = 0x20400000, LENGTH = 0x00030000    /* 184KB */

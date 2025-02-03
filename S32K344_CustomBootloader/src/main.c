@@ -54,15 +54,17 @@ uint8_t CRC_Calculator(uint8_t* input,uint8_t max_len);
 uint8_t WriteToFlash(uint8_t* input, uint8_t max_len);
 uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint8_t Length, uint8_t MASTER_ID);
 uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len);
+void JumpApplication(void);
 
 /** @brief UART Mesajları */
+#define ReadyMessage "!RDY"
 #define ErrorMessage "!ERR"
 #define NextMessage "!NXT"
 #define FLS_MASTER_ID 0U
 #define FLS_BUF_SIZE 16U
 uint32_t APP_ADDR_START = 0x00600000;
 #define FLS_SECTOR_TEST C40_CODE_ARRAY_0_BLOCK_2_S256
-uint32_t FLS_LAST_SECTOR = C40_CODE_ARRAY_0_BLOCK_2_S256;
+uint32_t FLS_LAST_SECTOR = 0;
 uint8_t* ExampleData;
 uint32_t WriteIndex = 0;
 
@@ -77,11 +79,16 @@ int main(void) {
     C40_Ip_Init(NULL_PTR);
     IntCtrl_Ip_Init(&IntCtrlConfig_0);
     OsIf_Init(NULL_PTR);
+
+    FLS_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(APP_ADDR_START);
+
     IntCtrl_Ip_InstallHandler(LPUART1_IRQn, LPUART_UART_IP_1_IRQHandler, NULL_PTR);
     IntCtrl_Ip_EnableIrq(LPUART1_IRQn);
 
     Siul2_Dio_Ip_TogglePins(GPIOA_H, RED_LED);
     Lpuart_Uart_Ip_AsyncReceive(LPUART_UART_IP_INSTANCE_USING_1, rxbuff, 5);
+
+	Lpuart_Uart_Ip_SyncSend(LPUART_UART_IP_INSTANCE_USING_1, (uint8_t*) ReadyMessage, 4, 0xFFFF);
 
     for (;;) {
         Siul2_Dio_Ip_TogglePins(GPIOC_L, GREEN_LED);
@@ -105,6 +112,7 @@ void UartRxCallback(const uint8 HwInstance, const Lpuart_Uart_Ip_EventType Event
     if (boot_state) {
     	if (Comparator(rxbuff, MagicWORD, 5)) {
     		boot_state = 0;
+    		JumpApplication();
     	} else{
     		if (CRC_Calculator(rxbuff, 4) != rxbuff[4]) {
 				Lpuart_Uart_Ip_SyncSend(LPUART_UART_IP_INSTANCE_USING_1, (uint8_t*) ErrorMessage, 4, 0xFFFF);
@@ -160,17 +168,26 @@ uint8_t CRC_Calculator(uint8_t* input,uint8_t max_len)
  * @param Addr Yazılacak adres verisi
  * @param Data Yazılacak veri
  * @param Length Yazma uzunluğu
- * @MASTER_ID MASTER ID
+ * @param MASTER_ID MASTER ID
  * @return Yazma sonucu
  */
 uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint8_t Length, uint8_t MASTER_ID)
 {
 	C40_Ip_StatusType c40Status;
+
+	/* Flash Lock */
+	/*if(FLS_LAST_SECTOR < C40_Ip_GetSectorNumberFromAddress(Addr))
+	{
+		C40_Ip_SetLock(C40_Ip_GetSectorNumberFromAddress(Addr), 0U);
+		FLS_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(Addr);
+	}*/
+
 	/* Flash Unlock */
 	if (STATUS_C40_IP_SECTOR_PROTECTED == C40_Ip_GetSectorNumberFromAddress(Addr))
 	{
 		C40_Ip_ClearLock(C40_Ip_GetSectorNumberFromAddress(Addr), FLS_MASTER_ID);
 	}
+
 	/* Erase Flash */
 	do
 	{
@@ -191,16 +208,17 @@ uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint8_t Length, uint8_t MASTER_
 /**
  * @brief App atlama kodu
  */
-static void JumpApplication(void)
+void JumpApplication(void)
 {
   void (*app_reset_handler)(void) = (void*)(*((volatile uint32_t*) (APP_ADDR_START + 4U)));
   //  __set_MSP(*(volatile uint32_t*) APP_ADDR_START);
   /* Jump to application */
   /* Disable All Peripheral */
   /* !!!!!!!IMPORTANT!!!!!! */
-
+  __asm volatile ("MSR MSP, %0" : : "r" (*(volatile uint32_t*) APP_ADDR_START));
   /* Disable All Peripheral */
   app_reset_handler();    //call the app reset handler
 }
+
 
 /** @} */
