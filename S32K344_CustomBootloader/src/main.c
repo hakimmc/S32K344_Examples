@@ -215,7 +215,11 @@ void JumpApplication(void)
   /* Jump to application */
   /* Disable All Peripheral */
   /* !!!!!!!IMPORTANT!!!!!! */
+<<<<<<< HEAD
   __asm volatile ("MSR MSP, %0" : : "r" (*(volatile uint32_t*) APP_ADDR_START));
+=======
+__asm volatile ("MSR MSP, %0" : : "r" (*(volatile uint32_t*) APP_ADDR_START));
+>>>>>>> 1ce42005c88de92eeb4917957e8c6ecb2d365e87
   /* Disable All Peripheral */
   app_reset_handler();    //call the app reset handler
 }
