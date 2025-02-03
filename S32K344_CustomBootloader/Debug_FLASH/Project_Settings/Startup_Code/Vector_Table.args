@@ -3,7 +3,6 @@
 -I../FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1
 -I../FreeRTOS/Source/include
 -I"C:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/S32K344_CustomBootloader/board"
--I/S32K344_CustomBootloader/CustomLibrary
 -x assembler-with-cpp
 -g3
 -mcpu=cortex-m7
