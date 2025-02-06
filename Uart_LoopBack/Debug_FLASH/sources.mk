@@ -23,7 +23,6 @@ SUBDIRS := \
 FreeRTOS/Source \
 FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 \
 FreeRTOS/Source/portable/MemMang \
-Project_Settings/Linker_Files \
 Project_Settings/Startup_Code \
 RTD/src \
 board \

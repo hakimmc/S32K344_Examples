@@ -1,6 +1,6 @@
 RTD/src/Pit_Ip.o: ../RTD/src/Pit_Ip.c ../RTD/include/Pit_Ip.h \
  ../RTD/include/Pit_Ip_Types.h \
- C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/Pit_Ip_Cfg_Defines.h \
+ C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/Pit_Ip_Cfg_Defines.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Std_Types.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/StandardTypes.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Platform_Types.h \
@@ -11,16 +11,16 @@ RTD/src/Pit_Ip.o: ../RTD/src/Pit_Ip.c ../RTD/include/Pit_Ip.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/header/S32K344_PIT.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/header/S32K344_COMMON.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/BasicTypes.h \
- C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/Pit_Ip_Cfg.h \
- C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/Pit_Ip_PBcfg.h \
+ C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/Pit_Ip_Cfg.h \
+ C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/Pit_Ip_PBcfg.h \
  ../RTD/include/Pit_Ip_Types.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Gpt_MemMap.h \
  ../RTD/include/OsIf.h ../RTD/include/OsIf_Internal.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/StandardTypes.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Soc_Ips.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/IpVersionMacros.h \
- C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/OsIf_Cfg.h \
- C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/OsIf_ArchCfg.h \
+ C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/OsIf_Cfg.h \
+ C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/OsIf_ArchCfg.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/header/S32K344_SYSTICK.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/BaseNXP_MemMap.h \
  ../RTD/include/SchM_Gpt.h \
@@ -29,7 +29,7 @@ RTD/src/Pit_Ip.o: ../RTD/src/Pit_Ip.c ../RTD/include/Pit_Ip.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Soc_Ips.h
 ../RTD/include/Pit_Ip.h:
 ../RTD/include/Pit_Ip_Types.h:
-C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/Pit_Ip_Cfg_Defines.h:
+C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/Pit_Ip_Cfg_Defines.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Std_Types.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/StandardTypes.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Platform_Types.h:
@@ -40,8 +40,8 @@ C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/header/S32K344_PIT.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/header/S32K344_COMMON.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/BasicTypes.h:
-C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/Pit_Ip_Cfg.h:
-C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/Pit_Ip_PBcfg.h:
+C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/Pit_Ip_Cfg.h:
+C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/Pit_Ip_PBcfg.h:
 ../RTD/include/Pit_Ip_Types.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Gpt_MemMap.h:
 ../RTD/include/OsIf.h:
@@ -49,8 +49,8 @@ C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/StandardTypes.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Soc_Ips.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/IpVersionMacros.h:
-C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/OsIf_Cfg.h:
-C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/OsIf_ArchCfg.h:
+C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/OsIf_Cfg.h:
+C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/OsIf_ArchCfg.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/header/S32K344_SYSTICK.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/BaseNXP_MemMap.h:
 ../RTD/include/SchM_Gpt.h:
