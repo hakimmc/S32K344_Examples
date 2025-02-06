@@ -5,17 +5,18 @@ import sys
 # Seri port ayarları
 SERIAL_PORT = "COM5"  # Linux/Mac için: "/dev/ttyUSB0"
 BAUD_RATE = 9600
+TIMEOUT = 5  # Timeout süresi (saniye cinsinden)
 
 # Protokol Mesajları
-START_MSG = b'!OTTO'  # Başlangıç mesajı
+START_MSG = b'!OTTOWAKE!'  # Başlangıç mesajı
 READY_MSG = b'!STR'   # Cihazdan gelecek başlama sinyali
 NEXT_MSG = b'!NXT'    # Cihazdan her paket öncesi gelecek sinyal
-END_MSG = b'!OTTO'    # Gönderim bitiş mesajı
-SKIP_MSG = b'!SKIPJUMP'   # Tamamen sıfır olan bloklar için mesaj
+END_MSG = b'!OTTOWAKE!'    # Gönderim bitiş mesajı
+SKIP_MSG = b'!SKIPJUMP!'   # Tamamen sıfır olan bloklar için mesaj
 
 # CRC Hesaplama Fonksiyonu (Toplam % 255)
 def calculate_crc(data):
-    return sum(data) % 255
+    return (ord('!') + sum(data)) % 255
 
 # Bin dosyasını oku ve parçala (8 byte + 1 byte CRC)
 def read_bin_file(file_path):
@@ -33,21 +34,25 @@ def read_bin_file(file_path):
                 if len(chunk) < 8:
                     chunk = chunk.ljust(8, b'\x00')
                 crc = calculate_crc(chunk)
-                yield chunk + bytes([crc]), index, len(chunks)
+                packet = b'!' + chunk + bytes([crc])
+                yield packet, index, len(chunks)
 
 # UART okuma fonksiyonu
 def wait_for_message(ser, expected_msg):
-    while True:
+    start_time = time.time()
+    while time.time() - start_time < TIMEOUT:
         response = ser.read(len(expected_msg))
         if response == expected_msg:
-            return
+            return True
+    return False
 
-# Yükleme animasyonu
-def print_progress_bar(progress, total, bar_length=40):
+# Yükleme animasyonu ve veri gösterimi
+def print_progress_bar(progress, total, packet, bar_length=40):
     percent = (progress / total) * 100
     bar_filled = int(bar_length * progress / total)
     bar = "#" * bar_filled + "-" * (bar_length - bar_filled)
-    sys.stdout.write(f"\r[{bar}] {percent:.2f}%")
+    data_repr = "[!]{:02X} {:02X} {:02X} {:02X} {:02X} {:02X} {:02X} {:02X} [{:02X}]".format(*packet[1:], packet[-1])
+    sys.stdout.write(f"\r[{bar}] {percent:.2f}% {data_repr}")
     sys.stdout.flush()
 
 # UART ile dosyayı gönder
@@ -56,22 +61,31 @@ def send_file(file_path):
         time.sleep(2)  # UART başlatma süresi
 
         # Adım 1: "!OTTO" mesajı gönder
-        ser.write(START_MSG)
-        print("Sent: !OTTO")
+        while True:
+            ser.write(START_MSG)
+            print("Sent: !OTTO")
+            if wait_for_message(ser, READY_MSG):
+                break
+            print("Retrying: !OTTO")
         
-        # Adım 2: "!STR" mesajını bekle
-        wait_for_message(ser, READY_MSG)
         print("Received: !STR")
 
         # Adım 3: Bin dosyasını gönder
         for packet, index, total in read_bin_file(file_path):
-            ser.write(packet)
-            print_progress_bar(index + 1, total)
-            wait_for_message(ser, NEXT_MSG)
+            while True:
+                ser.write(packet)
+                print_progress_bar(index + 1, total, packet)
+                if wait_for_message(ser, NEXT_MSG):
+                    break
+                print("Retrying packet", index + 1)
 
         # Adım 4: Tüm veriler yollandıktan sonra tekrar "!OTTO" gönder
-        ser.write(END_MSG)
-        print("\nSent: !OTTO")
+        while True:
+            ser.write(END_MSG)
+            print("Sent: !OTTO")
+            if wait_for_message(ser, END_MSG):
+                break
+            print("Retrying: !OTTO")
 
 if __name__ == "__main__":
     file_path = "firmware.bin"  # Gönderilecek bin dosyası
