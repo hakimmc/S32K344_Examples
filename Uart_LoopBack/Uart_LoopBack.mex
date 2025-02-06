@@ -405,6 +405,46 @@
                   <data type="Version">1.0.0</data>
                </feature>
             </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.pit" description="Pit is not found in the toolchain/IDE project. The project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.pit" description="An unsupported version of the Pit in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. The project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.IntCtrl_Ip" description="IntCtrl_Ip is not found in the toolchain/IDE project. The project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.IntCtrl_Ip" description="An unsupported version of the IntCtrl_Ip in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. The project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.c40" description="C40 is not found in the toolchain/IDE project. The project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.c40" description="An unsupported version of the C40 in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. The project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.cache" description="cache is not found in the toolchain/IDE project. The project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.cache" description="An unsupported version of the cache in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. The project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
             <dependency resourceType="Tool" resourceId="Clocks" description="The Clocks tool is required by the Peripherals tool, but it is disabled." problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data>true</data>
@@ -412,17 +452,28 @@
             </dependency>
          </dependencies>
          <generated_project_files>
+            <file path="generate/include/C40_Ip_Cfg.h" update_enabled="true"/>
+            <file path="generate/include/Cache_Ip_Cfg_Defines.h" update_enabled="true"/>
+            <file path="generate/include/Cache_Ip_Cfg_DeviceRegisters.h" update_enabled="true"/>
             <file path="generate/include/FreeRTOSConfig.h" update_enabled="true"/>
+            <file path="generate/include/IntCtrl_Ip_Cfg.h" update_enabled="true"/>
+            <file path="generate/include/IntCtrl_Ip_CfgDefines.h" update_enabled="true"/>
             <file path="generate/include/Lpuart_Uart_Ip_Cfg.h" update_enabled="true"/>
             <file path="generate/include/Lpuart_Uart_Ip_Defines.h" update_enabled="true"/>
             <file path="generate/include/Lpuart_Uart_Ip_Sa_PBcfg.h" update_enabled="true"/>
             <file path="generate/include/OsIf_ArchCfg.h" update_enabled="true"/>
             <file path="generate/include/OsIf_Cfg.h" update_enabled="true"/>
+            <file path="generate/include/Pit_Ip_Cfg.h" update_enabled="true"/>
+            <file path="generate/include/Pit_Ip_Cfg_Defines.h" update_enabled="true"/>
+            <file path="generate/include/Pit_Ip_PBcfg.h" update_enabled="true"/>
             <file path="generate/include/Siul2_Dio_Ip_Cfg.h" update_enabled="true"/>
             <file path="generate/include/Siul2_Port_Ip_Defines.h" update_enabled="true"/>
             <file path="generate/include/modules.h" update_enabled="true"/>
+            <file path="generate/src/C40_Ip_Cfg.c" update_enabled="true"/>
+            <file path="generate/src/IntCtrl_Ip_Cfg.c" update_enabled="true"/>
             <file path="generate/src/Lpuart_Uart_Ip_Sa_PBcfg.c" update_enabled="true"/>
             <file path="generate/src/OsIf_Cfg.c" update_enabled="true"/>
+            <file path="generate/src/Pit_Ip_PBcfg.c" update_enabled="true"/>
          </generated_project_files>
          <peripherals_profile>
             <processor_version>0.0.0</processor_version>
@@ -526,7 +577,7 @@
                            <setting name="UartTimeoutMethod" value="OSIF_COUNTER_DUMMY"/>
                            <setting name="UartTimeoutDuration" value="0"/>
                            <setting name="UartDmaEnable" value="false"/>
-                           <setting name="UartCallbackCapability" value="false"/>
+                           <setting name="UartCallbackCapability" value="true"/>
                            <array name="UartCallback">
                               <setting name="0" value="UartRxCallback"/>
                            </array>
@@ -674,7 +725,7 @@
                         </struct>
                      </config_set>
                   </instance>
-                  <instance name="Pit" uuid="bd1817ef-07d6-4558-ae8f-8f7bebabbdf3" type="Pit" type_id="Pit" mode="ip" enabled="false" comment="" custom_name_enabled="false" editing_lock="false">
+                  <instance name="Pit" uuid="bd1817ef-07d6-4558-ae8f-8f7bebabbdf3" type="Pit" type_id="Pit" mode="ip" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
                      <config_set name="Pit">
                         <setting name="Name" value="Pit"/>
                         <struct name="ConfigTimeSupport">
@@ -693,7 +744,7 @@
                                        <setting name="Name" value="PitChannel_0"/>
                                        <setting name="GptPitChannel" value="CH_0"/>
                                        <setting name="ChainMode" value="false"/>
-                                       <setting name="PitNotification" value="PIT_Notify"/>
+                                       <setting name="PitNotification" value="PitNotification"/>
                                        <setting name="PitChannelMode" value="PIT_IP_CH_MODE_CONTINUOUS"/>
                                     </struct>
                                  </array>
@@ -797,7 +848,7 @@
                         </struct>
                      </config_set>
                   </instance>
-                  <instance name="IntCtrl_Ip" uuid="f05d248f-cc2b-4019-aa94-254cad48f866" type="IntCtrl_Ip" type_id="IntCtrl_Ip" mode="ip" enabled="false" comment="" custom_name_enabled="false" editing_lock="false">
+                  <instance name="IntCtrl_Ip" uuid="f05d248f-cc2b-4019-aa94-254cad48f866" type="IntCtrl_Ip" type_id="IntCtrl_Ip" mode="ip" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
                      <config_set name="IntCtrl_Ip">
                         <setting name="Name" value="IntCtrl_Ip"/>
                         <struct name="ConfigTimeSupport">
@@ -830,6 +881,79 @@
                               </array>
                            </struct>
                         </array>
+                     </config_set>
+                  </instance>
+                  <instance name="C40_Ip" uuid="ef8b5406-f286-41a6-80ee-150040fff2e1" type="C40_Ip" type_id="C40_Ip" mode="ip" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="C40_Ip">
+                        <setting name="Name" value="Mem_43_InFls"/>
+                        <struct name="ConfigTimeSupport">
+                           <setting name="POST_BUILD_VARIANT_USED" value="false"/>
+                           <setting name="IMPLEMENTATION_CONFIG_VARIANT" value="VARIANT-PRE-COMPILE"/>
+                        </struct>
+                        <struct name="MemGeneral">
+                           <setting name="Name" value="MemGeneral"/>
+                           <setting name="MemDevErrorDetect" value="false"/>
+                           <setting name="MemSectorSetLockApi" value="true"/>
+                           <setting name="MemEraseVerificationEnabled" value="false"/>
+                           <setting name="MemWriteVerificationEnabled" value="false"/>
+                           <setting name="MemECCCheck" value="false"/>
+                           <setting name="MemECCHandlingProtectionHook" value="false"/>
+                           <array name="MemStartFlashAccessNotif"/>
+                           <array name="MemFinishedFlashAccessNotif"/>
+                           <setting name="MemTimeoutSupervisionEnabled" value="true"/>
+                           <setting name="MemTimeoutMethod" value="OSIF_COUNTER_DUMMY"/>
+                           <setting name="MemAsyncWriteTimeout" value="2147483647"/>
+                           <setting name="MemAsyncEraseTimeout" value="2147483647"/>
+                           <setting name="MemSyncWriteTimeout" value="2147483647"/>
+                           <setting name="MemSyncEraseTimeout" value="2147483647"/>
+                           <setting name="MemAbortTimeout" value="32767"/>
+                        </struct>
+                        <struct name="MemAutosarExt">
+                           <setting name="Name" value="MemAutosarExt"/>
+                           <setting name="MemEnableUserModeSupport" value="false"/>
+                           <setting name="MemSynchronizeCache" value="false"/>
+                           <setting name="MemDataErrorSuppression" value="false"/>
+                           <setting name="MemBlock4PipeSelect" value="MEM_COMMAND_PIPE_0"/>
+                        </struct>
+                        <struct name="MemPublishedInformation">
+                           <setting name="Name" value="MemPublishedInformation"/>
+                           <setting name="MemEraseTime" value="5.0"/>
+                           <setting name="MemErasedValue" value="4294967295"/>
+                           <setting name="MemECCValue" value="4294967295"/>
+                           <setting name="MemWriteTime" value="0.0005"/>
+                        </struct>
+                        <struct name="CommonPublishedInformation">
+                           <setting name="Name" value="CommonPublishedInformation"/>
+                           <setting name="ArReleaseMajorVersion" value="4"/>
+                           <setting name="ArReleaseMinorVersion" value="7"/>
+                           <setting name="ArReleaseRevisionVersion" value="0"/>
+                           <setting name="ModuleId" value="91"/>
+                           <setting name="SwMajorVersion" value="3"/>
+                           <setting name="SwMinorVersion" value="0"/>
+                           <setting name="SwPatchVersion" value="0"/>
+                           <array name="VendorApiInfix">
+                              <setting name="0" value=""/>
+                           </array>
+                           <setting name="VendorId" value="43"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="Cache_Ip" uuid="8b243764-3b4e-4dac-b989-447aee2a1f00" type="Cache_Ip" type_id="Cache_Ip" mode="general" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="Cache_Ip">
+                        <setting name="Name" value="Cache"/>
+                        <struct name="ConfigTimeSupport">
+                           <setting name="POST_BUILD_VARIANT_USED" value="false"/>
+                           <setting name="IMPLEMENTATION_CONFIG_VARIANT" value="VARIANT-POST-BUILD"/>
+                        </struct>
+                        <struct name="MclGeneral">
+                           <setting name="Name" value="MclGeneral"/>
+                           <setting name="MclEnableUserModeSupport" value="false"/>
+                           <struct name="MclCache">
+                              <setting name="Name" value="MclCache"/>
+                              <setting name="MclEnableCache" value="false"/>
+                              <setting name="MclEnableCacheDevErrorDetect" value="false"/>
+                           </struct>
+                        </struct>
                      </config_set>
                   </instance>
                </instances>

@@ -1,34 +1,3 @@
-/*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
-*   Platform             : CORTEXM
-*   Peripheral           : S32K3XX
-*   Dependencies         : none
-*
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
-*   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
-*
-*   Copyright 2020 - 2023 NXP Semiconductors
-*
-*   NXP Confidential. This software is owned or controlled by NXP and may only be
-*   used strictly in accordance with the applicable license terms. By expressly
-*   accepting such terms or by downloading, installing, activating and/or otherwise
-*   using the software, you are agreeing that you have read, and that you agree to
-*   comply with and are bound by, such license terms. If you do not agree to be
-*   bound by the applicable license terms, then you may not retain, install,
-*   activate or otherwise use the software.
-==================================================================================================*/
-
-/**
-*   @file main.c
-*
-*   @addtogroup main_module main module documentation
-*   @{
-*/
-
-/* Including necessary configuration files. */
 #include "Clock_Ip.h"
 #include "Siul2_Port_Ip.h"
 #include "Siul2_Dio_Ip.h"
@@ -36,14 +5,25 @@
 #include "task.h"
 #include "semphr.h"
 #include "Lpuart_Uart_Ip.h"
+#include "S32K344.h"
+#include "Lpuart_Uart_Ip_Irq.h"
+#include "IntCtrl_Ip.h"
+#include "Pit_Ip.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include "C40_Ip.h"
 
-volatile int exit_code = 0;
-/* User includes */
-#define INST_LPUART1 (1U)
+uint8_t rxbuff[10];
+uint8_t MagicWORD[10] = {'!','O','T','T','O','W','A','K','E','!'};
+uint8_t SkipWORD[10] = {'!','S','K','I','P','J','U','M','P','!'};
+uint8_t dummy[10] = {'\0','\0','\0','\0','\0','\0','\0','\0','\0','\0'};
+uint8_t freebyte[10] = {0,0,0,0,0,0,0,0,0,0};
+uint8_t counter;
+uint8_t boot_state = 0;
+
+#define clockConfig &Clock_Ip_aClockConfig[0]
 
 Siul2_Dio_Ip_GpioType* GPIOC_L = PTC_L_HALF;
 Siul2_Dio_Ip_GpioType* GPIOC_H = PTC_H_HALF;
@@ -51,128 +31,197 @@ Siul2_Dio_Ip_GpioType* GPIOA_L = PTA_L_HALF;
 Siul2_Dio_Ip_GpioType* GPIOA_H = PTA_H_HALF;
 
 Siul2_Dio_Ip_PinsChannelType GREEN_LED = 1<<1;
-Siul2_Dio_Ip_PinsChannelType RED_LED   = 1<<5; // 16+5 need to be in high register
+Siul2_Dio_Ip_PinsChannelType RED_LED   = 1<<5;
 
-#define MAIN_PRIORITY                ( tskIDLE_PRIORITY + 2 )
+#define MAIN_PRIORITY ( tskIDLE_PRIORITY + 2 )
 SemaphoreHandle_t sem;
 
-void RED_LED_TASK ( void *pvParameters );
-void GRN_LED_TASK ( void *pvParameters );
-void UART_TASK ( void *pvParameters );
+void PIT0_IRQn_Handler(void) { __asm("NOP"); }
+void LPUART1_IRQn_Handler(void) { __asm("NOP"); }
+void PitNotification(void) { __asm("NOP"); }
 
-/*!
-  \brief The main function for the project.
-  \details The startup initialization sequence is the following:
- * - startup asm routine
- * - main()
-*/
-int main(void)
-{
-    /* Write your code here */
-	Clock_Ip_Init(&Clock_Ip_aClockConfig[0]);
+uint32_t CRC_Calculator(uint8_t* input,uint8_t max_len);
+uint8_t WriteToFlash(uint8_t* input, uint8_t max_len);
+uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_ID);
+uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len);
+void JumpToUserApplication( unsigned int userSP,  unsigned int userStartup);
+void __DISABLE_PER(void);
 
-	Lpuart_Uart_Ip_Init(LPUART_UART_IP_INSTANCE_USING_1, &Lpuart_Uart_Ip_xHwConfigPB_1);
+//#define ReadyMessage "!RDY"
+#define ErrorMessage "!ERR"
+#define NextMessage "!NXT"
+#define StartMessage "!STR"
+#define FLS_MASTER_ID 0U
+#define FLS_BUF_SIZE 8
+uint32_t APP_ADDR_START = 0x00600000;
+uint32_t UNLOCKED_LAST_SECTOR = 0;
+uint32_t ERASED_LAST_SECTOR = 0;
+uint8_t FlashData[8] = {0,0,0,0,0,0,0,0};
+uint32_t WriteIndex = 0;
 
-	//Clock_Ip_Init(Clock_Ip_aClockConfig);
-	Siul2_Port_Ip_Init(NUM_OF_CONFIGURED_PINS0, g_pin_mux_InitConfigArr0);
 
-	Siul2_Dio_Ip_TogglePins(GPIOA_H, RED_LED);
+int main(void) {
+    Clock_Ip_Init(&Clock_Ip_aClockConfig[0]);
+    Lpuart_Uart_Ip_Init(LPUART_UART_IP_INSTANCE_USING_1, &Lpuart_Uart_Ip_xHwConfigPB_1);
+    Siul2_Port_Ip_Init(NUM_OF_CONFIGURED_PINS0, g_pin_mux_InitConfigArr0);
+    C40_Ip_Init(NULL_PTR);
+    IntCtrl_Ip_Init(&IntCtrlConfig_0);
+    OsIf_Init(NULL_PTR);
 
-	vSemaphoreCreateBinary(sem);
-	configASSERT(sem != NULL);
-	xSemaphoreGive(sem);
+    UNLOCKED_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(APP_ADDR_START);
+    ERASED_LAST_SECTOR = UNLOCKED_LAST_SECTOR-1;
 
-	xTaskCreate(RED_LED_TASK, "RED LED TASK", configMINIMAL_STACK_SIZE, NULL, MAIN_PRIORITY, NULL);
-	xTaskCreate(GRN_LED_TASK, "GREEN LED TASK", configMINIMAL_STACK_SIZE, NULL, MAIN_PRIORITY+1, NULL);
-	xTaskCreate(UART_TASK, "UART TASK", configMINIMAL_STACK_SIZE, NULL, MAIN_PRIORITY+2, NULL);
-	vTaskStartScheduler();
+    IntCtrl_Ip_InstallHandler(LPUART1_IRQn, LPUART_UART_IP_1_IRQHandler, NULL_PTR);
+    IntCtrl_Ip_EnableIrq(LPUART1_IRQn);
 
-    for(;;);
-}
+    Siul2_Dio_Ip_TogglePins(GPIOA_H, RED_LED);
+    Lpuart_Uart_Ip_AsyncReceive(LPUART_UART_IP_INSTANCE_USING_1, rxbuff, 10);
 
-void RED_LED_TASK ( void *pvParameters )
-{
-	BaseType_t operation_status;
-	(void)pvParameters;
+	Lpuart_Uart_Ip_SyncSend(LPUART_UART_IP_INSTANCE_USING_1, (uint8_t*) StartMessage, 4, 0xFFFF);
 
-	for(;;)
-	{
-		vTaskDelay(pdMS_TO_TICKS(1));
-		operation_status = xSemaphoreTake(sem, portMAX_DELAY);
-		configASSERT(operation_status == pdPASS);
+	for (;;) {
+		while(!boot_state){
+			for(uint64_t delay = 0; delay < 0xFFFFFFFFFF; delay++);
+			Siul2_Dio_Ip_TogglePins(GPIOA_H, RED_LED);
+			JumpToUserApplication(*((uint32_t*)APP_ADDR_START), *((uint32_t*)(APP_ADDR_START + 4)));
+		}
 
-		/* App Start */
-		Siul2_Dio_Ip_TogglePins(GPIOA_H, RED_LED);
-		Siul2_Dio_Ip_TogglePins(GPIOC_L, GREEN_LED);
-		vTaskDelay(pdMS_TO_TICKS(100));
-		/* App Stop */
 
-		operation_status = xSemaphoreGive(sem);
-		configASSERT(operation_status == pdPASS);
 	}
 }
 
-void GRN_LED_TASK ( void *pvParameters )
-{
-	BaseType_t operation_status;
-	(void)pvParameters;
 
-	for(;;)
-	{
-		vTaskDelay(pdMS_TO_TICKS(1));
-        operation_status = xSemaphoreTake(sem, portMAX_DELAY);
-		configASSERT(operation_status == pdPASS);/**/
 
-		/* App Start */
-		Siul2_Dio_Ip_TogglePins(GPIOC_L, GREEN_LED);
-		Siul2_Dio_Ip_TogglePins(GPIOA_H, RED_LED);
-		vTaskDelay(pdMS_TO_TICKS(100));
-		/* App Stop */
-
-        operation_status = xSemaphoreGive(sem);
-		configASSERT(operation_status == pdPASS);/**/
-	}
+void UartRxCallback(const uint8 HwInstance, const Lpuart_Uart_Ip_EventType Event, void *UserData) {
+    IntCtrl_Ip_DisableIrq(LPUART1_IRQn);
+    (void) HwInstance;
+    (void) Event;
+    (void) UserData;
+    if(!Comparator(rxbuff, dummy, 10))
+    {
+		if (boot_state) {
+			if (Comparator(rxbuff, MagicWORD, 10)) {
+				boot_state = 0;
+				__DISABLE_PER();
+				while(STATUS_C40_IP_SECTOR_PROTECTED != C40_Ip_GetLock(C40_Ip_GetSectorNumberFromAddress(APP_ADDR_START+WriteIndex-4))){
+					C40_Ip_SetLock(UNLOCKED_LAST_SECTOR, FLS_MASTER_ID);
+				}
+				JumpToUserApplication(*((uint32_t*)APP_ADDR_START), *((uint32_t*)(APP_ADDR_START + 4)));
+			} else{
+				if (CRC_Calculator(rxbuff, 9) == (uint32_t)rxbuff[9]) {
+					for(int indx = 1; indx < 9; indx++){
+						FlashData[indx-1] = rxbuff[indx];
+					}
+					FlashWrite(APP_ADDR_START+WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
+					Lpuart_Uart_Ip_SyncSend(LPUART_UART_IP_INSTANCE_USING_1, (uint8_t*) NextMessage, 4, 0xFFFF);
+					WriteIndex += (FLS_BUF_SIZE);
+				}
+				else if(Comparator(rxbuff,SkipWORD,10)){
+					for(int indx = 1; indx < 9; indx++){
+						FlashData[indx-1] = freebyte[indx-1];
+					}
+					FlashWrite(APP_ADDR_START+WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
+					Lpuart_Uart_Ip_SyncSend(LPUART_UART_IP_INSTANCE_USING_1, (uint8_t*) NextMessage, 4, 0xFFFF);
+					WriteIndex += (FLS_BUF_SIZE);
+				}
+			}
+			Siul2_Dio_Ip_TogglePins(GPIOC_L, GREEN_LED);
+		} else {
+			if (Comparator(rxbuff, MagicWORD, 10)) {
+				boot_state = 1;
+				Lpuart_Uart_Ip_SyncSend(LPUART_UART_IP_INSTANCE_USING_1, (uint8_t*) StartMessage, 4, 0xFFFF);
+				Siul2_Dio_Ip_TogglePins(GPIOC_L, GREEN_LED);
+			}
+		}
+    }
+		memset(rxbuff,'\0',10);
+		Lpuart_Uart_Ip_AsyncReceive(LPUART_UART_IP_INSTANCE_USING_1, rxbuff, 10);
+		IntCtrl_Ip_EnableIrq(LPUART1_IRQn);
 }
 
-//#define UART_SEMAPHORE_CUSTOM
+uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len) {
+    for (uint8_t i = 0; i < len; i++) {
+        if (source[i] != target[i]) {
+            return 0;
+        }
+    }
+    return 1;
+}
 
-void UART_TASK ( void *pvParameters )
+uint32_t CRC_Calculator(uint8_t* input,uint8_t max_len)
 {
-	uint8_t rxbuff[24];
-	(void)pvParameters;
-	for(int i=0;i<24;i++){
-		rxbuff[i] = '\0';
+	uint32_t SummOfBytes = 0;
+	for(int i=0;i<max_len;i++){
+		SummOfBytes += input[i];
 	}
-	for(;;)
+	return ((uint32_t)(SummOfBytes%255));
+}
+
+uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_ID)
+{
+	C40_Ip_StatusType c40Status;
+
+
+	/* Flash Lock */
+	if(UNLOCKED_LAST_SECTOR < (uint32_t)C40_Ip_GetSectorNumberFromAddress(Addr))
 	{
-		/* App Start */
-		/*Lpuart_Uart_Ip_AsyncSend(LPUART_UART_IP_INSTANCE_USING_1, (uint8_t*)"HELLO WORLD!", 20);*/
-		Lpuart_Uart_Ip_SyncSend(LPUART_UART_IP_INSTANCE_USING_1, (uint8_t*)"data", 4, 0xFFFF);
-		vTaskDelay(pdMS_TO_TICKS(1000));
-		Lpuart_Uart_Ip_SyncReceive(LPUART_UART_IP_INSTANCE_USING_1, rxbuff, sizeof(rxbuff), 0xFFFFFF);
-		if(rxbuff[0] != '!')
+		while(STATUS_C40_IP_SECTOR_PROTECTED != C40_Ip_GetLock(C40_Ip_GetSectorNumberFromAddress(Addr))){
+			C40_Ip_SetLock(UNLOCKED_LAST_SECTOR, FLS_MASTER_ID);
+		}
+		UNLOCKED_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(Addr);
+	}
+
+	/* Flash Unlock */
+	if (STATUS_C40_IP_SECTOR_PROTECTED == C40_Ip_GetLock(C40_Ip_GetSectorNumberFromAddress(Addr)))
+	{
+		while(STATUS_C40_IP_SECTOR_UNPROTECTED != C40_Ip_GetLock(C40_Ip_GetSectorNumberFromAddress(Addr))){
+			C40_Ip_ClearLock(C40_Ip_GetSectorNumberFromAddress(Addr), FLS_MASTER_ID);
+		}
+	}
+
+	/* Erase Flash */
+	if(C40_Ip_GetSectorNumberFromAddress(Addr) != ERASED_LAST_SECTOR)
+	{
+	    C40_Ip_MainInterfaceSectorErase(C40_Ip_GetSectorNumberFromAddress(Addr), FLS_MASTER_ID);
+		do
 		{
-			Lpuart_Uart_Ip_SyncSend(LPUART_UART_IP_INSTANCE_USING_1, (uint8_t*)"ERR_DATA", 8, 0xFFFF);
-			Lpuart_Uart_Ip_FlushTxBuffer(IP_LPUART_1);
-			Lpuart_Uart_Ip_FlushRxBuffer(IP_LPUART_1);
+			c40Status = C40_Ip_MainInterfaceSectorEraseStatus();
 		}
-		else{
-			Lpuart_Uart_Ip_SyncSend(LPUART_UART_IP_INSTANCE_USING_1, rxbuff, 24, 0xFFFF);
-			Lpuart_Uart_Ip_FlushTxBuffer(IP_LPUART_1);
-			Lpuart_Uart_Ip_FlushRxBuffer(IP_LPUART_1);
-
-		}
-		for(int i=0;i<24;i++){
-			rxbuff[i] = '\0';
-		}
-		vTaskDelay(pdMS_TO_TICKS(2000));
-
-
-		/* App Stop */
-		/*
-		 * Semaphore removed! But it is working. I want to make async;
-		 */
+		while (STATUS_C40_IP_SUCCESS != c40Status);
+		ERASED_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(Addr);
 	}
+
+	/* Write Flash */
+    C40_Ip_MainInterfaceWrite(Addr, Length, Data, MASTER_ID);
+    /* Check Last Status */
+    do
+	{
+		c40Status = C40_Ip_MainInterfaceWriteStatus();
+	}
+    while (STATUS_C40_IP_SUCCESS != c40Status);
+    return (c40Status==STATUS_C40_IP_SUCCESS?1:0);
 }
 
-/** @} */
+void __DISABLE_PER(void)
+{
+	__asm("cpsid i");
+}
+
+void JumpToUserApplication( unsigned int userSP,  unsigned int userStartup)
+{
+	/* Check if Entry address is erased and return if erased */
+	if(userSP == 0xFFFFFFFF){
+		return;
+	}
+
+	/* Set up stack pointer */
+	__asm("msr msp, r0");
+	__asm("msr psp, r0");
+
+	/* Relocate vector table */
+	S32_SCB->VTOR = (uint32_t)APP_ADDR_START;
+
+	/* Jump to application PC (r1) */
+	__asm("mov pc, r1");
+}
+
