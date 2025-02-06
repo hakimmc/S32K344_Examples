@@ -13,6 +13,7 @@ RM := rm -rf
 -include board/subdir.mk
 -include RTD/src/subdir.mk
 -include Project_Settings/Startup_Code/subdir.mk
+-include Project_Settings/Linker_Files/subdir.mk
 -include FreeRTOS/Source/portable/MemMang/subdir.mk
 -include FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1/subdir.mk
 -include FreeRTOS/Source/subdir.mk
@@ -29,23 +30,24 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_SIZE += \
-Uart_LoopBack.siz \
+UartBootloader.siz \
 
 
 # All Target
-all: Uart_LoopBack.elf secondary-outputs
+all: UartBootloader.elf secondary-outputs
 
 # Tool invocations
-Uart_LoopBack.elf: $(OBJS) C:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/Project_Settings/Linker_Files/linker_flash_s32k344.ld $(USER_OBJS)
+UartBootloader.elf: $(OBJS) C:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/Project_Settings/Linker_Files/linker_flash_s32k344.ld $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Standard S32DS C Linker'
-	arm-none-eabi-gcc -o "Uart_LoopBack.elf" "@Uart_LoopBack.args"  $(USER_OBJS)
+	arm-none-eabi-gcc -o "UartBootloader.elf" "@UartBootloader.args"  $(USER_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
+	$(MAKE) --no-print-directory post-build
 
-Uart_LoopBack.siz: Uart_LoopBack.elf
+UartBootloader.siz: UartBootloader.elf
 	@echo 'Invoking: Standard S32DS Print Size'
-	arm-none-eabi-size --format=berkeley Uart_LoopBack.elf
+	arm-none-eabi-size --format=berkeley UartBootloader.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -54,8 +56,12 @@ clean:
 	-$(RM) ./*
 	-@echo ' '
 
+post-build:
+	-arm-none-eabi-objcopy -v -O srec "UartBootloader.elf" "UartBootloader.s19";arm-none-eabi-objcopy -v -O ihex "UartBootloader.elf" "UartBootloader.hex";arm-none-eabi-objcopy -v -O binary "UartBootloader.elf" "UartBootloader.bin"
+	-@echo ' '
+
 secondary-outputs: $(SECONDARY_SIZE)
 
-.PHONY: all clean dependents
+.PHONY: all clean dependents post-build
 
 -include ../makefile.targets

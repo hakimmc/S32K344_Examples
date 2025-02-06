@@ -159,7 +159,7 @@ const Lpuart_Uart_Ip_UserConfigType Lpuart_Uart_Ip_xHwConfigPB_1 =
     /* Type of UART transfer (interrupt/dma based) */
     LPUART_UART_IP_USING_INTERRUPTS,
     /* Callback to invoke for Uart Event.*/
-    NULL_PTR,
+    UartRxCallback,
     /* User callback parameter pointer.*/
     NULL_PTR,
 #if (LPUART_UART_IP_HAS_DMA_ENABLED == STD_ON)

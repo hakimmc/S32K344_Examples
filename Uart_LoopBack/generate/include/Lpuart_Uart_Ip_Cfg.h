@@ -121,6 +121,11 @@ extern "C"
 /*==================================================================================================
                                        LOCAL FUNCTIONS
 ==================================================================================================*/
+#define UART_START_SEC_CODE
+#include "Uart_MemMap.h"
+extern void UartRxCallback(const uint8 HwInstance, const Lpuart_Uart_Ip_EventType Event, void *UserData);
+#define UART_STOP_SEC_CODE
+#include "Uart_MemMap.h"
 
 /*==================================================================================================
                                        GLOBAL FUNCTIONS

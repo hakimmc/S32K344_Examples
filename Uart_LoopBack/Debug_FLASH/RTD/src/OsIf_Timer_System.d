@@ -8,8 +8,8 @@ RTD/src/OsIf_Timer_System.o: ../RTD/src/OsIf_Timer_System.c \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/CompilerDefinition.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Soc_Ips.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/IpVersionMacros.h \
- C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/OsIf_Cfg.h \
- C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/OsIf_ArchCfg.h \
+ C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/OsIf_Cfg.h \
+ C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/OsIf_ArchCfg.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/header/S32K344_SYSTICK.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/header/S32K344_COMMON.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/BasicTypes.h \
@@ -32,8 +32,8 @@ C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/CompilerDefinition.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/Soc_Ips.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/IpVersionMacros.h:
-C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/OsIf_Cfg.h:
-C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/generate/include/OsIf_ArchCfg.h:
+C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/OsIf_Cfg.h:
+C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/OsIf_ArchCfg.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/header/S32K344_SYSTICK.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/header/S32K344_COMMON.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M30I0R0/include/BasicTypes.h:

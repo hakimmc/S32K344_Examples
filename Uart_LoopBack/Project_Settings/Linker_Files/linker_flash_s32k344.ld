@@ -45,7 +45,8 @@ ENTRY(Reset_Handler)
 
 MEMORY
 {
-    int_pflash              : ORIGIN = 0x00400000, LENGTH = 0x003D4000    /* 4096KB - 176KB (sBAF + HSE)*/
+    int_pflash              : ORIGIN = 0x00400000, LENGTH = 0x00010000    /* 64kb Bootloader */
+    /*int_pflash              : ORIGIN = 0x00400000, LENGTH = 0x003D4000    /* 4096KB - 176KB (sBAF + HSE)*/
     int_dflash              : ORIGIN = 0x10000000, LENGTH = 0x00020000    /* 128KB */
     int_itcm                : ORIGIN = 0x00000000, LENGTH = 0x00010000    /* 64KB */
     int_dtcm                : ORIGIN = 0x20000000, LENGTH = 0x0001F000    /* 124KB */
