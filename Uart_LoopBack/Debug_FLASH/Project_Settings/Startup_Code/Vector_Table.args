@@ -2,7 +2,7 @@
 -I../RTD/include
 -I../FreeRTOS/Source/include
 -I../FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1
--I"C:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/board"
+-I"C:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/Uart_LoopBack/board"
 -x assembler-with-cpp
 -g3
 -mcpu=cortex-m7
