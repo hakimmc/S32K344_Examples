@@ -12,8 +12,8 @@ The **NXP S32K344** is a part of the S32K series of microcontrollers, designed t
 
 ## Features
 
-- **S32K344 Microcontroller**: Automotive-grade MCU optimized for automotive and industrial applications.
-- **Battery Management Unit (BMU)**: Specialized hardware for managing and controlling high-voltage batteries.
+- **S32K344 Microcontroller**: Automotive-grade MCU optimized for automotive and industrial applications,
+- **Battery Management Unit (BMU)**: Specialized hardware for managing and controlling high-voltage batteries,
 - **Example Projects**: Various example applications to demonstrate the functionality and usage of the RD-K344BMU.
 
 ## Getting Started
