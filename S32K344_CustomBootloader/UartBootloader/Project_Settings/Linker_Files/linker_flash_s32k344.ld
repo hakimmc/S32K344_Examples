@@ -45,7 +45,7 @@ ENTRY(Reset_Handler)
 
 MEMORY
 {
-    int_pflash              : ORIGIN = 0x00400000, LENGTH = 0x00010000    /* 64kb Bootloader */
+    int_pflash              : ORIGIN = 0x00400000, LENGTH = 0x00050000    /* 128kb Bootloader */
     /*int_pflash              : ORIGIN = 0x00400000, LENGTH = 0x003D4000    /* 4096KB - 176KB (sBAF + HSE)*/
     int_dflash              : ORIGIN = 0x10000000, LENGTH = 0x00020000    /* 128KB */
     int_itcm                : ORIGIN = 0x00000000, LENGTH = 0x00010000    /* 64KB */
@@ -65,7 +65,7 @@ SECTIONS
     .pflash :
     {
     	KEEP(*(.boot_header))
-        . = ALIGN(2048);
+        . = ALIGN(4);
         __text_start = .;
         __interrupts_init_start = .;
         KEEP(*(.intc_vector))

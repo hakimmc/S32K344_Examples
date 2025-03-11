@@ -37,10 +37,10 @@ UartBootloader.siz \
 all: UartBootloader.elf secondary-outputs
 
 # Tool invocations
-UartBootloader.elf: $(OBJS) C:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/Project_Settings/Linker_Files/linker_flash_s32k344.ld $(USER_OBJS)
+UartBootloader.elf: $(OBJS) C:/Users/ARGE13/Documents/Git/S32K344_Examples/S32K344_CustomBootloader/UartBootloader/Project_Settings/Linker_Files/linker_flash_s32k344.ld $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Standard S32DS C Linker'
-	arm-none-eabi-gcc -o "UartBootloader.elf" "@UartBootloader.args"  $(USER_OBJS)
+	arm-none-eabi-gcc -o "UartBootloader.elf" "@UartBootloader.args"  $(USER_OBJS)  -lc -lm -lgcc
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build

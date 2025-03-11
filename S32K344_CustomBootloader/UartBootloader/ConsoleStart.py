@@ -3,7 +3,7 @@ import time
 import sys
 
 # Seri port ayarları
-SERIAL_PORT = "COM5"  # Linux/Mac için: "/dev/ttyUSB0"
+SERIAL_PORT = "COM3"  # Linux/Mac için: "/dev/ttyUSB0"
 BAUD_RATE = 9600
 TIMEOUT = 5  # Timeout süresi (saniye cinsinden)
 
@@ -11,7 +11,7 @@ TIMEOUT = 5  # Timeout süresi (saniye cinsinden)
 START_MSG = b'!OTTOWAKE!'  # Başlangıç mesajı
 READY_MSG = b'!STR'   # Cihazdan gelecek başlama sinyali
 NEXT_MSG = b'!NXT'    # Cihazdan her paket öncesi gelecek sinyal
-END_MSG = b'!OTTOWAKE!'    # Gönderim bitiş mesajı
+END_MSG = b'!OTTOJUMP!'    # Gönderim bitiş mesajı
 SKIP_MSG = b'!SKIPJUMP!'   # Tamamen sıfır olan bloklar için mesaj
 
 # CRC Hesaplama Fonksiyonu (Toplam % 255)
@@ -82,10 +82,8 @@ def send_file(file_path):
         # Adım 4: Tüm veriler yollandıktan sonra tekrar "!OTTO" gönder
         while True:
             ser.write(END_MSG)
-            print("Sent: !OTTO")
-            if wait_for_message(ser, END_MSG):
-                break
-            print("Retrying: !OTTO")
+            print("Sent: !OTTOJUMP")
+            break
 
 if __name__ == "__main__":
     file_path = "firmware.bin"  # Gönderilecek bin dosyası
