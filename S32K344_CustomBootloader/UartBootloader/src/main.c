@@ -17,6 +17,7 @@
 
 uint8_t rxbuff[10];
 uint8_t MagicWORD[10] = {'!','O','T','T','O','W','A','K','E','!'};
+uint8_t jumpWORD[10] = {'!','O','T','T','O','J','U','M','P','!'};
 uint8_t SkipWORD[10] = {'!','S','K','I','P','J','U','M','P','!'};
 uint8_t dummy[10] = {'\0','\0','\0','\0','\0','\0','\0','\0','\0','\0'};
 uint8_t freebyte[10] = {0,0,0,0,0,0,0,0,0,0};
@@ -44,8 +45,10 @@ uint32_t CRC_Calculator(uint8_t* input,uint8_t max_len);
 uint8_t WriteToFlash(uint8_t* input, uint8_t max_len);
 uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_ID);
 uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len);
-void JumpToUserApplication( unsigned int userSP,  unsigned int userStartup);
-void __DISABLE_PER(void);
+void JumpToUserApplication(void);
+void __DISABLE_PER(void){
+	__asm__("NOP");
+}
 
 //#define ReadyMessage "!RDY"
 #define ErrorMessage "!ERR"
@@ -53,7 +56,7 @@ void __DISABLE_PER(void);
 #define StartMessage "!STR"
 #define FLS_MASTER_ID 0U
 #define FLS_BUF_SIZE 8
-uint32_t APP_ADDR_START = 0x00600000;
+uint32_t APP_ADDR_START = 0x00500000;//0x00600000;
 uint32_t UNLOCKED_LAST_SECTOR = 0;
 uint32_t ERASED_LAST_SECTOR = 0;
 uint8_t FlashData[8] = {0,0,0,0,0,0,0,0};
@@ -83,7 +86,7 @@ int main(void) {
 		while(!boot_state){
 			for(uint64_t delay = 0; delay < 0xFFFFFFFFFF; delay++);
 			Siul2_Dio_Ip_TogglePins(GPIOA_H, RED_LED);
-			JumpToUserApplication(*((uint32_t*)APP_ADDR_START), *((uint32_t*)(APP_ADDR_START + 4)));
+			//JumpToUserApplication(APP_ADDR_START);
 		}
 
 
@@ -100,13 +103,13 @@ void UartRxCallback(const uint8 HwInstance, const Lpuart_Uart_Ip_EventType Event
     if(!Comparator(rxbuff, dummy, 10))
     {
 		if (boot_state) {
-			if (Comparator(rxbuff, MagicWORD, 10)) {
+			if (Comparator(rxbuff, jumpWORD, 10)) {
 				boot_state = 0;
 				__DISABLE_PER();
 				while(STATUS_C40_IP_SECTOR_PROTECTED != C40_Ip_GetLock(C40_Ip_GetSectorNumberFromAddress(APP_ADDR_START+WriteIndex-4))){
 					C40_Ip_SetLock(UNLOCKED_LAST_SECTOR, FLS_MASTER_ID);
 				}
-				JumpToUserApplication(*((uint32_t*)APP_ADDR_START), *((uint32_t*)(APP_ADDR_START + 4)));
+				JumpToUserApplication();
 			} else{
 				if (CRC_Calculator(rxbuff, 9) == (uint32_t)rxbuff[9]) {
 					for(int indx = 1; indx < 9; indx++){
@@ -202,26 +205,14 @@ uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_I
     return (c40Status==STATUS_C40_IP_SUCCESS?1:0);
 }
 
-void __DISABLE_PER(void)
+typedef void (*AppAddr)(void);
+AppAddr JumpAppAddr = NULL;
+void JumpToUserApplication(void)
 {
-	__asm("cpsid i");
+	uint32 func = *(uint32 volatile *)(APP_ADDR_START+ 0xC);
+	func = *(uint32 volatile *)(((uint32)func) + 0x4);
+	func = ((((uint32)func) & 0xFFFFFFFEU) | 1u); // with "|1u" code worked
+	(* (void (*) (void)) func)();
 }
 
-void JumpToUserApplication( unsigned int userSP,  unsigned int userStartup)
-{
-	/* Check if Entry address is erased and return if erased */
-	if(userSP == 0xFFFFFFFF){
-		return;
-	}
-
-	/* Set up stack pointer */
-	__asm("msr msp, r0");
-	__asm("msr psp, r0");
-
-	/* Relocate vector table */
-	S32_SCB->VTOR = (uint32_t)APP_ADDR_START;
-
-	/* Jump to application PC (r1) */
-	__asm("mov pc, r1");
-}
 

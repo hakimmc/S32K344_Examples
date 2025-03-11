@@ -2,7 +2,7 @@
 --entry=Reset_Handler
 -ggdb3
 -T
-"C:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/Project_Settings/Linker_Files/linker_flash_s32k344.ld"
+"C:/Users/ARGE13/Documents/Git/S32K344_Examples/S32K344_CustomBootloader/UartBootloader/Project_Settings/Linker_Files/linker_flash_s32k344.ld"
 -Wl,-Map,"UartBootloader.map"
 -mcpu=cortex-m7
 -mthumb
@@ -11,7 +11,7 @@
 -mfpu=fpv5-sp-d16
 -specs=nano.specs
 -specs=nosys.specs
---sysroot="C:/NXP/S32DS.3.5/S32DS/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/arm-none-eabi/lib"
+--sysroot="C:/NXP/S32DS.3.6.0/S32DS/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/arm-none-eabi/lib"
 "./FreeRTOS/Source/croutine.o"
 "./FreeRTOS/Source/event_groups.o"
 "./FreeRTOS/Source/list.o"

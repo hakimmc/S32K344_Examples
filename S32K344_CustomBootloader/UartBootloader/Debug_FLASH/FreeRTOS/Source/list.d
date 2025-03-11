@@ -1,6 +1,6 @@
 FreeRTOS/Source/list.o: ../FreeRTOS/Source/list.c \
  ../FreeRTOS/Source/include/FreeRTOS.h \
- C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/FreeRTOSConfig.h \
+ C\:/Users/ARGE13/Documents/Git/S32K344_Examples/S32K344_CustomBootloader/UartBootloader/generate/include/FreeRTOSConfig.h \
  ../FreeRTOS/Source/include/projdefs.h \
  ../FreeRTOS/Source/include/portable.h \
  ../FreeRTOS/Source/include/deprecated_definitions.h \
@@ -8,7 +8,7 @@ FreeRTOS/Source/list.o: ../FreeRTOS/Source/list.c \
  ../FreeRTOS/Source/include/mpu_wrappers.h \
  ../FreeRTOS/Source/include/list.h
 ../FreeRTOS/Source/include/FreeRTOS.h:
-C\:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/UartBootloader/generate/include/FreeRTOSConfig.h:
+C\:/Users/ARGE13/Documents/Git/S32K344_Examples/S32K344_CustomBootloader/UartBootloader/generate/include/FreeRTOSConfig.h:
 ../FreeRTOS/Source/include/projdefs.h:
 ../FreeRTOS/Source/include/portable.h:
 ../FreeRTOS/Source/include/deprecated_definitions.h:
