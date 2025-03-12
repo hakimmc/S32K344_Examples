@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "c_init.h": "c",
-        "c_flash.h": "c",
-        "stdint.h": "c",
-        "c40_ip_types.h": "c"
-    }
-}
