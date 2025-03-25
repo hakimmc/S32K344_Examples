@@ -1,117 +1,78 @@
-/*!
-** Copyright 2019 NXP
-** @file main.c
-** @brief
-**         Main module.
-**         This module contains user's application code.
-*/
-/*!
-**  @addtogroup main_module main module documentation
-**  @{
-*/
-/* MODULE main */
-
-
-/* Including necessary configuration files. */
 #include "Mcal.h"
 #include "Clock_Ip.h"
-#include "FlexCAN_Ip.h"
 #include "IntCtrl_Ip.h"
 #include "Siul2_Port_Ip.h"
 #include "Siul2_Dio_Ip.h"
-#include <string.h>
-#include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include "C40_Ip.h"
+#include "bl_config.h"
 
-uint8_t boot_state = 0;
-uint32_t CRC_Calculator(uint8_t* input,uint8_t max_len);
-uint8_t WriteToFlash(uint8_t* input, uint8_t max_len);
-uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_ID);
-uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len);
-void JumpToUserApplication(void);
-
-#define FLS_MASTER_ID 0U
-#define FLS_BUF_SIZE 8
-uint32_t APP_ADDR_START = 0x00500000;//0x00600000;
-uint32_t UNLOCKED_LAST_SECTOR = 0;
-uint32_t ERASED_LAST_SECTOR = 0;
-uint8_t FlashData[8] = {1,2,3,4,5,6,7,8};
-uint32_t WriteIndex = 0;
-
-#define MSG_ID 0xC0FFEEu
-#define RX_MB_IDX 1U
-#define TX_MB_IDX 0U
-volatile int exit_code = 0;
-/* User includes */
-uint8 dummyData[8] = {1,2,3,4,5,6,7,8};
-Flexcan_Ip_MsgBuffType rxData;
-
-Flexcan_Ip_DataInfoType rx_info = {
-            .msg_id_type = FLEXCAN_MSG_ID_EXT,
-            .data_length = 8u,
-            .is_polling = FALSE,
-            .is_remote = FALSE
-    };
-
-Flexcan_Ip_DataInfoType tx_info = {
+Flexcan_Ip_DataInfoType rx_info =
+{
 		.msg_id_type = FLEXCAN_MSG_ID_EXT,
 		.data_length = 8u,
 		.is_polling = FALSE,
 		.is_remote = FALSE
-	};
+};
 
-/*!
-  \brief The main function for the project.
-  \details The startup initialization sequence is the following:
- * - startup asm routine
- * - main()
-*/
-extern void CAN0_ORED_0_31_MB_IRQHandler(void);
-
-
-void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 buffIdx,
-		const Flexcan_Ip_StateType *flexcanState)
+Flexcan_Ip_DataInfoType tx_info =
 {
-	(void)flexcanState;
-	(void)instance;
-	(void)buffIdx;
+	.msg_id_type = FLEXCAN_MSG_ID_EXT,
+	.data_length = 8u,
+	.is_polling = FALSE,
+	.is_remote = FALSE
+};
 
-	switch(eventType)
-	{
-	case FLEXCAN_EVENT_RX_COMPLETE:
+#define RX_MB_IDW 2U
+#define RX_MB_IDX 1U
+#define TX_MB_IDX 0U
 
-		FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
-		FlashWrite(APP_ADDR_START+WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
-		FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, MSG_ID, (uint8 *)&rxData);
-		WriteIndex+=8;
-		break;
-	case FLEXCAN_EVENT_RXFIFO_COMPLETE:
-		break;
-	case FLEXCAN_EVENT_TX_COMPLETE:
+#define RX_BOOT_WAKE_ID 0x5165U
+#define RX_BOOT_ID 0x5166U
+#define TX_BOOT_ID 0x5166U
 
+#define BOOT_CCITT_KEY 0xCEFA
 
+uint8_t readCanIndx = 0;
 
-		break;
-	default:
-		break;
-	}
-}
+Flexcan_Ip_MsgBuffType rxData;
 
-static void setupCan( void )
+uint8_t startWORD[8] = {'!','O','T','T','O','S','T','R'};
+uint8_t jumpWORD[8]  = {'!','O','T','T','O','J','M','P'};
+uint8_t skipWORD[8]  = {'!','O','T','T','O','N','X','T'};
+
+uint8_t APP_MagicWORD[8] = {'!','A','P','P','D','A','T','E'};
+uint8_t CFG_MagicWORD[8] = {'!','C','F','G','D','A','T','E'};
+
+uint8_t BootState = 0;
+uint8_t JumpState = 0;
+BootMode_Enum BootMode = APPLICATION;
+#define FLS_MASTER_ID 0U
+#define FLS_BUF_SIZE 8
+uint32_t CFG_ADDR_START = 0x00450000;
+uint32_t APP_ADDR_START = 0x00500000;
+uint32_t UNLOCKED_LAST_SECTOR = 0;
+uint32_t ERASED_LAST_SECTOR = 0;
+uint32_t WriteIndex = 0;
+uint8_t FlashData[8] = {1,2,3,4,5,6,7,8};
+
+void setupCan( void )
 {
 	Siul2_Dio_Ip_WritePin(CAN0_EN_PORT, CAN0_EN_PIN, 1U);
 	Siul2_Dio_Ip_WritePin(CAN0_STB_PORT, CAN0_STB_PIN, 1U);
 	FlexCAN_Ip_Init(INST_FLEXCAN_0, &FlexCAN_State0, &FlexCAN_Config0);
-    FlexCAN_Ip_ConfigRxMb(INST_FLEXCAN_0, RX_MB_IDX, &rx_info, 0xFACE);
+    FlexCAN_Ip_ConfigRxMb(INST_FLEXCAN_0, RX_MB_IDX, &rx_info, RX_BOOT_ID);
+    FlexCAN_Ip_ConfigRxMb(INST_FLEXCAN_0, RX_MB_IDW, &rx_info, RX_BOOT_WAKE_ID);
 	FlexCAN_Ip_SetStartMode(INST_FLEXCAN_0);
 }
 
+uint8_t is_Timeout(uint32_t ms);
+uint16_t CalculateCRC(uint8_t *data, uint32_t Length);
+uint8_t WriteToFlash(uint8_t* input, uint8_t max_len);
+uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_ID);
+uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len);
+void JumpToUserApplication(uint32_t Address);
 
 int main(void)
 {
-	/* Write your code here */
     Clock_Ip_Init(&Clock_Ip_aClockConfig[0]);
     Siul2_Port_Ip_Init(NUM_OF_CONFIGURED_PINS0, g_pin_mux_InitConfigArr0);
     C40_Ip_Init(NULL_PTR);
@@ -128,35 +89,53 @@ int main(void)
     UNLOCKED_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(APP_ADDR_START);
 	ERASED_LAST_SECTOR = UNLOCKED_LAST_SECTOR-1;
 
-    FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, MSG_ID, (uint8 *)&dummyData);
-	FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
-    while(1)
-    {
-
-    }
-
+	FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, TX_BOOT_ID, startWORD);
+	FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDW, &rxData, FALSE);
+    while(!JumpState);
     FlexCAN_Ip_SetStopMode(INST_FLEXCAN_0);
     FlexCAN_Ip_Deinit(INST_FLEXCAN_0);
+    JumpToUserApplication(APP_ADDR_START);
     return 0;
 }
 
+uint8_t is_Timeout(uint32_t ms)
+{
+    uint32_t start = S32_SysTick->CVR;
+    uint32_t ticks = (ms * (16000000 / 1000));
 
-uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len) {
-    for (uint8_t i = 0; i < len; i++) {
-        if (source[i] != target[i]) {
-            return 0;
-        }
-    }
+    while ((S32_SysTick->CVR - start) < ticks);
     return 1;
 }
 
-uint32_t CRC_Calculator(uint8_t* input,uint8_t max_len)
+uint16_t CalculateCRC(uint8_t *data, uint32_t Length)
 {
-	uint32_t SummOfBytes = 0;
-	for(int i=0;i<max_len;i++){
-		SummOfBytes += input[i];
-	}
-	return ((uint32_t)(SummOfBytes%255));
+    const uint16_t poly = 0x1021; // 0x1021 = 4129 (CRC-CCITT poly)
+    uint16_t table[256];
+    uint16_t initialValue = BOOT_CCITT_KEY;
+    uint16_t temp, a;
+    uint16_t crc = initialValue;
+
+    for (int i = 0; i < 256; ++i)
+    {
+        temp = 0;
+        a = (uint16_t)(i << 8);
+        for (int j = 0; j < 8; ++j)
+        {
+            if (((temp ^ a) & 0x8000) != 0)
+                temp = (uint16_t)((temp << 1) ^ poly);
+            else
+                temp <<= 1;
+            a <<= 1;
+        }
+        table[i] = temp;
+    }
+
+    for (uint32_t i = 0; i < Length; ++i)
+    {
+        crc = (uint16_t)((crc << 8) ^ table[((crc >> 8) ^ data[i])]);
+    }
+
+    return crc;
 }
 
 uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_ID)
@@ -204,11 +183,103 @@ uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_I
     return (c40Status==STATUS_C40_IP_SUCCESS?1:0);
 }
 
+
+extern void CAN0_ORED_0_31_MB_IRQHandler(void);
+
+void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 buffIdx, const Flexcan_Ip_StateType *flexcanState)
+{
+	(void)flexcanState;
+	(void)instance;
+	(void)buffIdx;
+
+	switch(eventType)
+	{
+		case FLEXCAN_EVENT_RX_COMPLETE:
+			switch (buffIdx)
+			{
+				case RX_MB_IDW: // for wakeup
+					if(Comparator(rxData.data, APP_MagicWORD, 4))
+					{
+						BootMode = APPLICATION;
+					}
+					else if(Comparator(rxData.data, CFG_MagicWORD, 4))
+					{
+						BootMode = CONFIG;
+					}
+					if(BootMode > 0)
+					{
+						BootState = 1;
+						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, TX_BOOT_ID, startWORD);
+						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
+					}
+					break;
+				case RX_MB_IDX: // for boot
+					if(BootState)
+					{
+						if(Comparator(rxData.data, jumpWORD, 8))
+						{
+							BootState = 0;
+							JumpState = 1;
+							break;
+						}
+						if(CalculateCRC(rxData.data, 6) != (uint16_t)((((uint16_t)rxData.data[6])<<8) & rxData.data[7])){ break;}
+						if(!rxData.data[1])
+						{
+							for(int fi=0; fi<4; fi++)
+							{
+								FlashData[fi] = rxData.data[2+fi];
+							}
+						}
+						else if(rxData.data[1])
+						{
+							for(int fi=0; fi<4; fi++)
+							{
+								FlashData[fi+4] = rxData.data[2+fi];
+							}
+							switch (BootMode)
+							{
+								case APPLICATION:
+									FlashWrite(APP_ADDR_START+WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
+									WriteIndex+=8;
+									break;
+								case CONFIG:
+									FlashWrite(CFG_ADDR_START+WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
+									WriteIndex+=8;
+									break;
+								default:
+									break;
+							}
+						}
+
+						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, RX_BOOT_ID, skipWORD);
+						//memset(rxData.data,'\0', 8);
+						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
+					}
+					break;
+			}
+			break;
+		default:
+			break;
+	}
+}
+
+uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len)
+{
+    for (uint8_t i = 0; i < len; i++) {
+        if (source[i] != target[i]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
+
 typedef void (*AppAddr)(void);
 AppAddr JumpAppAddr = NULL;
-void JumpToUserApplication(void)
+void JumpToUserApplication(uint32_t Address)
 {
-	uint32 func = *(uint32 volatile *)(APP_ADDR_START+ 0xC);
+	uint32 func = *(uint32 volatile *)(Address+ 0xC);
 	func = *(uint32 volatile *)(((uint32)func) + 0x4);
 	func = ((((uint32)func) & 0xFFFFFFFEU) | 1u); // with "|1u" code worked
 	(* (void (*) (void)) func)();
