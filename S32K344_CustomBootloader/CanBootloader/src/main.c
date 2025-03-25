@@ -190,7 +190,8 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 {
 	(void)flexcanState;
 	(void)instance;
-	(void)buffIdx;
+	/* Commented this block because the incoming buffIdx ignores itself via the void tag.
+	(void)buffIdx;*/
 
 	switch(eventType)
 	{
