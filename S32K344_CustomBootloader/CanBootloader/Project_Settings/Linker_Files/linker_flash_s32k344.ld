@@ -59,7 +59,7 @@ SECTIONS
     .flash :
     {
     	KEEP(*(.boot_header))
-        . = ALIGN(4096);
+        . = ALIGN(2048);
         __text_start = .;
         __interrupts_rom_start = .;
         KEEP(*(.intc_vector))    
