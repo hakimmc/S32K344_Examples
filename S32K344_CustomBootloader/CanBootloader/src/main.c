@@ -1,9 +1,10 @@
-#include "Mcal.h"
+//#include "Mcal.h"
 #include "Clock_Ip.h"
 #include "IntCtrl_Ip.h"
 #include "Siul2_Port_Ip.h"
 #include "Siul2_Dio_Ip.h"
 #include "bl_config.h"
+#include "S32K344.h"
 
 Flexcan_Ip_DataInfoType rx_info =
 {
@@ -42,8 +43,8 @@ uint8_t skipWORD[8]  = {'!','O','T','T','O','N','X','T'};
 uint8_t APP_MagicWORD[8] = {'!','A','P','P','D','A','T','E'};
 uint8_t CFG_MagicWORD[8] = {'!','C','F','G','D','A','T','E'};
 
-uint8_t BootState = 0;
-uint8_t JumpState = 0;
+volatile uint8_t BootState = 0;
+volatile uint8_t JumpState = 0;
 BootMode_Enum BootMode = APPLICATION;
 #define FLS_MASTER_ID 0U
 #define FLS_BUF_SIZE 8
@@ -69,7 +70,11 @@ uint16_t CalculateCRC(uint8_t *data, uint32_t Length);
 uint8_t WriteToFlash(uint8_t* input, uint8_t max_len);
 uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_ID);
 uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len);
-void JumpToUserApplication(uint32_t Address);
+void __attribute__((optimize("O0"))) delay_ms(uint32_t ms);
+void JumpToUserApplication( void );
+void SysTick_Init(void);
+void SysTick_Enable(void);
+void SysTick_Disable(void);
 
 int main(void)
 {
@@ -78,32 +83,66 @@ int main(void)
     C40_Ip_Init(NULL_PTR);
 
     IntCtrl_Ip_EnableIrq(FlexCAN0_1_IRQn);
-    IntCtrl_Ip_EnableIrq(FlexCAN0_0_IRQn);
     IntCtrl_Ip_InstallHandler(FlexCAN0_1_IRQn, CAN0_ORED_0_31_MB_IRQHandler, NULL_PTR);
-    IntCtrl_Ip_InstallHandler(FlexCAN0_0_IRQn, CAN0_ORED_0_31_MB_IRQHandler, NULL_PTR);
-
     tx_info.is_polling = FALSE;
     rx_info.is_polling = FALSE;
     setupCan();
-
+    SysTick_Init();
     UNLOCKED_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(APP_ADDR_START);
 	ERASED_LAST_SECTOR = UNLOCKED_LAST_SECTOR-1;
 
 	FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, TX_BOOT_ID, startWORD);
 	FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDW, &rxData, FALSE);
-    while(!JumpState);
+    while(!JumpState && !BootState)
+    {
+    	delay_ms(5000);
+    	JumpState = 1;
+    	while(BootState);
+    }
+    IntCtrl_Ip_DisableIrq(FlexCAN0_1_IRQn);
     FlexCAN_Ip_SetStopMode(INST_FLEXCAN_0);
     FlexCAN_Ip_Deinit(INST_FLEXCAN_0);
-    JumpToUserApplication(APP_ADDR_START);
-    return 0;
+    JumpToUserApplication();
+}
+
+void SysTick_Init(void)
+{
+	S32_SysTick->RVR = 0xFFFFFFFul;
+	S32_SysTick->CVR = 0ul;
+	S32_SysTick->CSRr = 0u;
+}
+
+void SysTick_Enable(void)
+{
+	S32_SysTick->CSRr = S32_SysTick_CSR_TICKINT(1u) | S32_SysTick_CSR_ENABLE(1);
+}
+
+void SysTick_Disable(void)
+{
+	S32_SysTick->CSRr = 0ul;
+}
+
+void __attribute__((optimize("O0"))) delay_ms(uint32_t ms)
+{
+    volatile uint32_t i, j;
+    for (i = 0; i < ms; i++)
+    {
+        for (j = 0; j < 40000; j++)
+        {
+            __asm("NOP");
+        }
+    }
 }
 
 uint8_t is_Timeout(uint32_t ms)
 {
-    uint32_t start = S32_SysTick->CVR;
-    uint32_t ticks = (ms * (16000000 / 1000));
-
-    while ((S32_SysTick->CVR - start) < ticks);
+	S32_SysTick->RVR = 10000 * ms * 1000;
+	SysTick_Enable();
+    //uint32_t ticks = (160000000 / 1000) * ms; // 160 MHz
+    //uint32_t start = S32_SysTick->CVR;
+	//while (((start - S32_SysTick->CVR) & 0x00FFFFFF) < ticks);
+	while (S32_SysTick->CVR != 0);
+	SysTick_Disable();
     return 1;
 }
 
@@ -190,7 +229,8 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 {
 	(void)flexcanState;
 	(void)instance;
-	(void)buffIdx;
+	//(void)buffIdx;
+    IntCtrl_Ip_EnableIrq(FlexCAN0_1_IRQn);
 
 	switch(eventType)
 	{
@@ -206,11 +246,15 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 					{
 						BootMode = CONFIG;
 					}
-					if(BootMode > 0)
+					if(BootMode == APPLICATION  || BootMode == CONFIG)
 					{
 						BootState = 1;
 						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, TX_BOOT_ID, startWORD);
 						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
+					}
+					else
+					{
+						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDW, &rxData, FALSE);
 					}
 					break;
 				case RX_MB_IDX: // for boot
@@ -222,7 +266,7 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 							JumpState = 1;
 							break;
 						}
-						if(CalculateCRC(rxData.data, 6) != (uint16_t)((((uint16_t)rxData.data[6])<<8) & rxData.data[7])){ break;}
+						if(CalculateCRC(rxData.data, 6) != (uint16_t)((rxData.data[6]*256) + rxData.data[7])){ break;}
 						if(!rxData.data[1])
 						{
 							for(int fi=0; fi<4; fi++)
@@ -273,13 +317,11 @@ uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len)
     return 1;
 }
 
-
-
 typedef void (*AppAddr)(void);
 AppAddr JumpAppAddr = NULL;
-void JumpToUserApplication(uint32_t Address)
+void JumpToUserApplication( void )
 {
-	uint32 func = *(uint32 volatile *)(Address+ 0xC);
+	uint32 func = *(uint32 volatile *)(APP_ADDR_START+ 0xC);
 	func = *(uint32 volatile *)(((uint32)func) + 0x4);
 	func = ((((uint32)func) & 0xFFFFFFFEU) | 1u); // with "|1u" code worked
 	(* (void (*) (void)) func)();
