@@ -70,7 +70,7 @@ uint16_t CalculateCRC(uint8_t *data, uint32_t Length);
 uint8_t WriteToFlash(uint8_t* input, uint8_t max_len);
 uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_ID);
 uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len);
-void __attribute__((optimize("O0"))) delay_ms(uint32_t ms);
+void __attribute__((optimize("O0"))) delay_ms(uint32_t ms, volatile uint8_t *condition);
 void JumpToUserApplication( void );
 void SysTick_Init(void);
 void SysTick_Enable(void);
@@ -95,9 +95,9 @@ int main(void)
 	FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDW, &rxData, FALSE);
     while(!JumpState && !BootState)
     {
-    	delay_ms(5000);
+    	delay_ms(5000, BootState);
     	JumpState = 1;
-    	while(BootState);
+    	while(BootState) __asm("NOP");
     }
     IntCtrl_Ip_DisableIrq(FlexCAN0_1_IRQn);
     FlexCAN_Ip_SetStopMode(INST_FLEXCAN_0);
@@ -122,16 +122,26 @@ void SysTick_Disable(void)
 	S32_SysTick->CSRr = 0ul;
 }
 
-void __attribute__((optimize("O0"))) delay_ms(uint32_t ms)
+typedef enum{
+	TimeOut,
+	Condition_Occured
+}DelayState;
+
+DelayState __attribute__((optimize("O0"))) delay_ms(uint32_t ms, volatile uint8_t *condition)
 {
-    volatile uint32_t i, j;
+    volatile uint32_t i, j;	
     for (i = 0; i < ms; i++)
     {
-        for (j = 0; j < 40000; j++)
-        {
-            __asm("NOP");
+        //for (j = 0; j < 40000; j++)removed for perfect timing with 160mhz clock : loop using 8 cycle; 8 x 40000 = 320.000 => 320.000 / 160.000.000 = 0.002S => 2mS
+		//																			2mS is too much max loop value replaced with 20000 for 1 mS;
+        for (j = 0; j < 20000; j++)
+		{
+            //__asm("NOP"); removed for perfect timing 160mhz clock; if i use nop asm block i will be used 9 cycle;
+			if(*condition) break;
         }
+		if(*condition) break;
     }
+	return *condition;
 }
 
 uint8_t is_Timeout(uint32_t ms)
