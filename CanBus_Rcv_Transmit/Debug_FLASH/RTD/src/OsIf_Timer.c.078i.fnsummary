@@ -1,0 +1,301 @@
+Symbol table:
+
+OsIf_MicrosToTicks/9 (OsIf_MicrosToTicks) @068c8e00
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: OsIf_Timer_Dummy_MicrosToTicks/4 
+OsIf_SetTimerFrequency/8 (OsIf_SetTimerFrequency) @068c8b60
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: OsIf_Timer_Dummy_SetTimerFrequency/3 
+OsIf_GetElapsed/7 (OsIf_GetElapsed) @068c88c0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: OsIf_Timer_Dummy_GetElapsed/2 
+OsIf_GetCounter/6 (OsIf_GetCounter) @068c8620
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: OsIf_Timer_Dummy_GetCounter/1 
+OsIf_Init/5 (OsIf_Init) @068c8380
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: DevAssert/0 
+OsIf_Timer_Dummy_MicrosToTicks/4 (OsIf_Timer_Dummy_MicrosToTicks) @068c5e00
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: OsIf_MicrosToTicks/9 
+  Calls: 
+OsIf_Timer_Dummy_SetTimerFrequency/3 (OsIf_Timer_Dummy_SetTimerFrequency) @068c58c0
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: OsIf_SetTimerFrequency/8 
+  Calls: 
+OsIf_Timer_Dummy_GetElapsed/2 (OsIf_Timer_Dummy_GetElapsed) @068c5d20
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: OsIf_GetElapsed/7 
+  Calls: 
+OsIf_Timer_Dummy_GetCounter/1 (OsIf_Timer_Dummy_GetCounter) @068c5a80
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: OsIf_GetCounter/6 
+  Calls: 
+DevAssert/0 (DevAssert) @068b6e00
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: OsIf_Init/5 
+  Calls: 
+OsIf_MicrosToTicks (uint32 Micros, OsIf_CounterType SelectedCounter)
+{
+  uint32 Value;
+  uint32 D.5790;
+  uint32 _9;
+
+  <bb 2> :
+  Value_3 = 0;
+  if (SelectedCounter_4(D) == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+<L0>:
+  Value_8 = OsIf_Timer_Dummy_MicrosToTicks (Micros_6(D));
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+<L1>:
+
+  <bb 5> :
+  # Value_1 = PHI <Value_8(3), Value_3(4)>
+  _9 = Value_1;
+
+  <bb 6> :
+<L3>:
+  return _9;
+
+}
+
+
+OsIf_SetTimerFrequency (uint32 Freq, OsIf_CounterType SelectedCounter)
+{
+  <bb 2> :
+  if (SelectedCounter_2(D) == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+<L0>:
+  OsIf_Timer_Dummy_SetTimerFrequency (Freq_4(D));
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+<L1>:
+
+  <bb 5> :
+  return;
+
+}
+
+
+OsIf_GetElapsed (uint32 * const CurrentRef, OsIf_CounterType SelectedCounter)
+{
+  uint32 Value;
+  uint32 D.5786;
+  uint32 _9;
+
+  <bb 2> :
+  Value_3 = 0;
+  if (SelectedCounter_4(D) == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+<L0>:
+  Value_8 = OsIf_Timer_Dummy_GetElapsed (CurrentRef_6(D));
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+<L1>:
+
+  <bb 5> :
+  # Value_1 = PHI <Value_8(3), Value_3(4)>
+  _9 = Value_1;
+
+  <bb 6> :
+<L3>:
+  return _9;
+
+}
+
+
+OsIf_GetCounter (OsIf_CounterType SelectedCounter)
+{
+  uint32 Value;
+  uint32 D.5782;
+  uint32 _8;
+
+  <bb 2> :
+  Value_3 = 0;
+  if (SelectedCounter_4(D) == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+<L0>:
+  Value_7 = OsIf_Timer_Dummy_GetCounter ();
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+<L1>:
+
+  <bb 5> :
+  # Value_1 = PHI <Value_7(3), Value_3(4)>
+  _8 = Value_1;
+
+  <bb 6> :
+<L3>:
+  return _8;
+
+}
+
+
+OsIf_Init (const void * Config)
+{
+  <bb 2> :
+  if (Config_2(D) != 0B)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  DevAssert (0);
+
+  <bb 4> :
+  return;
+
+}
+
+
+OsIf_Timer_Dummy_MicrosToTicks (uint32 Micros)
+{
+  uint32 D.5792;
+  uint32 _2;
+
+  <bb 2> :
+  _2 = Micros_1(D);
+
+  <bb 3> :
+<L0>:
+  return _2;
+
+}
+
+
+OsIf_Timer_Dummy_SetTimerFrequency (uint32 Freq)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+OsIf_Timer_Dummy_GetElapsed (const uint32 * const CurrentRef)
+{
+  uint32 D.5788;
+  uint32 _1;
+
+  <bb 2> :
+  _1 = 1;
+
+  <bb 3> :
+<L0>:
+  return _1;
+
+}
+
+
+OsIf_Timer_Dummy_GetCounter ()
+{
+  uint32 D.5784;
+  uint32 _1;
+
+  <bb 2> :
+  _1 = 0;
+
+  <bb 3> :
+<L0>:
+  return _1;
+
+}
+
+
+DevAssert (volatile boolean x)
+{
+  _Bool x.0_1;
+
+  <bb 2> :
+  x.0_1 ={v} x;
+  if (x.0_1 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 3>; [INV]
+
+  <bb 3> :
+  __asm__ __volatile__("BKPT #0");
+  goto <bb 3>; [INV]
+
+  <bb 4> :
+  return;
+
+}
+
+

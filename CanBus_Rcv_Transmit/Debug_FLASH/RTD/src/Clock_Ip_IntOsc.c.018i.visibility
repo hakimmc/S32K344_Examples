@@ -1,0 +1,230 @@
+
+Marking local functions:
+
+
+Marking externally visible functions:
+
+
+Marking externally visible variables: Clock_Ip_axIntOscCallbacks/8
+
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+Symbol table:
+
+Clock_Ip_axIntOscCallbacks/8 (Clock_Ip_axIntOscCallbacks) @06dae360
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_InternalOscillatorEmpty/0 (addr) Clock_Ip_InternalOscillatorEmpty/0 (addr) Clock_Ip_InternalOscillatorEmpty_Disable/1 (addr) Clock_Ip_SetFircStdby/2 (addr) Clock_Ip_EnableFircStdby/3 (addr) Clock_Ip_DisableFircStdby/4 (addr) Clock_Ip_SetSircStdby/5 (addr) Clock_Ip_EnableSircStdby/6 (addr) Clock_Ip_DisableSircStdby/7 (addr) 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized read-only const-value-known
+Clock_Ip_DisableSircStdby/7 (Clock_Ip_DisableSircStdby) @06eb3000
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_EnableSircStdby/6 (Clock_Ip_EnableSircStdby) @06dafa80
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_SetSircStdby/5 (Clock_Ip_SetSircStdby) @06daf540
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_DisableFircStdby/4 (Clock_Ip_DisableFircStdby) @06dafee0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_EnableFircStdby/3 (Clock_Ip_EnableFircStdby) @06dafc40
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_SetFircStdby/2 (Clock_Ip_SetFircStdby) @06daf9a0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_InternalOscillatorEmpty_Disable/1 (Clock_Ip_InternalOscillatorEmpty_Disable) @06daf700
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_InternalOscillatorEmpty/0 (Clock_Ip_InternalOscillatorEmpty) @06daf460
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_DisableSircStdby (Clock_Ip_NameType Name)
+{
+  <bb 2> :
+  _1 = 1076658176B;
+  _2 = _1->MISCELLANEOUS_IN;
+  _3 = 1076658176B;
+  _4 = _2 & 4294967039;
+  _3->MISCELLANEOUS_IN = _4;
+  return;
+
+}
+
+
+Clock_Ip_EnableSircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  <bb 2> :
+  _1 = 1076658176B;
+  _2 = _1->MISCELLANEOUS_IN;
+  _3 = 1076658176B;
+  _4 = _2 | 256;
+  _3->MISCELLANEOUS_IN = _4;
+  return;
+
+}
+
+
+Clock_Ip_SetSircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  <bb 2> :
+  _1 = Config->Enable;
+  if (_1 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _2 = 1076658176B;
+  _3 = _2->MISCELLANEOUS_IN;
+  _4 = 1076658176B;
+  _5 = _3 | 256;
+  _4->MISCELLANEOUS_IN = _5;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _6 = 1076658176B;
+  _7 = _6->MISCELLANEOUS_IN;
+  _8 = 1076658176B;
+  _9 = _7 & 4294967039;
+  _8->MISCELLANEOUS_IN = _9;
+
+  <bb 5> :
+  return;
+
+}
+
+
+Clock_Ip_DisableFircStdby (Clock_Ip_NameType Name)
+{
+  <bb 2> :
+  _1 = 1076690944B;
+  _2 = _1->STDBY_ENABLE;
+  _3 = 1076690944B;
+  _4 = _2 & 4294967294;
+  _3->STDBY_ENABLE = _4;
+  return;
+
+}
+
+
+Clock_Ip_EnableFircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  <bb 2> :
+  _1 = 1076690944B;
+  _2 = _1->STDBY_ENABLE;
+  _3 = 1076690944B;
+  _4 = _2 | 1;
+  _3->STDBY_ENABLE = _4;
+  return;
+
+}
+
+
+Clock_Ip_SetFircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  <bb 2> :
+  _1 = Config->Enable;
+  if (_1 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _2 = 1076690944B;
+  _3 = _2->STDBY_ENABLE;
+  _4 = 1076690944B;
+  _5 = _3 | 1;
+  _4->STDBY_ENABLE = _5;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _6 = 1076690944B;
+  _7 = _6->STDBY_ENABLE;
+  _8 = 1076690944B;
+  _9 = _7 & 4294967294;
+  _8->STDBY_ENABLE = _9;
+
+  <bb 5> :
+  return;
+
+}
+
+
+Clock_Ip_InternalOscillatorEmpty_Disable (Clock_Ip_NameType Name)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_InternalOscillatorEmpty (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+

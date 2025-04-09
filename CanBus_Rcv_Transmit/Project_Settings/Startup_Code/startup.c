@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : 
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -35,9 +36,9 @@
  */
 typedef struct
 {
-    uint32 * ram_start; /*!< Start address of section in RAM */
-    uint32 * rom_start; /*!< Start address of section in ROM */
-    uint32 * rom_end;   /*!< End address of section in ROM */
+    uint8 * ram_start; /*!< Start address of section in RAM */
+    uint8 * rom_start; /*!< Start address of section in ROM */
+    uint8 * rom_end;   /*!< End address of section in ROM */
 } Sys_CopyLayoutType;
 
 /*!
@@ -45,13 +46,12 @@ typedef struct
  */
 typedef struct
 {
-    uint32 * ram_start; /*!< Start address of section in RAM */
-    uint32 * ram_end;   /*!< End address of section in RAM */
+    uint8 * ram_start; /*!< Start address of section in RAM */
+    uint8 * ram_end;   /*!< End address of section in RAM */
 } Sys_ZeroLayoutType;
 
 extern uint32 __INIT_TABLE[];
 extern uint32 __ZERO_TABLE[];
-extern uint32 __INDEX_COPY_CORE2[];
 #if (defined(__ARMCC_VERSION))
     extern uint32 __VECTOR_RAM;
 #else
@@ -87,17 +87,13 @@ extern uint32 __INDEX_COPY_CORE2[];
 #include "Platform_MemMap.h"
  
 void init_data_bss(void);
-void init_data_bss_core2(void);
 
 void init_data_bss(void)
 {
     const Sys_CopyLayoutType * copy_layout;
     const Sys_ZeroLayoutType * zero_layout;
-    const uint32 * rom;
-    const uint8 * rom8;
-    uint32 * ram;
-    uint8 * ram8;
-    uint8 dataPad;
+    const uint8 * rom;
+    uint8 * ram;
     uint32 len = 0U;
     uint32 size = 0U;
     uint32 i = 0U;
@@ -115,18 +111,10 @@ void init_data_bss(void)
         rom = copy_layout[i].rom_start;
         ram = copy_layout[i].ram_start;
         size = (uint32)copy_layout[i].rom_end - (uint32)copy_layout[i].rom_start;
-        /* Make sure the data area to be copied must be aligned with 4. Then, copy 4 bytes at per one read */
-        dataPad = size & 0x3U;
-        for(j = 0UL; j < ((size - dataPad) >> 2); j++)
+
+        for(j = 0UL; j < size; j++)
         {
             ram[j] = rom[j];
-        }
-        /* For the rest of data, copy 1 bytes at per one read */
-        rom8 = (uint8 *)&(rom[j]);
-        ram8 = (uint8 *)&(ram[j]);
-        for (j = 0; j < dataPad; j++)
-        {
-            ram8[j] = rom8[j];
         }
     }
     
@@ -139,54 +127,9 @@ void init_data_bss(void)
         ram = zero_layout[i].ram_start;
         size = (uint32)zero_layout[i].ram_end - (uint32)zero_layout[i].ram_start;
 
-        for(j = 0UL; j < (size >> 2); j++)
+        for(j = 0UL; j < size; j++)
         {
             ram[j] = 0U;
-        }
-        /* Since the size of the section always aligns with 32bits according to the sample file linker. 
-           Zeroing the last 4 bytes of the section if the data to be used of program does not align with 4.*/
-        if ((size & 0x3U) != 0)
-        {
-            ram[j] = 0;
-        }
-    }
-}
-
-void init_data_bss_core2(void)
-{
-    const Sys_CopyLayoutType * copy_layout;
-    const uint32 * rom;
-    const uint8 * rom8;
-    uint32 * ram;
-    uint8 * ram8;
-    uint8 dataPad;
-    uint32 len = 0U;
-    uint32 size = 0U;
-    uint32 i = 0U;
-    uint32 j = 0U;
-
-    const uint32 * initTable_Ptr = (uint32 *)__INIT_TABLE;
-
-    /* Copy initialized table */
-    len = *initTable_Ptr;
-    initTable_Ptr++;
-    copy_layout = (const Sys_CopyLayoutType *)initTable_Ptr;
-    for(i = (uint32)__INDEX_COPY_CORE2; i < len; i++)
-    {
-        rom = copy_layout[i].rom_start;
-        ram = copy_layout[i].ram_start;
-        size = (uint32)copy_layout[i].rom_end - (uint32)copy_layout[i].rom_start;
-        /* Make sure the data area to be copied must be aligned with 4. Then, copy 4 bytes at per one read */
-        dataPad = size & 0x3U;
-        for(j = 0UL; j < ((size - dataPad) >> 2); j++)
-        {
-            ram[j] = rom[j];
-        }
-        rom8 = (uint8 *)&(rom[j]);
-        ram8 = (uint8 *)&(ram[j]);
-        for (j = 0; j < dataPad; j++)
-        {
-            ram8[j] = rom8[j];
         }
     }
 }

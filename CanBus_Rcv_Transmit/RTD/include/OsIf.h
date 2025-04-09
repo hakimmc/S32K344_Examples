@@ -1,16 +1,17 @@
 /*==================================================================================================
-* Project : RTD AUTOSAR 4.7
+* Project : RTD AUTOSAR 4.4
 * Platform : CORTEXM
 * Peripheral : S32K3XX
 * Dependencies : none
 *
-* Autosar Version : 4.7.0
-* Autosar Revision : ASR_REL_4_7_REV_0000
+* Autosar Version : 4.4.0
+* Autosar Revision : ASR_REL_4_4_REV_0000
 * Autosar Conf.Variant :
-* SW Version : 3.0.0
-* Build Version : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+* SW Version : 2.0.0
+* Build Version : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-* Copyright 2020 - 2023 NXP Semiconductors
+* (c) Copyright 2020 - 2022 NXP Semiconductors
+* All Rights Reserved.
 *
 * NXP Confidential. This software is owned or controlled by NXP and may only be
 * used strictly in accordance with the applicable license terms. By expressly
@@ -49,9 +50,9 @@ extern "C"{
 ==================================================================================================*/
 #define OSIF_VENDOR_ID                    43
 #define OSIF_AR_RELEASE_MAJOR_VERSION     4
-#define OSIF_AR_RELEASE_MINOR_VERSION     7
+#define OSIF_AR_RELEASE_MINOR_VERSION     4
 #define OSIF_AR_RELEASE_REVISION_VERSION  0
-#define OSIF_SW_MAJOR_VERSION             3
+#define OSIF_SW_MAJOR_VERSION             2
 #define OSIF_SW_MINOR_VERSION             0
 #define OSIF_SW_PATCH_VERSION             0
 
@@ -106,13 +107,11 @@ extern "C"{
  *
  * Counter type.
  *
- * @detail
-   The dummy counter of Osif is meant as a loop-counter timeout mechanism that requirement no additional resource (hardware and software). It was meant to replace the typical loop timeout of decrementing a variable each time the loop was executed until the counter reaches zero. Usage of OsIf replaced these loop counters within RTD, so the advantage is that these timeouts can be configured to be simple loop counters (using the dummy counter), not changing the RTD code.
  */
 typedef enum
 {
     OSIF_COUNTER_DUMMY, /**< dummy counter */
-#if (OSIF_USE_SYSTEM_TIMER == STD_ON) 
+#if (OSIF_USE_SYSTEM_TIMER == STD_ON)
     OSIF_COUNTER_SYSTEM, /**< system counter */
 #endif /* (OSIF_USE_SYSTEM_TIMER == STD_ON) */
 #if (OSIF_USE_CUSTOM_TIMER == STD_ON)
@@ -131,8 +130,8 @@ typedef enum
 /*==================================================================================================
 *                                       FUNCTION PROTOTYPES
 ==================================================================================================*/
-#define BASENXP_START_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_CODE
+#include "Base_MemMap.h"
 
 /*!
  * @brief Initialize OsIf
@@ -185,8 +184,8 @@ void OsIf_SetTimerFrequency(uint32 Freq, OsIf_CounterType SelectedCounter);
  */
 uint32 OsIf_MicrosToTicks(uint32 Micros, OsIf_CounterType SelectedCounter);
 
-#define BASENXP_STOP_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_CODE
+#include "Base_MemMap.h"
 
 #ifdef __cplusplus
 }

@@ -1,0 +1,1633 @@
+Trivially needed symbols: JumpToBoot/15 JumpBootAddr/14 delay_ms/13 Comparator/12 main/11 setupCan/10 flexcan0_Callback/9 JumpBootState/8 tx_info/7 rx_info/6 rxData/5 AppStartData/4 dummyData/3 systemid/2 exit_code/1
+
+
+Initial Symbol table:
+
+FlexCAN_Ip_Deinit_Privileged/33 (FlexCAN_Ip_Deinit_Privileged) @06504000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStopMode_Privileged/32 (FlexCAN_Ip_SetStopMode_Privileged) @064feee0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_DisableIrq/31 (IntCtrl_Ip_DisableIrq) @064fe380
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+CAN0_ORED_0_31_MB_IRQHandler/30 (CAN0_ORED_0_31_MB_IRQHandler) @064fee00
+  Type: function
+  Visibility: external public
+  Address is taken.
+  References: 
+  Referring: main/11 (addr) 
+  Function flags:
+  Called by: 
+  Calls: 
+IntCtrl_Ip_InstallHandler/29 (IntCtrl_Ip_InstallHandler) @064fed20
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_EnableIrq/28 (IntCtrl_Ip_EnableIrq) @064fec40
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+g_pin_mux_InitConfigArr0/27 (g_pin_mux_InitConfigArr0) @06500798
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+Siul2_Port_Ip_Init/26 (Siul2_Port_Ip_Init) @064feb60
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+Clock_Ip_aClockConfig/25 (Clock_Ip_aClockConfig) @06500708
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+Clock_Ip_Init/24 (Clock_Ip_Init) @064fea80
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStartMode_Privileged/23 (FlexCAN_Ip_SetStartMode_Privileged) @064fe8c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Ip_ConfigRxMb/22 (FlexCAN_Ip_ConfigRxMb) @064fe7e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Config0/21 (FlexCAN_Config0) @06500120
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+FlexCAN_State0/20 (FlexCAN_State0) @065000d8
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not-ready
+  Varpool flags:
+FlexCAN_Ip_Init_Privileged/19 (FlexCAN_Ip_Init_Privileged) @064fe700
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+Siul2_Dio_Ip_WritePin/18 (Siul2_Dio_Ip_WritePin) @064fe620
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 setupCan/10 
+  Calls: 
+FlexCAN_Ip_Receive/17 (FlexCAN_Ip_Receive) @064fe460
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 flexcan0_Callback/9 
+  Calls: 
+FlexCAN_Ip_Send/16 (FlexCAN_Ip_Send) @064fe2a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 main/11 flexcan0_Callback/9 flexcan0_Callback/9 
+  Calls: 
+JumpToBoot/15 (JumpToBoot) @064f4a80
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @01981040
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+   Indirect call Num speculative call targets: 0
+JumpBootAddr/14 (JumpBootAddr) @064ef828
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064f4a80
+  References: 
+  Referring: 
+  Availability: not-ready
+  Varpool flags: initialized
+delay_ms/13 (delay_ms) @064f4c40
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064ef828
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+Comparator/12 (Comparator) @064f49a0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064f4c40
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: flexcan0_Callback/9 
+  Calls: 
+main/11 (main) @064f4700
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064f49a0
+  References: systemid/2 (write) Clock_Ip_aClockConfig/25 (addr) g_pin_mux_InitConfigArr0/27 (addr) CAN0_ORED_0_31_MB_IRQHandler/30 (addr) tx_info/7 (write) rx_info/6 (write) tx_info/7 (addr) dummyData/3 (addr) rxData/5 (addr) systemid/2 (read) tx_info/7 (addr) dummyData/3 (addr) JumpBootState/8 (read) 
+  Referring: 
+  Function flags: body
+  Called by: 
+  Calls: JumpToBoot/15 FlexCAN_Ip_Deinit_Privileged/33 FlexCAN_Ip_SetStopMode_Privileged/32 IntCtrl_Ip_DisableIrq/31 delay_ms/13 FlexCAN_Ip_Send/16 FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 setupCan/10 IntCtrl_Ip_InstallHandler/29 IntCtrl_Ip_EnableIrq/28 Siul2_Port_Ip_Init/26 Clock_Ip_Init/24 
+setupCan/10 (setupCan) @064f4380
+  Type: function definition analyzed
+  Visibility: force_output no_reorder
+  Aux: @064f4700
+  References: FlexCAN_State0/20 (addr) FlexCAN_Config0/21 (addr) systemid/2 (read) rx_info/6 (addr) 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: FlexCAN_Ip_SetStartMode_Privileged/23 FlexCAN_Ip_ConfigRxMb/22 FlexCAN_Ip_Init_Privileged/19 Siul2_Dio_Ip_WritePin/18 Siul2_Dio_Ip_WritePin/18 
+flexcan0_Callback/9 (flexcan0_Callback) @064f4000
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064f4380
+  References: rxData/5 (addr) tx_info/7 (addr) AppStartData/4 (addr) JumpBootState/8 (write) systemid/2 (read) tx_info/7 (addr) rxData/5 (addr) rxData/5 (addr) 
+  Referring: 
+  Function flags: body
+  Called by: 
+  Calls: FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 FlexCAN_Ip_Send/16 Comparator/12 
+JumpBootState/8 (JumpBootState) @064ef318
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064f4000
+  References: 
+  Referring: flexcan0_Callback/9 (write) main/11 (read) 
+  Availability: not-ready
+  Varpool flags:
+tx_info/7 (tx_info) @064ef168
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064ef318
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (write) main/11 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+rx_info/6 (rx_info) @064ef120
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064ef168
+  References: 
+  Referring: setupCan/10 (addr) main/11 (write) 
+  Availability: not-ready
+  Varpool flags: initialized
+rxData/5 (rxData) @064ef0d8
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064ef120
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags:
+AppStartData/4 (AppStartData) @064ef048
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064ef0d8
+  References: 
+  Referring: flexcan0_Callback/9 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+dummyData/3 (dummyData) @06aedf30
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @064ef048
+  References: 
+  Referring: main/11 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+systemid/2 (systemid) @06aede58
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @06aedf30
+  References: 
+  Referring: flexcan0_Callback/9 (read) setupCan/10 (read) main/11 (write) main/11 (read) 
+  Availability: not-ready
+  Varpool flags:
+exit_code/1 (exit_code) @06aeddc8
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  Aux: @06aede58
+  References: 
+  Referring: 
+  Availability: not-ready
+  Varpool flags: initialized
+DevAssert/0 (DevAssert) @06ac5a80
+  Type: function definition
+  Visibility: no_reorder
+  References: 
+  Referring: 
+  Function flags:
+  Called by: 
+  Calls: 
+
+Removing unused symbols: DevAssert/0
+
+Reclaimed Symbol table:
+
+FlexCAN_Ip_Deinit_Privileged/33 (FlexCAN_Ip_Deinit_Privileged) @06504000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStopMode_Privileged/32 (FlexCAN_Ip_SetStopMode_Privileged) @064feee0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_DisableIrq/31 (IntCtrl_Ip_DisableIrq) @064fe380
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+CAN0_ORED_0_31_MB_IRQHandler/30 (CAN0_ORED_0_31_MB_IRQHandler) @064fee00
+  Type: function
+  Visibility: external public
+  Address is taken.
+  References: 
+  Referring: main/11 (addr) 
+  Function flags:
+  Called by: 
+  Calls: 
+IntCtrl_Ip_InstallHandler/29 (IntCtrl_Ip_InstallHandler) @064fed20
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_EnableIrq/28 (IntCtrl_Ip_EnableIrq) @064fec40
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+g_pin_mux_InitConfigArr0/27 (g_pin_mux_InitConfigArr0) @06500798
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+Siul2_Port_Ip_Init/26 (Siul2_Port_Ip_Init) @064feb60
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+Clock_Ip_aClockConfig/25 (Clock_Ip_aClockConfig) @06500708
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+Clock_Ip_Init/24 (Clock_Ip_Init) @064fea80
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStartMode_Privileged/23 (FlexCAN_Ip_SetStartMode_Privileged) @064fe8c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Ip_ConfigRxMb/22 (FlexCAN_Ip_ConfigRxMb) @064fe7e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Config0/21 (FlexCAN_Config0) @06500120
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+FlexCAN_State0/20 (FlexCAN_State0) @065000d8
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not-ready
+  Varpool flags:
+FlexCAN_Ip_Init_Privileged/19 (FlexCAN_Ip_Init_Privileged) @064fe700
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+Siul2_Dio_Ip_WritePin/18 (Siul2_Dio_Ip_WritePin) @064fe620
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 setupCan/10 
+  Calls: 
+FlexCAN_Ip_Receive/17 (FlexCAN_Ip_Receive) @064fe460
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 flexcan0_Callback/9 
+  Calls: 
+FlexCAN_Ip_Send/16 (FlexCAN_Ip_Send) @064fe2a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 main/11 flexcan0_Callback/9 flexcan0_Callback/9 
+  Calls: 
+JumpToBoot/15 (JumpToBoot) @064f4a80
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+   Indirect call Num speculative call targets: 0
+JumpBootAddr/14 (JumpBootAddr) @064ef828
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Availability: not-ready
+  Varpool flags: initialized
+delay_ms/13 (delay_ms) @064f4c40
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+Comparator/12 (Comparator) @064f49a0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: flexcan0_Callback/9 
+  Calls: 
+main/11 (main) @064f4700
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: systemid/2 (write) Clock_Ip_aClockConfig/25 (addr) g_pin_mux_InitConfigArr0/27 (addr) CAN0_ORED_0_31_MB_IRQHandler/30 (addr) tx_info/7 (write) rx_info/6 (write) tx_info/7 (addr) dummyData/3 (addr) rxData/5 (addr) systemid/2 (read) tx_info/7 (addr) dummyData/3 (addr) JumpBootState/8 (read) 
+  Referring: 
+  Function flags: body
+  Called by: 
+  Calls: JumpToBoot/15 FlexCAN_Ip_Deinit_Privileged/33 FlexCAN_Ip_SetStopMode_Privileged/32 IntCtrl_Ip_DisableIrq/31 delay_ms/13 FlexCAN_Ip_Send/16 FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 setupCan/10 IntCtrl_Ip_InstallHandler/29 IntCtrl_Ip_EnableIrq/28 Siul2_Port_Ip_Init/26 Clock_Ip_Init/24 
+setupCan/10 (setupCan) @064f4380
+  Type: function definition analyzed
+  Visibility: force_output no_reorder
+  References: FlexCAN_State0/20 (addr) FlexCAN_Config0/21 (addr) systemid/2 (read) rx_info/6 (addr) 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: FlexCAN_Ip_SetStartMode_Privileged/23 FlexCAN_Ip_ConfigRxMb/22 FlexCAN_Ip_Init_Privileged/19 Siul2_Dio_Ip_WritePin/18 Siul2_Dio_Ip_WritePin/18 
+flexcan0_Callback/9 (flexcan0_Callback) @064f4000
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: rxData/5 (addr) tx_info/7 (addr) AppStartData/4 (addr) JumpBootState/8 (write) systemid/2 (read) tx_info/7 (addr) rxData/5 (addr) rxData/5 (addr) 
+  Referring: 
+  Function flags: body
+  Called by: 
+  Calls: FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 FlexCAN_Ip_Send/16 Comparator/12 
+JumpBootState/8 (JumpBootState) @064ef318
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (write) main/11 (read) 
+  Availability: not-ready
+  Varpool flags:
+tx_info/7 (tx_info) @064ef168
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (write) main/11 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+rx_info/6 (rx_info) @064ef120
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: setupCan/10 (addr) main/11 (write) 
+  Availability: not-ready
+  Varpool flags: initialized
+rxData/5 (rxData) @064ef0d8
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags:
+AppStartData/4 (AppStartData) @064ef048
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+dummyData/3 (dummyData) @06aedf30
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: main/11 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+systemid/2 (systemid) @06aede58
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (read) setupCan/10 (read) main/11 (write) main/11 (read) 
+  Availability: not-ready
+  Varpool flags:
+exit_code/1 (exit_code) @06aeddc8
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Availability: not-ready
+  Varpool flags: initialized
+
+
+Initial Symbol table:
+
+FlexCAN_Ip_Deinit_Privileged/33 (FlexCAN_Ip_Deinit_Privileged) @06504000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStopMode_Privileged/32 (FlexCAN_Ip_SetStopMode_Privileged) @064feee0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_DisableIrq/31 (IntCtrl_Ip_DisableIrq) @064fe380
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+CAN0_ORED_0_31_MB_IRQHandler/30 (CAN0_ORED_0_31_MB_IRQHandler) @064fee00
+  Type: function
+  Visibility: external public
+  Address is taken.
+  References: 
+  Referring: main/11 (addr) 
+  Function flags:
+  Called by: 
+  Calls: 
+IntCtrl_Ip_InstallHandler/29 (IntCtrl_Ip_InstallHandler) @064fed20
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_EnableIrq/28 (IntCtrl_Ip_EnableIrq) @064fec40
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+g_pin_mux_InitConfigArr0/27 (g_pin_mux_InitConfigArr0) @06500798
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+Siul2_Port_Ip_Init/26 (Siul2_Port_Ip_Init) @064feb60
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+Clock_Ip_aClockConfig/25 (Clock_Ip_aClockConfig) @06500708
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+Clock_Ip_Init/24 (Clock_Ip_Init) @064fea80
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStartMode_Privileged/23 (FlexCAN_Ip_SetStartMode_Privileged) @064fe8c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Ip_ConfigRxMb/22 (FlexCAN_Ip_ConfigRxMb) @064fe7e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Config0/21 (FlexCAN_Config0) @06500120
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+FlexCAN_State0/20 (FlexCAN_State0) @065000d8
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not-ready
+  Varpool flags:
+FlexCAN_Ip_Init_Privileged/19 (FlexCAN_Ip_Init_Privileged) @064fe700
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+Siul2_Dio_Ip_WritePin/18 (Siul2_Dio_Ip_WritePin) @064fe620
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 setupCan/10 
+  Calls: 
+FlexCAN_Ip_Receive/17 (FlexCAN_Ip_Receive) @064fe460
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 flexcan0_Callback/9 
+  Calls: 
+FlexCAN_Ip_Send/16 (FlexCAN_Ip_Send) @064fe2a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 main/11 flexcan0_Callback/9 flexcan0_Callback/9 
+  Calls: 
+JumpToBoot/15 (JumpToBoot) @064f4a80
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+   Indirect call Num speculative call targets: 0
+JumpBootAddr/14 (JumpBootAddr) @064ef828
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Availability: not-ready
+  Varpool flags: initialized
+delay_ms/13 (delay_ms) @064f4c40
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+Comparator/12 (Comparator) @064f49a0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: flexcan0_Callback/9 
+  Calls: 
+main/11 (main) @064f4700
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: systemid/2 (write) Clock_Ip_aClockConfig/25 (addr) g_pin_mux_InitConfigArr0/27 (addr) CAN0_ORED_0_31_MB_IRQHandler/30 (addr) tx_info/7 (write) rx_info/6 (write) tx_info/7 (addr) dummyData/3 (addr) rxData/5 (addr) systemid/2 (read) tx_info/7 (addr) dummyData/3 (addr) JumpBootState/8 (read) 
+  Referring: 
+  Function flags: body
+  Called by: 
+  Calls: JumpToBoot/15 FlexCAN_Ip_Deinit_Privileged/33 FlexCAN_Ip_SetStopMode_Privileged/32 IntCtrl_Ip_DisableIrq/31 delay_ms/13 FlexCAN_Ip_Send/16 FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 setupCan/10 IntCtrl_Ip_InstallHandler/29 IntCtrl_Ip_EnableIrq/28 Siul2_Port_Ip_Init/26 Clock_Ip_Init/24 
+setupCan/10 (setupCan) @064f4380
+  Type: function definition analyzed
+  Visibility: force_output no_reorder
+  References: FlexCAN_State0/20 (addr) FlexCAN_Config0/21 (addr) systemid/2 (read) rx_info/6 (addr) 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: FlexCAN_Ip_SetStartMode_Privileged/23 FlexCAN_Ip_ConfigRxMb/22 FlexCAN_Ip_Init_Privileged/19 Siul2_Dio_Ip_WritePin/18 Siul2_Dio_Ip_WritePin/18 
+flexcan0_Callback/9 (flexcan0_Callback) @064f4000
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: rxData/5 (addr) tx_info/7 (addr) AppStartData/4 (addr) JumpBootState/8 (write) systemid/2 (read) tx_info/7 (addr) rxData/5 (addr) rxData/5 (addr) 
+  Referring: 
+  Function flags: body
+  Called by: 
+  Calls: FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 FlexCAN_Ip_Send/16 Comparator/12 
+JumpBootState/8 (JumpBootState) @064ef318
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (write) main/11 (read) 
+  Availability: not-ready
+  Varpool flags:
+tx_info/7 (tx_info) @064ef168
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (write) main/11 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+rx_info/6 (rx_info) @064ef120
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: setupCan/10 (addr) main/11 (write) 
+  Availability: not-ready
+  Varpool flags: initialized
+rxData/5 (rxData) @064ef0d8
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags:
+AppStartData/4 (AppStartData) @064ef048
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+dummyData/3 (dummyData) @06aedf30
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: main/11 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+systemid/2 (systemid) @06aede58
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (read) setupCan/10 (read) main/11 (write) main/11 (read) 
+  Availability: not-ready
+  Varpool flags:
+exit_code/1 (exit_code) @06aeddc8
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Availability: not-ready
+  Varpool flags: initialized
+
+Removing unused symbols:
+
+Reclaimed Symbol table:
+
+FlexCAN_Ip_Deinit_Privileged/33 (FlexCAN_Ip_Deinit_Privileged) @06504000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStopMode_Privileged/32 (FlexCAN_Ip_SetStopMode_Privileged) @064feee0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_DisableIrq/31 (IntCtrl_Ip_DisableIrq) @064fe380
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+CAN0_ORED_0_31_MB_IRQHandler/30 (CAN0_ORED_0_31_MB_IRQHandler) @064fee00
+  Type: function
+  Visibility: external public
+  Address is taken.
+  References: 
+  Referring: main/11 (addr) 
+  Function flags:
+  Called by: 
+  Calls: 
+IntCtrl_Ip_InstallHandler/29 (IntCtrl_Ip_InstallHandler) @064fed20
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_EnableIrq/28 (IntCtrl_Ip_EnableIrq) @064fec40
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+g_pin_mux_InitConfigArr0/27 (g_pin_mux_InitConfigArr0) @06500798
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+Siul2_Port_Ip_Init/26 (Siul2_Port_Ip_Init) @064feb60
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+Clock_Ip_aClockConfig/25 (Clock_Ip_aClockConfig) @06500708
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+Clock_Ip_Init/24 (Clock_Ip_Init) @064fea80
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStartMode_Privileged/23 (FlexCAN_Ip_SetStartMode_Privileged) @064fe8c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Ip_ConfigRxMb/22 (FlexCAN_Ip_ConfigRxMb) @064fe7e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Config0/21 (FlexCAN_Config0) @06500120
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not-ready
+  Varpool flags: read-only
+FlexCAN_State0/20 (FlexCAN_State0) @065000d8
+  Type: variable
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not-ready
+  Varpool flags:
+FlexCAN_Ip_Init_Privileged/19 (FlexCAN_Ip_Init_Privileged) @064fe700
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+Siul2_Dio_Ip_WritePin/18 (Siul2_Dio_Ip_WritePin) @064fe620
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: setupCan/10 setupCan/10 
+  Calls: 
+FlexCAN_Ip_Receive/17 (FlexCAN_Ip_Receive) @064fe460
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 flexcan0_Callback/9 
+  Calls: 
+FlexCAN_Ip_Send/16 (FlexCAN_Ip_Send) @064fe2a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Function flags:
+  Called by: main/11 main/11 flexcan0_Callback/9 flexcan0_Callback/9 
+  Calls: 
+JumpToBoot/15 (JumpToBoot) @064f4a80
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+   Indirect call Num speculative call targets: 0
+JumpBootAddr/14 (JumpBootAddr) @064ef828
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Availability: not-ready
+  Varpool flags: initialized
+delay_ms/13 (delay_ms) @064f4c40
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+Comparator/12 (Comparator) @064f49a0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Function flags: body
+  Called by: flexcan0_Callback/9 
+  Calls: 
+main/11 (main) @064f4700
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: systemid/2 (write) Clock_Ip_aClockConfig/25 (addr) g_pin_mux_InitConfigArr0/27 (addr) CAN0_ORED_0_31_MB_IRQHandler/30 (addr) tx_info/7 (write) rx_info/6 (write) tx_info/7 (addr) dummyData/3 (addr) rxData/5 (addr) systemid/2 (read) tx_info/7 (addr) dummyData/3 (addr) JumpBootState/8 (read) 
+  Referring: 
+  Function flags: body
+  Called by: 
+  Calls: JumpToBoot/15 FlexCAN_Ip_Deinit_Privileged/33 FlexCAN_Ip_SetStopMode_Privileged/32 IntCtrl_Ip_DisableIrq/31 delay_ms/13 FlexCAN_Ip_Send/16 FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 setupCan/10 IntCtrl_Ip_InstallHandler/29 IntCtrl_Ip_EnableIrq/28 Siul2_Port_Ip_Init/26 Clock_Ip_Init/24 
+setupCan/10 (setupCan) @064f4380
+  Type: function definition analyzed
+  Visibility: force_output no_reorder
+  References: FlexCAN_State0/20 (addr) FlexCAN_Config0/21 (addr) systemid/2 (read) rx_info/6 (addr) 
+  Referring: 
+  Function flags: body
+  Called by: main/11 
+  Calls: FlexCAN_Ip_SetStartMode_Privileged/23 FlexCAN_Ip_ConfigRxMb/22 FlexCAN_Ip_Init_Privileged/19 Siul2_Dio_Ip_WritePin/18 Siul2_Dio_Ip_WritePin/18 
+flexcan0_Callback/9 (flexcan0_Callback) @064f4000
+  Type: function definition analyzed
+  Visibility: force_output no_reorder public
+  References: rxData/5 (addr) tx_info/7 (addr) AppStartData/4 (addr) JumpBootState/8 (write) systemid/2 (read) tx_info/7 (addr) rxData/5 (addr) rxData/5 (addr) 
+  Referring: 
+  Function flags: body
+  Called by: 
+  Calls: FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 FlexCAN_Ip_Send/16 Comparator/12 
+JumpBootState/8 (JumpBootState) @064ef318
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (write) main/11 (read) 
+  Availability: not-ready
+  Varpool flags:
+tx_info/7 (tx_info) @064ef168
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (write) main/11 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+rx_info/6 (rx_info) @064ef120
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: setupCan/10 (addr) main/11 (write) 
+  Availability: not-ready
+  Varpool flags: initialized
+rxData/5 (rxData) @064ef0d8
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags:
+AppStartData/4 (AppStartData) @064ef048
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+dummyData/3 (dummyData) @06aedf30
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: main/11 (addr) main/11 (addr) 
+  Availability: not-ready
+  Varpool flags: initialized
+systemid/2 (systemid) @06aede58
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (read) setupCan/10 (read) main/11 (write) main/11 (read) 
+  Availability: not-ready
+  Varpool flags:
+exit_code/1 (exit_code) @06aeddc8
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder public
+  References: 
+  Referring: 
+  Availability: not-ready
+  Varpool flags: initialized
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+Optimized Symbol table:
+
+FlexCAN_Ip_Deinit_Privileged/33 (FlexCAN_Ip_Deinit_Privileged) @06504000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStopMode_Privileged/32 (FlexCAN_Ip_SetStopMode_Privileged) @064feee0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_DisableIrq/31 (IntCtrl_Ip_DisableIrq) @064fe380
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+CAN0_ORED_0_31_MB_IRQHandler/30 (CAN0_ORED_0_31_MB_IRQHandler) @064fee00
+  Type: function
+  Visibility: external public
+  Address is taken.
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+IntCtrl_Ip_InstallHandler/29 (IntCtrl_Ip_InstallHandler) @064fed20
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_EnableIrq/28 (IntCtrl_Ip_EnableIrq) @064fec40
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+g_pin_mux_InitConfigArr0/27 (g_pin_mux_InitConfigArr0) @06500798
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not_available
+  Varpool flags: read-only
+Siul2_Port_Ip_Init/26 (Siul2_Port_Ip_Init) @064feb60
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+Clock_Ip_aClockConfig/25 (Clock_Ip_aClockConfig) @06500708
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_Init/24 (Clock_Ip_Init) @064fea80
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStartMode_Privileged/23 (FlexCAN_Ip_SetStartMode_Privileged) @064fe8c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Ip_ConfigRxMb/22 (FlexCAN_Ip_ConfigRxMb) @064fe7e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Config0/21 (FlexCAN_Config0) @06500120
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not_available
+  Varpool flags: read-only
+FlexCAN_State0/20 (FlexCAN_State0) @065000d8
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not_available
+  Varpool flags:
+FlexCAN_Ip_Init_Privileged/19 (FlexCAN_Ip_Init_Privileged) @064fe700
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+Siul2_Dio_Ip_WritePin/18 (Siul2_Dio_Ip_WritePin) @064fe620
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: setupCan/10 setupCan/10 
+  Calls: 
+FlexCAN_Ip_Receive/17 (FlexCAN_Ip_Receive) @064fe460
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 flexcan0_Callback/9 
+  Calls: 
+FlexCAN_Ip_Send/16 (FlexCAN_Ip_Send) @064fe2a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 main/11 flexcan0_Callback/9 flexcan0_Callback/9 
+  Calls: 
+JumpToBoot/15 (JumpToBoot) @064f4a80
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+   Indirect call Num speculative call targets: 0
+JumpBootAddr/14 (JumpBootAddr) @064ef828
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized
+delay_ms/13 (delay_ms) @064f4c40
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+Comparator/12 (Comparator) @064f49a0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: flexcan0_Callback/9 
+  Calls: 
+main/11 (main) @064f4700
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: systemid/2 (write) Clock_Ip_aClockConfig/25 (addr) g_pin_mux_InitConfigArr0/27 (addr) CAN0_ORED_0_31_MB_IRQHandler/30 (addr) tx_info/7 (write) rx_info/6 (write) tx_info/7 (addr) dummyData/3 (addr) rxData/5 (addr) systemid/2 (read) tx_info/7 (addr) dummyData/3 (addr) JumpBootState/8 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: JumpToBoot/15 FlexCAN_Ip_Deinit_Privileged/33 FlexCAN_Ip_SetStopMode_Privileged/32 IntCtrl_Ip_DisableIrq/31 delay_ms/13 FlexCAN_Ip_Send/16 FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 setupCan/10 IntCtrl_Ip_InstallHandler/29 IntCtrl_Ip_EnableIrq/28 Siul2_Port_Ip_Init/26 Clock_Ip_Init/24 
+setupCan/10 (setupCan) @064f4380
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: FlexCAN_State0/20 (addr) FlexCAN_Config0/21 (addr) systemid/2 (read) rx_info/6 (addr) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: main/11 
+  Calls: FlexCAN_Ip_SetStartMode_Privileged/23 FlexCAN_Ip_ConfigRxMb/22 FlexCAN_Ip_Init_Privileged/19 Siul2_Dio_Ip_WritePin/18 Siul2_Dio_Ip_WritePin/18 
+flexcan0_Callback/9 (flexcan0_Callback) @064f4000
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: rxData/5 (addr) tx_info/7 (addr) AppStartData/4 (addr) JumpBootState/8 (write) systemid/2 (read) tx_info/7 (addr) rxData/5 (addr) rxData/5 (addr) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 FlexCAN_Ip_Send/16 Comparator/12 
+JumpBootState/8 (JumpBootState) @064ef318
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (write) main/11 (read) 
+  Availability: available
+  Varpool flags:
+tx_info/7 (tx_info) @064ef168
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (write) main/11 (addr) main/11 (addr) 
+  Availability: available
+  Varpool flags: initialized
+rx_info/6 (rx_info) @064ef120
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: setupCan/10 (addr) main/11 (write) 
+  Availability: available
+  Varpool flags: initialized
+rxData/5 (rxData) @064ef0d8
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (addr) 
+  Availability: available
+  Varpool flags:
+AppStartData/4 (AppStartData) @064ef048
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) 
+  Availability: available
+  Varpool flags: initialized
+dummyData/3 (dummyData) @06aedf30
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: main/11 (addr) main/11 (addr) 
+  Availability: available
+  Varpool flags: initialized
+systemid/2 (systemid) @06aede58
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (read) setupCan/10 (read) main/11 (write) main/11 (read) 
+  Availability: available
+  Varpool flags:
+exit_code/1 (exit_code) @06aeddc8
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized
+Materializing clones
+Materialization Call site updates done.
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+Trivially needed variables: JumpBootAddr/14 JumpBootState/8 tx_info/7 rx_info/6 rxData/5 AppStartData/4 dummyData/3 systemid/2 exit_code/1
+Removing variables:
+
+Final Symbol table:
+
+FlexCAN_Ip_Deinit_Privileged/33 (FlexCAN_Ip_Deinit_Privileged) @06504000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+FlexCAN_Ip_SetStopMode_Privileged/32 (FlexCAN_Ip_SetStopMode_Privileged) @064feee0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+IntCtrl_Ip_DisableIrq/31 (IntCtrl_Ip_DisableIrq) @064fe380
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+CAN0_ORED_0_31_MB_IRQHandler/30 (CAN0_ORED_0_31_MB_IRQHandler) @064fee00
+  Type: function
+  Visibility: external public
+  Address is taken.
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+IntCtrl_Ip_InstallHandler/29 (IntCtrl_Ip_InstallHandler) @064fed20
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+IntCtrl_Ip_EnableIrq/28 (IntCtrl_Ip_EnableIrq) @064fec40
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+g_pin_mux_InitConfigArr0/27 (g_pin_mux_InitConfigArr0) @06500798
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Varpool flags: read-only
+Siul2_Port_Ip_Init/26 (Siul2_Port_Ip_Init) @064feb60
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+Clock_Ip_aClockConfig/25 (Clock_Ip_aClockConfig) @06500708
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_Init/24 (Clock_Ip_Init) @064fea80
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+FlexCAN_Ip_SetStartMode_Privileged/23 (FlexCAN_Ip_SetStartMode_Privileged) @064fe8c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+FlexCAN_Ip_ConfigRxMb/22 (FlexCAN_Ip_ConfigRxMb) @064fe7e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+FlexCAN_Config0/21 (FlexCAN_Config0) @06500120
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Varpool flags: read-only
+FlexCAN_State0/20 (FlexCAN_State0) @065000d8
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Varpool flags:
+FlexCAN_Ip_Init_Privileged/19 (FlexCAN_Ip_Init_Privileged) @064fe700
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+Siul2_Dio_Ip_WritePin/18 (Siul2_Dio_Ip_WritePin) @064fe620
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+FlexCAN_Ip_Receive/17 (FlexCAN_Ip_Receive) @064fe460
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+FlexCAN_Ip_Send/16 (FlexCAN_Ip_Send) @064fe2a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+JumpToBoot/15 (JumpToBoot) @064f4a80
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags:
+  Called by: 
+  Calls: 
+JumpBootAddr/14 (JumpBootAddr) @064ef828
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  Aux: @00000001
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized
+delay_ms/13 (delay_ms) @064f4c40
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags:
+  Called by: 
+  Calls: 
+Comparator/12 (Comparator) @064f49a0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags:
+  Called by: 
+  Calls: 
+main/11 (main) @064f4700
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags:
+  Called by: 
+  Calls: 
+setupCan/10 (setupCan) @064f4380
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly asm_written
+  References: 
+  Referring: 
+  Availability: available
+  Function flags:
+  Called by: 
+  Calls: 
+flexcan0_Callback/9 (flexcan0_Callback) @064f4000
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags:
+  Called by: 
+  Calls: 
+JumpBootState/8 (JumpBootState) @064ef318
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  Aux: @064ef828
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags:
+tx_info/7 (tx_info) @064ef168
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  Aux: @064ef318
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized
+rx_info/6 (rx_info) @064ef120
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  Aux: @064ef168
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized
+rxData/5 (rxData) @064ef0d8
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  Aux: @064ef120
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags:
+AppStartData/4 (AppStartData) @064ef048
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  Aux: @064ef0d8
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized
+dummyData/3 (dummyData) @06aedf30
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  Aux: @064ef048
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized
+systemid/2 (systemid) @06aede58
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  Aux: @06aedf30
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags:
+exit_code/1 (exit_code) @06aeddc8
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder asm_written public
+  Aux: @06aede58
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized

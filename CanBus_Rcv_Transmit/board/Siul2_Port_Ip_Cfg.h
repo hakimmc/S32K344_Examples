@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7 
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
-*   Peripheral           : SIUL2
+*   Peripheral           : S32K3XX
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_AUTOSAR_4_4_-_R21-11_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2021 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -50,9 +51,9 @@ extern "C"{
 ==================================================================================================*/
 #define SIUL2_PORT_IP_VENDOR_ID_CFG_H                       43
 #define SIUL2_PORT_IP_AR_RELEASE_MAJOR_VERSION_CFG_H        4
-#define SIUL2_PORT_IP_AR_RELEASE_MINOR_VERSION_CFG_H        7
+#define SIUL2_PORT_IP_AR_RELEASE_MINOR_VERSION_CFG_H        4
 #define SIUL2_PORT_IP_AR_RELEASE_REVISION_VERSION_CFG_H     0
-#define SIUL2_PORT_IP_SW_MAJOR_VERSION_CFG_H                3
+#define SIUL2_PORT_IP_SW_MAJOR_VERSION_CFG_H                2
 #define SIUL2_PORT_IP_SW_MINOR_VERSION_CFG_H                0
 #define SIUL2_PORT_IP_SW_PATCH_VERSION_CFG_H                0
 
@@ -84,9 +85,9 @@ extern "C"{
 /*==================================================================================================
                                       DEFINES AND MACROS
 ==================================================================================================*/
-#define SIUL2_MSCR_SSS_MASK                      (0xFU)
+#define SIUL2_MSCR_SSS_MASK                      (0x7U)
 #define SIUL2_MSCR_SSS_SHIFT                     (0U)
-#define SIUL2_MSCR_SSS_WIDTH                     (4U)
+#define SIUL2_MSCR_SSS_WIDTH                     (3U)
 #define SIUL2_MSCR_SSS(x)                        (((uint32)(((uint32)(x)) << SIUL2_MSCR_SSS_SHIFT)) & SIUL2_MSCR_SSS_MASK)
 
 #define SIUL2_MSCR_SRE_MASK                      (0x4000U)
@@ -98,7 +99,7 @@ extern "C"{
 /*! @brief Definitions for BOARD_InitPins Functional Group */
 
 /*! @brief User number of configured pins */
-#define NUM_OF_CONFIGURED_PINS0 7
+#define NUM_OF_CONFIGURED_PINS0 5
 
 #define PORT_START_SEC_CONFIG_DATA_UNSPECIFIED
 #include "Port_MemMap.h"
@@ -110,18 +111,16 @@ extern const Siul2_Port_Ip_PinSettingsConfig g_pin_mux_InitConfigArr0[NUM_OF_CON
 #include "Port_MemMap.h"
 
 /*! @brief Defines for user pin and port configurations */
-#define LED_GRN_PIN             1u
-#define LED_GRN_PORT            PTC_L_HALF
-#define LED_RED_PIN             5u
-#define LED_RED_PORT            PTA_H_HALF
-#define CAN0RX_VCU_CAN_PIN      0u
-#define CAN0RX_VCU_CAN_PORT     PTB_L_HALF
-#define CAN2TX_PIN              1u
-#define CAN2TX_PORT             PTC_H_HALF
-#define CAN2RX_PIN              0u
-#define CAN2RX_PORT             PTC_H_HALF
-#define CAN2_STBY_PIN           9u
-#define CAN2_STBY_PORT          PTD_L_HALF
+#define CAN0_RX_PIN             6u
+#define CAN0_RX_PORT            PTA_L_HALF
+#define CAN0_TX_PIN             7u
+#define CAN0_TX_PORT            PTA_L_HALF
+#define CAN0_ERR_PIN            13u
+#define CAN0_ERR_PORT           PTC_H_HALF
+#define CAN0_EN_PIN             14u
+#define CAN0_EN_PORT            PTC_H_HALF
+#define CAN0_STB_PIN            12u
+#define CAN0_STB_PORT           PTG_L_HALF
 
 /*==================================================================================================
                                            ENUMS

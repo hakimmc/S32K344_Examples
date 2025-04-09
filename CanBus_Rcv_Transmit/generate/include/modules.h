@@ -1,16 +1,17 @@
 /*==================================================================================================
-* Project : RTD AUTOSAR 4.7
+* Project : RTD AUTOSAR 4.4
 * Platform : CORTEXM
 * Peripheral : S32K3XX
 * Dependencies : none
 *
-* Autosar Version : 4.7.0
-* Autosar Revision : ASR_REL_4_7_REV_0000
+* Autosar Version : 4.4.0
+* Autosar Revision : ASR_REL_4_4_REV_0000
 * Autosar Conf.Variant :
-* SW Version : 3.0.0
-* Build Version : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+* SW Version : 2.0.0
+* Build Version : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-* Copyright 2020 - 2023 NXP Semiconductors.
+* (c) Copyright 2020 - 2022 NXP Semiconductors
+* All Rights Reserved.
 *
 * NXP Confidential. This software is owned or controlled by NXP and may only be
 * used strictly in accordance with the applicable license terms. By expressly
@@ -28,7 +29,7 @@
 /**
 *   @file    modules.h
 
-*   @addtogroup BASENXP_COMPONENT
+*   @addtogroup BASE_COMPONENT
 *   @{
 */
 
@@ -60,9 +61,9 @@ extern "C" {
 #define MODULES_VENDOR_ID                       43
 #define MODULES_MODULE_ID                       0
 #define MODULES_AR_RELEASE_MAJOR_VERSION_H      4
-#define MODULES_AR_RELEASE_MINOR_VERSION_H      7
+#define MODULES_AR_RELEASE_MINOR_VERSION_H      4
 #define MODULES_AR_RELEASE_REVISION_VERSION_H   0
-#define MODULES_SW_MAJOR_VERSION_H              3
+#define MODULES_SW_MAJOR_VERSION_H              2
 #define MODULES_SW_MINOR_VERSION_H              0
 #define MODULES_SW_PATCH_VERSION_H              0
 /**@}*/
@@ -92,16 +93,6 @@ extern "C" {
 * @brief This constant used for other modules to check if CAN is present in the project.   
 */
 #define USE_CAN_MODULE              (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if CAN_43_FLEXCAN is present in the project.   
-*/
-#define USE_CAN_43_FLEXCAN_MODULE              (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if CAN_43_CANEXCEL is present in the project.   
-*/
-#define USE_CAN_43_CANEXCEL_MODULE              (STD_OFF)
 
 /** 
 * @brief This constant used for other modules to check if CAN_43_LLCE is present in the project.   
@@ -179,16 +170,6 @@ extern "C" {
 #define USE_LIN_MODULE              (STD_OFF)
 
 /** 
-* @brief This constant used for other modules to check if Lin_43_LINFLEXD is present in the project.   
-*/
-#define USE_LIN_43_LINFLEXD_MODULE              (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if Lin_43_LPUART_FLEXIO is present in the project.   
-*/
-#define USE_LIN_43_LPUART_FLEXIO_MODULE              (STD_OFF)
-
-/** 
 * @brief This constant used for other modules to check if LIN_43_LLCE is present in the project.   
 */
 #define USE_LIN_43_LLCE_MODULE      (STD_OFF)
@@ -241,111 +222,42 @@ extern "C" {
 * @brief This constant used for other modules to check if WDG Instance 1 is present in the project.   
 */
 #define USE_WDG_INSTANCE1           (STD_OFF)
-
 /** 
 * @brief This constant used for other modules to check if WDG Instance 2 is present in the project.   
 */
 #define USE_WDG_INSTANCE2           (STD_OFF)
-
 /** 
 * @brief This constant used for other modules to check if WDG Instance 3 is present in the project.   
 */
 #define USE_WDG_INSTANCE3           (STD_OFF)
-
 /** 
 * @brief This constant used for other modules to check if WDG Instance 4 is present in the project.   
 */
 #define USE_WDG_INSTANCE4           (STD_OFF)
-
 /** 
 * @brief This constant used for other modules to check if WDG Instance 5 is present in the project.   
 */
 #define USE_WDG_INSTANCE5           (STD_OFF)
-
 /** 
 * @brief This constant used for other modules to check if WDG Instance 6 is present in the project.   
 */
 #define USE_WDG_INSTANCE6           (STD_OFF)
-
 /** 
 * @brief This constant used for other modules to check if WDG Instance 7 is present in the project.   
 */
 #define USE_WDG_INSTANCE7           (STD_OFF)
-
 /** 
 * @brief This constant used for other modules to check if WDG Instance 8 is present in the project.   
 */
 #define USE_WDG_INSTANCE8           (STD_OFF)
-
 /** 
 * @brief This constant used for other modules to check if WDG Instance 9 is present in the project.   
 */
 #define USE_WDG_INSTANCE9           (STD_OFF)
-
 /** 
 * @brief This constant used for other modules to check if WDG Instance 10 is present in the project.   
 */
 #define USE_WDG_INSTANCE10           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 11 is present in the project.   
-*/
-#define USE_WDG_INSTANCE11           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 12 is present in the project.   
-*/
-#define USE_WDG_INSTANCE12           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 13 is present in the project.   
-*/
-#define USE_WDG_INSTANCE13           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 14 is present in the project.   
-*/
-#define USE_WDG_INSTANCE14           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 15 is present in the project.   
-*/
-#define USE_WDG_INSTANCE15           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 16 is present in the project.   
-*/
-#define USE_WDG_INSTANCE16           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 17 is present in the project.   
-*/
-#define USE_WDG_INSTANCE17           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 18 is present in the project.   
-*/
-#define USE_WDG_INSTANCE18           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 19 is present in the project.   
-*/
-#define USE_WDG_INSTANCE19           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 20 is present in the project.   
-*/
-#define USE_WDG_INSTANCE20           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if WDG Instance 21 is present in the project.   
-*/
-#define USE_WDG_INSTANCE21           (STD_OFF)
-
-/** 
-* @brief This constant used for other modules to check if any WDG Instance is present in the project.
-*/#define USE_WDG_INSTANCE_ANY       (STD_OFF)
-
 /** 
 * @brief This constant used for other modules to check if Wdg_43_VR5510 is present in the project.   
 */

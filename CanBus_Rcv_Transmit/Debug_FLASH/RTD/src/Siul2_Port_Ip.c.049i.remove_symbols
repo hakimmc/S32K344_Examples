@@ -1,0 +1,1203 @@
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+Symbol table:
+
+SchM_Exit_Port_PORT_EXCLUSIVE_AREA_04/22 (SchM_Exit_Port_PORT_EXCLUSIVE_AREA_04) @06d579a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Siul2_Port_Ip_SetPinDirection/12 
+  Calls: 
+SchM_Enter_Port_PORT_EXCLUSIVE_AREA_04/21 (SchM_Enter_Port_PORT_EXCLUSIVE_AREA_04) @06d578c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Siul2_Port_Ip_SetPinDirection/12 
+  Calls: 
+SchM_Exit_Port_PORT_EXCLUSIVE_AREA_03/20 (SchM_Exit_Port_PORT_EXCLUSIVE_AREA_03) @06d57700
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Siul2_Port_Ip_SetInputBuffer/11 
+  Calls: 
+SchM_Enter_Port_PORT_EXCLUSIVE_AREA_03/19 (SchM_Enter_Port_PORT_EXCLUSIVE_AREA_03) @06d57620
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Siul2_Port_Ip_SetInputBuffer/11 
+  Calls: 
+SchM_Exit_Port_PORT_EXCLUSIVE_AREA_02/18 (SchM_Exit_Port_PORT_EXCLUSIVE_AREA_02) @06d57460
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Siul2_Port_Ip_SetOutputBuffer/10 
+  Calls: 
+SchM_Enter_Port_PORT_EXCLUSIVE_AREA_02/17 (SchM_Enter_Port_PORT_EXCLUSIVE_AREA_02) @06d57380
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Siul2_Port_Ip_SetOutputBuffer/10 
+  Calls: 
+SchM_Exit_Port_PORT_EXCLUSIVE_AREA_01/16 (SchM_Exit_Port_PORT_EXCLUSIVE_AREA_01) @06d571c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Siul2_Port_Ip_SetPullSel/9 
+  Calls: 
+SchM_Enter_Port_PORT_EXCLUSIVE_AREA_01/15 (SchM_Enter_Port_PORT_EXCLUSIVE_AREA_01) @06d570e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Siul2_Port_Ip_SetPullSel/9 
+  Calls: 
+Siul2_Port_Ip_GetPinConfiguration/14 (Siul2_Port_Ip_GetPinConfiguration) @06d498c0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: pPort_Setting/2 (read) u32MaxPinConfigured/3 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Siul2_Port_Ip_GetMSCRConfiguration/7 DevAssert/0 DevAssert/0 
+Siul2_Port_Ip_RevertPinConfiguration/13 (Siul2_Port_Ip_RevertPinConfiguration) @06d49540
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: pPort_Setting/2 (read) u32MaxPinConfigured/3 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Siul2_Port_Ip_PinInit/4 DevAssert/0 DevAssert/0 
+Siul2_Port_Ip_SetPinDirection/12 (Siul2_Port_Ip_SetPinDirection) @06d491c0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: SchM_Exit_Port_PORT_EXCLUSIVE_AREA_04/22 SchM_Enter_Port_PORT_EXCLUSIVE_AREA_04/21 DevAssert/0 DevAssert/0 
+Siul2_Port_Ip_SetInputBuffer/11 (Siul2_Port_Ip_SetInputBuffer) @06ce8540
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: SchM_Exit_Port_PORT_EXCLUSIVE_AREA_03/20 SchM_Enter_Port_PORT_EXCLUSIVE_AREA_03/19 DevAssert/0 
+Siul2_Port_Ip_SetOutputBuffer/10 (Siul2_Port_Ip_SetOutputBuffer) @06ce8d20
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: SchM_Exit_Port_PORT_EXCLUSIVE_AREA_02/18 SchM_Enter_Port_PORT_EXCLUSIVE_AREA_02/17 DevAssert/0 DevAssert/0 
+Siul2_Port_Ip_SetPullSel/9 (Siul2_Port_Ip_SetPullSel) @06ce87e0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: SchM_Exit_Port_PORT_EXCLUSIVE_AREA_01/16 DevAssert/0 SchM_Enter_Port_PORT_EXCLUSIVE_AREA_01/15 DevAssert/0 DevAssert/0 
+Siul2_Port_Ip_Init/8 (Siul2_Port_Ip_Init) @06ce8460
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: pPort_Setting/2 (write) u32MaxPinConfigured/3 (write) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Siul2_Port_Ip_PinInit/4 
+Siul2_Port_Ip_GetMSCRConfiguration/7 (Siul2_Port_Ip_GetMSCRConfiguration) @06ce81c0
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: Siul2_Port_Ip_GetPinConfiguration/14 
+  Calls: 
+Siul2_Port_Ip_WriteIMCRConfiguration/6 (Siul2_Port_Ip_WriteIMCRConfiguration) @06cdee00
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: Siul2_Port_Ip_PinInit/4 
+  Calls: 
+Siul2_Port_Ip_WriteDCMConfiguration/5 (Siul2_Port_Ip_WriteDCMConfiguration) @06cded20
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: Siul2_Port_Ip_PinInit/4 
+  Calls: 
+Siul2_Port_Ip_PinInit/4 (Siul2_Port_Ip_PinInit) @06cdea80
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: Siul2_Port_Ip_RevertPinConfiguration/13 Siul2_Port_Ip_Init/8 
+  Calls: Siul2_Port_Ip_WriteDCMConfiguration/5 Siul2_Port_Ip_WriteIMCRConfiguration/6 DevAssert/0 DevAssert/0 
+u32MaxPinConfigured/3 (u32MaxPinConfigured) @06bfb5a0
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: 
+  Referring: Siul2_Port_Ip_Init/8 (write) Siul2_Port_Ip_RevertPinConfiguration/13 (read) Siul2_Port_Ip_GetPinConfiguration/14 (read) 
+  Availability: available
+  Varpool flags:
+pPort_Setting/2 (pPort_Setting) @06bfb510
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: 
+  Referring: Siul2_Port_Ip_Init/8 (write) Siul2_Port_Ip_RevertPinConfiguration/13 (read) Siul2_Port_Ip_GetPinConfiguration/14 (read) 
+  Availability: available
+  Varpool flags:
+Port_au32Siul2BaseAddr/1 (Port_au32Siul2BaseAddr) @06bfb480
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized read-only const-value-known
+DevAssert/0 (DevAssert) @06c0cb60
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: Siul2_Port_Ip_GetPinConfiguration/14 Siul2_Port_Ip_GetPinConfiguration/14 Siul2_Port_Ip_RevertPinConfiguration/13 Siul2_Port_Ip_RevertPinConfiguration/13 Siul2_Port_Ip_SetPinDirection/12 Siul2_Port_Ip_SetPinDirection/12 Siul2_Port_Ip_SetInputBuffer/11 Siul2_Port_Ip_SetOutputBuffer/10 Siul2_Port_Ip_SetOutputBuffer/10 Siul2_Port_Ip_SetPullSel/9 Siul2_Port_Ip_SetPullSel/9 Siul2_Port_Ip_SetPullSel/9 Siul2_Port_Ip_PinInit/4 Siul2_Port_Ip_PinInit/4 
+  Calls: 
+Siul2_Port_Ip_GetPinConfiguration (const struct Siul2_Port_Ip_PortType * const base, struct Siul2_Port_Ip_PinSettingsConfig * config, uint16 pin)
+{
+  uint8 inputMuxIterator;
+  uint16 u16PinIdx;
+  uint32 u32MscrBase;
+  uint32 u32MscrId;
+  uint32 portNumber;
+  uint32 MaxPinConfigured;
+  const struct Siul2_Port_Ip_PinSettingsConfig * ConfigPtr;
+  _Bool _1;
+  _Bool _2;
+  long unsigned int base.7_3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  unsigned int _7;
+  unsigned int _8;
+  const struct Siul2_Port_Ip_PinSettingsConfig * _9;
+  long unsigned int _10;
+  unsigned int _11;
+  unsigned int _12;
+  const struct Siul2_Port_Ip_PinSettingsConfig * _13;
+  struct SIUL2_Type * _14;
+  unsigned int _15;
+  unsigned int _16;
+  const struct Siul2_Port_Ip_PinSettingsConfig * _17;
+  long unsigned int _18;
+  unsigned int _19;
+  unsigned int _20;
+  const struct Siul2_Port_Ip_PinSettingsConfig * _21;
+  unsigned char _22;
+  unsigned int _23;
+  unsigned int _24;
+  const struct Siul2_Port_Ip_PinSettingsConfig * _25;
+  int _26;
+  int _27;
+  long unsigned int _28;
+  unsigned int _29;
+  unsigned int _30;
+  const struct Siul2_Port_Ip_PinSettingsConfig * _31;
+  int _32;
+  int _33;
+  <unnamed type> _34;
+  unsigned char inputMuxIterator.8_35;
+  short unsigned int u16PinIdx.9_36;
+  long unsigned int _37;
+
+  <bb 2> :
+  ConfigPtr_43 = pPort_Setting;
+  MaxPinConfigured_44 = u32MaxPinConfigured;
+  _1 = base_45(D) != 0B;
+  DevAssert (_1);
+  _2 = pin_47(D) <= 15;
+  DevAssert (_2);
+  u32MscrBase_49 = 1076429376;
+  base.7_3 = (long unsigned int) base_45(D);
+  _4 = base.7_3 - u32MscrBase_49;
+  portNumber_50 = _4 / 64;
+  _5 = portNumber_50 << 4;
+  _6 = (long unsigned int) pin_47(D);
+  u32MscrId_51 = _5 + _6;
+  u16PinIdx_52 = 0;
+  goto <bb 9>; [INV]
+
+  <bb 3> :
+  _7 = (unsigned int) u16PinIdx_38;
+  _8 = _7 * 124;
+  _9 = ConfigPtr_43 + _8;
+  _10 = _9->pinPortIdx;
+  if (u32MscrId_51 == _10)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 4> :
+  _11 = (unsigned int) u16PinIdx_38;
+  _12 = _11 * 124;
+  _13 = ConfigPtr_43 + _12;
+  _14 = _13->base;
+  config_54(D)->base = _14;
+  _15 = (unsigned int) u16PinIdx_38;
+  _16 = _15 * 124;
+  _17 = ConfigPtr_43 + _16;
+  _18 = _17->pinPortIdx;
+  config_54(D)->pinPortIdx = _18;
+  _19 = (unsigned int) u16PinIdx_38;
+  _20 = _19 * 124;
+  _21 = ConfigPtr_43 + _20;
+  _22 = _21->initValue;
+  config_54(D)->initValue = _22;
+  inputMuxIterator_58 = 0;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  _23 = (unsigned int) u16PinIdx_38;
+  _24 = _23 * 124;
+  _25 = ConfigPtr_43 + _24;
+  _26 = (int) inputMuxIterator_39;
+  _27 = (int) inputMuxIterator_39;
+  _28 = _25->inputMuxReg[_26];
+  config_54(D)->inputMuxReg[_27] = _28;
+  _29 = (unsigned int) u16PinIdx_38;
+  _30 = _29 * 124;
+  _31 = ConfigPtr_43 + _30;
+  _32 = (int) inputMuxIterator_39;
+  _33 = (int) inputMuxIterator_39;
+  _34 = _31->inputMux[_32];
+  config_54(D)->inputMux[_33] = _34;
+  inputMuxIterator.8_35 = inputMuxIterator_39;
+  inputMuxIterator_62 = inputMuxIterator.8_35 + 1;
+
+  <bb 6> :
+  # inputMuxIterator_39 = PHI <inputMuxIterator_58(4), inputMuxIterator_62(5)>
+  if (inputMuxIterator_39 <= 7)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 7> :
+  Siul2_Port_Ip_GetMSCRConfiguration (config_54(D), base_45(D), pin_47(D));
+  goto <bb 10>; [INV]
+
+  <bb 8> :
+  u16PinIdx.9_36 = u16PinIdx_38;
+  u16PinIdx_53 = u16PinIdx.9_36 + 1;
+
+  <bb 9> :
+  # u16PinIdx_38 = PHI <u16PinIdx_52(2), u16PinIdx_53(8)>
+  _37 = (long unsigned int) u16PinIdx_38;
+  if (MaxPinConfigured_44 > _37)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 10> :
+  return;
+
+}
+
+
+Siul2_Port_Ip_RevertPinConfiguration (const struct Siul2_Port_Ip_PortType * const base, uint16 pin)
+{
+  uint32 u32MscrId;
+  uint32 portNumber;
+  uint32 MaxPinConfigured;
+  const struct Siul2_Port_Ip_PinSettingsConfig * ConfigPtr;
+  uint32 u32RegVal;
+  uint16 u16PinIdx;
+  uint32 D.6688;
+  _Bool _1;
+  _Bool _2;
+  long unsigned int base.5_3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  unsigned int _7;
+  unsigned int _8;
+  const struct Siul2_Port_Ip_PinSettingsConfig * _9;
+  long unsigned int _10;
+  unsigned int _11;
+  unsigned int _12;
+  const struct Siul2_Port_Ip_PinSettingsConfig * _13;
+  int _14;
+  short unsigned int u16PinIdx.6_15;
+  long unsigned int _16;
+  uint32 _34;
+
+  <bb 2> :
+  u32RegVal_20 = 4294967295;
+  ConfigPtr_22 = pPort_Setting;
+  MaxPinConfigured_23 = u32MaxPinConfigured;
+  _1 = base_24(D) != 0B;
+  DevAssert (_1);
+  _2 = pin_26(D) <= 15;
+  DevAssert (_2);
+  base.5_3 = (long unsigned int) base_24(D);
+  _4 = base.5_3 + 3218537920;
+  portNumber_28 = _4 >> 6;
+  _5 = portNumber_28 << 4;
+  _6 = (long unsigned int) pin_26(D);
+  u32MscrId_29 = _5 + _6;
+  u16PinIdx_30 = 0;
+  goto <bb 6>; [INV]
+
+  <bb 3> :
+  _7 = (unsigned int) u16PinIdx_17;
+  _8 = _7 * 124;
+  _9 = ConfigPtr_22 + _8;
+  _10 = _9->pinPortIdx;
+  if (u32MscrId_29 == _10)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  _11 = (unsigned int) u16PinIdx_17;
+  _12 = _11 * 124;
+  _13 = ConfigPtr_22 + _12;
+  Siul2_Port_Ip_PinInit (_13);
+  _14 = (int) pin_26(D);
+  u32RegVal_33 ={v} base_24(D)->MSCR[_14];
+  goto <bb 7>; [INV]
+
+  <bb 5> :
+  u16PinIdx.6_15 = u16PinIdx_17;
+  u16PinIdx_31 = u16PinIdx.6_15 + 1;
+
+  <bb 6> :
+  # u16PinIdx_17 = PHI <u16PinIdx_30(2), u16PinIdx_31(5)>
+  _16 = (long unsigned int) u16PinIdx_17;
+  if (MaxPinConfigured_23 > _16)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 7> :
+  # u32RegVal_18 = PHI <u32RegVal_33(4), u32RegVal_20(6)>
+  _34 = u32RegVal_18;
+
+  <bb 8> :
+<L5>:
+  return _34;
+
+}
+
+
+Siul2_Port_Ip_SetPinDirection (struct Siul2_Port_Ip_PortType * const base, uint16 pin, Siul2_Port_Ip_PortDirectionType direction)
+{
+  _Bool _1;
+  _Bool _2;
+  int _3;
+  long unsigned int _4;
+  int _5;
+  long unsigned int _6;
+  int _7;
+  long unsigned int _8;
+  int _9;
+  long unsigned int _10;
+  int _11;
+  long unsigned int _12;
+  int _13;
+  long unsigned int _14;
+  int _15;
+  long unsigned int _16;
+  int _17;
+  long unsigned int _18;
+  int _19;
+  long unsigned int _20;
+  int _21;
+  long unsigned int _22;
+  int _23;
+  long unsigned int _24;
+  int _25;
+  long unsigned int _26;
+
+  <bb 2> :
+  _1 = base_28(D) != 0B;
+  DevAssert (_1);
+  _2 = pin_31(D) <= 15;
+  DevAssert (_2);
+  SchM_Enter_Port_PORT_EXCLUSIVE_AREA_04 ();
+  switch (direction_34(D)) <default: <L4> [INV], case 0: <L0> [INV], case 1: <L1> [INV], case 2: <L2> [INV], case 3: <L3> [INV]>
+
+  <bb 3> :
+<L0>:
+  _3 = (int) pin_31(D);
+  _4 ={v} base_28(D)->MSCR[_3];
+  _5 = (int) pin_31(D);
+  _6 = _4 & 4292870143;
+  base_28(D)->MSCR[_5] ={v} _6;
+  _7 = (int) pin_31(D);
+  _8 ={v} base_28(D)->MSCR[_7];
+  _9 = (int) pin_31(D);
+  _10 = _8 | 524288;
+  base_28(D)->MSCR[_9] ={v} _10;
+  goto <bb 8>; [INV]
+
+  <bb 4> :
+<L1>:
+  _11 = (int) pin_31(D);
+  _12 ={v} base_28(D)->MSCR[_11];
+  _13 = (int) pin_31(D);
+  _14 = _12 & 4294443007;
+  base_28(D)->MSCR[_13] ={v} _14;
+  _15 = (int) pin_31(D);
+  _16 ={v} base_28(D)->MSCR[_15];
+  _17 = (int) pin_31(D);
+  _18 = _16 | 2097152;
+  base_28(D)->MSCR[_17] ={v} _18;
+  goto <bb 8>; [INV]
+
+  <bb 5> :
+<L2>:
+  _19 = (int) pin_31(D);
+  _20 ={v} base_28(D)->MSCR[_19];
+  _21 = (int) pin_31(D);
+  _22 = _20 | 2621440;
+  base_28(D)->MSCR[_21] ={v} _22;
+  goto <bb 8>; [INV]
+
+  <bb 6> :
+<L3>:
+  _23 = (int) pin_31(D);
+  _24 ={v} base_28(D)->MSCR[_23];
+  _25 = (int) pin_31(D);
+  _26 = _24 & 4292345855;
+  base_28(D)->MSCR[_25] ={v} _26;
+  goto <bb 8>; [INV]
+
+  <bb 7> :
+<L4>:
+
+  <bb 8> :
+  SchM_Exit_Port_PORT_EXCLUSIVE_AREA_04 ();
+  return;
+
+}
+
+
+Siul2_Port_Ip_SetInputBuffer (struct Siul2_Port_Ip_PortType * const base, uint16 pin, boolean enable, uint32 inputMuxReg, Siul2_Port_Ip_PortInputMux inputMux)
+{
+  uint32 imcrVal;
+  uint32 imcrRegIdx;
+  struct SIUL2_Type * siul2Base;
+  long unsigned int iftmp.4;
+  _Bool _1;
+  int _2;
+  long unsigned int _3;
+  int _4;
+  long unsigned int _5;
+  int _6;
+  long unsigned int _7;
+  int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int iftmp.4_14;
+  long unsigned int iftmp.4_27;
+  long unsigned int iftmp.4_28;
+
+  <bb 2> :
+  siul2Base_17 = 4294967295B;
+  imcrRegIdx_19 = inputMuxReg_18(D);
+  _1 = pin_20(D) <= 15;
+  DevAssert (_1);
+  SchM_Enter_Port_PORT_EXCLUSIVE_AREA_03 ();
+  if (base_24(D) != 0B)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 3> :
+  _2 = (int) pin_20(D);
+  _3 ={v} base_24(D)->MSCR[_2];
+  _4 = (int) pin_20(D);
+  _5 = _3 & 4294443007;
+  base_24(D)->MSCR[_4] ={v} _5;
+  _6 = (int) pin_20(D);
+  _7 ={v} base_24(D)->MSCR[_6];
+  if (enable_26(D) != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.4_28 = 524288;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.4_27 = 0;
+
+  <bb 6> :
+  # iftmp.4_14 = PHI <iftmp.4_28(4), iftmp.4_27(5)>
+  _8 = (int) pin_20(D);
+  _9 = iftmp.4_14 | _7;
+  base_24(D)->MSCR[_8] ={v} _9;
+
+  <bb 7> :
+  if (inputMux_30(D) != 16)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 8> :
+  if (imcrRegIdx_19 <= 511)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  siul2Base_31 = 1076428800B;
+
+  <bb 10> :
+  # siul2Base_13 = PHI <siul2Base_17(8), siul2Base_31(9)>
+  if (imcrRegIdx_19 <= 378)
+    goto <bb 11>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 11> :
+  _10 = imcrRegIdx_19 & 511;
+  imcrVal_32 ={v} siul2Base_13->IMCR[_10];
+  imcrVal_33 = imcrVal_32 & 4294967280;
+  _11 = inputMux_30(D) & 15;
+  imcrVal_34 = imcrVal_33 | _11;
+  _12 = imcrRegIdx_19 & 511;
+  siul2Base_13->IMCR[_12] ={v} imcrVal_34;
+
+  <bb 12> :
+  SchM_Exit_Port_PORT_EXCLUSIVE_AREA_03 ();
+  return;
+
+}
+
+
+Siul2_Port_Ip_SetOutputBuffer (struct Siul2_Port_Ip_PortType * const base, uint16 pin, boolean enable, Siul2_Port_Ip_PortMux mux)
+{
+  long unsigned int iftmp.3;
+  _Bool _1;
+  _Bool _2;
+  int _3;
+  long unsigned int _4;
+  int _5;
+  long unsigned int _6;
+  int _7;
+  long unsigned int _8;
+  int _9;
+  long unsigned int _10;
+  int _11;
+  long unsigned int _12;
+  int _13;
+  long unsigned int _14;
+  int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  int _18;
+  long unsigned int _19;
+  long unsigned int iftmp.3_20;
+  long unsigned int iftmp.3_29;
+  long unsigned int iftmp.3_30;
+
+  <bb 2> :
+  _1 = base_21(D) != 0B;
+  DevAssert (_1);
+  _2 = pin_24(D) <= 15;
+  DevAssert (_2);
+  SchM_Enter_Port_PORT_EXCLUSIVE_AREA_02 ();
+  _3 = (int) pin_24(D);
+  _4 ={v} base_21(D)->MSCR[_3];
+  _5 = (int) pin_24(D);
+  _6 = _4 & 4292870143;
+  base_21(D)->MSCR[_5] ={v} _6;
+  _7 = (int) pin_24(D);
+  _8 ={v} base_21(D)->MSCR[_7];
+  if (enable_28(D) != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  iftmp.3_30 = 2097152;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.3_29 = 0;
+
+  <bb 5> :
+  # iftmp.3_20 = PHI <iftmp.3_30(3), iftmp.3_29(4)>
+  _9 = (int) pin_24(D);
+  _10 = iftmp.3_20 | _8;
+  base_21(D)->MSCR[_9] ={v} _10;
+  _11 = (int) pin_24(D);
+  _12 ={v} base_21(D)->MSCR[_11];
+  _13 = (int) pin_24(D);
+  _14 = _12 & 4294967288;
+  base_21(D)->MSCR[_13] ={v} _14;
+  _15 = (int) pin_24(D);
+  _16 ={v} base_21(D)->MSCR[_15];
+  _17 = mux_33(D) & 7;
+  _18 = (int) pin_24(D);
+  _19 = _16 | _17;
+  base_21(D)->MSCR[_18] ={v} _19;
+  SchM_Exit_Port_PORT_EXCLUSIVE_AREA_02 ();
+  return;
+
+}
+
+
+Siul2_Port_Ip_SetPullSel (struct Siul2_Port_Ip_PortType * const base, uint16 pin, Siul2_Port_Ip_PortPullConfig pullConfig)
+{
+  uint32 pusVal;
+  uint32 pueVal;
+  uint32 regVal;
+  _Bool _1;
+  _Bool _2;
+  int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  int _6;
+  long unsigned int _7;
+  int _8;
+  long unsigned int _9;
+  int _10;
+  int _11;
+  int _12;
+
+  <bb 2> :
+  _1 = base_14(D) != 0B;
+  DevAssert (_1);
+  _2 = pin_17(D) <= 15;
+  DevAssert (_2);
+  pueVal_19 = 8192;
+  pusVal_20 = 2048;
+  SchM_Enter_Port_PORT_EXCLUSIVE_AREA_01 ();
+  switch (pullConfig_22(D)) <default: <L3> [INV], case 0: <L1> [INV], case 1: <L2> [INV], case 2: <L0> [INV]>
+
+  <bb 3> :
+<L0>:
+  _3 = (int) pin_17(D);
+  _4 ={v} base_14(D)->MSCR[_3];
+  _5 = ~pueVal_19;
+  _6 = (int) pin_17(D);
+  _7 = _4 & _5;
+  base_14(D)->MSCR[_6] ={v} _7;
+  goto <bb 7>; [INV]
+
+  <bb 4> :
+<L1>:
+  _8 = (int) pin_17(D);
+  regVal_28 ={v} base_14(D)->MSCR[_8];
+  regVal_29 = regVal_28 | pueVal_19;
+  _9 = ~pusVal_20;
+  regVal_30 = regVal_29 & _9;
+  _10 = (int) pin_17(D);
+  base_14(D)->MSCR[_10] ={v} regVal_30;
+  goto <bb 7>; [INV]
+
+  <bb 5> :
+<L2>:
+  _11 = (int) pin_17(D);
+  regVal_24 ={v} base_14(D)->MSCR[_11];
+  regVal_25 = regVal_24 | pueVal_19;
+  regVal_26 = regVal_25 | pusVal_20;
+  _12 = (int) pin_17(D);
+  base_14(D)->MSCR[_12] ={v} regVal_26;
+  goto <bb 7>; [INV]
+
+  <bb 6> :
+<L3>:
+  DevAssert (0);
+
+  <bb 7> :
+  SchM_Exit_Port_PORT_EXCLUSIVE_AREA_01 ();
+  return;
+
+}
+
+
+Siul2_Port_Ip_Init (uint32 pinCount, const struct Siul2_Port_Ip_PinSettingsConfig * config)
+{
+  uint32 i;
+  Siul2_Port_Ip_PortStatusType D.6668;
+  long unsigned int _1;
+  const struct Siul2_Port_Ip_PinSettingsConfig * _2;
+  Siul2_Port_Ip_PortStatusType _11;
+
+  <bb 2> :
+  pPort_Setting = config_6(D);
+  u32MaxPinConfigured = pinCount_8(D);
+  i_10 = 0;
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  _1 = i_3 * 124;
+  _2 = config_6(D) + _1;
+  Siul2_Port_Ip_PinInit (_2);
+  i_13 = i_3 + 1;
+
+  <bb 4> :
+  # i_3 = PHI <i_10(2), i_13(3)>
+  if (i_3 < pinCount_8(D))
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  _11 = 0;
+
+  <bb 6> :
+<L3>:
+  return _11;
+
+}
+
+
+Siul2_Port_Ip_GetMSCRConfiguration (struct Siul2_Port_Ip_PinSettingsConfig * config, const struct Siul2_Port_Ip_PortType * const base, uint16 pin)
+{
+  Siul2_Port_Ip_PortPullConfig pullValue;
+  uint32 u32TempVal;
+  uint32 u32RegVal;
+  int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+
+  <bb 2> :
+  u32RegVal_13 = 4294967295;
+  u32TempVal_14 = 4294967295;
+  _1 = (int) pin_15(D);
+  u32RegVal_18 ={v} base_17(D)->MSCR[_1];
+  u32TempVal_19 = u32RegVal_18 & 7;
+  config_20(D)->mux = u32TempVal_19;
+  _2 = u32RegVal_18 >> 5;
+  u32TempVal_22 = _2 & 1;
+  config_20(D)->safeMode = u32TempVal_22;
+  _3 = u32RegVal_18 & 8192;
+  if (_3 == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  pullValue_26 = 2;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _4 = u32RegVal_18 >> 11;
+  u32TempVal_24 = _4 & 1;
+  pullValue_25 = u32TempVal_24;
+
+  <bb 5> :
+  # pullValue_12 = PHI <pullValue_26(3), pullValue_25(4)>
+  config_20(D)->pullConfig = pullValue_12;
+  _5 = u32RegVal_18 >> 14;
+  u32TempVal_28 = _5 & 1;
+  config_20(D)->slewRateCtrlSel = u32TempVal_28;
+  _6 = u32RegVal_18 >> 8;
+  u32TempVal_30 = _6 & 1;
+  config_20(D)->driveStrength = u32TempVal_30;
+  _7 = u32RegVal_18 >> 6;
+  u32TempVal_32 = _7 & 1;
+  config_20(D)->inputFilter = u32TempVal_32;
+  _8 = u32RegVal_18 >> 17;
+  u32TempVal_34 = _8 & 1;
+  config_20(D)->invert = u32TempVal_34;
+  _9 = u32RegVal_18 >> 16;
+  u32TempVal_36 = _9 & 1;
+  config_20(D)->pullKeep = u32TempVal_36;
+  _10 = u32RegVal_18 >> 19;
+  u32TempVal_38 = _10 & 1;
+  config_20(D)->inputBuffer = u32TempVal_38;
+  _11 = u32RegVal_18 >> 21;
+  u32TempVal_40 = _11 & 1;
+  config_20(D)->outputBuffer = u32TempVal_40;
+  return;
+
+}
+
+
+Siul2_Port_Ip_WriteIMCRConfiguration (const struct Siul2_Port_Ip_PinSettingsConfig * config)
+{
+  struct SIUL2_Type * imcrBase;
+  uint32 imcrRegIdx;
+  uint8 inputMuxIterator;
+  <unnamed type> _1;
+  int _2;
+  <unnamed type> _3;
+  int _4;
+  int _5;
+  <unnamed type> _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  unsigned char inputMuxIterator.1_9;
+
+  <bb 2> :
+  imcrBase_17 = 1076428800B;
+  _1 = config_19(D)->inputBuffer;
+  if (_1 == 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 3> :
+  inputMuxIterator_20 = 0;
+  goto <bb 10>; [INV]
+
+  <bb 4> :
+  _2 = (int) inputMuxIterator_10;
+  _3 = config_19(D)->inputMux[_2];
+  if (_3 != 16)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 5> :
+  _4 = (int) inputMuxIterator_10;
+  imcrRegIdx_21 = config_19(D)->inputMuxReg[_4];
+  if (imcrRegIdx_21 <= 511)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  imcrBase_22 = 1076428800B;
+
+  <bb 7> :
+  # imcrBase_11 = PHI <imcrBase_13(5), imcrBase_22(6)>
+  if (imcrRegIdx_21 <= 378)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 8> :
+  _5 = (int) inputMuxIterator_10;
+  _6 = config_19(D)->inputMux[_5];
+  _7 = imcrRegIdx_21 & 511;
+  _8 = _6 & 15;
+  imcrBase_11->IMCR[_7] ={v} _8;
+
+  <bb 9> :
+  # imcrBase_12 = PHI <imcrBase_13(4), imcrBase_11(7), imcrBase_11(8)>
+  inputMuxIterator.1_9 = inputMuxIterator_10;
+  inputMuxIterator_24 = inputMuxIterator.1_9 + 1;
+
+  <bb 10> :
+  # inputMuxIterator_10 = PHI <inputMuxIterator_20(3), inputMuxIterator_24(9)>
+  # imcrBase_13 = PHI <imcrBase_17(3), imcrBase_12(9)>
+  if (inputMuxIterator_10 <= 7)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 11> :
+  return;
+
+}
+
+
+Siul2_Port_Ip_WriteDCMConfiguration (const struct Siul2_Port_Ip_PinSettingsConfig * config)
+{
+  uint32 adcInterleaves;
+  uint8 iterator;
+  uint32 dcmrwf4RegValue;
+  volatile uint32 * _1;
+  int _2;
+  long unsigned int _3;
+  unsigned char iterator.2_4;
+  volatile uint32 * _5;
+  long unsigned int _6;
+
+  <bb 2> :
+  _1 = 1076545036B;
+  dcmrwf4RegValue_11 ={v} *_1;
+  iterator_12 = 0;
+  goto <bb 8>; [INV]
+
+  <bb 3> :
+  _2 = (int) iterator_9;
+  adcInterleaves_15 = config_14(D)->adcInterleaves[_2];
+  if (adcInterleaves_15 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 4> :
+  _3 = adcInterleaves_15 & 32768;
+  if (_3 != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  dcmrwf4RegValue_17 = dcmrwf4RegValue_8 & adcInterleaves_15;
+  goto <bb 7>; [INV]
+
+  <bb 6> :
+  dcmrwf4RegValue_16 = dcmrwf4RegValue_8 | adcInterleaves_15;
+
+  <bb 7> :
+  # dcmrwf4RegValue_7 = PHI <dcmrwf4RegValue_8(3), dcmrwf4RegValue_17(5), dcmrwf4RegValue_16(6)>
+  iterator.2_4 = iterator_9;
+  iterator_18 = iterator.2_4 + 1;
+
+  <bb 8> :
+  # dcmrwf4RegValue_8 = PHI <dcmrwf4RegValue_11(2), dcmrwf4RegValue_7(7)>
+  # iterator_9 = PHI <iterator_12(2), iterator_18(7)>
+  if (iterator_9 <= 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 9> :
+  _5 = 1076545036B;
+  _6 = dcmrwf4RegValue_8 | 1662;
+  *_5 ={v} _6;
+  return;
+
+}
+
+
+Siul2_Port_Ip_PinInit (const struct Siul2_Port_Ip_PinSettingsConfig * config)
+{
+  uint8 siulInstance;
+  uint32 pinsValues;
+  _Bool _1;
+  long unsigned int _2;
+  _Bool _3;
+  struct SIUL2_Type * _4;
+  <unnamed type> _5;
+  <unnamed type> _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  <unnamed type> _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  <unnamed type> _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  <unnamed type> _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  <unnamed type> _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  <unnamed type> _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  <unnamed type> _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  <unnamed type> _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  <unnamed type> _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  <unnamed type> _33;
+  long unsigned int _34;
+  <unnamed type> _35;
+  <unnamed type> _36;
+  unsigned char _37;
+  int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  short unsigned int _41;
+  short unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  volatile uint8 * _46;
+  unsigned char _47;
+  struct SIUL2_Type * _48;
+  long unsigned int _49;
+
+  <bb 2> :
+  pinsValues_53 = 0;
+  siulInstance_54 = 0;
+  _1 = config_55(D) != 0B;
+  DevAssert (_1);
+  _2 = config_55(D)->pinPortIdx;
+  _3 = _2 <= 219;
+  DevAssert (_3);
+  _4 = config_55(D)->base;
+  if (_4 == 1076428800B)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  siulInstance_59 = 0;
+
+  <bb 4> :
+  # siulInstance_51 = PHI <siulInstance_54(2), siulInstance_59(3)>
+  _5 = config_55(D)->pullConfig;
+  if (_5 != 2)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  pinsValues_60 = pinsValues_53 | 8192;
+  _6 = config_55(D)->pullConfig;
+  _7 = _6 << 11;
+  _8 = _7 & 2048;
+  pinsValues_61 = pinsValues_60 | _8;
+
+  <bb 6> :
+  # pinsValues_50 = PHI <pinsValues_53(4), pinsValues_61(5)>
+  _9 = config_55(D)->outputBuffer;
+  _10 = _9 << 21;
+  _11 = _10 & 2097152;
+  pinsValues_62 = pinsValues_50 | _11;
+  _12 = config_55(D)->invert;
+  _13 = _12 << 17;
+  _14 = _13 & 131072;
+  pinsValues_63 = pinsValues_62 | _14;
+  _15 = config_55(D)->pullKeep;
+  _16 = _15 << 16;
+  _17 = _16 & 65536;
+  pinsValues_64 = pinsValues_63 | _17;
+  _18 = config_55(D)->driveStrength;
+  _19 = _18 << 8;
+  _20 = _19 & 256;
+  pinsValues_65 = pinsValues_64 | _20;
+  _21 = config_55(D)->inputFilter;
+  _22 = _21 << 6;
+  _23 = _22 & 64;
+  pinsValues_66 = pinsValues_65 | _23;
+  _24 = config_55(D)->inputBuffer;
+  _25 = _24 << 19;
+  _26 = _25 & 524288;
+  pinsValues_67 = pinsValues_66 | _26;
+  _27 = config_55(D)->slewRateCtrlSel;
+  _28 = _27 << 14;
+  _29 = _28 & 16384;
+  pinsValues_68 = pinsValues_67 | _29;
+  _30 = config_55(D)->safeMode;
+  _31 = _30 << 5;
+  _32 = _31 & 32;
+  pinsValues_69 = pinsValues_68 | _32;
+  _33 = config_55(D)->mux;
+  _34 = _33 & 7;
+  pinsValues_70 = pinsValues_69 | _34;
+  _35 = config_55(D)->mux;
+  if (_35 == 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 7> :
+  _36 = config_55(D)->outputBuffer;
+  if (_36 == 1)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 8> :
+  _37 = config_55(D)->initValue;
+  if (_37 != 2)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  _38 = (int) siulInstance_51;
+  _39 = 1076428800;
+  _40 = config_55(D)->pinPortIdx;
+  _41 = (short unsigned int) _40;
+  _42 = _41 ^ 3;
+  _43 = (long unsigned int) _42;
+  _44 = _39 + _43;
+  _45 = _44 + 4864;
+  _46 = (volatile uint8 *) _45;
+  _47 = config_55(D)->initValue;
+  *_46 ={v} _47;
+
+  <bb 10> :
+  _48 = config_55(D)->base;
+  _49 = config_55(D)->pinPortIdx;
+  _48->MSCR[_49] ={v} pinsValues_70;
+  Siul2_Port_Ip_WriteIMCRConfiguration (config_55(D));
+  Siul2_Port_Ip_WriteDCMConfiguration (config_55(D));
+  return;
+
+}
+
+
+DevAssert (volatile boolean x)
+{
+  _Bool x.0_1;
+
+  <bb 2> :
+  x.0_1 ={v} x;
+  if (x.0_1 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 3>; [INV]
+
+  <bb 3> :
+  __asm__ __volatile__("BKPT #0");
+  goto <bb 3>; [INV]
+
+  <bb 4> :
+  return;
+
+}
+
+

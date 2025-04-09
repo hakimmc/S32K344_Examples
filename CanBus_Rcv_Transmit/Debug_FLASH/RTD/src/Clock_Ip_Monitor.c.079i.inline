@@ -1,0 +1,873 @@
+IPA summary for Clock_Ip_CMU_ClockFailInt/12 is missing.
+IPA summary for Clock_Ip_CMU_GetInterruptStatus/11 is missing.
+IPA summary for Clock_Ip_EnableCmuFcFceRefCntLfrefHfref/10 is missing.
+IPA summary for Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref/9 is missing.
+IPA summary for Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref/8 is missing.
+IPA summary for Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 is missing.
+IPA summary for Clock_Ip_ResetCmuFcFceRefCntLfrefHfref/6 is missing.
+IPA summary for Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 is missing.
+IPA summary for Clock_Ip_ClockMonitorEmpty_GetStatus/4 is missing.
+IPA summary for Clock_Ip_ClockMonitorEmpty_ClearStatus/3 is missing.
+IPA summary for Clock_Ip_ClockMonitorEmpty_Disable/2 is missing.
+IPA summary for Clock_Ip_ClockMonitorEmpty_Set/1 is missing.
+IPA summary for Clock_Ip_ClockMonitorEmpty/0 is missing.
+
+Flattening functions:
+Overall time estimate: 0.000000 weighted by profile: 0.000000
+
+Deciding on inlining of small functions.  Starting with size 0.
+node context cache: 0 hits, 0 misses, 0 initializations
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+
+Deciding on functions to be inlined into all callers and removing useless speculations:
+Overall time estimate: 0.000000 weighted by profile: 0.000000
+
+Why inlining failed?
+function not considered for inlining              :        1 calls, 1.000000 freq, 0 count
+function body not available                       :        6 calls, 6.000000 freq, 0 count
+IPA summary for Clock_Ip_CMU_ClockFailInt/12 is missing.
+IPA summary for Clock_Ip_CMU_GetInterruptStatus/11 is missing.
+IPA summary for Clock_Ip_EnableCmuFcFceRefCntLfrefHfref/10 is missing.
+IPA summary for Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref/9 is missing.
+IPA summary for Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref/8 is missing.
+IPA summary for Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 is missing.
+IPA summary for Clock_Ip_ResetCmuFcFceRefCntLfrefHfref/6 is missing.
+IPA summary for Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 is missing.
+IPA summary for Clock_Ip_ClockMonitorEmpty_GetStatus/4 is missing.
+IPA summary for Clock_Ip_ClockMonitorEmpty_ClearStatus/3 is missing.
+IPA summary for Clock_Ip_ClockMonitorEmpty_Disable/2 is missing.
+IPA summary for Clock_Ip_ClockMonitorEmpty_Set/1 is missing.
+IPA summary for Clock_Ip_ClockMonitorEmpty/0 is missing.
+Symbol table:
+
+Clock_Ip_aeCmuNames/25 (Clock_Ip_aeCmuNames) @06e63870
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_CMU_ClockFailInt/12 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_apxCmu/24 (Clock_Ip_apxCmu) @06e63558
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_CMU_GetInterruptStatus/11 (read) Clock_Ip_CMU_ClockFailInt/12 (read) Clock_Ip_CMU_ClockFailInt/12 (read) Clock_Ip_CMU_ClockFailInt/12 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_FreqIds/23 (Clock_Ip_FreqIds) @06d09e58
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 (read) Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 (read) 
+  Availability: not_available
+  Varpool flags:
+Clock_Ip_pxConfig/22 (Clock_Ip_pxConfig) @06d09e10
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 (read) Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 (read) Clock_Ip_CMU_ClockFailInt/12 (read) 
+  Availability: not_available
+  Varpool flags:
+Hash.0/21 (Hash) @06d09dc8
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: 
+  Referring: Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 (read) Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 (write) 
+  Availability: available
+  Varpool flags:
+SchM_Exit_Mcu_MCU_EXCLUSIVE_AREA_01/20 (SchM_Exit_Mcu_MCU_EXCLUSIVE_AREA_01) @06d0b2a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 
+  Calls: 
+Clock_Ip_ReportClockErrors/19 (Clock_Ip_ReportClockErrors) @06d0b1c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_CMU_ClockFailInt/12 Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 
+  Calls: 
+Clock_Ip_TimeoutExpired/18 (Clock_Ip_TimeoutExpired) @06d0b0e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 
+  Calls: 
+Clock_Ip_StartTimeout/17 (Clock_Ip_StartTimeout) @06d0b000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 
+  Calls: 
+SchM_Enter_Mcu_MCU_EXCLUSIVE_AREA_01/16 (SchM_Enter_Mcu_MCU_EXCLUSIVE_AREA_01) @06d042a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 
+  Calls: 
+Clock_Ip_axCmuInfo/15 (Clock_Ip_axCmuInfo) @06d097e0
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref/9 (addr) Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref/8 (addr) Clock_Ip_EnableCmuFcFceRefCntLfrefHfref/10 (addr) Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 (addr) Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 (addr) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_au8ClockFeatures/14 (Clock_Ip_au8ClockFeatures) @06d09798
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref/9 (read) Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref/8 (read) Clock_Ip_EnableCmuFcFceRefCntLfrefHfref/10 (read) Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 (read) Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_axCmuCallbacks/13 (Clock_Ip_axCmuCallbacks) @06e59ca8
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_ClockMonitorEmpty/0 (addr) Clock_Ip_ClockMonitorEmpty_Set/1 (addr) Clock_Ip_ClockMonitorEmpty_Disable/2 (addr) Clock_Ip_ClockMonitorEmpty_ClearStatus/3 (addr) Clock_Ip_ClockMonitorEmpty_GetStatus/4 (addr) Clock_Ip_ClockMonitorEmpty/0 (addr) Clock_Ip_ResetCmuFcFceRefCntLfrefHfref/6 (addr) Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 (addr) Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 (addr) Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref/8 (addr) Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref/9 (addr) Clock_Ip_EnableCmuFcFceRefCntLfrefHfref/10 (addr) 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized read-only const-value-known
+Clock_Ip_CMU_ClockFailInt/12 (Clock_Ip_CMU_ClockFailInt) @06d04460
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_apxCmu/24 (read) Clock_Ip_apxCmu/24 (read) Clock_Ip_pxConfig/22 (read) Clock_Ip_apxCmu/24 (read) Clock_Ip_aeCmuNames/25 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_ReportClockErrors/19 
+Clock_Ip_CMU_GetInterruptStatus/11 (Clock_Ip_CMU_GetInterruptStatus) @06d041c0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_apxCmu/24 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_EnableCmuFcFceRefCntLfrefHfref/10 (Clock_Ip_EnableCmuFcFceRefCntLfrefHfref) @06e58d20
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/14 (read) Clock_Ip_axCmuInfo/15 (addr) 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref/9 (Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref) @06e587e0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/14 (read) Clock_Ip_axCmuInfo/15 (addr) 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref/8 (Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref) @06e582a0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/14 (read) Clock_Ip_axCmuInfo/15 (addr) 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_SetCmuFcFceRefCntLfrefHfref/7 (Clock_Ip_SetCmuFcFceRefCntLfrefHfref) @06e58ee0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/14 (read) Clock_Ip_axCmuInfo/15 (addr) Hash.0/21 (read) Hash.0/21 (write) Clock_Ip_pxConfig/22 (read) Clock_Ip_FreqIds/23 (read) Clock_Ip_pxConfig/22 (read) Clock_Ip_FreqIds/23 (read) 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ResetCmuFcFceRefCntLfrefHfref/6 (Clock_Ip_ResetCmuFcFceRefCntLfrefHfref) @06e58c40
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 
+Clock_Ip_DisableCmuFcFceRefCntLfrefHfref/5 (Clock_Ip_DisableCmuFcFceRefCntLfrefHfref) @06e589a0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/14 (read) Clock_Ip_axCmuInfo/15 (addr) 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: Clock_Ip_ResetCmuFcFceRefCntLfrefHfref/6 
+  Calls: SchM_Exit_Mcu_MCU_EXCLUSIVE_AREA_01/20 Clock_Ip_ReportClockErrors/19 Clock_Ip_TimeoutExpired/18 Clock_Ip_StartTimeout/17 SchM_Enter_Mcu_MCU_EXCLUSIVE_AREA_01/16 
+Clock_Ip_ClockMonitorEmpty_GetStatus/4 (Clock_Ip_ClockMonitorEmpty_GetStatus) @06e58700
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ClockMonitorEmpty_ClearStatus/3 (Clock_Ip_ClockMonitorEmpty_ClearStatus) @06e58460
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ClockMonitorEmpty_Disable/2 (Clock_Ip_ClockMonitorEmpty_Disable) @06e581c0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ClockMonitorEmpty_Set/1 (Clock_Ip_ClockMonitorEmpty_Set) @06e55ee0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ClockMonitorEmpty/0 (Clock_Ip_ClockMonitorEmpty) @06e55e00
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axCmuCallbacks/13 (addr) Clock_Ip_axCmuCallbacks/13 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+
+;; Function Clock_Ip_ClockMonitorEmpty (Clock_Ip_ClockMonitorEmpty, funcdef_no=0, decl_uid=6584, cgraph_uid=1, symbol_order=0)
+
+Clock_Ip_ClockMonitorEmpty (const struct Clock_Ip_CmuConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_ClockMonitorEmpty_Set (Clock_Ip_ClockMonitorEmpty_Set, funcdef_no=1, decl_uid=6587, cgraph_uid=2, symbol_order=1)
+
+Clock_Ip_ClockMonitorEmpty_Set (const struct Clock_Ip_CmuConfigType * Config, uint32 Index)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_ClockMonitorEmpty_Disable (Clock_Ip_ClockMonitorEmpty_Disable, funcdef_no=2, decl_uid=6589, cgraph_uid=3, symbol_order=2)
+
+Clock_Ip_ClockMonitorEmpty_Disable (Clock_Ip_NameType Name)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_ClockMonitorEmpty_ClearStatus (Clock_Ip_ClockMonitorEmpty_ClearStatus, funcdef_no=3, decl_uid=6591, cgraph_uid=4, symbol_order=3)
+
+Clock_Ip_ClockMonitorEmpty_ClearStatus (Clock_Ip_NameType Name)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_ClockMonitorEmpty_GetStatus (Clock_Ip_ClockMonitorEmpty_GetStatus, funcdef_no=4, decl_uid=6593, cgraph_uid=5, symbol_order=4)
+
+Clock_Ip_ClockMonitorEmpty_GetStatus (Clock_Ip_NameType Name)
+{
+  Clock_Ip_CmuStatusType D.6693;
+  Clock_Ip_CmuStatusType _1;
+
+  <bb 2> :
+  _1 = 3;
+
+  <bb 3> :
+<L0>:
+  return _1;
+
+}
+
+
+
+;; Function Clock_Ip_DisableCmuFcFceRefCntLfrefHfref (Clock_Ip_DisableCmuFcFceRefCntLfrefHfref, funcdef_no=5, decl_uid=6600, cgraph_uid=6, symbol_order=5)
+
+Clock_Ip_DisableCmuFcFceRefCntLfrefHfref (Clock_Ip_NameType Name)
+{
+  uint32 FrequencyCheckStatus;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  struct Clock_Ip_ClockMonitorType * const CmuFc;
+  const struct Clock_Ip_CmuInfoType * CmuInformation;
+  unsigned char _1;
+  int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int TimeoutTicks.0_6;
+  _Bool _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+
+  <bb 2> :
+  _1 = Clock_Ip_au8ClockFeatures[Name_21(D)][8];
+  _2 = (int) _1;
+  CmuInformation_22 = &Clock_Ip_axCmuInfo[_2];
+  CmuFc_23 = CmuInformation_22->CmuInstance;
+  TimeoutOccurred_24 = 0;
+  SchM_Enter_Mcu_MCU_EXCLUSIVE_AREA_01 ();
+  _3 = CmuFc_23->GCR;
+  _4 = _3 & 1;
+  if (_4 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 3> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 4> :
+  _5 ={v} CmuFc_23->SR;
+  FrequencyCheckStatus_29 = _5 & 16;
+  TimeoutTicks.0_6 = TimeoutTicks;
+  TimeoutOccurred_31 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.0_6);
+  if (FrequencyCheckStatus_29 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _7 = ~TimeoutOccurred_31;
+  if (_7 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  if (TimeoutOccurred_31 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  Clock_Ip_ReportClockErrors (1, Name_21(D));
+  goto <bb 10>; [INV]
+
+  <bb 8> :
+  _8 = CmuFc_23->GCR;
+  _9 = _8 & 4294967294;
+  CmuFc_23->GCR = _9;
+  _10 = CmuFc_23->IER;
+  _11 = _10 & 4294967280;
+  CmuFc_23->IER = _11;
+  _12 ={v} CmuFc_23->SR;
+  _13 = _12 | 3;
+  CmuFc_23->SR ={v} _13;
+  goto <bb 10>; [INV]
+
+  <bb 9> :
+  _14 = CmuFc_23->IER;
+  _15 = _14 & 4294967280;
+  CmuFc_23->IER = _15;
+  _16 ={v} CmuFc_23->SR;
+  _17 = _16 | 3;
+  CmuFc_23->SR ={v} _17;
+
+  <bb 10> :
+  SchM_Exit_Mcu_MCU_EXCLUSIVE_AREA_01 ();
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_ResetCmuFcFceRefCntLfrefHfref (Clock_Ip_ResetCmuFcFceRefCntLfrefHfref, funcdef_no=6, decl_uid=6595, cgraph_uid=7, symbol_order=6)
+
+Clock_Ip_ResetCmuFcFceRefCntLfrefHfref (const struct Clock_Ip_CmuConfigType * Config)
+{
+  <unnamed type> _1;
+
+  <bb 2> :
+  _1 = Config_3(D)->Name;
+  Clock_Ip_DisableCmuFcFceRefCntLfrefHfref (_1);
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_SetCmuFcFceRefCntLfrefHfref (Clock_Ip_SetCmuFcFceRefCntLfrefHfref, funcdef_no=7, decl_uid=6598, cgraph_uid=8, symbol_order=7)
+
+Clock_Ip_SetCmuFcFceRefCntLfrefHfref (const struct Clock_Ip_CmuConfigType * Config, uint32 Index)
+{
+  uint32 ModuloValue;
+  uint32 DividerResult;
+  uint32 DivideBy;
+  uint32 Cmp2;
+  uint32 Cmp1;
+  uint32 LfRef;
+  uint32 HfRef;
+  uint32 RefCount;
+  uint32 BusClk;
+  uint32 MonitoredClk;
+  uint32 ReferenceClk;
+  static uint32 Hash[4];
+  struct Clock_Ip_ClockMonitorType * const CmuFc;
+  const struct Clock_Ip_CmuInfoType * CmuInformation;
+  <unnamed type> _1;
+  unsigned char _2;
+  int _3;
+  long unsigned int _4;
+  unsigned char _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  <unnamed type> _11;
+  long unsigned int _12;
+  unsigned char _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  <unnamed type> _19;
+  long unsigned int _20;
+  const struct Clock_Ip_ClockConfigType * Clock_Ip_pxConfig.1_21;
+  <unnamed type> _22;
+  unsigned char _23;
+  int _24;
+  long unsigned int _25;
+  const struct Clock_Ip_ClockConfigType * Clock_Ip_pxConfig.2_26;
+  <unnamed type> _27;
+  unsigned char _28;
+  int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+
+  <bb 2> :
+  _1 = Config_52(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][8];
+  _3 = (int) _2;
+  CmuInformation_53 = &Clock_Ip_axCmuInfo[_3];
+  CmuFc_54 = CmuInformation_53->CmuInstance;
+  ReferenceClk_55 = 0;
+  MonitoredClk_56 = 0;
+  BusClk_57 = 0;
+  RefCount_58 = 0;
+  HfRef_59 = 0;
+  LfRef_60 = 0;
+  _4 = Hash[Index_61(D)];
+  _5 = Config_52(D)->Enable;
+  _6 = (long unsigned int) _5;
+  _7 = Config_52(D)->Interrupt;
+  _8 = _6 ^ _7;
+  _9 = Config_52(D)->MonitoredClockFrequency;
+  _10 = _8 ^ _9;
+  _11 = Config_52(D)->Name;
+  _12 = _10 ^ _11;
+  if (_4 != _12)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 3> :
+  _13 = Config_52(D)->Enable;
+  _14 = (long unsigned int) _13;
+  _15 = Config_52(D)->Interrupt;
+  _16 = _14 ^ _15;
+  _17 = Config_52(D)->MonitoredClockFrequency;
+  _18 = _16 ^ _17;
+  _19 = Config_52(D)->Name;
+  _20 = _18 ^ _19;
+  Hash[Index_61(D)] = _20;
+  Clock_Ip_pxConfig.1_21 = Clock_Ip_pxConfig;
+  _22 = CmuInformation_53->Reference;
+  _23 = Clock_Ip_FreqIds[_22];
+  _24 = (int) _23;
+  _25 = Clock_Ip_pxConfig.1_21->ConfiguredFrequencies[_24].ConfiguredFrequencyValue;
+  ReferenceClk_63 = _25 / 1000;
+  Clock_Ip_pxConfig.2_26 = Clock_Ip_pxConfig;
+  _27 = CmuInformation_53->Bus;
+  _28 = Clock_Ip_FreqIds[_27];
+  _29 = (int) _28;
+  _30 = Clock_Ip_pxConfig.2_26->ConfiguredFrequencies[_29].ConfiguredFrequencyValue;
+  BusClk_64 = _30 / 1000;
+  _31 = Config_52(D)->MonitoredClockFrequency;
+  MonitoredClk_65 = _31 / 1000;
+  if (ReferenceClk_63 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 4> :
+  if (BusClk_64 != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 5> :
+  if (MonitoredClk_65 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  _32 = ReferenceClk_63 * 3;
+  _33 = _32 / BusClk_64;
+  Cmp1_66 = _33 + 1;
+  _34 = ReferenceClk_63 * 5;
+  _35 = _34 / MonitoredClk_65;
+  Cmp2_67 = _35 + 9;
+  RefCount_68 = MAX_EXPR <Cmp2_67, Cmp1_66>;
+  _36 = MonitoredClk_65 * RefCount_68;
+  HfRef_69 = _36 * 1011;
+  DivideBy_70 = ReferenceClk_63 * 967;
+  DividerResult_71 = HfRef_69 / DivideBy_70;
+  _37 = DivideBy_70 * DividerResult_71;
+  ModuloValue_72 = HfRef_69 - _37;
+  _38 = DividerResult_71 * 10;
+  _39 = ModuloValue_72 * 10;
+  _40 = _39 / DivideBy_70;
+  _41 = _38 + _40;
+  HfRef_73 = _41 + 4;
+  _42 = MonitoredClk_65 * RefCount_68;
+  LfRef_74 = _42 * 989;
+  DivideBy_75 = ReferenceClk_63 * 1033;
+  DividerResult_76 = LfRef_74 / DivideBy_75;
+  _43 = DivideBy_75 * DividerResult_76;
+  ModuloValue_77 = LfRef_74 - _43;
+  _44 = DividerResult_76 * 10;
+  _45 = ModuloValue_77 * 10;
+  _46 = _45 / DivideBy_75;
+  _47 = _44 + _46;
+  LfRef_78 = _47 + 4294967293;
+  _48 = RefCount_68 * 10;
+  CmuFc_54->RCCR = _48;
+  CmuFc_54->HTCR = HfRef_73;
+  CmuFc_54->LTCR = LfRef_78;
+
+  <bb 7> :
+  _49 = Config_52(D)->Interrupt;
+  CmuFc_54->IER = _49;
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref (Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref, funcdef_no=8, decl_uid=6602, cgraph_uid=9, symbol_order=8)
+
+Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref (Clock_Ip_NameType Name)
+{
+  uint32 CmuIsrValue;
+  struct Clock_Ip_ClockMonitorType * const CmuFc;
+  const struct Clock_Ip_CmuInfoType * CmuInformation;
+  unsigned char _1;
+  int _2;
+  long unsigned int _3;
+
+  <bb 2> :
+  _1 = Clock_Ip_au8ClockFeatures[Name_5(D)][8];
+  _2 = (int) _1;
+  CmuInformation_6 = &Clock_Ip_axCmuInfo[_2];
+  CmuFc_7 = CmuInformation_6->CmuInstance;
+  _3 ={v} CmuFc_7->SR;
+  CmuIsrValue_8 = _3 & 3;
+  CmuFc_7->SR ={v} CmuIsrValue_8;
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref (Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref, funcdef_no=9, decl_uid=6604, cgraph_uid=10, symbol_order=9)
+
+Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref (Clock_Ip_NameType Name)
+{
+  uint32 CmuIsrValue;
+  uint32 CmuIerValue;
+  Clock_Ip_CmuStatusType Status;
+  const struct Clock_Ip_ClockMonitorType * CmuFc;
+  const struct Clock_Ip_CmuInfoType * CmuInformation;
+  Clock_Ip_CmuStatusType D.6718;
+  unsigned char _1;
+  int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  Clock_Ip_CmuStatusType _21;
+
+  <bb 2> :
+  _1 = Clock_Ip_au8ClockFeatures[Name_11(D)][8];
+  _2 = (int) _1;
+  CmuInformation_12 = &Clock_Ip_axCmuInfo[_2];
+  CmuFc_13 = CmuInformation_12->CmuInstance;
+  Status_14 = 3;
+  _3 ={v} CmuFc_13->SR;
+  CmuIsrValue_15 = _3 & 3;
+  _4 = CmuFc_13->IER;
+  CmuIerValue_16 = _4 & 3;
+  CmuIsrValue_17 = CmuIsrValue_15 & CmuIerValue_16;
+  _5 = CmuFc_13->GCR;
+  _6 = _5 & 1;
+  if (_6 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 3> :
+  _7 = CmuIsrValue_17 & 2;
+  if (_7 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  Status_20 = 1;
+  goto <bb 8>; [INV]
+
+  <bb 5> :
+  _8 = CmuIsrValue_17 & 1;
+  if (_8 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  Status_19 = 2;
+  goto <bb 8>; [INV]
+
+  <bb 7> :
+  Status_18 = 0;
+
+  <bb 8> :
+  # Status_9 = PHI <Status_14(2), Status_20(4), Status_19(6), Status_18(7)>
+  _21 = Status_9;
+
+  <bb 9> :
+<L8>:
+  return _21;
+
+}
+
+
+
+;; Function Clock_Ip_EnableCmuFcFceRefCntLfrefHfref (Clock_Ip_EnableCmuFcFceRefCntLfrefHfref, funcdef_no=10, decl_uid=6606, cgraph_uid=11, symbol_order=10)
+
+Clock_Ip_EnableCmuFcFceRefCntLfrefHfref (const struct Clock_Ip_CmuConfigType * Config)
+{
+  struct Clock_Ip_ClockMonitorType * const CmuFc;
+  const struct Clock_Ip_CmuInfoType * CmuInformation;
+  <unnamed type> _1;
+  unsigned char _2;
+  int _3;
+  unsigned char _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+
+  <bb 2> :
+  _1 = Config_11(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][8];
+  _3 = (int) _2;
+  CmuInformation_12 = &Clock_Ip_axCmuInfo[_3];
+  CmuFc_13 = CmuInformation_12->CmuInstance;
+  _4 = Config_11(D)->Enable;
+  if (_4 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _5 = CmuFc_13->GCR;
+  _6 = _5 | 1;
+  CmuFc_13->GCR = _6;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _7 = CmuFc_13->GCR;
+  _8 = _7 & 4294967294;
+  CmuFc_13->GCR = _8;
+
+  <bb 5> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_CMU_GetInterruptStatus (Clock_Ip_CMU_GetInterruptStatus, funcdef_no=11, decl_uid=6556, cgraph_uid=12, symbol_order=11)
+
+Clock_Ip_CMU_GetInterruptStatus (uint8 IndexCmu)
+{
+  uint32 CmuIsrValue;
+  uint32 D.6723;
+  int _1;
+  struct Clock_Ip_ClockMonitorType * _2;
+  long unsigned int _3;
+  uint32 _7;
+
+  <bb 2> :
+  _1 = (int) IndexCmu_4(D);
+  _2 = Clock_Ip_apxCmu[_1];
+  _3 ={v} _2->SR;
+  CmuIsrValue_6 = _3 & 3;
+  _7 = CmuIsrValue_6;
+
+  <bb 3> :
+<L0>:
+  return _7;
+
+}
+
+
+
+;; Function Clock_Ip_CMU_ClockFailInt (Clock_Ip_CMU_ClockFailInt, funcdef_no=12, decl_uid=6558, cgraph_uid=13, symbol_order=12)
+
+Clock_Ip_CMU_ClockFailInt ()
+{
+  uint32 IndexCmu;
+  uint32 CmuIsrValue;
+  uint32 CmuIerValue;
+  struct Clock_Ip_ClockMonitorType * _1;
+  long unsigned int _2;
+  struct Clock_Ip_ClockMonitorType * _3;
+  const struct Clock_Ip_ClockConfigType * Clock_Ip_pxConfig.3_4;
+  struct Clock_Ip_ClockMonitorType * _5;
+  long unsigned int _6;
+  <unnamed type> _7;
+
+  <bb 2> :
+  IndexCmu_11 = 0;
+  goto <bb 7>; [INV]
+
+  <bb 3> :
+  _1 = Clock_Ip_apxCmu[IndexCmu_8];
+  _2 ={v} _1->SR;
+  CmuIsrValue_13 = _2 & 3;
+  _3 = Clock_Ip_apxCmu[IndexCmu_8];
+  _3->SR ={v} CmuIsrValue_13;
+  Clock_Ip_pxConfig.3_4 = Clock_Ip_pxConfig;
+  if (Clock_Ip_pxConfig.3_4 != 0B)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 4> :
+  _5 = Clock_Ip_apxCmu[IndexCmu_8];
+  _6 = _5->IER;
+  CmuIerValue_15 = _6 & 3;
+  CmuIsrValue_16 = CmuIsrValue_13 & CmuIerValue_15;
+  if (CmuIsrValue_16 != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _7 = Clock_Ip_aeCmuNames[IndexCmu_8];
+  Clock_Ip_ReportClockErrors (0, _7);
+
+  <bb 6> :
+  IndexCmu_18 = IndexCmu_8 + 1;
+
+  <bb 7> :
+  # IndexCmu_8 = PHI <IndexCmu_11(2), IndexCmu_18(6)>
+  if (IndexCmu_8 <= 3)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 8> :
+  return;
+
+}
+
+

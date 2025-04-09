@@ -1,0 +1,575 @@
+Symbol table:
+
+FlexCAN_Ip_Deinit_Privileged/33 (FlexCAN_Ip_Deinit_Privileged) @06504000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStopMode_Privileged/32 (FlexCAN_Ip_SetStopMode_Privileged) @064feee0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_DisableIrq/31 (IntCtrl_Ip_DisableIrq) @064fe380
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+CAN0_ORED_0_31_MB_IRQHandler/30 (CAN0_ORED_0_31_MB_IRQHandler) @064fee00
+  Type: function
+  Visibility: external public
+  Address is taken.
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not_available
+  Function flags:
+  Called by: 
+  Calls: 
+IntCtrl_Ip_InstallHandler/29 (IntCtrl_Ip_InstallHandler) @064fed20
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+IntCtrl_Ip_EnableIrq/28 (IntCtrl_Ip_EnableIrq) @064fec40
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+g_pin_mux_InitConfigArr0/27 (g_pin_mux_InitConfigArr0) @06500798
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not_available
+  Varpool flags: read-only
+Siul2_Port_Ip_Init/26 (Siul2_Port_Ip_Init) @064feb60
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+Clock_Ip_aClockConfig/25 (Clock_Ip_aClockConfig) @06500708
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: main/11 (addr) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_Init/24 (Clock_Ip_Init) @064fea80
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 
+  Calls: 
+FlexCAN_Ip_SetStartMode_Privileged/23 (FlexCAN_Ip_SetStartMode_Privileged) @064fe8c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Ip_ConfigRxMb/22 (FlexCAN_Ip_ConfigRxMb) @064fe7e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+FlexCAN_Config0/21 (FlexCAN_Config0) @06500120
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not_available
+  Varpool flags: read-only
+FlexCAN_State0/20 (FlexCAN_State0) @065000d8
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: setupCan/10 (addr) 
+  Availability: not_available
+  Varpool flags:
+FlexCAN_Ip_Init_Privileged/19 (FlexCAN_Ip_Init_Privileged) @064fe700
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: setupCan/10 
+  Calls: 
+Siul2_Dio_Ip_WritePin/18 (Siul2_Dio_Ip_WritePin) @064fe620
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: setupCan/10 setupCan/10 
+  Calls: 
+FlexCAN_Ip_Receive/17 (FlexCAN_Ip_Receive) @064fe460
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 flexcan0_Callback/9 
+  Calls: 
+FlexCAN_Ip_Send/16 (FlexCAN_Ip_Send) @064fe2a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: main/11 main/11 flexcan0_Callback/9 flexcan0_Callback/9 
+  Calls: 
+JumpToBoot/15 (JumpToBoot) @064f4a80
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+   Indirect call Num speculative call targets: 0
+JumpBootAddr/14 (JumpBootAddr) @064ef828
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized
+delay_ms/13 (delay_ms) @064f4c40
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: main/11 
+  Calls: 
+Comparator/12 (Comparator) @064f49a0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: flexcan0_Callback/9 
+  Calls: 
+main/11 (main) @064f4700
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: systemid/2 (write) Clock_Ip_aClockConfig/25 (addr) g_pin_mux_InitConfigArr0/27 (addr) CAN0_ORED_0_31_MB_IRQHandler/30 (addr) tx_info/7 (write) rx_info/6 (write) tx_info/7 (addr) dummyData/3 (addr) rxData/5 (addr) systemid/2 (read) tx_info/7 (addr) dummyData/3 (addr) JumpBootState/8 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: JumpToBoot/15 FlexCAN_Ip_Deinit_Privileged/33 FlexCAN_Ip_SetStopMode_Privileged/32 IntCtrl_Ip_DisableIrq/31 delay_ms/13 FlexCAN_Ip_Send/16 FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 setupCan/10 IntCtrl_Ip_InstallHandler/29 IntCtrl_Ip_EnableIrq/28 Siul2_Port_Ip_Init/26 Clock_Ip_Init/24 
+setupCan/10 (setupCan) @064f4380
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: FlexCAN_State0/20 (addr) FlexCAN_Config0/21 (addr) systemid/2 (read) rx_info/6 (addr) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: main/11 
+  Calls: FlexCAN_Ip_SetStartMode_Privileged/23 FlexCAN_Ip_ConfigRxMb/22 FlexCAN_Ip_Init_Privileged/19 Siul2_Dio_Ip_WritePin/18 Siul2_Dio_Ip_WritePin/18 
+flexcan0_Callback/9 (flexcan0_Callback) @064f4000
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: rxData/5 (addr) tx_info/7 (addr) AppStartData/4 (addr) JumpBootState/8 (write) systemid/2 (read) tx_info/7 (addr) rxData/5 (addr) rxData/5 (addr) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: FlexCAN_Ip_Receive/17 FlexCAN_Ip_Send/16 FlexCAN_Ip_Send/16 Comparator/12 
+JumpBootState/8 (JumpBootState) @064ef318
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (write) main/11 (read) 
+  Availability: available
+  Varpool flags:
+tx_info/7 (tx_info) @064ef168
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (write) main/11 (addr) main/11 (addr) 
+  Availability: available
+  Varpool flags: initialized
+rx_info/6 (rx_info) @064ef120
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: setupCan/10 (addr) main/11 (write) 
+  Availability: available
+  Varpool flags: initialized
+rxData/5 (rxData) @064ef0d8
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) flexcan0_Callback/9 (addr) main/11 (addr) 
+  Availability: available
+  Varpool flags:
+AppStartData/4 (AppStartData) @064ef048
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (addr) 
+  Availability: available
+  Varpool flags: initialized
+dummyData/3 (dummyData) @06aedf30
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: main/11 (addr) main/11 (addr) 
+  Availability: available
+  Varpool flags: initialized
+systemid/2 (systemid) @06aede58
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: flexcan0_Callback/9 (read) setupCan/10 (read) main/11 (write) main/11 (read) 
+  Availability: available
+  Varpool flags:
+exit_code/1 (exit_code) @06aeddc8
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized
+JumpToBoot ()
+{
+  uint32 func;
+  volatile uint32 * _1;
+  long unsigned int _2;
+  volatile uint32 * _3;
+  void (*<T8c1>) (void) func.10_4;
+
+  <bb 2> :
+  _1 = 4194316B;
+  func_6 ={v} *_1;
+  _2 = func_6 + 4;
+  _3 = (volatile uint32 *) _2;
+  func_7 ={v} *_3;
+  func_8 = func_7 | 1;
+  func.10_4 = (void (*<T8c1>) (void)) func_8;
+  func.10_4 ();
+  return;
+
+}
+
+
+__attribute__((optimize ("O0")))
+delay_ms (uint32_t ms, volatile uint8_t * condition)
+{
+  volatile uint32_t j;
+  volatile uint32_t i;
+  unsigned char _1;
+  long unsigned int j.6_2;
+  long unsigned int _3;
+  long unsigned int j.7_4;
+  unsigned char _5;
+  long unsigned int i.8_6;
+  long unsigned int _7;
+  long unsigned int i.9_8;
+
+  <bb 2> :
+  i ={v} 0;
+  goto <bb 11>; [INV]
+
+  <bb 3> :
+  j ={v} 0;
+  goto <bb 7>; [INV]
+
+  <bb 4> :
+  _1 ={v} *condition_16(D);
+  if (_1 != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  goto <bb 8>; [INV]
+
+  <bb 6> :
+  j.6_2 ={v} j;
+  _3 = j.6_2 + 1;
+  j ={v} _3;
+
+  <bb 7> :
+  j.7_4 ={v} j;
+  if (j.7_4 <= 14544)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 8> :
+  _5 ={v} *condition_16(D);
+  if (_5 != 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  goto <bb 12>; [INV]
+
+  <bb 10> :
+  i.8_6 ={v} i;
+  _7 = i.8_6 + 1;
+  i ={v} _7;
+
+  <bb 11> :
+  i.9_8 ={v} i;
+  if (ms_14(D) > i.9_8)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 12> :
+  return;
+
+}
+
+
+Comparator (uint8_t * source, uint8_t * target, uint8_t len)
+{
+  uint8_t i;
+  uint8_t D.10038;
+  sizetype _1;
+  uint8_t * _2;
+  unsigned char _3;
+  sizetype _4;
+  uint8_t * _5;
+  unsigned char _6;
+  unsigned char i.5_7;
+  uint8_t _9;
+  uint8_t _12;
+  uint8_t _17;
+
+  <bb 2> :
+  i_10 = 0;
+  goto <bb 6>; [INV]
+
+  <bb 3> :
+  _1 = (sizetype) i_8;
+  _2 = source_13(D) + _1;
+  _3 = *_2;
+  _4 = (sizetype) i_8;
+  _5 = target_15(D) + _4;
+  _6 = *_5;
+  if (_3 != _6)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  _17 = 0;
+  // predicted unlikely by early return (on trees) predictor.
+  goto <bb 8>; [INV]
+
+  <bb 5> :
+  i.5_7 = i_8;
+  i_16 = i.5_7 + 1;
+
+  <bb 6> :
+  # i_8 = PHI <i_10(2), i_16(5)>
+  if (i_8 < len_11(D))
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 7> :
+  _12 = 1;
+
+  <bb 8> :
+  # _9 = PHI <_17(4), _12(7)>
+<L5>:
+  return _9;
+
+}
+
+
+main ()
+{
+  int D.10034;
+  uint8_t iftmp.2;
+  volatile uint8_t * _1;
+  unsigned char _2;
+  volatile uint8_t * _3;
+  unsigned char systemid.3_4;
+  unsigned int _5;
+  unsigned int _6;
+  unsigned char JumpBootState.4_7;
+  uint8_t iftmp.2_8;
+  uint8_t iftmp.2_11;
+  uint8_t iftmp.2_12;
+  int _29;
+
+  <bb 2> :
+  _1 = 5242884B;
+  _2 ={v} *_1;
+  if (_2 != 255)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _3 = 5242884B;
+  iftmp.2_12 ={v} *_3;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.2_11 = 0;
+
+  <bb 5> :
+  # iftmp.2_8 = PHI <iftmp.2_12(3), iftmp.2_11(4)>
+  systemid = iftmp.2_8;
+  Clock_Ip_Init (&Clock_Ip_aClockConfig[0]);
+  Siul2_Port_Ip_Init (5, &g_pin_mux_InitConfigArr0);
+  IntCtrl_Ip_EnableIrq (110);
+  IntCtrl_Ip_InstallHandler (110, CAN0_ORED_0_31_MB_IRQHandler, 0B);
+  tx_info.is_polling = 0;
+  rx_info.is_polling = 0;
+  setupCan ();
+  FlexCAN_Ip_Send (0, 0, &tx_info, 12648430, &dummyData);
+  FlexCAN_Ip_Receive (0, 1, &rxData, 0);
+
+  <bb 6> :
+  systemid.3_4 = systemid;
+  _5 = (unsigned int) systemid.3_4;
+  _6 = _5 + 12648430;
+  FlexCAN_Ip_Send (0, 0, &tx_info, _6, &dummyData);
+  delay_ms (1000, 0B);
+  JumpBootState.4_7 ={v} JumpBootState;
+  if (JumpBootState.4_7 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  goto <bb 9>; [INV]
+
+  <bb 8> :
+  goto <bb 6>; [INV]
+
+  <bb 9> :
+  IntCtrl_Ip_DisableIrq (110);
+  FlexCAN_Ip_SetStopMode_Privileged (0);
+  FlexCAN_Ip_Deinit_Privileged (0);
+  JumpToBoot ();
+  _29 = 0;
+
+  <bb 10> :
+<L7>:
+  return _29;
+
+}
+
+
+setupCan ()
+{
+  unsigned char systemid.1_1;
+  int _2;
+  int _3;
+  long unsigned int _4;
+
+  <bb 2> :
+  Siul2_Dio_Ip_WritePin (1076434696B, 14, 1);
+  Siul2_Dio_Ip_WritePin (1076434714B, 12, 1);
+  FlexCAN_Ip_Init_Privileged (0, &FlexCAN_State0, &FlexCAN_Config0);
+  systemid.1_1 = systemid;
+  _2 = (int) systemid.1_1;
+  _3 = _2 + 20837;
+  _4 = (long unsigned int) _3;
+  FlexCAN_Ip_ConfigRxMb (0, 1, &rx_info, _4);
+  FlexCAN_Ip_SetStartMode_Privileged (0);
+  return;
+
+}
+
+
+flexcan0_Callback (uint8 instance, Flexcan_Ip_EventType eventType, uint32 buffIdx, const struct Flexcan_Ip_StateType * flexcanState)
+{
+  unsigned char _1;
+  unsigned char systemid.0_2;
+  unsigned int _3;
+  unsigned int _4;
+
+  <bb 2> :
+  if (eventType_7(D) == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 3> :
+<L0>:
+  _1 = Comparator (&rxData.data, "!WAKEAPP", 8);
+  if (_1 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  FlexCAN_Ip_Send (0, 0, &tx_info, 12648430, &AppStartData);
+  JumpBootState ={v} 1;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  systemid.0_2 = systemid;
+  _3 = (unsigned int) systemid.0_2;
+  _4 = _3 + 12648430;
+  FlexCAN_Ip_Send (0, 0, &tx_info, _4, &rxData);
+  FlexCAN_Ip_Receive (0, 1, &rxData, 0);
+
+  <bb 6> :
+  goto <bb 8>; [INV]
+
+  <bb 7> :
+<L4>:
+
+  <bb 8> :
+  return;
+
+}
+
+

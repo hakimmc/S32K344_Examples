@@ -1,0 +1,344 @@
+Clock_Ip_EnableSxoscOsconEocv (const struct Clock_Ip_XoscConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_DisableSxoscOsconEocv (Clock_Ip_NameType XoscName)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_CompleteSxoscOsconEocv (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+  uint32 SxoscStatus;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+
+  <bb 2> :
+  TimeoutOccurred = 0;
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Enable;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 3> :
+  _4 = Config->CompEn;
+  if (_4 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 4> :
+  _5 = Config->BypassOption;
+  if (_5 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 5> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 6> :
+  _6 = Clock_Ip_apxXosc[Instance];
+  _7 = _6->STAT;
+  _8 = _7 >> 31;
+  SxoscStatus = _8 & 1;
+  TimeoutTicks.1_9 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.1_9);
+  if (SxoscStatus == 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  _10 = ~TimeoutOccurred;
+  if (_10 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 8> :
+  if (TimeoutOccurred != 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 9> :
+  _11 = Config->Name;
+  Clock_Ip_ReportClockErrors (1, _11);
+  goto <bb 11>; [INV]
+
+  <bb 10> :
+  _12 = Config->Name;
+  Clock_Ip_ReportClockErrors (2, _12);
+
+  <bb 11> :
+  StartTime = {CLOBBER};
+  ElapsedTime = {CLOBBER};
+  TimeoutTicks = {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_SetSxoscOsconEocv (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Enable;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _4 = Config->StartupDelay;
+  _5 = (long unsigned int) _4;
+  _6 = _5 << 16;
+  _7 = _6 & 16711680;
+  _8 = Clock_Ip_apxXosc[Instance];
+  _9 = _7 | 1;
+  _8->CTRL = _9;
+
+  <bb 4> :
+  return;
+
+}
+
+
+Clock_Ip_ResetSxoscOsconEocv (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Clock_Ip_apxXosc[Instance];
+  _4 = _3->CTRL;
+  _5 = Clock_Ip_apxXosc[Instance];
+  _6 = _4 & 4294967294;
+  _5->CTRL = _6;
+  return;
+
+}
+
+
+Clock_Ip_EnableFxoscOsconBypEocvGmSel (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Enable;
+  if (_3 == 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _4 = Clock_Ip_apxXosc[Instance];
+  _5 = _4->CTRL;
+  _6 = Clock_Ip_apxXosc[Instance];
+  _7 = _5 | 1;
+  _6->CTRL = _7;
+
+  <bb 4> :
+  return;
+
+}
+
+
+Clock_Ip_DisableFxoscOsconBypEocvGmSel (Clock_Ip_NameType XoscName)
+{
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Clock_Ip_au8ClockFeatures[XoscName][0];
+  Instance = (uint32) _1;
+  _2 = Clock_Ip_apxXosc[Instance];
+  _3 = _2->CTRL;
+  _4 = Clock_Ip_apxXosc[Instance];
+  _5 = _3 & 4294967294;
+  _4->CTRL = _5;
+  return;
+
+}
+
+
+Clock_Ip_CompleteFxoscOsconBypEocvGmSel (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+  uint32 FxoscStatus;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+
+  <bb 2> :
+  TimeoutOccurred = 0;
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Enable;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 3> :
+  _4 = Config->CompEn;
+  if (_4 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 4> :
+  _5 = Config->BypassOption;
+  if (_5 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 5> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 6> :
+  _6 = Clock_Ip_apxXosc[Instance];
+  _7 = _6->STAT;
+  _8 = _7 >> 31;
+  FxoscStatus = _8 & 1;
+  TimeoutTicks.0_9 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.0_9);
+  if (FxoscStatus == 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  _10 = ~TimeoutOccurred;
+  if (_10 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 8> :
+  if (TimeoutOccurred != 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 9> :
+  _11 = Config->Name;
+  Clock_Ip_ReportClockErrors (1, _11);
+  goto <bb 11>; [INV]
+
+  <bb 10> :
+  _12 = Config->Name;
+  Clock_Ip_ReportClockErrors (2, _12);
+
+  <bb 11> :
+  StartTime = {CLOBBER};
+  ElapsedTime = {CLOBBER};
+  TimeoutTicks = {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_SetFxoscOsconBypEocvGmSel (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Enable;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _4 = Config->BypassOption;
+  _5 = (long unsigned int) _4;
+  _6 = _5 << 31;
+  _7 = Config->StartupDelay;
+  _8 = (long unsigned int) _7;
+  _9 = _8 << 16;
+  _10 = _9 & 16711680;
+  _11 = _6 | _10;
+  _12 = Config->TransConductance;
+  _13 = (long unsigned int) _12;
+  _14 = _13 << 4;
+  _15 = _14 & 255;
+  _16 = _11 | _15;
+  _17 = Config->CompEn;
+  _18 = (long unsigned int) _17;
+  _19 = _18 << 24;
+  _20 = _19 & 16777216;
+  _21 = _16 | _20;
+  _22 = Clock_Ip_apxXosc[Instance];
+  _23 = _21 | 1;
+  _22->CTRL = _23;
+
+  <bb 4> :
+  return;
+
+}
+
+
+Clock_Ip_ResetFxoscOsconBypEocvGmSel (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Clock_Ip_apxXosc[Instance];
+  _4 = _3->CTRL;
+  _5 = Clock_Ip_apxXosc[Instance];
+  _6 = _4 & 4294967294;
+  _5->CTRL = _6;
+  return;
+
+}
+
+
+Clock_Ip_DisableClockIpExternalOscillatorEmpty (Clock_Ip_NameType XoscName)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_ExternalOscillatorEmpty (const struct Clock_Ip_XoscConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+

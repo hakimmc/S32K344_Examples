@@ -1,17 +1,18 @@
 
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : 
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -23,7 +24,7 @@
 ==================================================================================================*/
 /**
 *   @file       Clock_Ip_Specific.c
-*   @version    3.0.0
+*   @version    2.0.0
 *
 *   @brief   CLOCK driver implementations.
 *   @details CLOCK driver implementations.
@@ -57,9 +58,9 @@ extern "C"{
 ==================================================================================================*/
 #define CLOCK_IP_SPECIFIC_VENDOR_ID_C                      43
 #define CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION_C       4
-#define CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION_C       7
+#define CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION_C       4
 #define CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION_C    0
-#define CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION_C               3
+#define CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION_C               2
 #define CLOCK_IP_SPECIFIC_SW_MINOR_VERSION_C               0
 #define CLOCK_IP_SPECIFIC_SW_PATCH_VERSION_C               0
 
@@ -110,8 +111,9 @@ typedef void (*SetFlashWaitStatesCallbackType)(void);
 /*==================================================================================================
 *                                       LOCAL MACROS
 ==================================================================================================*/
-#define CLOCK_IP_FIRCOSC_STDBY                 2U
-#define CLOCK_IP_SIRCOSC_STDBY                 3U
+#define CLOCK_IP_FIRCOSC                       1U
+#define CLOCK_IP_SIRCOSC                       2U
+
 /*==================================================================================================
                                        LOCAL CONSTANTS
 ==================================================================================================*/
@@ -167,15 +169,6 @@ static SetFlashWaitStatesCallbackType Clock_Ip_SetFlashWaitStatesCallback = Cloc
 #define MCU_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Mcu_MemMap.h"
 
-/* Clock start initialized section data */
-#define MCU_START_SEC_VAR_CLEARED_BOOLEAN
-#include "Mcu_MemMap.h"
-
-static boolean Clock_Ip_bObjectsAreInitialized;   /* Clock objects are initialized. */
-
-/* Clock stop initialized section data */
-#define MCU_STOP_SEC_VAR_CLEARED_BOOLEAN
-#include "Mcu_MemMap.h"
 /*==================================================================================================
                                        GLOBAL CONSTANTS
 ==================================================================================================*/
@@ -198,13 +191,6 @@ void Clock_Ip_PRAMCSetRamIWS(void);
 /* Clock stop rom section code */
 #define MCU_STOP_SEC_CODE_AC
 #include "Mcu_MemMap.h"
-
-
-/* Clock start section code */
-#define MCU_START_SEC_CODE
-#include "Mcu_MemMap.h"
-
-void Clock_Ip_PowerClockIpModules(void);
 /*==================================================================================================
 *                                    LOCAL FUNCTION PROTOTYPES
 ==================================================================================================*/
@@ -212,8 +198,8 @@ void Clock_Ip_PowerClockIpModules(void);
 /*==================================================================================================
 *                                         LOCAL FUNCTIONS
 ==================================================================================================*/
-
-static void Clock_Ip_PllPowerClockIp(void)
+/* Power clock ip modules */
+static void Clock_Ip_PowerClockIpModules(void)
 {
     uint32 StartTime;
     uint32 ElapsedTime;
@@ -242,43 +228,6 @@ static void Clock_Ip_PllPowerClockIp(void)
             Clock_Ip_ReportClockErrors(CLOCK_IP_REPORT_TIMEOUT_ERROR, PLL_CLK);
         }
     }
-
-    /* PLLAUX is not powered */
-#if defined(CLOCK_IP_HAS_PLLAUX_CLK)
-    if (0U == (IP_MC_ME->PRTN1_COFB1_STAT & MC_ME_PRTN1_COFB1_STAT_BLOCK57_MASK))
-    {
-        /* Power PLL device */
-        IP_MC_ME->PRTN1_COFB1_CLKEN |= MC_ME_PRTN1_COFB1_CLKEN_REQ57(1U);   /* REQ57: Frequency Modulated Phase-Locked Loop */
-        IP_MC_ME->PRTN1_PCONF       |= MC_ME_PRTN1_PCONF_PCE_MASK;          /* PCE=1: Enable the clock to Partition #1 */
-        IP_MC_ME->PRTN1_PUPD        |= MC_ME_PRTN1_PUPD_PCUD_MASK;          /* PCUD=1: Trigger the hardware process */
-        Clock_Ip_McMeEnterKey();
-        /* Wait until PLL clock is running */
-        Clock_Ip_StartTimeout(&StartTime, &ElapsedTime, &TimeoutTicks, CLOCK_IP_TIMEOUT_VALUE_US);
-        do
-        {
-            TimeoutOccurred = Clock_Ip_TimeoutExpired(&StartTime, &ElapsedTime, TimeoutTicks);
-        }
-        while((0U == (IP_MC_ME->PRTN1_COFB1_STAT & MC_ME_PRTN1_COFB1_STAT_BLOCK57_MASK)) && (FALSE == TimeoutOccurred));
-        /* timeout notification */
-        if (TRUE == TimeoutOccurred)
-        {
-            /* Report timeout error */
-            Clock_Ip_ReportClockErrors(CLOCK_IP_REPORT_TIMEOUT_ERROR, PLLAUX_CLK);
-        }
-    }
-#endif
-}
-
-
-/* Power clock ip modules */
-void Clock_Ip_PowerClockIpModules(void)
-{
-    uint32 StartTime;
-    uint32 ElapsedTime;
-    uint32 TimeoutTicks;
-    boolean TimeoutOccurred = FALSE;
-
-    Clock_Ip_PllPowerClockIp();
 
     /* FXOSC is not powered */
     if (0U == (IP_MC_ME->PRTN1_COFB1_STAT & MC_ME_PRTN1_COFB1_STAT_BLOCK53_MASK))
@@ -350,34 +299,7 @@ void Clock_Ip_PowerClockIpModules(void)
             Clock_Ip_ReportClockErrors(CLOCK_IP_REPORT_TIMEOUT_ERROR, RESERVED_CLK);
         }
     }
-
-    /* MSCM is not powered */
-    if (0U == (IP_MC_ME->PRTN1_COFB0_STAT & MC_ME_PRTN1_COFB0_STAT_BLOCK24_MASK))
-    {
-        /* Power MSCM devices */
-        IP_MC_ME->PRTN1_COFB0_CLKEN |= MC_ME_PRTN1_COFB0_CLKEN_REQ24(1U);   /* REQ24: MSCM */
-        IP_MC_ME->PRTN1_PCONF       |= MC_ME_PRTN1_PCONF_PCE_MASK;          /* PCE=1: Enable the clock to Partition #1 */
-        IP_MC_ME->PRTN1_PUPD        |= MC_ME_PRTN1_PUPD_PCUD_MASK;          /* PCUD=1: Trigger the hardware process */
-        Clock_Ip_McMeEnterKey();
-        /* Wait until MSCM clock is running */
-        Clock_Ip_StartTimeout(&StartTime, &ElapsedTime, &TimeoutTicks, CLOCK_IP_TIMEOUT_VALUE_US);
-        do
-        {
-            TimeoutOccurred = Clock_Ip_TimeoutExpired(&StartTime, &ElapsedTime, TimeoutTicks);
-        }
-        while((0U == (IP_MC_ME->PRTN1_COFB0_STAT & MC_ME_PRTN1_COFB0_STAT_BLOCK24_MASK)) && (FALSE == TimeoutOccurred));
-        /* timeout notification */
-        if (TRUE == TimeoutOccurred)
-        {
-            /* Report timeout error */
-            Clock_Ip_ReportClockErrors(CLOCK_IP_REPORT_TIMEOUT_ERROR, RESERVED_CLK);
-        }
-    }
-
 }
-/* Clock stop section code */
-#define MCU_STOP_SEC_CODE
-#include "Mcu_MemMap.h"
 
 #ifdef CLOCK_IP_HAS_FLASH_WAIT_STATES
 
@@ -387,14 +309,13 @@ void Clock_Ip_PowerClockIpModules(void)
 
 #include "Mcu_MemMap.h"
 
-/* Configuration Flash wait state value base on ControllerRamFrequency  */
+/* Configuration Flash wait state value base on ConfiguredCoreClock  */
 static void Clock_Ip_CodeInRamSetFlashWaitStates(void)
 {
-    uint32 RegValue;
     uint32 RwscSetting = 0U;
     uint32 ConfiguredCoreClock = 0U;
 
-    ConfiguredCoreClock = (*Clock_Ip_pxConfig->ConfiguredFrequencies)[Clock_Ip_FreqIds[CORE_CLK]].ConfiguredFrequencyValue;
+    ConfiguredCoreClock = Clock_Ip_pxConfig->ConfiguredFrequencies[Clock_Ip_FreqIds[CORE_CLK]].ConfiguredFrequencyValue;
 
     if (ConfiguredCoreClock <= 167000000U)
     {
@@ -435,21 +356,9 @@ static void Clock_Ip_CodeInRamSetFlashWaitStates(void)
         }
     }
 
-    /* Update register value with the new WS value. */
-    RegValue = IP_FLASH->CTL;
-    RegValue &= ~FLASH_CTL_RWSL_MASK;
-    RegValue &= ~FLASH_CTL_RWSC_MASK;
-    RegValue |= FLASH_CTL_RWSC(RwscSetting);
-
-    /* Complete all data memory accesses and instructions. */
-    ASM_KEYWORD("dsb");
-    ASM_KEYWORD("isb");
-
-    /* Unlock register to set flash wait states */
     IP_FLASH->CTL &= ~FLASH_CTL_RWSL_MASK;
-
-    /* Configure wait states */
-    IP_FLASH->CTL = RegValue;
+    IP_FLASH->CTL &= ~FLASH_CTL_RWSC_MASK;
+    IP_FLASH->CTL |= FLASH_CTL_RWSC(RwscSetting);
 }
 
 /* Clock stop ram section code */
@@ -544,29 +453,36 @@ void EnableSircInStandbyMode(void)
 /* Initialize objects for clock */
 static void Clock_Ip_ClockInitializeObjects(void)
 {
+    static boolean Clock_Ip_bObjectsAreInitialized = FALSE;   /* Clock objects are initialized. */
+    
     if (FALSE == Clock_Ip_bObjectsAreInitialized)
     {
         Clock_Ip_bObjectsAreInitialized = TRUE;
 
-        Clock_Ip_pxSircStdbyClock = &Clock_Ip_axIntOscCallbacks[Clock_Ip_au8IrcoscCallbackIndex[CLOCK_IP_SIRCOSC_STDBY]];
+        Clock_Ip_pxSircStdbyClock = &Clock_Ip_axIntOscCallbacks[Clock_Ip_au8IrcoscCallbackIndex[CLOCK_IP_SIRCOSC]];
 
-        Clock_Ip_pxFircStdbyClock = &Clock_Ip_axIntOscCallbacks[Clock_Ip_au8IrcoscCallbackIndex[CLOCK_IP_FIRCOSC_STDBY]];
+        Clock_Ip_pxFircStdbyClock = &Clock_Ip_axIntOscCallbacks[Clock_Ip_au8IrcoscCallbackIndex[CLOCK_IP_FIRCOSC]];
     }
+}
+
+/* Be called after Power mode had changed */
+void Clock_Ip_ClockPowerModeChangeNotification(Clock_Ip_PowerModesType PowerMode, Clock_Ip_PowerNotificationType Notification)
+{
+    (void)PowerMode;
+    (void)Notification;
 }
 
 #if (defined(CLOCK_IP_ENABLE_USER_MODE_SUPPORT))
   #if (STD_ON == CLOCK_IP_ENABLE_USER_MODE_SUPPORT)
 void Clock_Ip_SpecificSetUserAccessAllowed(void)
 {
-    #ifdef CLOCK_IP_ENABLE_USER_MODE_SUPPORT
-#if (STD_ON == CLOCK_IP_ENABLE_USER_MODE_SUPPORT)
-    OsIf_Trusted_Call(Clock_Ip_PowerClockIpModules);
-#else
+    /* Power clock ip modules.
+     * On some platforms clock ip modules cannot be configured,
+     * registers cannot be access until device is powered.
+     * Check and power if it is required clock ip modules.
+     */
     Clock_Ip_PowerClockIpModules();
-#endif
-#else
-    Clock_Ip_PowerClockIpModules();
-#endif
+
     /* PLLDIG SetUserAccessAllowed */
 #if ( defined(MCAL_PLLDIG_REG_PROT_AVAILABLE))
   #if (STD_ON == MCAL_PLLDIG_REG_PROT_AVAILABLE)
@@ -576,14 +492,6 @@ void Clock_Ip_SpecificSetUserAccessAllowed(void)
   #endif
 #endif /* MCAL_PLLDIG_REG_PROT_AVAILABLE */
 
-    /* PLLDIG SetUserAccessAllowed */
-#if ( defined(MCAL_PLLDIG_REG_PROT_AVAILABLE))
-  #if (STD_ON == MCAL_PLLDIG_REG_PROT_AVAILABLE)
-    #if (defined(IP_PLL_AUX_BASE))
-    SET_USER_ACCESS_ALLOWED(IP_PLL_AUX_BASE, PLLDIG_PROT_MEM_U32);
-    #endif
-  #endif
-#endif /* MCAL_PLLDIG_REG_PROT_AVAILABLE */
     /* FXOSC SetUserAccessAllowed */
 #if (defined(MCAL_FXOSC_REG_PROT_AVAILABLE))
   #if (STD_ON == MCAL_FXOSC_REG_PROT_AVAILABLE)
@@ -608,6 +516,18 @@ void Clock_Ip_SpecificSetUserAccessAllowed(void)
     #if (defined(IP_CMU_0_BASE))
     /* Check clock status for CMU0 */
     SET_USER_ACCESS_ALLOWED(IP_CMU_0_BASE, CMU_PROT_MEM_U32);
+    #endif
+    #if (defined(IP_CMU_3_BASE))
+    /* Check clock status for CMU3 */
+    SET_USER_ACCESS_ALLOWED(IP_CMU_3_BASE, CMU_PROT_MEM_U32);
+    #endif
+    #if (defined(IP_CMU_4_BASE))
+    /* Check clock status for CMU3 */
+    SET_USER_ACCESS_ALLOWED(IP_CMU_4_BASE, CMU_PROT_MEM_U32);
+    #endif
+    #if (defined(IP_CMU_5_BASE))
+    /* Check clock status for CMU5 */
+    SET_USER_ACCESS_ALLOWED(IP_CMU_5_BASE, CMU_PROT_MEM_U32);
     #endif
   #endif
 #endif /* MCAL_CMU_REG_PROT_AVAILABLE */
@@ -700,50 +620,35 @@ void Clock_Ip_FLASH_SetFlashIWS(void)
 
 void Clock_Ip_PRAMCSetRamIWS(void)
 {
-    uint32 ControllerRamFrequency = 0U;   /* Frequency at which PRAM controller is working */
-    uint32 ArrayRamFrequency = 0U;        /* Frequency at which system ram is working */  
-    
-    uint32 Pram0RegVal = IP_PRAMC_0->PRCR1;
-#ifdef IP_PRAMC_1
-    uint32 Pram1RegVal = IP_PRAMC_1->PRCR1;
-#endif
+    uint32 ConfiguredCoreClock = 0U;
+    uint32 ConfiguredAipsPlatClock = 0U;
 
 #if defined(CLOCK_IP_HAS_CORE_CLK)
-    ControllerRamFrequency = (*Clock_Ip_pxConfig->ConfiguredFrequencies)[Clock_Ip_FreqIds[CORE_CLK]].ConfiguredFrequencyValue;
+    ConfiguredCoreClock = Clock_Ip_pxConfig->ConfiguredFrequencies[Clock_Ip_FreqIds[CORE_CLK]].ConfiguredFrequencyValue;
 #endif
 
 #if defined(CLOCK_IP_HAS_AIPS_PLAT_CLK)
-    ArrayRamFrequency = (*Clock_Ip_pxConfig->ConfiguredFrequencies)[Clock_Ip_FreqIds[AIPS_PLAT_CLK]].ConfiguredFrequencyValue;
+    ConfiguredAipsPlatClock = Clock_Ip_pxConfig->ConfiguredFrequencies[Clock_Ip_FreqIds[AIPS_PLAT_CLK]].ConfiguredFrequencyValue;
 #endif
 
-    /* if controller is working at a higher frequency than array ram (system/physical ram) */
-    if (ControllerRamFrequency > ArrayRamFrequency)
+    /* CORE_CLK frequency is greater than 80MHz or CORE_CLK and AIPS_PLAT_CLK have the same frequency */
+    if ((ConfiguredCoreClock > 80000000U) || (ConfiguredCoreClock == ConfiguredAipsPlatClock))
     {
         /* Enable RAM WS */
-        Pram0RegVal |= PRAMC_PRCR1_FT_DIS_MASK;
+        IP_PRAMC_0->PRCR1 |= PRAMC_PRCR1_FT_DIS_MASK;
 #ifdef IP_PRAMC_1
-        Pram1RegVal |= PRAMC_PRCR1_FT_DIS_MASK;
+        IP_PRAMC_1->PRCR1 |= PRAMC_PRCR1_FT_DIS_MASK;
 #endif
 
-        /* Read bursts are optimized when flow-through is disabled */
-        Pram0RegVal &= ~PRAMC_PRCR1_P0_BO_DIS_MASK;
-#ifdef IP_PRAMC_1
-        Pram1RegVal &= ~PRAMC_PRCR1_P0_BO_DIS_MASK;
-#endif
     }
     else
     {
         /* Disable RAM WS */
-        Pram0RegVal &= ~PRAMC_PRCR1_FT_DIS_MASK;
+        IP_PRAMC_0->PRCR1 &= ~PRAMC_PRCR1_FT_DIS_MASK;
 #ifdef IP_PRAMC_1
-        Pram1RegVal &= ~PRAMC_PRCR1_FT_DIS_MASK;
+        IP_PRAMC_1->PRCR1 &= ~PRAMC_PRCR1_FT_DIS_MASK;
 #endif
-    }    
-    
-    IP_PRAMC_0->PRCR1 = Pram0RegVal;
-#ifdef IP_PRAMC_1
-    IP_PRAMC_1->PRCR1 = Pram1RegVal;
-#endif
+    }
 }
 
 /* Clock stop rom section code */

@@ -1,0 +1,371 @@
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+Symbol table:
+
+Clock_Ip_ReportClockErrors/13 (Clock_Ip_ReportClockErrors) @06df61c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 
+  Calls: 
+Clock_Ip_apxMcMeGetPartitions/12 (Clock_Ip_apxMcMeGetPartitions) @06ceff78
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_TimeoutExpired/11 (Clock_Ip_TimeoutExpired) @06df60e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 
+  Calls: 
+Clock_Ip_StartTimeout/10 (Clock_Ip_StartTimeout) @06df6000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 
+  Calls: 
+Clock_Ip_McMeEnterKey/9 (Clock_Ip_McMeEnterKey) @06cf0620
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 
+  Calls: 
+Clock_Ip_apxMcMeTriggerPartitions/8 (Clock_Ip_apxMcMeTriggerPartitions) @06cefe58
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_apxMcMeSetPartitions/7 (Clock_Ip_apxMcMeSetPartitions) @06cefe10
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_axGateInfo/6 (Clock_Ip_axGateInfo) @06cefdc8
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (addr) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_au8ClockFeatures/5 (Clock_Ip_au8ClockFeatures) @06cefd80
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_axGateCallbacks/4 (Clock_Ip_axGateCallbacks) @06cef3a8
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_ClockSetGateEmpty/0 (addr) Clock_Ip_ClockUpdateGateEmpty/1 (addr) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (addr) Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest/3 (addr) 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized read-only const-value-known
+Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest/3 (Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest) @06cf07e0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axGateCallbacks/4 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 
+Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest) @06cf0540
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/5 (read) Clock_Ip_axGateInfo/6 (addr) Clock_Ip_apxMcMeSetPartitions/7 (read) Clock_Ip_apxMcMeSetPartitions/7 (read) Clock_Ip_apxMcMeSetPartitions/7 (read) Clock_Ip_apxMcMeTriggerPartitions/8 (read) Clock_Ip_apxMcMeTriggerPartitions/8 (read) Clock_Ip_apxMcMeTriggerPartitions/8 (read) Clock_Ip_apxMcMeTriggerPartitions/8 (read) Clock_Ip_apxMcMeGetPartitions/12 (read) Clock_Ip_apxMcMeSetPartitions/7 (read) Clock_Ip_apxMcMeSetPartitions/7 (read) Clock_Ip_apxMcMeSetPartitions/7 (read) Clock_Ip_apxMcMeTriggerPartitions/8 (read) Clock_Ip_apxMcMeTriggerPartitions/8 (read) Clock_Ip_apxMcMeTriggerPartitions/8 (read) Clock_Ip_apxMcMeTriggerPartitions/8 (read) Clock_Ip_apxMcMeGetPartitions/12 (read) 
+  Referring: Clock_Ip_axGateCallbacks/4 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest/3 
+  Calls: Clock_Ip_ReportClockErrors/13 Clock_Ip_TimeoutExpired/11 Clock_Ip_StartTimeout/10 Clock_Ip_McMeEnterKey/9 Clock_Ip_ReportClockErrors/13 Clock_Ip_TimeoutExpired/11 Clock_Ip_StartTimeout/10 Clock_Ip_McMeEnterKey/9 
+Clock_Ip_ClockUpdateGateEmpty/1 (Clock_Ip_ClockUpdateGateEmpty) @06cf02a0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axGateCallbacks/4 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ClockSetGateEmpty/0 (Clock_Ip_ClockSetGateEmpty) @06cf0000
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axGateCallbacks/4 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest (Clock_Ip_NameType ClockName, boolean Gate)
+{
+  struct Clock_Ip_GateConfigType Config;
+
+  <bb 2> :
+  Config.Name = ClockName_3(D);
+  if (Gate_5(D) != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  Config.Enable = 0;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  Config.Enable = 1;
+
+  <bb 5> :
+  Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest (&Config);
+  Config ={v} {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest (const struct Clock_Ip_GateConfigType * Config)
+{
+  uint32 EnableRequest;
+  uint32 Collection;
+  uint32 Partition;
+  const struct Clock_Ip_GateInfoType * GateInformation;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  <unnamed type> _1;
+  unsigned char _2;
+  int _3;
+  unsigned char _4;
+  unsigned char _5;
+  short unsigned int _6;
+  volatile struct Clock_Ip_McmePartitionSetType * _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  volatile struct Clock_Ip_McmePartitionSetType * _10;
+  long unsigned int _11;
+  volatile struct Clock_Ip_McmePartitionSetType * _12;
+  long unsigned int _13;
+  volatile struct Clock_Ip_McmePartitionTriggerType * _14;
+  long unsigned int _15;
+  volatile struct Clock_Ip_McmePartitionTriggerType * _16;
+  long unsigned int _17;
+  volatile struct Clock_Ip_McmePartitionTriggerType * _18;
+  long unsigned int _19;
+  volatile struct Clock_Ip_McmePartitionTriggerType * _20;
+  long unsigned int _21;
+  long unsigned int TimeoutTicks.0_22;
+  const volatile struct Clock_Ip_McmePartitionGetType * _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  _Bool _26;
+  <unnamed type> _27;
+  volatile struct Clock_Ip_McmePartitionSetType * _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  volatile struct Clock_Ip_McmePartitionSetType * _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  volatile struct Clock_Ip_McmePartitionSetType * _34;
+  long unsigned int _35;
+  volatile struct Clock_Ip_McmePartitionTriggerType * _36;
+  long unsigned int _37;
+  volatile struct Clock_Ip_McmePartitionTriggerType * _38;
+  long unsigned int _39;
+  volatile struct Clock_Ip_McmePartitionTriggerType * _40;
+  long unsigned int _41;
+  volatile struct Clock_Ip_McmePartitionTriggerType * _42;
+  long unsigned int _43;
+  long unsigned int TimeoutTicks.1_44;
+  const volatile struct Clock_Ip_McmePartitionGetType * _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  _Bool _48;
+  <unnamed type> _49;
+
+  <bb 2> :
+  TimeoutOccurred_53 = 0;
+  _1 = Config_55(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][6];
+  _3 = (int) _2;
+  GateInformation_56 = &Clock_Ip_axGateInfo[_3];
+  _4 = GateInformation_56->PartitionValue;
+  Partition_57 = (uint32) _4;
+  _5 = GateInformation_56->ColectionValue;
+  Collection_58 = (uint32) _5;
+  EnableRequest_59 = GateInformation_56->RequestValueMask;
+  _6 = Config_55(D)->Enable;
+  if (_6 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 3> :
+  _7 = Clock_Ip_apxMcMeSetPartitions[Partition_57];
+  _8 ={v} _7->PRTN_COFB_CLKEN[Collection_58];
+  _9 = EnableRequest_59 & _8;
+  if (_9 == 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 15>; [INV]
+
+  <bb 4> :
+  _10 = Clock_Ip_apxMcMeSetPartitions[Partition_57];
+  _11 ={v} _10->PRTN_COFB_CLKEN[Collection_58];
+  _12 = Clock_Ip_apxMcMeSetPartitions[Partition_57];
+  _13 = EnableRequest_59 | _11;
+  _12->PRTN_COFB_CLKEN[Collection_58] ={v} _13;
+  _14 = Clock_Ip_apxMcMeTriggerPartitions[Partition_57];
+  _15 ={v} _14->PRTN_PCONF;
+  _16 = Clock_Ip_apxMcMeTriggerPartitions[Partition_57];
+  _17 = _15 | 1;
+  _16->PRTN_PCONF ={v} _17;
+  _18 = Clock_Ip_apxMcMeTriggerPartitions[Partition_57];
+  _19 ={v} _18->PRTN_PUPD;
+  _20 = Clock_Ip_apxMcMeTriggerPartitions[Partition_57];
+  _21 = _19 | 1;
+  _20->PRTN_PUPD ={v} _21;
+  Clock_Ip_McMeEnterKey ();
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 5> :
+  TimeoutTicks.0_22 = TimeoutTicks;
+  TimeoutOccurred_74 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.0_22);
+  _23 = Clock_Ip_apxMcMeGetPartitions[Partition_57];
+  _24 ={v} _23->PRTN_COFB_STAT[Collection_58];
+  _25 = EnableRequest_59 & _24;
+  if (_25 == 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  _26 = ~TimeoutOccurred_74;
+  if (_26 != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 7> :
+  if (TimeoutOccurred_74 != 0)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 15>; [INV]
+
+  <bb 8> :
+  _27 = Config_55(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _27);
+  goto <bb 15>; [INV]
+
+  <bb 9> :
+  _28 = Clock_Ip_apxMcMeSetPartitions[Partition_57];
+  _29 ={v} _28->PRTN_COFB_CLKEN[Collection_58];
+  _30 = EnableRequest_59 & _29;
+  if (_30 != 0)
+    goto <bb 10>; [INV]
+  else
+    goto <bb 15>; [INV]
+
+  <bb 10> :
+  _31 = Clock_Ip_apxMcMeSetPartitions[Partition_57];
+  _32 ={v} _31->PRTN_COFB_CLKEN[Collection_58];
+  _33 = ~EnableRequest_59;
+  _34 = Clock_Ip_apxMcMeSetPartitions[Partition_57];
+  _35 = _32 & _33;
+  _34->PRTN_COFB_CLKEN[Collection_58] ={v} _35;
+  _36 = Clock_Ip_apxMcMeTriggerPartitions[Partition_57];
+  _37 ={v} _36->PRTN_PCONF;
+  _38 = Clock_Ip_apxMcMeTriggerPartitions[Partition_57];
+  _39 = _37 | 1;
+  _38->PRTN_PCONF ={v} _39;
+  _40 = Clock_Ip_apxMcMeTriggerPartitions[Partition_57];
+  _41 ={v} _40->PRTN_PUPD;
+  _42 = Clock_Ip_apxMcMeTriggerPartitions[Partition_57];
+  _43 = _41 | 1;
+  _42->PRTN_PUPD ={v} _43;
+  Clock_Ip_McMeEnterKey ();
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 11> :
+  TimeoutTicks.1_44 = TimeoutTicks;
+  TimeoutOccurred_66 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.1_44);
+  _45 = Clock_Ip_apxMcMeGetPartitions[Partition_57];
+  _46 ={v} _45->PRTN_COFB_STAT[Collection_58];
+  _47 = EnableRequest_59 & _46;
+  if (_47 != 0)
+    goto <bb 12>; [INV]
+  else
+    goto <bb 13>; [INV]
+
+  <bb 12> :
+  _48 = ~TimeoutOccurred_66;
+  if (_48 != 0)
+    goto <bb 11>; [INV]
+  else
+    goto <bb 13>; [INV]
+
+  <bb 13> :
+  if (TimeoutOccurred_66 != 0)
+    goto <bb 14>; [INV]
+  else
+    goto <bb 15>; [INV]
+
+  <bb 14> :
+  _49 = Config_55(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _49);
+
+  <bb 15> :
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_ClockUpdateGateEmpty (Clock_Ip_NameType ClockName, boolean Gate)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_ClockSetGateEmpty (const struct Clock_Ip_GateConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+

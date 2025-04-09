@@ -1,16 +1,16 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : FLEXCAN
 *   Dependencies         : 
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   (c) Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
 *   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
@@ -32,8 +32,8 @@
  *      Author: nxf31634
  */
 
-#ifndef FLEXCAN_IP_CFG_H_
-#define FLEXCAN_IP_CFG_H_
+#ifndef FLEXCAN_FLEXCAN_IP_CFG_H_
+#define FLEXCAN_FLEXCAN_IP_CFG_H_
 
 /**
 *   @file FlexCAN_Ip_Cfg.h
@@ -52,7 +52,7 @@ extern "C"{
 * 2) needed interfaces from external units
 * 3) internal and external interfaces from this unit
 ==================================================================================================*/
-#include "FlexCAN_Ip_Sa_PBcfg.h"
+#include "FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.h"
 #include "OsIf.h"
 #include "Reg_eSys.h"
 /*==================================================================================================
@@ -60,29 +60,29 @@ extern "C"{
 ==================================================================================================*/
 #define FLEXCAN_IP_CFG_VENDOR_ID_H                      43
 #define FLEXCAN_IP_CFG_AR_RELEASE_MAJOR_VERSION_H       4
-#define FLEXCAN_IP_CFG_AR_RELEASE_MINOR_VERSION_H       7
+#define FLEXCAN_IP_CFG_AR_RELEASE_MINOR_VERSION_H       4
 #define FLEXCAN_IP_CFG_AR_RELEASE_REVISION_VERSION_H    0
-#define FLEXCAN_IP_CFG_SW_MAJOR_VERSION_H               3
+#define FLEXCAN_IP_CFG_SW_MAJOR_VERSION_H               2
 #define FLEXCAN_IP_CFG_SW_MINOR_VERSION_H               0
 #define FLEXCAN_IP_CFG_SW_PATCH_VERSION_H               0
 /*==================================================================================================
 *                                     FILE VERSION CHECKS
 ==================================================================================================*/
-/* Checks against FlexCAN_Ip_Sa_PBcfg.h */
-#if (FLEXCAN_IP_CFG_VENDOR_ID_H != FLEXCAN_IP_SA_VENDOR_ID_PBCFG_H)
-    #error "FlexCAN_Ip_Cfg.h and FlexCAN_Ip_Sa_PBcfg.h have different vendor ids"
+/* Checks against FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.h */
+#if (FLEXCAN_IP_CFG_VENDOR_ID_H != FLEXCAN_IP_SA_VENDOR_ID_BOARD_INITPERIPHERALS_PBCFG_H)
+    #error "FlexCAN_Ip_Cfg.h and FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.h have different vendor ids"
 #endif
-#if ((FLEXCAN_IP_CFG_AR_RELEASE_MAJOR_VERSION_H    != FLEXCAN_IP_SA_AR_RELEASE_MAJOR_VERSION_PBCFG_H) || \
-     (FLEXCAN_IP_CFG_AR_RELEASE_MINOR_VERSION_H    != FLEXCAN_IP_SA_AR_RELEASE_MINOR_VERSION_PBCFG_H) || \
-     (FLEXCAN_IP_CFG_AR_RELEASE_REVISION_VERSION_H != FLEXCAN_IP_SA_AR_RELEASE_REVISION_VERSION_PBCFG_H) \
+#if ((FLEXCAN_IP_CFG_AR_RELEASE_MAJOR_VERSION_H    != FLEXCAN_IP_SA_AR_RELEASE_MAJOR_VERSION_BOARD_INITPERIPHERALS_PBCFG_H) || \
+     (FLEXCAN_IP_CFG_AR_RELEASE_MINOR_VERSION_H    != FLEXCAN_IP_SA_AR_RELEASE_MINOR_VERSION_BOARD_INITPERIPHERALS_PBCFG_H) || \
+     (FLEXCAN_IP_CFG_AR_RELEASE_REVISION_VERSION_H != FLEXCAN_IP_SA_AR_RELEASE_REVISION_VERSION_BOARD_INITPERIPHERALS_PBCFG_H) \
     )
-    #error "AUTOSAR Version Numbers of FlexCAN_Ip_Cfg.h and FlexCAN_Ip_Sa_PBcfg.h are different"
+    #error "AUTOSAR Version Numbers of FlexCAN_Ip_Cfg.h and FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.h are different"
 #endif
-#if ((FLEXCAN_IP_CFG_SW_MAJOR_VERSION_H != FLEXCAN_IP_SA_SW_MAJOR_VERSION_PBCFG_H) || \
-    (FLEXCAN_IP_CFG_SW_MINOR_VERSION_H != FLEXCAN_IP_SA_SW_MINOR_VERSION_PBCFG_H) || \
-    (FLEXCAN_IP_CFG_SW_PATCH_VERSION_H != FLEXCAN_IP_SA_SW_PATCH_VERSION_PBCFG_H) \
+#if ((FLEXCAN_IP_CFG_SW_MAJOR_VERSION_H != FLEXCAN_IP_SA_SW_MAJOR_VERSION_BOARD_INITPERIPHERALS_PBCFG_H) || \
+    (FLEXCAN_IP_CFG_SW_MINOR_VERSION_H != FLEXCAN_IP_SA_SW_MINOR_VERSION_BOARD_INITPERIPHERALS_PBCFG_H) || \
+    (FLEXCAN_IP_CFG_SW_PATCH_VERSION_H != FLEXCAN_IP_SA_SW_PATCH_VERSION_BOARD_INITPERIPHERALS_PBCFG_H) \
     )
-    #error "Software Version Numbers of FlexCAN_Ip_Cfg.h and FlexCAN_Ip_Sa_PBcfg.h are different"
+    #error "Software Version Numbers of FlexCAN_Ip_Cfg.h and FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.h are different"
 #endif
 
 #ifndef DISABLE_MCAL_INTERMODULE_ASR_CHECK
@@ -107,8 +107,8 @@ extern "C"{
 /*==================================================================================================
 *                                      DEFINES AND MACROS
 ==================================================================================================*/
-#define FLEXCAN_IP_STATE_EXT \
-   FLEXCAN_IP_SA_STATE_PB_CFG
+#define FLEXCAN_IP_STATE_EXT    FLEXCAN_IP_SA_STATE_PB_CFG
+
 /* External Structures generated by FlexCAN_Ip_PBCfg */
 #define FLEXCAN_IP_CONFIG_EXT \
     FLEXCAN_IP_SA_PB_CFG
@@ -133,7 +133,7 @@ extern "C"{
 #endif
 
 /* Time out value in uS */
-#define FLEXCAN_IP_TIMEOUT_DURATION    (10000U)
+#define FLEXCAN_IP_TIMEOUT_DURATION    (100U)
 
 /* This this will set the timer source for osif that will be used for timeout */
 #define FLEXCAN_IP_SERVICE_TIMEOUT_TYPE    (OSIF_COUNTER_DUMMY)
@@ -211,11 +211,11 @@ extern "C"{
 #define FLEXCAN_IP_FEATURE_MBDSR_COUNT    (3U)
 /* Enable Development Error Detection */
 /* Trebuie adagudat un field in configuratorul de FlexCAN */
-#define FLEXCAN_IP_DEV_ERROR_DETECT    (STD_ON)
+#define FLEXCAN_IP_DEV_ERROR_DETECT    (STD_OFF)
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 
-#endif /* FLEXCAN_IP_CFG_H_ */
+#endif /* FLEXCAN_FLEXCAN_IP_CFG_H_ */
 

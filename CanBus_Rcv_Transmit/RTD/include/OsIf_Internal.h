@@ -1,16 +1,17 @@
 /*==================================================================================================
-* Project : RTD AUTOSAR 4.7
+* Project : RTD AUTOSAR 4.4
 * Platform : CORTEXM
 * Peripheral : S32K3XX
 * Dependencies : none
 *
-* Autosar Version : 4.7.0
-* Autosar Revision : ASR_REL_4_7_REV_0000
+* Autosar Version : 4.4.0
+* Autosar Revision : ASR_REL_4_4_REV_0000
 * Autosar Conf.Variant :
-* SW Version : 3.0.0
-* Build Version : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+* SW Version : 2.0.0
+* Build Version : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-* Copyright 2020 - 2023 NXP Semiconductors
+* (c) Copyright 2020 - 2022 NXP Semiconductors
+* All Rights Reserved.
 *
 * NXP Confidential. This software is owned or controlled by NXP and may only be
 * used strictly in accordance with the applicable license terms. By expressly
@@ -57,15 +58,10 @@ extern "C"{
 
 #if !defined(USING_OS_AUTOSAROS)
 #ifdef MCAL_ENABLE_USER_MODE_SUPPORT
-#if (MCAL_PLATFORM_ARM  == MCAL_ARM_MARCH)
 /* prototypes defined in system.h*/
 uint32 Sys_GoToUser_Return(uint32 u32SwitchToSupervisor, uint32 u32returnValue);
 uint32 Sys_GoToSupervisor(void);
 uint32 Sys_GoToUser(void);
-#else
-/*import inline function for switch context from system.h */
-#include "system.h"
-#endif
 void Sys_SuspendInterrupts(void);
 void Sys_ResumeInterrupts(void);
 #endif /* def MCAL_ENABLE_USER_MODE_SUPPORT */
@@ -81,9 +77,9 @@ void Sys_EL1ResumeInterrupts(void);
 ==================================================================================================*/
 #define OSIF_INTERNAL_VENDOR_ID                    43
 #define OSIF_INTERNAL_AR_RELEASE_MAJOR_VERSION     4
-#define OSIF_INTERNAL_AR_RELEASE_MINOR_VERSION     7
+#define OSIF_INTERNAL_AR_RELEASE_MINOR_VERSION     4
 #define OSIF_INTERNAL_AR_RELEASE_REVISION_VERSION  0
-#define OSIF_INTERNAL_SW_MAJOR_VERSION             3
+#define OSIF_INTERNAL_SW_MAJOR_VERSION             2
 #define OSIF_INTERNAL_SW_MINOR_VERSION             0
 #define OSIF_INTERNAL_SW_PATCH_VERSION             0
 
@@ -199,27 +195,22 @@ void Sys_EL1ResumeInterrupts(void);
  * OsIf_ResumeAllInterrupts
  */
 #if (!defined(USING_OS_AUTOSAROS) && !defined(USING_OS_ZEPHYR))
-    #ifndef MCAL_ENABLE_USER_MODE_SUPPORT   /*Bare metal not enable user mode*/
-        /* Baremetal or FreeRTOS case */
-        #if (MCAL_PLATFORM_ARM  == MCAL_ARM_AARCH64)
-            #define ResumeAllInterrupts()   ASM_KEYWORD(" msr DAIFClr,#0x3")
-            #define SuspendAllInterrupts()  ASM_KEYWORD(" msr DAIFSet,#0x3")
-        #elif (MCAL_PLATFORM_ARM  == MCAL_ARM_AARCH32) || (MCAL_PLATFORM_ARM  == MCAL_ARM_RARCH) 
-            #define ResumeAllInterrupts()   Sys_EL1ResumeInterrupts()
-            #define SuspendAllInterrupts()  Sys_EL1SuspendInterrupts()
-        #else
-            #define ResumeAllInterrupts()   ASM_KEYWORD(" cpsie i")
-            #define SuspendAllInterrupts()  ASM_KEYWORD(" cpsid i")
-        #endif /* MCAL_PLATFORM_ARM  == MCAL_ARM_AARCH64 */
-    #else  
-        #if (MCAL_PLATFORM_ARM  == MCAL_ARM_AARCH32) || (MCAL_PLATFORM_ARM  == MCAL_ARM_RARCH) 
-            #define ResumeAllInterrupts()  OsIf_Trusted_Call(Sys_EL1ResumeInterrupts)
-            #define SuspendAllInterrupts() OsIf_Trusted_Call(Sys_EL1SuspendInterrupts)
-        #else
-            #define ResumeAllInterrupts()   Sys_ResumeInterrupts()
-            #define SuspendAllInterrupts()  Sys_SuspendInterrupts()
-        #endif  
-    #endif /*MCAL_ENABLE_USER_MODE_SUPPORT */
+    /* Baremetal or FreeRTOS case */
+    #if (MCAL_PLATFORM_ARM  == MCAL_ARM_AARCH64)
+        #define ResumeAllInterrupts()   ASM_KEYWORD(" msr DAIFClr,#0x3")
+        #define SuspendAllInterrupts()  ASM_KEYWORD(" msr DAIFSet,#0x3")
+    #elif (MCAL_PLATFORM_ARM  == MCAL_ARM_AARCH32) || (MCAL_PLATFORM_ARM  == MCAL_ARM_RARCH) 
+        #define ResumeAllInterrupts()   Sys_EL1ResumeInterrupts()
+        #define SuspendAllInterrupts()  Sys_EL1SuspendInterrupts()
+    #else
+    #ifdef MCAL_ENABLE_USER_MODE_SUPPORT
+        #define ResumeAllInterrupts()   Sys_ResumeInterrupts()  /* BASEPRI will be set to 0x0 from SVC handler */
+        #define SuspendAllInterrupts()  Sys_SuspendInterrupts() /* BASEPRI will be set to 0x10 from SVC handler */
+    #else
+        #define ResumeAllInterrupts()   ASM_KEYWORD(" cpsie i")
+        #define SuspendAllInterrupts()  ASM_KEYWORD(" cpsid i")
+    #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
+    #endif /* MCAL_PLATFORM_ARM  == MCAL_ARM_AARCH64 */
 #elif defined(USING_OS_ZEPHYR)
     #ifdef MCAL_ENABLE_USER_MODE_SUPPORT
         #define ResumeAllInterrupts()   OsIf_Trusted_Call(OsIf_Interrupts_ResumeAllInterrupts)

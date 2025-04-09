@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : SIUL2
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -41,7 +42,7 @@ extern "C" {
 * 2) needed interfaces from external units
 * 3) internal and external interfaces from this unit
 ==================================================================================================*/
-#include "Std_Types.h"
+#include "StandardTypes.h"
 #include "Siul2_Port_Ip_Defines.h"
 
 /*==================================================================================================
@@ -53,9 +54,9 @@ extern "C" {
  */
 #define SIUL2_PORT_IP_TYPES_VENDOR_ID_H                     43
 #define SIUL2_PORT_IP_TYPES_AR_RELEASE_MAJOR_VERSION_H      4
-#define SIUL2_PORT_IP_TYPES_AR_RELEASE_MINOR_VERSION_H      7
+#define SIUL2_PORT_IP_TYPES_AR_RELEASE_MINOR_VERSION_H      4
 #define SIUL2_PORT_IP_TYPES_AR_RELEASE_REVISION_VERSION_H   0
-#define SIUL2_PORT_IP_TYPES_SW_MAJOR_VERSION_H              3
+#define SIUL2_PORT_IP_TYPES_SW_MAJOR_VERSION_H              2
 #define SIUL2_PORT_IP_TYPES_SW_MINOR_VERSION_H              0
 #define SIUL2_PORT_IP_TYPES_SW_PATCH_VERSION_H              0
 
@@ -99,7 +100,7 @@ extern "C" {
 *                                       DEFINES AND MACROS
 ==================================================================================================*/
 /*! @brief SIUL2 module maximum number of input signal on a pin */
-#define FEATURE_SIUL2_MAX_NUMBER_OF_INPUT        (16U)
+#define FEATURE_SIUL2_MAX_NUMBER_OF_INPUT        (8U)
 
 #ifdef SIUL2_PORT_IP_HAS_ADC_INTERLEAVE
 /*! @brief SIUL2 module maximum number of input signal on a pin */
@@ -142,16 +143,7 @@ typedef enum
     PORT_MUX_ALT4               = 4U,   /*!< chip-specific                           */
     PORT_MUX_ALT5               = 5U,   /*!< chip-specific                           */
     PORT_MUX_ALT6               = 6U,   /*!< chip-specific                           */
-    PORT_MUX_ALT7               = 7U,   /*!< chip-specific                           */
-    PORT_MUX_ALT8               = 8U,   /*!< chip-specific                           */
-    PORT_MUX_ALT9               = 9U,   /*!< chip-specific                           */
-    PORT_MUX_ALT10              = 10U,  /*!< chip-specific                           */
-    PORT_MUX_ALT11              = 11U,  /*!< chip-specific                           */
-    PORT_MUX_ALT12              = 12U,  /*!< chip-specific                           */
-    PORT_MUX_ALT13              = 13U,  /*!< chip-specific                           */
-    PORT_MUX_ALT14              = 14U,  /*!< chip-specific                           */
-    PORT_MUX_ALT15              = 15U,  /*!< chip-specific                           */
-    PORT_MUX_NOT_AVAILABLE      = 16U   /*!< chip-specific                           */
+    PORT_MUX_ALT7               = 7U    /*!< chip-specific                           */
 } Siul2_Port_Ip_PortMux;
 
 
@@ -162,9 +154,8 @@ typedef enum
  */
 typedef enum
 {
-    PORT_INPUT_FILTER_DISABLED      = 0U,    /*!< IFE OFF*/
-    PORT_INPUT_FILTER_ENABLED       = 1U,    /*!< IFE ON*/
-    PORT_INPUT_FILTER_NOT_AVAILABLE = 2U     /*!< IFE NOT AVAILABLE*/
+    PORT_INPUT_FILTER_DISABLED     = 0U, /*!< IFE OFF*/
+    PORT_INPUT_FILTER_ENABLED      = 1U  /*!< IFE ON*/
 } Siul2_Port_Ip_PortInputFilter;
 #endif /* FEATURE_SIUL2_PORT_IP_HAS_INPUT_FILTER */
 
@@ -175,9 +166,8 @@ typedef enum
  */
 typedef enum
 {
-    PORT_PULL_KEEP_DISABLED         = 0U,   /*!< PKE OFF*/
-    PORT_PULL_KEEP_ENABLED          = 1U,   /*!< PKE ON*/
-    PORT_PULL_KEEP_NOT_AVAILABLE    = 2U    /*!< PKE NOT AVAILABLE*/
+    PORT_PULL_KEEP_DISABLED     = 0U, /*!< PKE OFF*/
+    PORT_PULL_KEEP_ENABLED      = 1U  /*!< PKE ON*/
 } Siul2_Port_Ip_PortPullKeep;
 #endif /* FEATURE_SIUL2_PORT_IP_HAS_PULL_KEEPER */
 
@@ -188,9 +178,8 @@ typedef enum
  */
 typedef enum
 {
-    PORT_INVERT_DISABLED        = 0U,   /*!< INV OFF*/
-    PORT_INVERT_ENABLED         = 1U,   /*!< INV ON*/
-    PORT_INVERT_NOT_AVAILABLE   = 2U    /*!< INV NOT AVAILABLE*/
+    PORT_INVERT_DISABLED     = 0U, /*!< INV OFF*/
+    PORT_INVERT_ENABLED      = 1U  /*!< INV ON*/
 } Siul2_Port_Ip_PortInvert;
 #endif /* FEATURE_SIUL2_PORT_IP_HAS_INVERT_DATA */
 
@@ -200,9 +189,8 @@ typedef enum
  */
 typedef enum
 {
-    PORT_OUTPUT_BUFFER_DISABLED         = 0U,   /*!< Output buffer disabled */
-    PORT_OUTPUT_BUFFER_ENABLED          = 1U,   /*!< Output buffer enabled  */
-    PORT_OUTPUT_BUFFER_NOT_AVAILABLE    = 2U    /*!< Output buffer not available  */
+    PORT_OUTPUT_BUFFER_DISABLED  = 0U, /*!< Output buffer disabled */
+    PORT_OUTPUT_BUFFER_ENABLED   = 1U  /*!< Output buffer enabled  */
 } Siul2_Port_Ip_PortOutputBuffer;
 
 /*!
@@ -211,10 +199,21 @@ typedef enum
  */
 typedef enum
 {
-    PORT_INPUT_BUFFER_DISABLED      = 0U,   /*!< Input buffer disabled */
-    PORT_INPUT_BUFFER_ENABLED       = 1U,   /*!< Input buffer enabled  */
-    PORT_INPUT_BUFFER_NOT_AVAILABLE = 2U    /*!< Input buffer not available */
+    PORT_INPUT_BUFFER_DISABLED   = 0U, /*!< Input buffer disabled */
+    PORT_INPUT_BUFFER_ENABLED    = 1U  /*!< Input buffer enabled  */
 } Siul2_Port_Ip_PortInputBuffer;
+
+#ifdef FEATURE_SIUL2_HAS_INPUT_HYSTERESYS
+/*!
+ * @brief Configures the Hysteresis Enable field.
+ * Implements : Siul2_Port_Ip_PortHysteresis
+ */
+typedef enum
+{
+    PORT_HYSTERESYS_DISABLED     = 0U, /*!< Input Hysteresis disabled */
+    PORT_HYSTERESYS_ENABLED      = 1U  /*!< Input Hysteresis enabled  */
+} Siul2_Port_Ip_PortHysteresis;
+#endif /* FEATURE_SIUL2_HAS_INPUT_HYSTERESYS */
 
 #ifdef FEATURE_SIUL2_HAS_AE_INSTANCE
 /*!
@@ -223,9 +222,8 @@ typedef enum
  */
 typedef enum
 {
-    PORT_ANALOG_PAD_CONTROL_DISABLED        = 0U, /*!< Disable (the switch is off)                                 */
-    PORT_ANALOG_PAD_CONTROL_ENABLED         = 1U, /*!< Enable (another module can control the state of the switch) */
-    PORT_ANALOG_PAD_CONTROL_NOT_AVAILABLE   = 2U  /*!< Not available                                               */
+    PORT_ANALOG_PAD_CONTROL_DISABLED = 0U, /*!< Disable (the switch is off)                                 */
+    PORT_ANALOG_PAD_CONTROL_ENABLED  = 1U  /*!< Enable (another module can control the state of the switch) */
 } Siul2_Port_Ip_PortAnalogPad;
 #endif /* FEATURE_SIUL2_HAS_AE_INSTANCE */
 
@@ -262,8 +260,7 @@ typedef enum
 {
     PORT_SAFE_MODE_DISABLED     = 0U, /*!< To drive pad in hi-z state using OBE = 0, when FCCU in fault state.
                                        *   The OBE will be driven by IP/SIUL when FCCU leaves the fault state. */
-    PORT_SAFE_MODE_ENABLED          = 1U, /*!< No effect on IP/SIUL driven OBE value */
-    PORT_SAFE_MODE_NOT_AVAILABLE    = 2U  /*!< Not available  */
+    PORT_SAFE_MODE_ENABLED      = 1U  /*!< No effect on IP/SIUL driven OBE value */
 } Siul2_Port_Ip_PortSafeMode;
 
 /*!
@@ -274,8 +271,7 @@ typedef enum
 typedef enum
 {
     PORT_SLEW_RATE_FASTEST                = 0U, /*!< Fmax=133 MHz(at 1.8V), 100 MHz (at 3.3V), apply for SIUL2_0/1  */
-    PORT_SLEW_RATE_SLOWEST                = 1U, /*!< Fmax=83 MHz (at 1.8V), 63 MHz (at 3.3V), apply for SIUL2_0/1   */
-    PORT_SLEW_RATE_NOT_AVAILABLE          = 2U  /*!< Not available   */
+    PORT_SLEW_RATE_SLOWEST                = 1U  /*!< Fmax=83 MHz (at 1.8V), 63 MHz (at 3.3V), apply for SIUL2_0/1   */
 } Siul2_Port_Ip_PortSlewRateControl;
 
 #else
@@ -296,9 +292,8 @@ typedef enum
  */
 typedef enum
 {
-    PORT_DRIVE_STRENTGTH_DISABLED       = 0U,   /*!< Disables DSE. */
-    PORT_DRIVE_STRENTGTH_ENABLED        = 1U,   /*!< Enables DSE.*/
-    PORT_DRIVE_STRENTGTH_NOT_AVAILABLE  = 2U    /*!< Not available.*/
+    PORT_DRIVE_STRENTGTH_DISABLED = 0U, /*!< Enables DSE. */
+    PORT_DRIVE_STRENTGTH_ENABLED      = 1U  /*!< Enables DSE.*/
 } Siul2_Port_Ip_PortDriveStrength;
 #endif /* FEATURE_SIUL2_PORT_IP_HAS_DRIVE_STRENGTH */
 
@@ -310,8 +305,7 @@ typedef enum
 typedef enum
 {
     PORT_RECEIVER_ENABLE_DIFFERENTIAL_VREF = 0U, /*!< Enables the differential vref based receiver. */
-    PORT_RECEIVER_ENABLE_SINGLE_ENDED      = 1U, /*!< Enables the single ended receiver.            */
-    PORT_RECEIVER_NOT_AVAILABLE            = 2U  /*!< The receive select in the associated pin is not available.  */
+    PORT_RECEIVER_ENABLE_SINGLE_ENDED      = 1U  /*!< Enables the single ended receiver.            */
 } Siul2_Port_Ip_PortReceiverSelect;
 #endif /* FEATURE_SIUL2_PORT_IP_HAS_RECEIVER_SELECT */
 
@@ -322,9 +316,8 @@ typedef enum
  */
 typedef enum
 {
-    PORT_OPEN_DRAIN_DISABLED        = 0U, /*!< Output is CMOS       */
-    PORT_OPEN_DRAIN_ENABLED         = 1U, /*!< Output is open drain */
-    PORT_OPEN_DRAIN_NOT_AVAILABLE   = 2U  /*!< Not available */
+    PORT_OPEN_DRAIN_DISABLED     = 0U, /*!< Output is CMOS       */
+    PORT_OPEN_DRAIN_ENABLED      = 1U  /*!< Output is open drain */
 } Siul2_Port_Ip_PortOpenDrain;
 #endif /* FEATURE_SIUL2_PORT_IP_HAS_OPEN_DRAIN */
 
@@ -356,23 +349,23 @@ typedef enum
  */
 typedef enum
 {
-    MUX_MODE_NOT_AVAILABLE      = (uint32)0x00000000UL,  /*!< Adc Interleave not available.                                    */
-    MUX_MODE_EN_ADC1_S14_1      = (uint32)0x00000008UL,  /*!< Set bit ADC1_S14 to 1                                            */
-    MUX_MODE_EN_ADC1_S15_1      = (uint32)0x00000010UL,  /*!< Set bit ADC1_S15 to 1                                            */
-    MUX_MODE_EN_ADC0_S8_1       = (uint32)0x00000002UL,  /*!< Set bit ADC0_S8 to 1                                             */
-    MUX_MODE_EN_ADC2_S8_1       = (uint32)0x00000200UL,  /*!< Set bit ADC2_S8 to 1                                             */
-    MUX_MODE_EN_ADC0_S9_1       = (uint32)0x00000004UL,  /*!< Set bit ADC0_S9 to 1                                             */
-    MUX_MODE_EN_ADC2_S9_1       = (uint32)0x00000400UL,  /*!< Set bit ADC2_S9 to 1                                             */
-    MUX_MODE_EN_ADC1_S22_1      = (uint32)0x00000020UL,  /*!< Set bit ADC1_S22 to 1                                            */
-    MUX_MODE_EN_ADC1_S23_1      = (uint32)0x00000040UL,  /*!< Set bit ADC1_S23 to 1                                            */
-    MUX_MODE_EN_ADC1_S14_0      = (uint32)0x0000FFF7UL,  /*!< With bits 15-0, only clear ADC1_S14 bit, the other bits set to 1 */
-    MUX_MODE_EN_ADC1_S15_0      = (uint32)0x0000FFEFUL,  /*!< With bits 15-0, only clear ADC1_S15 bit, the other bits set to 1 */
-    MUX_MODE_EN_ADC0_S8_0       = (uint32)0x0000FFFDUL,  /*!< With bits 15-0, only clear ADC0_S8 bit, the other bits set to 1  */
-    MUX_MODE_EN_ADC2_S8_0       = (uint32)0x0000FDFFUL,  /*!< With bits 15-0, only clear ADC2_S8 bit, the other bits set to 1  */
-    MUX_MODE_EN_ADC0_S9_0       = (uint32)0x0000FFFBUL,  /*!< With bits 15-0, only clear ADC0_S9 bit, the other bits set to 1  */
-    MUX_MODE_EN_ADC2_S9_0       = (uint32)0x0000FBFFUL,  /*!< With bits 15-0, only clear ADC2_S9 bit, the other bits set to 1  */
-    MUX_MODE_EN_ADC1_S22_0      = (uint32)0x0000FFDFUL,  /*!< With bits 15-0, only clear ADC1_S22 bit, the other bits set to 1 */
-    MUX_MODE_EN_ADC1_S23_0      = (uint32)0x0000FFBFUL,  /*!< With bits 15-0, only clear ADC1_S23 bit, the other bits set to 1 */
+    MUX_MODE_NOT_AVAILABLE      = 0x0000U,
+    MUX_MODE_EN_ADC1_S14_1      = 0x0008U,
+    MUX_MODE_EN_ADC1_S15_1      = 0x0010U,
+    MUX_MODE_EN_ADC0_S8_1       = 0x0002U,
+    MUX_MODE_EN_ADC2_S8_1       = 0x0200U,
+    MUX_MODE_EN_ADC0_S9_1       = 0x0004U,
+    MUX_MODE_EN_ADC2_S9_1       = 0x0400U,
+    MUX_MODE_EN_ADC1_S22_1      = 0x0020U,
+    MUX_MODE_EN_ADC1_S23_1      = 0x0040U,
+    MUX_MODE_EN_ADC1_S14_0      = 0xFFF7U,
+    MUX_MODE_EN_ADC1_S15_0      = 0xFFEFU,
+    MUX_MODE_EN_ADC0_S8_0       = 0xFFFDU,
+    MUX_MODE_EN_ADC2_S8_0       = 0xFDFFU,
+    MUX_MODE_EN_ADC0_S9_0       = 0xFFFBU,
+    MUX_MODE_EN_ADC2_S9_0       = 0xFBFFU,
+    MUX_MODE_EN_ADC1_S22_0      = 0xFFDFU,
+    MUX_MODE_EN_ADC1_S23_0      = 0xFFBFU,
 } Siul2_Port_Ip_AdcInterleaves;
 #endif
 

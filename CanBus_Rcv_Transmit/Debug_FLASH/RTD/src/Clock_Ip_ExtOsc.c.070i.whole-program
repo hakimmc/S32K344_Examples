@@ -1,0 +1,609 @@
+
+Marking local functions:
+
+
+Marking externally visible functions:
+
+
+Marking externally visible variables: Clock_Ip_axExtOscCallbacks/12
+
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+Symbol table:
+
+Clock_Ip_ReportClockErrors/17 (Clock_Ip_ReportClockErrors) @06dc4ee0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_CompleteSxoscOsconEocv/9 Clock_Ip_CompleteSxoscOsconEocv/9 Clock_Ip_CompleteFxoscOsconBypEocvGmSel/4 Clock_Ip_CompleteFxoscOsconBypEocvGmSel/4 
+  Calls: 
+Clock_Ip_TimeoutExpired/16 (Clock_Ip_TimeoutExpired) @06dc4e00
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_CompleteSxoscOsconEocv/9 Clock_Ip_CompleteFxoscOsconBypEocvGmSel/4 
+  Calls: 
+Clock_Ip_StartTimeout/15 (Clock_Ip_StartTimeout) @06dc4d20
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_CompleteSxoscOsconEocv/9 Clock_Ip_CompleteFxoscOsconBypEocvGmSel/4 
+  Calls: 
+Clock_Ip_apxXosc/14 (Clock_Ip_apxXosc) @06cbedc8
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_EnableFxoscOsconBypEocvGmSel/6 (read) Clock_Ip_SetSxoscOsconEocv/8 (read) Clock_Ip_CompleteFxoscOsconBypEocvGmSel/4 (read) Clock_Ip_ResetSxoscOsconEocv/7 (read) Clock_Ip_EnableFxoscOsconBypEocvGmSel/6 (read) Clock_Ip_ResetFxoscOsconBypEocvGmSel/2 (read) Clock_Ip_ResetFxoscOsconBypEocvGmSel/2 (read) Clock_Ip_SetFxoscOsconBypEocvGmSel/3 (read) Clock_Ip_DisableFxoscOsconBypEocvGmSel/5 (read) Clock_Ip_DisableFxoscOsconBypEocvGmSel/5 (read) Clock_Ip_ResetSxoscOsconEocv/7 (read) Clock_Ip_CompleteSxoscOsconEocv/9 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_au8ClockFeatures/13 (Clock_Ip_au8ClockFeatures) @06cbed80
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_SetSxoscOsconEocv/8 (read) Clock_Ip_CompleteFxoscOsconBypEocvGmSel/4 (read) Clock_Ip_ResetSxoscOsconEocv/7 (read) Clock_Ip_ResetFxoscOsconBypEocvGmSel/2 (read) Clock_Ip_SetFxoscOsconBypEocvGmSel/3 (read) Clock_Ip_DisableFxoscOsconBypEocvGmSel/5 (read) Clock_Ip_EnableFxoscOsconBypEocvGmSel/6 (read) Clock_Ip_CompleteSxoscOsconEocv/9 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_axExtOscCallbacks/12 (Clock_Ip_axExtOscCallbacks) @06cbe900
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_ExternalOscillatorEmpty/0 (addr) Clock_Ip_ExternalOscillatorEmpty/0 (addr) Clock_Ip_ExternalOscillatorEmpty/0 (addr) Clock_Ip_DisableClockIpExternalOscillatorEmpty/1 (addr) Clock_Ip_ExternalOscillatorEmpty/0 (addr) Clock_Ip_ResetFxoscOsconBypEocvGmSel/2 (addr) Clock_Ip_SetFxoscOsconBypEocvGmSel/3 (addr) Clock_Ip_CompleteFxoscOsconBypEocvGmSel/4 (addr) Clock_Ip_DisableFxoscOsconBypEocvGmSel/5 (addr) Clock_Ip_EnableFxoscOsconBypEocvGmSel/6 (addr) Clock_Ip_ResetSxoscOsconEocv/7 (addr) Clock_Ip_SetSxoscOsconEocv/8 (addr) Clock_Ip_CompleteSxoscOsconEocv/9 (addr) Clock_Ip_DisableSxoscOsconEocv/10 (addr) Clock_Ip_EnableSxoscOsconEocv/11 (addr) 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized read-only const-value-known
+Clock_Ip_EnableSxoscOsconEocv/11 (Clock_Ip_EnableSxoscOsconEocv) @06dc41c0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_DisableSxoscOsconEocv/10 (Clock_Ip_DisableSxoscOsconEocv) @06cc1c40
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_CompleteSxoscOsconEocv/9 (Clock_Ip_CompleteSxoscOsconEocv) @06cc1700
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/13 (read) Clock_Ip_apxXosc/14 (read) 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_ReportClockErrors/17 Clock_Ip_ReportClockErrors/17 Clock_Ip_TimeoutExpired/16 Clock_Ip_StartTimeout/15 
+Clock_Ip_SetSxoscOsconEocv/8 (Clock_Ip_SetSxoscOsconEocv) @06cc11c0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/13 (read) Clock_Ip_apxXosc/14 (read) 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ResetSxoscOsconEocv/7 (Clock_Ip_ResetSxoscOsconEocv) @06cc1b60
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/13 (read) Clock_Ip_apxXosc/14 (read) Clock_Ip_apxXosc/14 (read) 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_EnableFxoscOsconBypEocvGmSel/6 (Clock_Ip_EnableFxoscOsconBypEocvGmSel) @06cc18c0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/13 (read) Clock_Ip_apxXosc/14 (read) Clock_Ip_apxXosc/14 (read) 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_DisableFxoscOsconBypEocvGmSel/5 (Clock_Ip_DisableFxoscOsconBypEocvGmSel) @06cc1620
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/13 (read) Clock_Ip_apxXosc/14 (read) Clock_Ip_apxXosc/14 (read) 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_CompleteFxoscOsconBypEocvGmSel/4 (Clock_Ip_CompleteFxoscOsconBypEocvGmSel) @06cc1380
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/13 (read) Clock_Ip_apxXosc/14 (read) 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_ReportClockErrors/17 Clock_Ip_ReportClockErrors/17 Clock_Ip_TimeoutExpired/16 Clock_Ip_StartTimeout/15 
+Clock_Ip_SetFxoscOsconBypEocvGmSel/3 (Clock_Ip_SetFxoscOsconBypEocvGmSel) @06cc10e0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/13 (read) Clock_Ip_apxXosc/14 (read) 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ResetFxoscOsconBypEocvGmSel/2 (Clock_Ip_ResetFxoscOsconBypEocvGmSel) @06cbfe00
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/13 (read) Clock_Ip_apxXosc/14 (read) Clock_Ip_apxXosc/14 (read) 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_DisableClockIpExternalOscillatorEmpty/1 (Clock_Ip_DisableClockIpExternalOscillatorEmpty) @06cbfb60
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ExternalOscillatorEmpty/0 (Clock_Ip_ExternalOscillatorEmpty) @06cbf8c0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axExtOscCallbacks/12 (addr) Clock_Ip_axExtOscCallbacks/12 (addr) Clock_Ip_axExtOscCallbacks/12 (addr) Clock_Ip_axExtOscCallbacks/12 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_EnableSxoscOsconEocv (const struct Clock_Ip_XoscConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_DisableSxoscOsconEocv (Clock_Ip_NameType XoscName)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_CompleteSxoscOsconEocv (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+  uint32 SxoscStatus;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  <unnamed type> _1;
+  unsigned char _2;
+  short unsigned int _3;
+  unsigned char _4;
+  unsigned char _5;
+  volatile struct Clock_Ip_ExtOSCType * _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int TimeoutTicks.1_9;
+  _Bool _10;
+  <unnamed type> _11;
+  <unnamed type> _12;
+
+  <bb 2> :
+  TimeoutOccurred_15 = 0;
+  _1 = Config_17(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_18 = (uint32) _2;
+  _3 = Config_17(D)->Enable;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 3> :
+  _4 = Config_17(D)->CompEn;
+  if (_4 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 4> :
+  _5 = Config_17(D)->BypassOption;
+  if (_5 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 5> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 6> :
+  _6 = Clock_Ip_apxXosc[Instance_18];
+  _7 ={v} _6->STAT;
+  _8 = _7 >> 31;
+  SxoscStatus_21 = _8 & 1;
+  TimeoutTicks.1_9 = TimeoutTicks;
+  TimeoutOccurred_23 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.1_9);
+  if (SxoscStatus_21 == 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  _10 = ~TimeoutOccurred_23;
+  if (_10 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 8> :
+  if (TimeoutOccurred_23 != 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 9> :
+  _11 = Config_17(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _11);
+  goto <bb 11>; [INV]
+
+  <bb 10> :
+  _12 = Config_17(D)->Name;
+  Clock_Ip_ReportClockErrors (2, _12);
+
+  <bb 11> :
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_SetSxoscOsconEocv (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  volatile struct Clock_Ip_ExtOSCType * _8;
+  long unsigned int _9;
+
+  <bb 2> :
+  _1 = Config_12(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_13 = (uint32) _2;
+  _3 = Config_12(D)->Enable;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _4 = Config_12(D)->StartupDelay;
+  _5 = (long unsigned int) _4;
+  _6 = _5 << 16;
+  _7 = _6 & 16711680;
+  _8 = Clock_Ip_apxXosc[Instance_13];
+  _9 = _7 | 1;
+  _8->CTRL ={v} _9;
+
+  <bb 4> :
+  return;
+
+}
+
+
+Clock_Ip_ResetSxoscOsconEocv (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  volatile struct Clock_Ip_ExtOSCType * _3;
+  long unsigned int _4;
+  volatile struct Clock_Ip_ExtOSCType * _5;
+  long unsigned int _6;
+
+  <bb 2> :
+  _1 = Config_8(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_9 = (uint32) _2;
+  _3 = Clock_Ip_apxXosc[Instance_9];
+  _4 ={v} _3->CTRL;
+  _5 = Clock_Ip_apxXosc[Instance_9];
+  _6 = _4 & 4294967294;
+  _5->CTRL ={v} _6;
+  return;
+
+}
+
+
+Clock_Ip_EnableFxoscOsconBypEocvGmSel (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  short unsigned int _3;
+  volatile struct Clock_Ip_ExtOSCType * _4;
+  long unsigned int _5;
+  volatile struct Clock_Ip_ExtOSCType * _6;
+  long unsigned int _7;
+
+  <bb 2> :
+  _1 = Config_10(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_11 = (uint32) _2;
+  _3 = Config_10(D)->Enable;
+  if (_3 == 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _4 = Clock_Ip_apxXosc[Instance_11];
+  _5 ={v} _4->CTRL;
+  _6 = Clock_Ip_apxXosc[Instance_11];
+  _7 = _5 | 1;
+  _6->CTRL ={v} _7;
+
+  <bb 4> :
+  return;
+
+}
+
+
+Clock_Ip_DisableFxoscOsconBypEocvGmSel (Clock_Ip_NameType XoscName)
+{
+  uint32 Instance;
+  unsigned char _1;
+  volatile struct Clock_Ip_ExtOSCType * _2;
+  long unsigned int _3;
+  volatile struct Clock_Ip_ExtOSCType * _4;
+  long unsigned int _5;
+
+  <bb 2> :
+  _1 = Clock_Ip_au8ClockFeatures[XoscName_7(D)][0];
+  Instance_8 = (uint32) _1;
+  _2 = Clock_Ip_apxXosc[Instance_8];
+  _3 ={v} _2->CTRL;
+  _4 = Clock_Ip_apxXosc[Instance_8];
+  _5 = _3 & 4294967294;
+  _4->CTRL ={v} _5;
+  return;
+
+}
+
+
+Clock_Ip_CompleteFxoscOsconBypEocvGmSel (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+  uint32 FxoscStatus;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  <unnamed type> _1;
+  unsigned char _2;
+  short unsigned int _3;
+  unsigned char _4;
+  unsigned char _5;
+  volatile struct Clock_Ip_ExtOSCType * _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int TimeoutTicks.0_9;
+  _Bool _10;
+  <unnamed type> _11;
+  <unnamed type> _12;
+
+  <bb 2> :
+  TimeoutOccurred_15 = 0;
+  _1 = Config_17(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_18 = (uint32) _2;
+  _3 = Config_17(D)->Enable;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 3> :
+  _4 = Config_17(D)->CompEn;
+  if (_4 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 4> :
+  _5 = Config_17(D)->BypassOption;
+  if (_5 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 5> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 6> :
+  _6 = Clock_Ip_apxXosc[Instance_18];
+  _7 ={v} _6->STAT;
+  _8 = _7 >> 31;
+  FxoscStatus_21 = _8 & 1;
+  TimeoutTicks.0_9 = TimeoutTicks;
+  TimeoutOccurred_23 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.0_9);
+  if (FxoscStatus_21 == 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  _10 = ~TimeoutOccurred_23;
+  if (_10 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 8> :
+  if (TimeoutOccurred_23 != 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 9> :
+  _11 = Config_17(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _11);
+  goto <bb 11>; [INV]
+
+  <bb 10> :
+  _12 = Config_17(D)->Name;
+  Clock_Ip_ReportClockErrors (2, _12);
+
+  <bb 11> :
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_SetFxoscOsconBypEocvGmSel (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  short unsigned int _3;
+  unsigned char _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  short unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  unsigned char _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  unsigned char _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  volatile struct Clock_Ip_ExtOSCType * _22;
+  long unsigned int _23;
+
+  <bb 2> :
+  _1 = Config_26(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_27 = (uint32) _2;
+  _3 = Config_26(D)->Enable;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _4 = Config_26(D)->BypassOption;
+  _5 = (long unsigned int) _4;
+  _6 = _5 << 31;
+  _7 = Config_26(D)->StartupDelay;
+  _8 = (long unsigned int) _7;
+  _9 = _8 << 16;
+  _10 = _9 & 16711680;
+  _11 = _6 | _10;
+  _12 = Config_26(D)->TransConductance;
+  _13 = (long unsigned int) _12;
+  _14 = _13 << 4;
+  _15 = _14 & 255;
+  _16 = _11 | _15;
+  _17 = Config_26(D)->CompEn;
+  _18 = (long unsigned int) _17;
+  _19 = _18 << 24;
+  _20 = _19 & 16777216;
+  _21 = _16 | _20;
+  _22 = Clock_Ip_apxXosc[Instance_27];
+  _23 = _21 | 1;
+  _22->CTRL ={v} _23;
+
+  <bb 4> :
+  return;
+
+}
+
+
+Clock_Ip_ResetFxoscOsconBypEocvGmSel (const struct Clock_Ip_XoscConfigType * Config)
+{
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  volatile struct Clock_Ip_ExtOSCType * _3;
+  long unsigned int _4;
+  volatile struct Clock_Ip_ExtOSCType * _5;
+  long unsigned int _6;
+
+  <bb 2> :
+  _1 = Config_8(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_9 = (uint32) _2;
+  _3 = Clock_Ip_apxXosc[Instance_9];
+  _4 ={v} _3->CTRL;
+  _5 = Clock_Ip_apxXosc[Instance_9];
+  _6 = _4 & 4294967294;
+  _5->CTRL ={v} _6;
+  return;
+
+}
+
+
+Clock_Ip_DisableClockIpExternalOscillatorEmpty (Clock_Ip_NameType XoscName)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_ExternalOscillatorEmpty (const struct Clock_Ip_XoscConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+

@@ -1,0 +1,3 @@
+../RTD/src/Clock_Ip_DividerTrigger.c:136:13:Clock_Ip_Callback_DividerTriggerEmpty	8	static
+../RTD/src/Clock_Ip_DividerTrigger.c:143:13:Clock_Ip_ConfigureCgmXDivTrigCtrlTctlHhenUpdStat	16	static
+../RTD/src/Clock_Ip_DividerTrigger.c:159:13:Clock_Ip_TriggerUpdateCgmXDivTrigCtrlTctlHhenUpdStat	48	static

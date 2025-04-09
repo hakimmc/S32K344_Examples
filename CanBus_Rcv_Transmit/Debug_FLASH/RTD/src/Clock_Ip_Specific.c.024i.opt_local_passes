@@ -1,0 +1,472 @@
+Clock_Ip_Command (const struct Clock_Ip_ClockConfigType * Config, Clock_Ip_CommandType Command)
+{
+  <bb 2> :
+  switch (Command_2(D)) <default: <L2> [INV], case 1: <L1> [INV], case 2: <L0> [INV]>
+
+  <bb 3> :
+<L0>:
+  Clock_Ip_ClockInitializeObjects ();
+  goto <bb 6>; [INV]
+
+  <bb 4> :
+<L1>:
+  Clock_Ip_SpecificPlatformInitClock (Config_5(D));
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+<L2>:
+
+  <bb 6> :
+  return;
+
+}
+
+
+Clock_Ip_ClockPowerModeChangeNotification (Clock_Ip_PowerModesType PowerMode, Clock_Ip_PowerNotificationType Notification)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_ClockInitializeObjects ()
+{
+  static boolean Clock_Ip_bObjectsAreInitialized = 0;
+  _Bool Clock_Ip_bObjectsAreInitialized.8_1;
+  _Bool _2;
+  unsigned char _3;
+  int _4;
+  const struct Clock_Ip_IntOscCallbackType * _5;
+  unsigned char _6;
+  int _7;
+  const struct Clock_Ip_IntOscCallbackType * _8;
+
+  <bb 2> :
+  Clock_Ip_bObjectsAreInitialized.8_1 = Clock_Ip_bObjectsAreInitialized;
+  _2 = ~Clock_Ip_bObjectsAreInitialized.8_1;
+  if (_2 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  Clock_Ip_bObjectsAreInitialized = 1;
+  _3 = Clock_Ip_au8IrcoscCallbackIndex[2];
+  _4 = (int) _3;
+  _5 = &Clock_Ip_axIntOscCallbacks[_4];
+  Clock_Ip_pxSircStdbyClock = _5;
+  _6 = Clock_Ip_au8IrcoscCallbackIndex[1];
+  _7 = (int) _6;
+  _8 = &Clock_Ip_axIntOscCallbacks[_7];
+  Clock_Ip_pxFircStdbyClock = _8;
+
+  <bb 4> :
+  return;
+
+}
+
+
+EnableSircInStandbyMode ()
+{
+  struct Clock_Ip_IrcoscConfigType SircConfig;
+  const struct Clock_Ip_IntOscCallbackType * Clock_Ip_pxSircStdbyClock.7_1;
+  void (*<T651>) (const struct Clock_Ip_IrcoscConfigType *) _2;
+
+  <bb 2> :
+  SircConfig.Enable = 1;
+  Clock_Ip_pxSircStdbyClock.7_1 = Clock_Ip_pxSircStdbyClock;
+  _2 = Clock_Ip_pxSircStdbyClock.7_1->Enable;
+  _2 (&SircConfig);
+  SircConfig ={v} {CLOBBER};
+  return;
+
+}
+
+
+DisableSircInStandbyMode ()
+{
+  const struct Clock_Ip_IntOscCallbackType * Clock_Ip_pxSircStdbyClock.6_1;
+  void (*<T654>) (Clock_Ip_NameType) _2;
+
+  <bb 2> :
+  Clock_Ip_pxSircStdbyClock.6_1 = Clock_Ip_pxSircStdbyClock;
+  _2 = Clock_Ip_pxSircStdbyClock.6_1->Disable;
+  _2 (3);
+  return;
+
+}
+
+
+EnableFircInStandbyMode ()
+{
+  struct Clock_Ip_IrcoscConfigType FircConfig;
+  const struct Clock_Ip_IntOscCallbackType * Clock_Ip_pxFircStdbyClock.5_1;
+  void (*<T651>) (const struct Clock_Ip_IrcoscConfigType *) _2;
+
+  <bb 2> :
+  FircConfig.Enable = 1;
+  Clock_Ip_pxFircStdbyClock.5_1 = Clock_Ip_pxFircStdbyClock;
+  _2 = Clock_Ip_pxFircStdbyClock.5_1->Enable;
+  _2 (&FircConfig);
+  FircConfig ={v} {CLOBBER};
+  return;
+
+}
+
+
+DisableFircInStandbyMode ()
+{
+  const struct Clock_Ip_IntOscCallbackType * Clock_Ip_pxFircStdbyClock.4_1;
+  void (*<T654>) (Clock_Ip_NameType) _2;
+
+  <bb 2> :
+  Clock_Ip_pxFircStdbyClock.4_1 = Clock_Ip_pxFircStdbyClock;
+  _2 = Clock_Ip_pxFircStdbyClock.4_1->Disable;
+  _2 (1);
+  return;
+
+}
+
+
+Clock_Ip_SpecificPlatformInitClock (const struct Clock_Ip_ClockConfigType * Config)
+{
+  <bb 2> :
+  Clock_Ip_PowerClockIpModules ();
+  return;
+
+}
+
+
+Clock_Ip_McMeEnterKey ()
+{
+  struct MC_ME_Type * _1;
+  struct MC_ME_Type * _2;
+
+  <bb 2> :
+  _1 = 1076740096B;
+  _1->CTL_KEY ={v} 23280;
+  _2 = 1076740096B;
+  _2->CTL_KEY ={v} 42255;
+  return;
+
+}
+
+
+Clock_Ip_PowerClockIpModules ()
+{
+  boolean TimeoutOccurred;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  struct MC_ME_Type * _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  struct MC_ME_Type * _4;
+  long unsigned int _5;
+  struct MC_ME_Type * _6;
+  long unsigned int _7;
+  struct MC_ME_Type * _8;
+  long unsigned int _9;
+  struct MC_ME_Type * _10;
+  long unsigned int _11;
+  struct MC_ME_Type * _12;
+  long unsigned int _13;
+  struct MC_ME_Type * _14;
+  long unsigned int _15;
+  long unsigned int TimeoutTicks.0_16;
+  struct MC_ME_Type * _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  _Bool _20;
+  struct MC_ME_Type * _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  struct MC_ME_Type * _24;
+  long unsigned int _25;
+  struct MC_ME_Type * _26;
+  long unsigned int _27;
+  struct MC_ME_Type * _28;
+  long unsigned int _29;
+  struct MC_ME_Type * _30;
+  long unsigned int _31;
+  struct MC_ME_Type * _32;
+  long unsigned int _33;
+  struct MC_ME_Type * _34;
+  long unsigned int _35;
+  long unsigned int TimeoutTicks.1_36;
+  struct MC_ME_Type * _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  _Bool _40;
+  struct MC_ME_Type * _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  struct MC_ME_Type * _44;
+  long unsigned int _45;
+  struct MC_ME_Type * _46;
+  long unsigned int _47;
+  struct MC_ME_Type * _48;
+  long unsigned int _49;
+  struct MC_ME_Type * _50;
+  long unsigned int _51;
+  struct MC_ME_Type * _52;
+  long unsigned int _53;
+  struct MC_ME_Type * _54;
+  long unsigned int _55;
+  long unsigned int TimeoutTicks.2_56;
+  struct MC_ME_Type * _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  _Bool _60;
+  struct MC_ME_Type * _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  struct MC_ME_Type * _64;
+  long unsigned int _65;
+  struct MC_ME_Type * _66;
+  long unsigned int _67;
+  struct MC_ME_Type * _68;
+  long unsigned int _69;
+  struct MC_ME_Type * _70;
+  long unsigned int _71;
+  struct MC_ME_Type * _72;
+  long unsigned int _73;
+  struct MC_ME_Type * _74;
+  long unsigned int _75;
+  long unsigned int TimeoutTicks.3_76;
+  struct MC_ME_Type * _77;
+  long unsigned int _78;
+  long unsigned int _79;
+  _Bool _80;
+
+  <bb 2> :
+  TimeoutOccurred_89 = 0;
+  _1 = 1076740096B;
+  _2 ={v} _1->PRTN1_COFB1_STAT;
+  _3 = _2 & 16777216;
+  if (_3 == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 3> :
+  _4 = 1076740096B;
+  _5 ={v} _4->PRTN1_COFB1_CLKEN;
+  _6 = 1076740096B;
+  _7 = _5 | 16777216;
+  _6->PRTN1_COFB1_CLKEN ={v} _7;
+  _8 = 1076740096B;
+  _9 ={v} _8->PRTN1_PCONF;
+  _10 = 1076740096B;
+  _11 = _9 | 1;
+  _10->PRTN1_PCONF ={v} _11;
+  _12 = 1076740096B;
+  _13 ={v} _12->PRTN1_PUPD;
+  _14 = 1076740096B;
+  _15 = _13 | 1;
+  _14->PRTN1_PUPD ={v} _15;
+  Clock_Ip_McMeEnterKey ();
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 4> :
+  TimeoutTicks.0_16 = TimeoutTicks;
+  TimeoutOccurred_97 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.0_16);
+  _17 = 1076740096B;
+  _18 ={v} _17->PRTN1_COFB1_STAT;
+  _19 = _18 & 16777216;
+  if (_19 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _20 = ~TimeoutOccurred_97;
+  if (_20 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  if (TimeoutOccurred_97 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  Clock_Ip_ReportClockErrors (1, 7);
+
+  <bb 8> :
+  _21 = 1076740096B;
+  _22 ={v} _21->PRTN1_COFB1_STAT;
+  _23 = _22 & 2097152;
+  if (_23 == 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 9> :
+  _24 = 1076740096B;
+  _25 ={v} _24->PRTN1_COFB1_CLKEN;
+  _26 = 1076740096B;
+  _27 = _25 | 2097152;
+  _26->PRTN1_COFB1_CLKEN ={v} _27;
+  _28 = 1076740096B;
+  _29 ={v} _28->PRTN1_PCONF;
+  _30 = 1076740096B;
+  _31 = _29 | 1;
+  _30->PRTN1_PCONF ={v} _31;
+  _32 = 1076740096B;
+  _33 ={v} _32->PRTN1_PUPD;
+  _34 = 1076740096B;
+  _35 = _33 | 1;
+  _34->PRTN1_PUPD ={v} _35;
+  Clock_Ip_McMeEnterKey ();
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 10> :
+  TimeoutTicks.1_36 = TimeoutTicks;
+  TimeoutOccurred_105 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.1_36);
+  _37 = 1076740096B;
+  _38 ={v} _37->PRTN1_COFB1_STAT;
+  _39 = _38 & 2097152;
+  if (_39 == 0)
+    goto <bb 11>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 11> :
+  _40 = ~TimeoutOccurred_105;
+  if (_40 != 0)
+    goto <bb 10>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 12> :
+  if (TimeoutOccurred_105 != 0)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 13> :
+  Clock_Ip_ReportClockErrors (1, 5);
+
+  <bb 14> :
+  _41 = 1076740096B;
+  _42 ={v} _41->PRTN1_COFB1_STAT;
+  _43 = _42 & 524288;
+  if (_43 == 0)
+    goto <bb 15>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 15> :
+  _44 = 1076740096B;
+  _45 ={v} _44->PRTN1_COFB1_CLKEN;
+  _46 = 1076740096B;
+  _47 = _45 | 524288;
+  _46->PRTN1_COFB1_CLKEN ={v} _47;
+  _48 = 1076740096B;
+  _49 ={v} _48->PRTN1_PCONF;
+  _50 = 1076740096B;
+  _51 = _49 | 1;
+  _50->PRTN1_PCONF ={v} _51;
+  _52 = 1076740096B;
+  _53 ={v} _52->PRTN1_PUPD;
+  _54 = 1076740096B;
+  _55 = _53 | 1;
+  _54->PRTN1_PUPD ={v} _55;
+  Clock_Ip_McMeEnterKey ();
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 16> :
+  TimeoutTicks.2_56 = TimeoutTicks;
+  TimeoutOccurred_113 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.2_56);
+  _57 = 1076740096B;
+  _58 ={v} _57->PRTN1_COFB1_STAT;
+  _59 = _58 & 524288;
+  if (_59 == 0)
+    goto <bb 17>; [INV]
+  else
+    goto <bb 18>; [INV]
+
+  <bb 17> :
+  _60 = ~TimeoutOccurred_113;
+  if (_60 != 0)
+    goto <bb 16>; [INV]
+  else
+    goto <bb 18>; [INV]
+
+  <bb 18> :
+  if (TimeoutOccurred_113 != 0)
+    goto <bb 19>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 19> :
+  Clock_Ip_ReportClockErrors (1, 6);
+
+  <bb 20> :
+  _61 = 1076740096B;
+  _62 ={v} _61->PRTN1_COFB1_STAT;
+  _63 = _62 & 32768;
+  if (_63 == 0)
+    goto <bb 21>; [INV]
+  else
+    goto <bb 26>; [INV]
+
+  <bb 21> :
+  _64 = 1076740096B;
+  _65 ={v} _64->PRTN1_COFB1_CLKEN;
+  _66 = 1076740096B;
+  _67 = _65 | 32768;
+  _66->PRTN1_COFB1_CLKEN ={v} _67;
+  _68 = 1076740096B;
+  _69 ={v} _68->PRTN1_PCONF;
+  _70 = 1076740096B;
+  _71 = _69 | 1;
+  _70->PRTN1_PCONF ={v} _71;
+  _72 = 1076740096B;
+  _73 ={v} _72->PRTN1_PUPD;
+  _74 = 1076740096B;
+  _75 = _73 | 1;
+  _74->PRTN1_PUPD ={v} _75;
+  Clock_Ip_McMeEnterKey ();
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 22> :
+  TimeoutTicks.3_76 = TimeoutTicks;
+  TimeoutOccurred_121 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.3_76);
+  _77 = 1076740096B;
+  _78 ={v} _77->PRTN1_COFB1_STAT;
+  _79 = _78 & 32768;
+  if (_79 == 0)
+    goto <bb 23>; [INV]
+  else
+    goto <bb 24>; [INV]
+
+  <bb 23> :
+  _80 = ~TimeoutOccurred_121;
+  if (_80 != 0)
+    goto <bb 22>; [INV]
+  else
+    goto <bb 24>; [INV]
+
+  <bb 24> :
+  if (TimeoutOccurred_121 != 0)
+    goto <bb 25>; [INV]
+  else
+    goto <bb 26>; [INV]
+
+  <bb 25> :
+  Clock_Ip_ReportClockErrors (1, 143);
+
+  <bb 26> :
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+

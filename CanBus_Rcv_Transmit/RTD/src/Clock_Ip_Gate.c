@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : 
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -22,7 +23,7 @@
 ==================================================================================================*/
 /**
 *   @file       Clock_Ip_Gate.c
-*   @version    3.0.0
+*   @version    2.0.0
 *
 *   @brief   CLOCK driver implementations.
 *   @details CLOCK driver implementations.
@@ -52,9 +53,9 @@ extern "C"{
 ==================================================================================================*/
 #define CLOCK_IP_GATE_VENDOR_ID_C                      43
 #define CLOCK_IP_GATE_AR_RELEASE_MAJOR_VERSION_C       4
-#define CLOCK_IP_GATE_AR_RELEASE_MINOR_VERSION_C       7
+#define CLOCK_IP_GATE_AR_RELEASE_MINOR_VERSION_C       4
 #define CLOCK_IP_GATE_AR_RELEASE_REVISION_VERSION_C    0
-#define CLOCK_IP_GATE_SW_MAJOR_VERSION_C               3
+#define CLOCK_IP_GATE_SW_MAJOR_VERSION_C               2
 #define CLOCK_IP_GATE_SW_MINOR_VERSION_C               0
 #define CLOCK_IP_GATE_SW_PATCH_VERSION_C               0
 
@@ -157,89 +158,71 @@ static void Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest(Clock_Ip_Ga
     uint32 ElapsedTime;
     uint32 TimeoutTicks;
 
-    const Clock_Ip_GateInfoType * GateInformation;
-    uint32 Partition;
-    uint32 Collection;
-    uint32 EnableRequest;
+    const Clock_Ip_GateInfoType * GateInformation = &Clock_Ip_axGateInfo[Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_GATE_INDEX]];
+    uint32 Partition      = GateInformation->PartitionValue;
+    uint32 Collection     = GateInformation->ColectionValue;
+    uint32 EnableRequest  = GateInformation->RequestValueMask;
 
-    if (NULL_PTR != Config)
+
+    if (Config->Enable != 0U)
     {
-        GateInformation = &Clock_Ip_axGateInfo[Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_GATE_INDEX]];
-        Partition      = GateInformation->PartitionValue;
-        Collection     = GateInformation->ColectionValue;
-        EnableRequest  = GateInformation->RequestValueMask;
-
-        if (Config->Enable != 0U)
+        /* Partition PRTN_COFB_STAT is reserved in S32G2XX and S32G3XX */
+        #ifdef CLOCK_IP_PLATFORM_SPECIFIC1
+        if (0U == (Clock_Ip_apxMcMeGetPartitions[Partition]->PRTN_COFB_STAT[Collection] & EnableRequest))
+        #else
+        if (0U == (Clock_Ip_apxMcMeSetPartitions[Partition]->PRTN_COFB_CLKEN[Collection] & EnableRequest))
+        #endif
         {
-            /* Partition PRTN_COFB_STAT is reserved in S32G2XX and S32G3XX */
-            #ifdef CLOCK_IP_PLATFORM_SPECIFIC1
-            if (0U == (Clock_Ip_apxMcMeGetPartitions[Partition]->PRTN_COFB_STAT[Collection] & EnableRequest))
-            #else
-            if (0U == (Clock_Ip_apxMcMeSetPartitions[Partition]->PRTN_COFB_CLKEN[Collection] & EnableRequest))
-            #endif
+
+            Clock_Ip_apxMcMeSetPartitions[Partition]->PRTN_COFB_CLKEN[Collection] |= EnableRequest;
+            Clock_Ip_apxMcMeTriggerPartitions[Partition]->PRTN_PCONF  |= MC_ME_PRTN1_PCONF_PCE_MASK;
+            Clock_Ip_apxMcMeTriggerPartitions[Partition]->PRTN_PUPD   |= MC_ME_PRTN1_PUPD_PCUD_MASK;
+            Clock_Ip_McMeEnterKey();
+
+            /* Wait until clock gate is updated */
+            Clock_Ip_StartTimeout(&StartTime, &ElapsedTime, &TimeoutTicks, CLOCK_IP_TIMEOUT_VALUE_US);
+            do
             {
-
-                Clock_Ip_apxMcMeSetPartitions[Partition]->PRTN_COFB_CLKEN[Collection] |= EnableRequest;
-                Clock_Ip_apxMcMeTriggerPartitions[Partition]->PRTN_PCONF  |= MC_ME_PRTN1_PCONF_PCE_MASK;
-                Clock_Ip_apxMcMeTriggerPartitions[Partition]->PRTN_PUPD   |= MC_ME_PRTN1_PUPD_PCUD_MASK;
-                Clock_Ip_McMeEnterKey();
-
-                /* Wait until clock gate is updated */
-                Clock_Ip_StartTimeout(&StartTime, &ElapsedTime, &TimeoutTicks, CLOCK_IP_TIMEOUT_VALUE_US);
-                do
-                {
-                    TimeoutOccurred = Clock_Ip_TimeoutExpired(&StartTime, &ElapsedTime, TimeoutTicks);
-                }
-                while ((0U == (Clock_Ip_apxMcMeGetPartitions[Partition]->PRTN_COFB_STAT[Collection] & EnableRequest)) && (FALSE == TimeoutOccurred));
-                /* timeout notification */
-                if (TRUE == TimeoutOccurred)
-                {
-                    /* Report timeout error */
-                    Clock_Ip_ReportClockErrors(CLOCK_IP_REPORT_TIMEOUT_ERROR, Config->Name);
-                }
+                TimeoutOccurred = Clock_Ip_TimeoutExpired(&StartTime, &ElapsedTime, TimeoutTicks);
             }
-        }
-        else
-        {
-            /* Partition PRTN_COFB_STAT is reserved in S32G2XX and S32G3XX */
-            #ifdef CLOCK_IP_PLATFORM_SPECIFIC1
-            if (0U != (Clock_Ip_apxMcMeGetPartitions[Partition]->PRTN_COFB_STAT[Collection] & EnableRequest))
-            #else
-            if (0U != (Clock_Ip_apxMcMeSetPartitions[Partition]->PRTN_COFB_CLKEN[Collection] & EnableRequest))
-            #endif
+            while ((0U == (Clock_Ip_apxMcMeGetPartitions[Partition]->PRTN_COFB_STAT[Collection] & EnableRequest)) && (FALSE == TimeoutOccurred));
+            /* timeout notification */
+            if (TRUE == TimeoutOccurred)
             {
-
-                Clock_Ip_apxMcMeSetPartitions[Partition]->PRTN_COFB_CLKEN[Collection] &= (~EnableRequest);
-                Clock_Ip_apxMcMeTriggerPartitions[Partition]->PRTN_PCONF  |= MC_ME_PRTN1_PCONF_PCE_MASK;
-                Clock_Ip_apxMcMeTriggerPartitions[Partition]->PRTN_PUPD   |= MC_ME_PRTN1_PUPD_PCUD_MASK;
-                Clock_Ip_McMeEnterKey();
-
-                /* Wait until clock gate is updated */
-                Clock_Ip_StartTimeout(&StartTime, &ElapsedTime, &TimeoutTicks, CLOCK_IP_TIMEOUT_VALUE_US);
-                do
-                {
-                    TimeoutOccurred = Clock_Ip_TimeoutExpired(&StartTime, &ElapsedTime, TimeoutTicks);
-                }
-                while (((Clock_Ip_apxMcMeGetPartitions[Partition]->PRTN_COFB_STAT[Collection] & EnableRequest) != 0U) && (FALSE == TimeoutOccurred));
-                /* timeout notification */
-                if (TRUE == TimeoutOccurred)
-                {
-                    /* Report timeout error */
-                    Clock_Ip_ReportClockErrors(CLOCK_IP_REPORT_TIMEOUT_ERROR, Config->Name);
-                }
+                /* Report timeout error */
+                Clock_Ip_ReportClockErrors(CLOCK_IP_REPORT_TIMEOUT_ERROR, Config->Name);
             }
         }
     }
     else
     {
-        (void)TimeoutOccurred;
-        (void)StartTime;
-        (void)ElapsedTime;
-        (void)TimeoutTicks;
-        (void)GateInformation;
-        (void)Partition;
-        (void)Collection;
-        (void)EnableRequest;
+        /* Partition PRTN_COFB_STAT is reserved in S32G2XX and S32G3XX */
+        #ifdef CLOCK_IP_PLATFORM_SPECIFIC1
+        if (0U != (Clock_Ip_apxMcMeGetPartitions[Partition]->PRTN_COFB_STAT[Collection] & EnableRequest))
+        #else
+        if (0U != (Clock_Ip_apxMcMeSetPartitions[Partition]->PRTN_COFB_CLKEN[Collection] & EnableRequest))
+        #endif
+        {
+
+            Clock_Ip_apxMcMeSetPartitions[Partition]->PRTN_COFB_CLKEN[Collection] &= (~EnableRequest);
+            Clock_Ip_apxMcMeTriggerPartitions[Partition]->PRTN_PCONF  |= MC_ME_PRTN1_PCONF_PCE_MASK;
+            Clock_Ip_apxMcMeTriggerPartitions[Partition]->PRTN_PUPD   |= MC_ME_PRTN1_PUPD_PCUD_MASK;
+            Clock_Ip_McMeEnterKey();
+
+            /* Wait until clock gate is updated */
+            Clock_Ip_StartTimeout(&StartTime, &ElapsedTime, &TimeoutTicks, CLOCK_IP_TIMEOUT_VALUE_US);
+            do
+            {
+                TimeoutOccurred = Clock_Ip_TimeoutExpired(&StartTime, &ElapsedTime, TimeoutTicks);
+            }
+            while (((Clock_Ip_apxMcMeGetPartitions[Partition]->PRTN_COFB_STAT[Collection] & EnableRequest) != 0U) && (FALSE == TimeoutOccurred));
+            /* timeout notification */
+            if (TRUE == TimeoutOccurred)
+            {
+                /* Report timeout error */
+                Clock_Ip_ReportClockErrors(CLOCK_IP_REPORT_TIMEOUT_ERROR, Config->Name);
+            }
+        }
     }
 }
 

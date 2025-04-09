@@ -1,0 +1,5 @@
+../RTD/src/Clock_Ip_Divider.c:148:13:Clock_Ip_Callback_DividerEmpty	8	static
+../RTD/src/Clock_Ip_Divider.c:155:13:Clock_Ip_SetCgmXDeDivStatWithoutPhase	64	static
+../RTD/src/Clock_Ip_Divider.c:211:13:Clock_Ip_SetPllPll0divDeDivOutput	24	static
+../RTD/src/Clock_Ip_Divider.c:233:13:Clock_Ip_SetPllPlldvOdiv2Output	24	static
+../RTD/src/Clock_Ip_Divider.c:256:13:Clock_Ip_SetFircDivSelHseBConfigRegGpr	48	static

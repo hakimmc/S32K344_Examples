@@ -1,0 +1,168 @@
+Clock_Ip_DisableSircStdby (Clock_Ip_NameType Name)
+{
+  struct SIRC_Type * _1;
+  long unsigned int _2;
+  struct SIRC_Type * _3;
+  long unsigned int _4;
+
+  <bb 2> :
+  _1 = 1076658176B;
+  _2 ={v} _1->MISCELLANEOUS_IN;
+  _3 = 1076658176B;
+  _4 = _2 & 4294967039;
+  _3->MISCELLANEOUS_IN ={v} _4;
+  return;
+
+}
+
+
+Clock_Ip_EnableSircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  struct SIRC_Type * _1;
+  long unsigned int _2;
+  struct SIRC_Type * _3;
+  long unsigned int _4;
+
+  <bb 2> :
+  _1 = 1076658176B;
+  _2 ={v} _1->MISCELLANEOUS_IN;
+  _3 = 1076658176B;
+  _4 = _2 | 256;
+  _3->MISCELLANEOUS_IN ={v} _4;
+  return;
+
+}
+
+
+Clock_Ip_SetSircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  short unsigned int _1;
+  struct SIRC_Type * _2;
+  long unsigned int _3;
+  struct SIRC_Type * _4;
+  long unsigned int _5;
+  struct SIRC_Type * _6;
+  long unsigned int _7;
+  struct SIRC_Type * _8;
+  long unsigned int _9;
+
+  <bb 2> :
+  _1 = Config_12(D)->Enable;
+  if (_1 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _2 = 1076658176B;
+  _3 ={v} _2->MISCELLANEOUS_IN;
+  _4 = 1076658176B;
+  _5 = _3 | 256;
+  _4->MISCELLANEOUS_IN ={v} _5;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _6 = 1076658176B;
+  _7 ={v} _6->MISCELLANEOUS_IN;
+  _8 = 1076658176B;
+  _9 = _7 & 4294967039;
+  _8->MISCELLANEOUS_IN ={v} _9;
+
+  <bb 5> :
+  return;
+
+}
+
+
+Clock_Ip_DisableFircStdby (Clock_Ip_NameType Name)
+{
+  struct FIRC_Type * _1;
+  long unsigned int _2;
+  struct FIRC_Type * _3;
+  long unsigned int _4;
+
+  <bb 2> :
+  _1 = 1076690944B;
+  _2 ={v} _1->STDBY_ENABLE;
+  _3 = 1076690944B;
+  _4 = _2 & 4294967294;
+  _3->STDBY_ENABLE ={v} _4;
+  return;
+
+}
+
+
+Clock_Ip_EnableFircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  struct FIRC_Type * _1;
+  long unsigned int _2;
+  struct FIRC_Type * _3;
+  long unsigned int _4;
+
+  <bb 2> :
+  _1 = 1076690944B;
+  _2 ={v} _1->STDBY_ENABLE;
+  _3 = 1076690944B;
+  _4 = _2 | 1;
+  _3->STDBY_ENABLE ={v} _4;
+  return;
+
+}
+
+
+Clock_Ip_SetFircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  short unsigned int _1;
+  struct FIRC_Type * _2;
+  long unsigned int _3;
+  struct FIRC_Type * _4;
+  long unsigned int _5;
+  struct FIRC_Type * _6;
+  long unsigned int _7;
+  struct FIRC_Type * _8;
+  long unsigned int _9;
+
+  <bb 2> :
+  _1 = Config_12(D)->Enable;
+  if (_1 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _2 = 1076690944B;
+  _3 ={v} _2->STDBY_ENABLE;
+  _4 = 1076690944B;
+  _5 = _3 | 1;
+  _4->STDBY_ENABLE ={v} _5;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _6 = 1076690944B;
+  _7 ={v} _6->STDBY_ENABLE;
+  _8 = 1076690944B;
+  _9 = _7 & 4294967294;
+  _8->STDBY_ENABLE ={v} _9;
+
+  <bb 5> :
+  return;
+
+}
+
+
+Clock_Ip_InternalOscillatorEmpty_Disable (Clock_Ip_NameType Name)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_InternalOscillatorEmpty (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+

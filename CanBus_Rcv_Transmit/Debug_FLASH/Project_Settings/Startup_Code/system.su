@@ -1,0 +1,4 @@
+../Project_Settings/Startup_Code/system.c:303:6:startup_go_to_user_mode	0	static
+../Project_Settings/Startup_Code/system.c:316:6:default_interrupt_routine	0	static
+../Project_Settings/Startup_Code/system.c:435:7:Sys_GetCoreID	0	static
+../Project_Settings/Startup_Code/system.c:447:6:SystemInit	56	static

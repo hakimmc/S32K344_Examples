@@ -1,0 +1,4 @@
+../Project_Settings/Startup_Code/nvic.c:81:6:NVIC_SetPriorityGrouping	8	static
+../Project_Settings/Startup_Code/nvic.c:93:6:NVIC_EnableIRQ	8	static
+../Project_Settings/Startup_Code/nvic.c:104:6:NVIC_DisableIRQ	8	static
+../Project_Settings/Startup_Code/nvic.c:116:6:NVIC_SetPriority	16	static

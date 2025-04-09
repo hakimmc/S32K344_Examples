@@ -1,16 +1,16 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : FLEXCAN
 *   Dependencies         : 
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   (c) Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
 *   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
@@ -57,9 +57,9 @@ extern "C"{
 ==================================================================================================*/
 #define FLEXCAN_IP_VENDOR_ID_H                      43
 #define FLEXCAN_IP_AR_RELEASE_MAJOR_VERSION_H       4
-#define FLEXCAN_IP_AR_RELEASE_MINOR_VERSION_H       7
+#define FLEXCAN_IP_AR_RELEASE_MINOR_VERSION_H       4
 #define FLEXCAN_IP_AR_RELEASE_REVISION_VERSION_H    0
-#define FLEXCAN_IP_SW_MAJOR_VERSION_H               3
+#define FLEXCAN_IP_SW_MAJOR_VERSION_H               2
 #define FLEXCAN_IP_SW_MINOR_VERSION_H               0
 #define FLEXCAN_IP_SW_PATCH_VERSION_H               0
 /*==================================================================================================
@@ -170,8 +170,8 @@ extern "C"{
 /*==================================================================================================
 *                                GLOBAL VARIABLE DECLARATIONS
 ==================================================================================================*/
-#define CAN_43_FLEXCAN_START_SEC_CONFIG_DATA_UNSPECIFIED
-#include "Can_43_FLEXCAN_MemMap.h"
+#define CAN_START_SEC_CONFIG_DATA_UNSPECIFIED
+#include "Can_MemMap.h"
 
 /* Calling the external Configuration symbols defined by FlexCAN_Ip_Cfg.h */
 FLEXCAN_IP_CONFIG_EXT
@@ -180,21 +180,21 @@ FLEXCAN_IP_CONFIG_EXT
 FLEXCAN_IP_PN_CONFIG_EXT
 #endif
 
-#define CAN_43_FLEXCAN_STOP_SEC_CONFIG_DATA_UNSPECIFIED
-#include "Can_43_FLEXCAN_MemMap.h"
+#define CAN_STOP_SEC_CONFIG_DATA_UNSPECIFIED
+#include "Can_MemMap.h"
 
-#define CAN_43_FLEXCAN_START_SEC_VAR_CLEARED_UNSPECIFIED
-#include "Can_43_FLEXCAN_MemMap.h"
+#define CAN_START_SEC_VAR_CLEARED_UNSPECIFIED
+#include "Can_MemMap.h"
 
 FLEXCAN_IP_STATE_EXT
 
-#define CAN_43_FLEXCAN_STOP_SEC_VAR_CLEARED_UNSPECIFIED
-#include "Can_43_FLEXCAN_MemMap.h"
+#define CAN_STOP_SEC_VAR_CLEARED_UNSPECIFIED
+#include "Can_MemMap.h"
 /*==================================================================================================
 *                                    FUNCTION PROTOTYPES
 ==================================================================================================*/
-#define CAN_43_FLEXCAN_START_SEC_CODE
-#include "Can_43_FLEXCAN_MemMap.h"
+#define CAN_START_SEC_CODE
+#include "Can_MemMap.h"
 /**
  *  @brief Initializes the FlexCAN peripheral.
  *  @details This function will config FlexCAN module and will leave the module in freeze mode.
@@ -986,61 +986,10 @@ void DMA_Can_Callback6(void);
 #if FLEXCAN_INSTANCE_COUNT > 7U
 void DMA_Can_Callback7(void);
 #endif
-#if FLEXCAN_INSTANCE_COUNT > 8U
-void DMA_Can_Callback8(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 9U
-void DMA_Can_Callback9(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 10U
-void DMA_Can_Callback10(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 11U
-void DMA_Can_Callback11(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 12U
-void DMA_Can_Callback12(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 13U
-void DMA_Can_Callback13(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 14U
-void DMA_Can_Callback14(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 15U
-void DMA_Can_Callback15(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 16U
-void DMA_Can_Callback16(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 17U
-void DMA_Can_Callback17(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 18U
-void DMA_Can_Callback18(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 19U
-void DMA_Can_Callback19(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 20U
-void DMA_Can_Callback20(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 21U
-void DMA_Can_Callback21(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 22U
-void DMA_Can_Callback22(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 23U
-void DMA_Can_Callback23(void);
-#endif
-#if FLEXCAN_INSTANCE_COUNT > 24U
-void DMA_Can_Callback24(void);
-#endif
 #endif /* FLEXCAN_IP_FEATURE_HAS_DMA_ENABLE */
 
-#define CAN_43_FLEXCAN_STOP_SEC_CODE
-#include "Can_43_FLEXCAN_MemMap.h"
+#define CAN_STOP_SEC_CODE
+#include "Can_MemMap.h"
 
 #ifdef __cplusplus
 }

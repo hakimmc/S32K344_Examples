@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7 
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
-*   Peripheral           : SIUL2
+*   Peripheral           : S32K3XX
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_AUTOSAR_4_4_-_R21-11_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2021 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -46,9 +47,9 @@ extern "C"{
 ==================================================================================================*/
 #define TSPC_PORT_IP_VENDOR_ID_CFG_C                       43
 #define TSPC_PORT_IP_AR_RELEASE_MAJOR_VERSION_CFG_C        4
-#define TSPC_PORT_IP_AR_RELEASE_MINOR_VERSION_CFG_C        7
+#define TSPC_PORT_IP_AR_RELEASE_MINOR_VERSION_CFG_C        4
 #define TSPC_PORT_IP_AR_RELEASE_REVISION_VERSION_CFG_C     0
-#define TSPC_PORT_IP_SW_MAJOR_VERSION_CFG_C                3
+#define TSPC_PORT_IP_SW_MAJOR_VERSION_CFG_C                2
 #define TSPC_PORT_IP_SW_MINOR_VERSION_CFG_C                0
 #define TSPC_PORT_IP_SW_PATCH_VERSION_CFG_C                0
 
@@ -103,15 +104,13 @@ extern "C"{
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 BOARD_InitPins:
-- options: {callFromInitBoot: 'true', coreID: M7_0}
+- options: {callFromInitBoot: 'true', coreID: core0}
 - pin_list:
-  - {pin_num: T8, peripheral: SIUL2, signal: 'gpio, 65', pin_signal: PTC1, direction: OUTPUT}
-  - {pin_num: D1, peripheral: SIUL2, signal: 'gpio, 21', pin_signal: PTA21, direction: OUTPUT}
-  - {pin_num: R17, peripheral: CAN0, signal: can0_tx, pin_signal: PTB1}
-  - {pin_num: P16, peripheral: CAN0, signal: can0_rx, pin_signal: PTB0}
-  - {pin_num: R6, peripheral: CAN2, signal: can2_tx, pin_signal: PTC17}
-  - {pin_num: P6, peripheral: CAN2, signal: can2_rx, pin_signal: PTC16}
-  - {pin_num: U8, peripheral: SIUL2, signal: 'gpio, 105', pin_signal: PTD9, direction: OUTPUT}
+  - {pin_num: M15, peripheral: FlexCAN_0, signal: rxd, pin_signal: PTA6}
+  - {pin_num: M16, peripheral: FlexCAN_0, signal: txd, pin_signal: PTA7}
+  - {pin_num: N16, peripheral: SIUL2, signal: 'gpio, 93', pin_signal: PTC29, direction: INPUT}
+  - {pin_num: N17, peripheral: SIUL2, signal: 'gpio, 94', pin_signal: PTC30, direction: OUTPUT}
+  - {pin_num: U17, peripheral: SIUL2, signal: 'gpio, 204', pin_signal: PTG12, direction: OUTPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */

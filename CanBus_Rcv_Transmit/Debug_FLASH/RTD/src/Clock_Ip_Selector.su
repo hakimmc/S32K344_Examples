@@ -1,0 +1,9 @@
+../RTD/src/Clock_Ip_Selector.c:157:13:Clock_Ip_CallbackSelectorEmpty	8	static
+../RTD/src/Clock_Ip_Selector.c:165:13:Clock_Ip_ResetCgmXCscCssClkswSwip	32	static
+../RTD/src/Clock_Ip_Selector.c:178:13:Clock_Ip_SetCgmXCscCssClkswSwip	56	static
+../RTD/src/Clock_Ip_Selector.c:261:13:Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip	32	static
+../RTD/src/Clock_Ip_Selector.c:274:13:Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip	56	static
+../RTD/src/Clock_Ip_Selector.c:359:13:Clock_Ip_ResetCgmXCscCssCsGrip	56	static
+../RTD/src/Clock_Ip_Selector.c:395:13:Clock_Ip_SetCgmXCscCssCsGrip	56	static
+../RTD/src/Clock_Ip_Selector.c:453:13:Clock_Ip_SetRtcRtccClksel	16	static
+../RTD/src/Clock_Ip_Selector.c:470:6:Clock_Ip_SetRtcRtccClksel_TrustedCall	16	static

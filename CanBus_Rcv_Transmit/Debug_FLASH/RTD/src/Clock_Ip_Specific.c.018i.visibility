@@ -1,0 +1,544 @@
+
+Marking local functions:
+
+
+Marking externally visible functions: Clock_Ip_Command/11 Clock_Ip_ClockPowerModeChangeNotification/10 EnableSircInStandbyMode/8 DisableSircInStandbyMode/7 EnableFircInStandbyMode/6 DisableFircInStandbyMode/5 Clock_Ip_McMeEnterKey/3
+
+
+Marking externally visible variables:
+
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+Symbol table:
+
+Clock_Ip_axIntOscCallbacks/17 (Clock_Ip_axIntOscCallbacks) @06c7f3f0
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_ClockInitializeObjects/9 (addr) Clock_Ip_ClockInitializeObjects/9 (addr) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_au8IrcoscCallbackIndex/16 (Clock_Ip_au8IrcoscCallbackIndex) @06c7f3a8
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_ClockInitializeObjects/9 (read) Clock_Ip_ClockInitializeObjects/9 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_bObjectsAreInitialized.0/15 (Clock_Ip_bObjectsAreInitialized) @06c7f360
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: 
+  Referring: Clock_Ip_ClockInitializeObjects/9 (read) Clock_Ip_ClockInitializeObjects/9 (write) 
+  Availability: available
+  Varpool flags: initialized
+Clock_Ip_ReportClockErrors/14 (Clock_Ip_ReportClockErrors) @06e22540
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 
+  Calls: 
+Clock_Ip_TimeoutExpired/13 (Clock_Ip_TimeoutExpired) @06e22460
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 
+  Calls: 
+Clock_Ip_StartTimeout/12 (Clock_Ip_StartTimeout) @06e22380
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 
+  Calls: 
+Clock_Ip_Command/11 (Clock_Ip_Command) @06e1e620
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_SpecificPlatformInitClock/4 Clock_Ip_ClockInitializeObjects/9 
+Clock_Ip_ClockPowerModeChangeNotification/10 (Clock_Ip_ClockPowerModeChangeNotification) @06e1e0e0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ClockInitializeObjects/9 (Clock_Ip_ClockInitializeObjects) @06e1ed20
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: Clock_Ip_bObjectsAreInitialized.0/15 (read) Clock_Ip_bObjectsAreInitialized.0/15 (write) Clock_Ip_au8IrcoscCallbackIndex/16 (read) Clock_Ip_axIntOscCallbacks/17 (addr) Clock_Ip_pxSircStdbyClock/0 (write) Clock_Ip_au8IrcoscCallbackIndex/16 (read) Clock_Ip_axIntOscCallbacks/17 (addr) Clock_Ip_pxFircStdbyClock/1 (write) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: Clock_Ip_Command/11 
+  Calls: 
+EnableSircInStandbyMode/8 (EnableSircInStandbyMode) @06e1ea80
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_pxSircStdbyClock/0 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+   Indirect call Num speculative call targets: 0
+DisableSircInStandbyMode/7 (DisableSircInStandbyMode) @06e1e7e0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_pxSircStdbyClock/0 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+   Indirect call Num speculative call targets: 0
+EnableFircInStandbyMode/6 (EnableFircInStandbyMode) @06e1e540
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_pxFircStdbyClock/1 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+   Indirect call Num speculative call targets: 0
+DisableFircInStandbyMode/5 (DisableFircInStandbyMode) @06e1e2a0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_pxFircStdbyClock/1 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+   Indirect call Num speculative call targets: 0
+Clock_Ip_SpecificPlatformInitClock/4 (Clock_Ip_SpecificPlatformInitClock) @06e1e000
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: Clock_Ip_Command/11 
+  Calls: Clock_Ip_PowerClockIpModules/2 
+Clock_Ip_McMeEnterKey/3 (Clock_Ip_McMeEnterKey) @06c40e00
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 
+  Calls: 
+Clock_Ip_PowerClockIpModules/2 (Clock_Ip_PowerClockIpModules) @06c40a80
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: Clock_Ip_SpecificPlatformInitClock/4 
+  Calls: Clock_Ip_ReportClockErrors/14 Clock_Ip_TimeoutExpired/13 Clock_Ip_StartTimeout/12 Clock_Ip_McMeEnterKey/3 Clock_Ip_ReportClockErrors/14 Clock_Ip_TimeoutExpired/13 Clock_Ip_StartTimeout/12 Clock_Ip_McMeEnterKey/3 Clock_Ip_ReportClockErrors/14 Clock_Ip_TimeoutExpired/13 Clock_Ip_StartTimeout/12 Clock_Ip_McMeEnterKey/3 Clock_Ip_ReportClockErrors/14 Clock_Ip_TimeoutExpired/13 Clock_Ip_StartTimeout/12 Clock_Ip_McMeEnterKey/3 
+Clock_Ip_pxFircStdbyClock/1 (Clock_Ip_pxFircStdbyClock) @06c3e1f8
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: 
+  Referring: DisableFircInStandbyMode/5 (read) EnableFircInStandbyMode/6 (read) Clock_Ip_ClockInitializeObjects/9 (write) 
+  Availability: available
+  Varpool flags:
+Clock_Ip_pxSircStdbyClock/0 (Clock_Ip_pxSircStdbyClock) @06c3e168
+  Type: variable definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  References: 
+  Referring: DisableSircInStandbyMode/7 (read) EnableSircInStandbyMode/8 (read) Clock_Ip_ClockInitializeObjects/9 (write) 
+  Availability: available
+  Varpool flags:
+Clock_Ip_Command (const struct Clock_Ip_ClockConfigType * Config, Clock_Ip_CommandType Command)
+{
+  <bb 2> :
+  switch (Command) <default: <L2> [INV], case 1: <L1> [INV], case 2: <L0> [INV]>
+
+  <bb 3> :
+<L0>:
+  Clock_Ip_ClockInitializeObjects ();
+  goto <bb 6>; [INV]
+
+  <bb 4> :
+<L1>:
+  Clock_Ip_SpecificPlatformInitClock (Config);
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+<L2>:
+
+  <bb 6> :
+  return;
+
+}
+
+
+Clock_Ip_ClockPowerModeChangeNotification (Clock_Ip_PowerModesType PowerMode, Clock_Ip_PowerNotificationType Notification)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_ClockInitializeObjects ()
+{
+  static boolean Clock_Ip_bObjectsAreInitialized = 0;
+
+  <bb 2> :
+  Clock_Ip_bObjectsAreInitialized.8_1 = Clock_Ip_bObjectsAreInitialized;
+  _2 = ~Clock_Ip_bObjectsAreInitialized.8_1;
+  if (_2 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  Clock_Ip_bObjectsAreInitialized = 1;
+  _3 = Clock_Ip_au8IrcoscCallbackIndex[2];
+  _4 = (int) _3;
+  _5 = &Clock_Ip_axIntOscCallbacks[_4];
+  Clock_Ip_pxSircStdbyClock = _5;
+  _6 = Clock_Ip_au8IrcoscCallbackIndex[1];
+  _7 = (int) _6;
+  _8 = &Clock_Ip_axIntOscCallbacks[_7];
+  Clock_Ip_pxFircStdbyClock = _8;
+
+  <bb 4> :
+  return;
+
+}
+
+
+EnableSircInStandbyMode ()
+{
+  struct Clock_Ip_IrcoscConfigType SircConfig;
+
+  <bb 2> :
+  SircConfig.Enable = 1;
+  Clock_Ip_pxSircStdbyClock.7_1 = Clock_Ip_pxSircStdbyClock;
+  _2 = Clock_Ip_pxSircStdbyClock.7_1->Enable;
+  _2 (&SircConfig);
+  SircConfig = {CLOBBER};
+  return;
+
+}
+
+
+DisableSircInStandbyMode ()
+{
+  <bb 2> :
+  Clock_Ip_pxSircStdbyClock.6_1 = Clock_Ip_pxSircStdbyClock;
+  _2 = Clock_Ip_pxSircStdbyClock.6_1->Disable;
+  _2 (3);
+  return;
+
+}
+
+
+EnableFircInStandbyMode ()
+{
+  struct Clock_Ip_IrcoscConfigType FircConfig;
+
+  <bb 2> :
+  FircConfig.Enable = 1;
+  Clock_Ip_pxFircStdbyClock.5_1 = Clock_Ip_pxFircStdbyClock;
+  _2 = Clock_Ip_pxFircStdbyClock.5_1->Enable;
+  _2 (&FircConfig);
+  FircConfig = {CLOBBER};
+  return;
+
+}
+
+
+DisableFircInStandbyMode ()
+{
+  <bb 2> :
+  Clock_Ip_pxFircStdbyClock.4_1 = Clock_Ip_pxFircStdbyClock;
+  _2 = Clock_Ip_pxFircStdbyClock.4_1->Disable;
+  _2 (1);
+  return;
+
+}
+
+
+Clock_Ip_SpecificPlatformInitClock (const struct Clock_Ip_ClockConfigType * Config)
+{
+  <bb 2> :
+  Clock_Ip_PowerClockIpModules ();
+  return;
+
+}
+
+
+Clock_Ip_McMeEnterKey ()
+{
+  <bb 2> :
+  _1 = 1076740096B;
+  _1->CTL_KEY = 23280;
+  _2 = 1076740096B;
+  _2->CTL_KEY = 42255;
+  return;
+
+}
+
+
+Clock_Ip_PowerClockIpModules ()
+{
+  boolean TimeoutOccurred;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+
+  <bb 2> :
+  TimeoutOccurred = 0;
+  _1 = 1076740096B;
+  _2 = _1->PRTN1_COFB1_STAT;
+  _3 = _2 & 16777216;
+  if (_3 == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 3> :
+  _4 = 1076740096B;
+  _5 = _4->PRTN1_COFB1_CLKEN;
+  _6 = 1076740096B;
+  _7 = _5 | 16777216;
+  _6->PRTN1_COFB1_CLKEN = _7;
+  _8 = 1076740096B;
+  _9 = _8->PRTN1_PCONF;
+  _10 = 1076740096B;
+  _11 = _9 | 1;
+  _10->PRTN1_PCONF = _11;
+  _12 = 1076740096B;
+  _13 = _12->PRTN1_PUPD;
+  _14 = 1076740096B;
+  _15 = _13 | 1;
+  _14->PRTN1_PUPD = _15;
+  Clock_Ip_McMeEnterKey ();
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 4> :
+  TimeoutTicks.0_16 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.0_16);
+  _17 = 1076740096B;
+  _18 = _17->PRTN1_COFB1_STAT;
+  _19 = _18 & 16777216;
+  if (_19 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _20 = ~TimeoutOccurred;
+  if (_20 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  if (TimeoutOccurred != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  Clock_Ip_ReportClockErrors (1, 7);
+
+  <bb 8> :
+  _21 = 1076740096B;
+  _22 = _21->PRTN1_COFB1_STAT;
+  _23 = _22 & 2097152;
+  if (_23 == 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 9> :
+  _24 = 1076740096B;
+  _25 = _24->PRTN1_COFB1_CLKEN;
+  _26 = 1076740096B;
+  _27 = _25 | 2097152;
+  _26->PRTN1_COFB1_CLKEN = _27;
+  _28 = 1076740096B;
+  _29 = _28->PRTN1_PCONF;
+  _30 = 1076740096B;
+  _31 = _29 | 1;
+  _30->PRTN1_PCONF = _31;
+  _32 = 1076740096B;
+  _33 = _32->PRTN1_PUPD;
+  _34 = 1076740096B;
+  _35 = _33 | 1;
+  _34->PRTN1_PUPD = _35;
+  Clock_Ip_McMeEnterKey ();
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 10> :
+  TimeoutTicks.1_36 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.1_36);
+  _37 = 1076740096B;
+  _38 = _37->PRTN1_COFB1_STAT;
+  _39 = _38 & 2097152;
+  if (_39 == 0)
+    goto <bb 11>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 11> :
+  _40 = ~TimeoutOccurred;
+  if (_40 != 0)
+    goto <bb 10>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 12> :
+  if (TimeoutOccurred != 0)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 13> :
+  Clock_Ip_ReportClockErrors (1, 5);
+
+  <bb 14> :
+  _41 = 1076740096B;
+  _42 = _41->PRTN1_COFB1_STAT;
+  _43 = _42 & 524288;
+  if (_43 == 0)
+    goto <bb 15>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 15> :
+  _44 = 1076740096B;
+  _45 = _44->PRTN1_COFB1_CLKEN;
+  _46 = 1076740096B;
+  _47 = _45 | 524288;
+  _46->PRTN1_COFB1_CLKEN = _47;
+  _48 = 1076740096B;
+  _49 = _48->PRTN1_PCONF;
+  _50 = 1076740096B;
+  _51 = _49 | 1;
+  _50->PRTN1_PCONF = _51;
+  _52 = 1076740096B;
+  _53 = _52->PRTN1_PUPD;
+  _54 = 1076740096B;
+  _55 = _53 | 1;
+  _54->PRTN1_PUPD = _55;
+  Clock_Ip_McMeEnterKey ();
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 16> :
+  TimeoutTicks.2_56 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.2_56);
+  _57 = 1076740096B;
+  _58 = _57->PRTN1_COFB1_STAT;
+  _59 = _58 & 524288;
+  if (_59 == 0)
+    goto <bb 17>; [INV]
+  else
+    goto <bb 18>; [INV]
+
+  <bb 17> :
+  _60 = ~TimeoutOccurred;
+  if (_60 != 0)
+    goto <bb 16>; [INV]
+  else
+    goto <bb 18>; [INV]
+
+  <bb 18> :
+  if (TimeoutOccurred != 0)
+    goto <bb 19>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 19> :
+  Clock_Ip_ReportClockErrors (1, 6);
+
+  <bb 20> :
+  _61 = 1076740096B;
+  _62 = _61->PRTN1_COFB1_STAT;
+  _63 = _62 & 32768;
+  if (_63 == 0)
+    goto <bb 21>; [INV]
+  else
+    goto <bb 26>; [INV]
+
+  <bb 21> :
+  _64 = 1076740096B;
+  _65 = _64->PRTN1_COFB1_CLKEN;
+  _66 = 1076740096B;
+  _67 = _65 | 32768;
+  _66->PRTN1_COFB1_CLKEN = _67;
+  _68 = 1076740096B;
+  _69 = _68->PRTN1_PCONF;
+  _70 = 1076740096B;
+  _71 = _69 | 1;
+  _70->PRTN1_PCONF = _71;
+  _72 = 1076740096B;
+  _73 = _72->PRTN1_PUPD;
+  _74 = 1076740096B;
+  _75 = _73 | 1;
+  _74->PRTN1_PUPD = _75;
+  Clock_Ip_McMeEnterKey ();
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 22> :
+  TimeoutTicks.3_76 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.3_76);
+  _77 = 1076740096B;
+  _78 = _77->PRTN1_COFB1_STAT;
+  _79 = _78 & 32768;
+  if (_79 == 0)
+    goto <bb 23>; [INV]
+  else
+    goto <bb 24>; [INV]
+
+  <bb 23> :
+  _80 = ~TimeoutOccurred;
+  if (_80 != 0)
+    goto <bb 22>; [INV]
+  else
+    goto <bb 24>; [INV]
+
+  <bb 24> :
+  if (TimeoutOccurred != 0)
+    goto <bb 25>; [INV]
+  else
+    goto <bb 26>; [INV]
+
+  <bb 25> :
+  Clock_Ip_ReportClockErrors (1, 143);
+
+  <bb 26> :
+  StartTime = {CLOBBER};
+  ElapsedTime = {CLOBBER};
+  TimeoutTicks = {CLOBBER};
+  return;
+
+}
+
+

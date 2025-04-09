@@ -1,0 +1,466 @@
+IPA summary for Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/6 is missing.
+IPA summary for Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/5 is missing.
+IPA summary for Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 is missing.
+IPA summary for Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/3 is missing.
+IPA summary for Clock_Ip_CallbackPllEmptyDisable/2 is missing.
+IPA summary for Clock_Ip_CallbackPllEmptyComplete/1 is missing.
+IPA summary for Clock_Ip_CallbackPllEmpty/0 is missing.
+
+Flattening functions:
+Overall time estimate: 0.000000 weighted by profile: 0.000000
+
+Deciding on inlining of small functions.  Starting with size 0.
+node context cache: 0 hits, 0 misses, 0 initializations
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+
+Deciding on functions to be inlined into all callers and removing useless speculations:
+Overall time estimate: 0.000000 weighted by profile: 0.000000
+
+Why inlining failed?
+function body not available                       :        2 calls, 2.000000 freq, 0 count
+IPA summary for Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/6 is missing.
+IPA summary for Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/5 is missing.
+IPA summary for Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 is missing.
+IPA summary for Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/3 is missing.
+IPA summary for Clock_Ip_CallbackPllEmptyDisable/2 is missing.
+IPA summary for Clock_Ip_CallbackPllEmptyComplete/1 is missing.
+IPA summary for Clock_Ip_CallbackPllEmpty/0 is missing.
+Symbol table:
+
+Clock_Ip_TimeoutExpired/11 (Clock_Ip_TimeoutExpired) @06d2a0e0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/5 
+  Calls: 
+Clock_Ip_StartTimeout/10 (Clock_Ip_StartTimeout) @06d2a000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/5 
+  Calls: 
+Clock_Ip_pxPll/9 (Clock_Ip_pxPll) @06ccec18
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/3 (read) Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/3 (read) Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 (read) Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/6 (read) Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/6 (read) Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 (read) Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 (read) Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 (read) Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 (read) Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 (read) Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 (read) Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/5 (read) Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/5 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_au8ClockFeatures/8 (Clock_Ip_au8ClockFeatures) @06ccebd0
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/3 (read) Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/6 (read) Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 (read) Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/5 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_axPllCallbacks/7 (Clock_Ip_axPllCallbacks) @06cce630
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_CallbackPllEmpty/0 (addr) Clock_Ip_CallbackPllEmpty/0 (addr) Clock_Ip_CallbackPllEmptyComplete/1 (addr) Clock_Ip_CallbackPllEmpty/0 (addr) Clock_Ip_CallbackPllEmptyDisable/2 (addr) Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/3 (addr) Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 (addr) Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/5 (addr) Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/6 (addr) Clock_Ip_CallbackPllEmptyDisable/2 (addr) 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized read-only const-value-known
+Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/6 (Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize) @06dd0540
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/8 (read) Clock_Ip_pxPll/9 (read) Clock_Ip_pxPll/9 (read) 
+  Referring: Clock_Ip_axPllCallbacks/7 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/5 (Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize) @06dd02a0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/8 (read) Clock_Ip_pxPll/9 (read) Clock_Ip_pxPll/9 (read) 
+  Referring: Clock_Ip_axPllCallbacks/7 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_TimeoutExpired/11 Clock_Ip_StartTimeout/10 
+Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/4 (Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize) @06dd0000
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/8 (read) Clock_Ip_pxPll/9 (read) Clock_Ip_pxPll/9 (read) Clock_Ip_pxPll/9 (read) Clock_Ip_pxPll/9 (read) Clock_Ip_pxPll/9 (read) Clock_Ip_pxPll/9 (read) Clock_Ip_pxPll/9 (read) 
+  Referring: Clock_Ip_axPllCallbacks/7 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize/3 (Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize) @06ccfb60
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/8 (read) Clock_Ip_pxPll/9 (read) Clock_Ip_pxPll/9 (read) 
+  Referring: Clock_Ip_axPllCallbacks/7 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_CallbackPllEmptyDisable/2 (Clock_Ip_CallbackPllEmptyDisable) @06ccf8c0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axPllCallbacks/7 (addr) Clock_Ip_axPllCallbacks/7 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_CallbackPllEmptyComplete/1 (Clock_Ip_CallbackPllEmptyComplete) @06ccf620
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axPllCallbacks/7 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_CallbackPllEmpty/0 (Clock_Ip_CallbackPllEmpty) @06ccf380
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axPllCallbacks/7 (addr) Clock_Ip_axPllCallbacks/7 (addr) Clock_Ip_axPllCallbacks/7 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+
+;; Function Clock_Ip_CallbackPllEmpty (Clock_Ip_CallbackPllEmpty, funcdef_no=0, decl_uid=6572, cgraph_uid=1, symbol_order=0)
+
+Clock_Ip_CallbackPllEmpty (const struct Clock_Ip_PllConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_CallbackPllEmptyComplete (Clock_Ip_CallbackPllEmptyComplete, funcdef_no=1, decl_uid=6574, cgraph_uid=2, symbol_order=1)
+
+Clock_Ip_CallbackPllEmptyComplete (Clock_Ip_NameType PllName)
+{
+  Clock_Ip_PllStatusReturnType D.6624;
+  Clock_Ip_PllStatusReturnType _1;
+
+  <bb 2> :
+  _1 = 0;
+
+  <bb 3> :
+<L0>:
+  return _1;
+
+}
+
+
+
+;; Function Clock_Ip_CallbackPllEmptyDisable (Clock_Ip_CallbackPllEmptyDisable, funcdef_no=2, decl_uid=6576, cgraph_uid=3, symbol_order=2)
+
+Clock_Ip_CallbackPllEmptyDisable (Clock_Ip_NameType PllName)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize, funcdef_no=3, decl_uid=6578, cgraph_uid=4, symbol_order=3)
+
+Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (const struct Clock_Ip_PllConfigType * Config)
+{
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  struct PLL_Type * _3;
+  long unsigned int _4;
+  struct PLL_Type * _5;
+  long unsigned int _6;
+
+  <bb 2> :
+  _1 = Config_8(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_9 = (uint32) _2;
+  _3 = Clock_Ip_pxPll[Instance_9];
+  _4 ={v} _3->PLLCR;
+  _5 = Clock_Ip_pxPll[Instance_9];
+  _6 = _4 | 2147483648;
+  _5->PLLCR ={v} _6;
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize, funcdef_no=4, decl_uid=6580, cgraph_uid=5, symbol_order=4)
+
+Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (const struct Clock_Ip_PllConfigType * Config)
+{
+  uint32 Value;
+  uint32 Instance;
+  long unsigned int iftmp.0;
+  <unnamed type> _1;
+  unsigned char _2;
+  short unsigned int _3;
+  struct PLL_Type * _4;
+  unsigned char _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  unsigned char _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  struct PLL_Type * _12;
+  struct PLL_Type * _13;
+  short unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  unsigned char _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  struct PLL_Type * _21;
+  unsigned char _22;
+  unsigned char _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  short unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  short unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  struct PLL_Type * _36;
+  struct PLL_Type * _37;
+  long unsigned int _38;
+  struct PLL_Type * _39;
+  long unsigned int _40;
+  long unsigned int iftmp.0_41;
+  long unsigned int iftmp.0_55;
+  long unsigned int iftmp.0_56;
+
+  <bb 2> :
+  _1 = Config_44(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_45 = (uint32) _2;
+  _3 = Config_44(D)->Enable;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 3> :
+  _4 = Clock_Ip_pxPll[Instance_45];
+  Value_46 ={v} _4->PLLDV;
+  Value_47 = Value_46 & 4294938368;
+  _5 = Config_44(D)->Predivider;
+  _6 = (long unsigned int) _5;
+  _7 = _6 << 12;
+  _8 = _7 & 28672;
+  _9 = Config_44(D)->MulFactorDiv;
+  _10 = (long unsigned int) _9;
+  _11 = _8 | _10;
+  Value_48 = Value_47 | _11;
+  _12 = Clock_Ip_pxPll[Instance_45];
+  _12->PLLDV ={v} Value_48;
+  _13 = Clock_Ip_pxPll[Instance_45];
+  Value_50 ={v} _13->PLLFD;
+  Value_51 = Value_50 & 3221192704;
+  _14 = Config_44(D)->NumeratorFracLoopDiv;
+  _15 = (long unsigned int) _14;
+  _16 = _15 & 32767;
+  Value_52 = Value_51 | _16;
+  _17 = Config_44(D)->SigmaDelta;
+  _18 = (long unsigned int) _17;
+  _19 = _18 << 30;
+  _20 = _19 & 1073741824;
+  Value_53 = Value_52 | _20;
+  _21 = Clock_Ip_pxPll[Instance_45];
+  _21->PLLFD ={v} Value_53;
+  _22 = Config_44(D)->ModulationFrequency;
+  if (_22 == 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.0_56 = 1073741824;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.0_55 = 0;
+
+  <bb 6> :
+  # iftmp.0_41 = PHI <iftmp.0_56(4), iftmp.0_55(5)>
+  _23 = Config_44(D)->ModulationType;
+  _24 = (long unsigned int) _23;
+  _25 = _24 << 29;
+  _26 = _25 & 536870912;
+  _27 = iftmp.0_41 | _26;
+  _28 = Config_44(D)->IncrementStep;
+  _29 = (long unsigned int) _28;
+  _30 = _29 & 2047;
+  _31 = _27 | _30;
+  _32 = Config_44(D)->ModulationPeriod;
+  _33 = (long unsigned int) _32;
+  _34 = _33 << 16;
+  _35 = _34 & 67043328;
+  Value_57 = _31 | _35;
+  _36 = Clock_Ip_pxPll[Instance_45];
+  _36->PLLFM ={v} Value_57;
+  _37 = Clock_Ip_pxPll[Instance_45];
+  _38 ={v} _37->PLLCR;
+  _39 = Clock_Ip_pxPll[Instance_45];
+  _40 = _38 & 2147483647;
+  _39->PLLCR ={v} _40;
+
+  <bb 7> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize, funcdef_no=5, decl_uid=6582, cgraph_uid=6, symbol_order=5)
+
+Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (Clock_Ip_NameType PllName)
+{
+  uint32 Instance;
+  uint32 PllLockStatus;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  Clock_Ip_PllStatusReturnType PllStatus;
+  Clock_Ip_PllStatusReturnType D.6638;
+  unsigned char _1;
+  struct PLL_Type * _2;
+  long unsigned int _3;
+  signed int _4;
+  struct PLL_Type * _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int TimeoutTicks.1_8;
+  _Bool _9;
+  Clock_Ip_PllStatusReturnType _24;
+
+  <bb 2> :
+  PllStatus_13 = 2;
+  TimeoutOccurred_14 = 0;
+  _1 = Clock_Ip_au8ClockFeatures[PllName_16(D)][0];
+  Instance_17 = (uint32) _1;
+  _2 = Clock_Ip_pxPll[Instance_17];
+  _3 ={v} _2->PLLCR;
+  _4 = (signed int) _3;
+  if (_4 >= 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 3> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 4> :
+  _5 = Clock_Ip_pxPll[Instance_17];
+  _6 ={v} _5->PLLSR;
+  _7 = _6 >> 2;
+  PllLockStatus_20 = _7 & 1;
+  TimeoutTicks.1_8 = TimeoutTicks;
+  TimeoutOccurred_22 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.1_8);
+  if (PllLockStatus_20 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _9 = ~TimeoutOccurred_22;
+  if (_9 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  if (TimeoutOccurred_22 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 7> :
+  PllStatus_23 = 1;
+  goto <bb 9>; [INV]
+
+  <bb 8> :
+  PllStatus_18 = 0;
+
+  <bb 9> :
+  # PllStatus_10 = PHI <PllStatus_23(7), PllStatus_18(8), PllStatus_13(6)>
+  _24 = PllStatus_10;
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+
+  <bb 10> :
+<L9>:
+  return _24;
+
+}
+
+
+
+;; Function Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize, funcdef_no=6, decl_uid=6584, cgraph_uid=7, symbol_order=6)
+
+Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (const struct Clock_Ip_PllConfigType * Config)
+{
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  short unsigned int _3;
+  struct PLL_Type * _4;
+  long unsigned int _5;
+  struct PLL_Type * _6;
+  long unsigned int _7;
+
+  <bb 2> :
+  _1 = Config_10(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_11 = (uint32) _2;
+  _3 = Config_10(D)->Enable;
+  if (_3 == 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _4 = Clock_Ip_pxPll[Instance_11];
+  _5 ={v} _4->PLLCR;
+  _6 = Clock_Ip_pxPll[Instance_11];
+  _7 = _5 & 2147483647;
+  _6->PLLCR ={v} _7;
+
+  <bb 4> :
+  return;
+
+}
+
+

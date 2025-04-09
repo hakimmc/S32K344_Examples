@@ -1,0 +1,335 @@
+Siul2_Dio_Ip_MaskedWritePins (uint8 u8Siul2Instance, uint8 u8PortId, Siul2_Dio_Ip_PinsChannelType pins, Siul2_Dio_Ip_PinsChannelType mask)
+{
+  uint32 pinsRev;
+  uint32 maskRev;
+  struct SIUL2_Type * base;
+  int _1;
+  long unsigned int _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  long unsigned int _5;
+  int _6;
+  long unsigned int _7;
+
+  <bb 2> :
+  _1 = (int) u8Siul2Instance_8(D);
+  _2 = Siul2_Dio_Ip_au32BaseAdresses[_1];
+  base_10 = (struct SIUL2_Type *) _2;
+  _3 = Siul2_Dio_Ip_Rev_Bit_16 (mask_11(D));
+  maskRev_13 = (uint32) _3;
+  _4 = Siul2_Dio_Ip_Rev_Bit_16 (pins_14(D));
+  pinsRev_16 = (uint32) _4;
+  _5 = maskRev_13 << 16;
+  _6 = (int) u8PortId_17(D);
+  _7 = pinsRev_16 | _5;
+  base_10->MPGPDO[_6] ={v} _7;
+  return;
+
+}
+
+
+Siul2_Dio_Ip_ReadPin (const struct Siul2_Dio_Ip_GpioType * const base, Siul2_Dio_Ip_PinsChannelType pin)
+{
+  Siul2_Dio_Ip_PinsLevelType returnValue;
+  Siul2_Dio_Ip_PinsLevelType D.6316;
+  _Bool _1;
+  _Bool _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  int _5;
+  int _6;
+  int _7;
+  int _8;
+  int _9;
+  int _10;
+  Siul2_Dio_Ip_PinsLevelType _19;
+
+  <bb 2> :
+  _1 = base_11(D) != 0B;
+  DevAssert (_1);
+  _2 = pin_14(D) <= 15;
+  DevAssert (_2);
+  returnValue_16 = 0;
+  _3 ={v} base_11(D)->PGPDI;
+  _4 = Siul2_Dio_Ip_Rev_Bit_16 (_3);
+  _5 = (int) _4;
+  _6 = (int) pin_14(D);
+  _7 = 1 << _6;
+  _8 = _5 & _7;
+  _9 = (int) pin_14(D);
+  _10 = _8 >> _9;
+  returnValue_18 = (Siul2_Dio_Ip_PinsLevelType) _10;
+  _19 = returnValue_18;
+
+  <bb 3> :
+<L0>:
+  return _19;
+
+}
+
+
+Siul2_Dio_Ip_ReadPins (const struct Siul2_Dio_Ip_GpioType * const base)
+{
+  Siul2_Dio_Ip_PinsChannelType returnValue;
+  Siul2_Dio_Ip_PinsChannelType D.6314;
+  _Bool _1;
+  short unsigned int _2;
+  Siul2_Dio_Ip_PinsChannelType _9;
+
+  <bb 2> :
+  _1 = base_3(D) != 0B;
+  DevAssert (_1);
+  returnValue_6 = 0;
+  _2 ={v} base_3(D)->PGPDI;
+  returnValue_8 = Siul2_Dio_Ip_Rev_Bit_16 (_2);
+  _9 = returnValue_8;
+
+  <bb 3> :
+<L0>:
+  return _9;
+
+}
+
+
+Siul2_Dio_Ip_TogglePins (struct Siul2_Dio_Ip_GpioType * const base, Siul2_Dio_Ip_PinsChannelType pins)
+{
+  short unsigned int D.6313;
+  _Bool _1;
+  short unsigned int _2;
+  short unsigned int _3;
+  short unsigned int _9;
+
+  <bb 2> :
+  _1 = base_4(D) != 0B;
+  DevAssert (_1);
+  _9 = Siul2_Dio_Ip_Rev_Bit_16 (pins_7(D));
+  _2 ={v} base_4(D)->PGPDO;
+  _3 = _9 ^ _2;
+  base_4(D)->PGPDO ={v} _3;
+  return;
+
+}
+
+
+Siul2_Dio_Ip_ClearPins (struct Siul2_Dio_Ip_GpioType * const base, Siul2_Dio_Ip_PinsChannelType pins)
+{
+  short unsigned int D.6312;
+  _Bool _1;
+  short unsigned int _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  short unsigned int _10;
+
+  <bb 2> :
+  _1 = base_5(D) != 0B;
+  DevAssert (_1);
+  _2 = Siul2_Dio_Ip_Rev_Bit_16 (pins_8(D));
+  _10 = ~_2;
+  _3 ={v} base_5(D)->PGPDO;
+  _4 = _10 & _3;
+  base_5(D)->PGPDO ={v} _4;
+  return;
+
+}
+
+
+Siul2_Dio_Ip_SetPins (struct Siul2_Dio_Ip_GpioType * const base, Siul2_Dio_Ip_PinsChannelType pins)
+{
+  short unsigned int D.6311;
+  _Bool _1;
+  short unsigned int _2;
+  short unsigned int _3;
+  short unsigned int _9;
+
+  <bb 2> :
+  _1 = base_4(D) != 0B;
+  DevAssert (_1);
+  _9 = Siul2_Dio_Ip_Rev_Bit_16 (pins_7(D));
+  _2 ={v} base_4(D)->PGPDO;
+  _3 = _9 | _2;
+  base_4(D)->PGPDO ={v} _3;
+  return;
+
+}
+
+
+Siul2_Dio_Ip_GetPinsOutput (const struct Siul2_Dio_Ip_GpioType * const base)
+{
+  Siul2_Dio_Ip_PinsChannelType returnValue;
+  Siul2_Dio_Ip_PinsChannelType D.6309;
+  _Bool _1;
+  short unsigned int _2;
+  Siul2_Dio_Ip_PinsChannelType _9;
+
+  <bb 2> :
+  _1 = base_3(D) != 0B;
+  DevAssert (_1);
+  returnValue_6 = 0;
+  _2 ={v} base_3(D)->PGPDO;
+  returnValue_8 = Siul2_Dio_Ip_Rev_Bit_16 (_2);
+  _9 = returnValue_8;
+
+  <bb 3> :
+<L0>:
+  return _9;
+
+}
+
+
+Siul2_Dio_Ip_WritePins (struct Siul2_Dio_Ip_GpioType * const base, Siul2_Dio_Ip_PinsChannelType pins)
+{
+  _Bool _1;
+  short unsigned int _2;
+
+  <bb 2> :
+  _1 = base_3(D) != 0B;
+  DevAssert (_1);
+  _2 = Siul2_Dio_Ip_Rev_Bit_16 (pins_6(D));
+  base_3(D)->PGPDO ={v} _2;
+  return;
+
+}
+
+
+Siul2_Dio_Ip_WritePin (struct Siul2_Dio_Ip_GpioType * const base, Siul2_Dio_Ip_PinsChannelType pin, Siul2_Dio_Ip_PinsLevelType value)
+{
+  Siul2_Dio_Ip_PinsChannelType pinsValues;
+  _Bool _1;
+  _Bool _2;
+  _Bool _3;
+  unsigned int _4;
+  unsigned int _5;
+  int _6;
+  short unsigned int _7;
+  short unsigned int _8;
+  unsigned int _9;
+  unsigned int _10;
+  unsigned int _11;
+  unsigned int _12;
+  unsigned int _13;
+  short unsigned int _14;
+
+  <bb 2> :
+  _1 = base_15(D) != 0B;
+  DevAssert (_1);
+  _2 = pin_18(D) <= 15;
+  DevAssert (_2);
+  _3 = value_20(D) <= 1;
+  DevAssert (_3);
+  SchM_Enter_Dio_DIO_EXCLUSIVE_AREA_01 ();
+  pinsValues_23 ={v} base_15(D)->PGPDO;
+  _4 = (unsigned int) pin_18(D);
+  _5 = 15 - _4;
+  _6 = 1 << _5;
+  _7 = (short unsigned int) _6;
+  _8 = ~_7;
+  pinsValues_24 = pinsValues_23 & _8;
+  _9 = (unsigned int) value_20(D);
+  _10 = _9 & 1;
+  _11 = (unsigned int) pin_18(D);
+  _12 = 15 - _11;
+  _13 = _10 << _12;
+  _14 = (short unsigned int) _13;
+  pinsValues_25 = pinsValues_24 | _14;
+  base_15(D)->PGPDO ={v} pinsValues_25;
+  SchM_Exit_Dio_DIO_EXCLUSIVE_AREA_01 ();
+  return;
+
+}
+
+
+Siul2_Dio_Ip_Rev_Bit_16 (uint16 value)
+{
+  uint16 ret;
+  uint8 i;
+  uint16 D.6307;
+  int _1;
+  int _2;
+  int _3;
+  unsigned int _4;
+  unsigned int _5;
+  unsigned int _6;
+  unsigned int _7;
+  unsigned int _8;
+  short unsigned int _9;
+  int _10;
+  int _11;
+  int _12;
+  unsigned int _13;
+  unsigned int _14;
+  unsigned int _15;
+  unsigned int _16;
+  unsigned int _17;
+  short unsigned int _18;
+  short unsigned int _19;
+  unsigned char i.1_20;
+  uint16 _25;
+
+  <bb 2> :
+  ret_23 = 0;
+  i_24 = 0;
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  _1 = (int) value_27(D);
+  _2 = (int) i_21;
+  _3 = _1 >> _2;
+  _4 = (unsigned int) _3;
+  _5 = _4 & 1;
+  _6 = (unsigned int) i_21;
+  _7 = 15 - _6;
+  _8 = _5 << _7;
+  _9 = (short unsigned int) _8;
+  _10 = (int) value_27(D);
+  _11 = (int) i_21;
+  _12 = _10 << _11;
+  _13 = (unsigned int) _12;
+  _14 = _13 & 32768;
+  _15 = (unsigned int) i_21;
+  _16 = 15 - _15;
+  _17 = _14 >> _16;
+  _18 = (short unsigned int) _17;
+  _19 = _9 | _18;
+  ret_28 = ret_22 | _19;
+  i.1_20 = i_21;
+  i_29 = i.1_20 + 1;
+
+  <bb 4> :
+  # i_21 = PHI <i_24(2), i_29(3)>
+  # ret_22 = PHI <ret_23(2), ret_28(3)>
+  if (i_21 <= 7)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  _25 = ret_22;
+
+  <bb 6> :
+<L3>:
+  return _25;
+
+}
+
+
+DevAssert (volatile boolean x)
+{
+  _Bool x.0_1;
+
+  <bb 2> :
+  x.0_1 ={v} x;
+  if (x.0_1 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 3>; [INV]
+
+  <bb 3> :
+  __asm__ __volatile__("BKPT #0");
+  goto <bb 3>; [INV]
+
+  <bb 4> :
+  return;
+
+}
+
+
