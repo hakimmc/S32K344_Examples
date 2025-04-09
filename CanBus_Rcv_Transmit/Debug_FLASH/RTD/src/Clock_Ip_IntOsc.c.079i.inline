@@ -1,0 +1,312 @@
+IPA summary for Clock_Ip_DisableSircStdby/7 is missing.
+IPA summary for Clock_Ip_EnableSircStdby/6 is missing.
+IPA summary for Clock_Ip_SetSircStdby/5 is missing.
+IPA summary for Clock_Ip_DisableFircStdby/4 is missing.
+IPA summary for Clock_Ip_EnableFircStdby/3 is missing.
+IPA summary for Clock_Ip_SetFircStdby/2 is missing.
+IPA summary for Clock_Ip_InternalOscillatorEmpty_Disable/1 is missing.
+IPA summary for Clock_Ip_InternalOscillatorEmpty/0 is missing.
+
+Flattening functions:
+Overall time estimate: 0.000000 weighted by profile: 0.000000
+
+Deciding on inlining of small functions.  Starting with size 0.
+node context cache: 0 hits, 0 misses, 0 initializations
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+
+Deciding on functions to be inlined into all callers and removing useless speculations:
+Overall time estimate: 0.000000 weighted by profile: 0.000000
+
+Why inlining failed?
+IPA summary for Clock_Ip_DisableSircStdby/7 is missing.
+IPA summary for Clock_Ip_EnableSircStdby/6 is missing.
+IPA summary for Clock_Ip_SetSircStdby/5 is missing.
+IPA summary for Clock_Ip_DisableFircStdby/4 is missing.
+IPA summary for Clock_Ip_EnableFircStdby/3 is missing.
+IPA summary for Clock_Ip_SetFircStdby/2 is missing.
+IPA summary for Clock_Ip_InternalOscillatorEmpty_Disable/1 is missing.
+IPA summary for Clock_Ip_InternalOscillatorEmpty/0 is missing.
+Symbol table:
+
+Clock_Ip_axIntOscCallbacks/8 (Clock_Ip_axIntOscCallbacks) @06dae360
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_InternalOscillatorEmpty/0 (addr) Clock_Ip_InternalOscillatorEmpty/0 (addr) Clock_Ip_InternalOscillatorEmpty_Disable/1 (addr) Clock_Ip_SetFircStdby/2 (addr) Clock_Ip_EnableFircStdby/3 (addr) Clock_Ip_DisableFircStdby/4 (addr) Clock_Ip_SetSircStdby/5 (addr) Clock_Ip_EnableSircStdby/6 (addr) Clock_Ip_DisableSircStdby/7 (addr) 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized read-only const-value-known
+Clock_Ip_DisableSircStdby/7 (Clock_Ip_DisableSircStdby) @06eb3000
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_EnableSircStdby/6 (Clock_Ip_EnableSircStdby) @06dafa80
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_SetSircStdby/5 (Clock_Ip_SetSircStdby) @06daf540
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_DisableFircStdby/4 (Clock_Ip_DisableFircStdby) @06dafee0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_EnableFircStdby/3 (Clock_Ip_EnableFircStdby) @06dafc40
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_SetFircStdby/2 (Clock_Ip_SetFircStdby) @06daf9a0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_InternalOscillatorEmpty_Disable/1 (Clock_Ip_InternalOscillatorEmpty_Disable) @06daf700
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_InternalOscillatorEmpty/0 (Clock_Ip_InternalOscillatorEmpty) @06daf460
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axIntOscCallbacks/8 (addr) Clock_Ip_axIntOscCallbacks/8 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+
+;; Function Clock_Ip_InternalOscillatorEmpty (Clock_Ip_InternalOscillatorEmpty, funcdef_no=0, decl_uid=6572, cgraph_uid=1, symbol_order=0)
+
+Clock_Ip_InternalOscillatorEmpty (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_InternalOscillatorEmpty_Disable (Clock_Ip_InternalOscillatorEmpty_Disable, funcdef_no=1, decl_uid=6574, cgraph_uid=2, symbol_order=1)
+
+Clock_Ip_InternalOscillatorEmpty_Disable (Clock_Ip_NameType Name)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_SetFircStdby (Clock_Ip_SetFircStdby, funcdef_no=2, decl_uid=6576, cgraph_uid=3, symbol_order=2)
+
+Clock_Ip_SetFircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  short unsigned int _1;
+  struct FIRC_Type * _2;
+  long unsigned int _3;
+  struct FIRC_Type * _4;
+  long unsigned int _5;
+  struct FIRC_Type * _6;
+  long unsigned int _7;
+  struct FIRC_Type * _8;
+  long unsigned int _9;
+
+  <bb 2> :
+  _1 = Config_12(D)->Enable;
+  if (_1 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _2 = 1076690944B;
+  _3 ={v} _2->STDBY_ENABLE;
+  _4 = 1076690944B;
+  _5 = _3 | 1;
+  _4->STDBY_ENABLE ={v} _5;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _6 = 1076690944B;
+  _7 ={v} _6->STDBY_ENABLE;
+  _8 = 1076690944B;
+  _9 = _7 & 4294967294;
+  _8->STDBY_ENABLE ={v} _9;
+
+  <bb 5> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_EnableFircStdby (Clock_Ip_EnableFircStdby, funcdef_no=3, decl_uid=6578, cgraph_uid=4, symbol_order=3)
+
+Clock_Ip_EnableFircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  struct FIRC_Type * _1;
+  long unsigned int _2;
+  struct FIRC_Type * _3;
+  long unsigned int _4;
+
+  <bb 2> :
+  _1 = 1076690944B;
+  _2 ={v} _1->STDBY_ENABLE;
+  _3 = 1076690944B;
+  _4 = _2 | 1;
+  _3->STDBY_ENABLE ={v} _4;
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_DisableFircStdby (Clock_Ip_DisableFircStdby, funcdef_no=4, decl_uid=6580, cgraph_uid=5, symbol_order=4)
+
+Clock_Ip_DisableFircStdby (Clock_Ip_NameType Name)
+{
+  struct FIRC_Type * _1;
+  long unsigned int _2;
+  struct FIRC_Type * _3;
+  long unsigned int _4;
+
+  <bb 2> :
+  _1 = 1076690944B;
+  _2 ={v} _1->STDBY_ENABLE;
+  _3 = 1076690944B;
+  _4 = _2 & 4294967294;
+  _3->STDBY_ENABLE ={v} _4;
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_SetSircStdby (Clock_Ip_SetSircStdby, funcdef_no=5, decl_uid=6582, cgraph_uid=6, symbol_order=5)
+
+Clock_Ip_SetSircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  short unsigned int _1;
+  struct SIRC_Type * _2;
+  long unsigned int _3;
+  struct SIRC_Type * _4;
+  long unsigned int _5;
+  struct SIRC_Type * _6;
+  long unsigned int _7;
+  struct SIRC_Type * _8;
+  long unsigned int _9;
+
+  <bb 2> :
+  _1 = Config_12(D)->Enable;
+  if (_1 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _2 = 1076658176B;
+  _3 ={v} _2->MISCELLANEOUS_IN;
+  _4 = 1076658176B;
+  _5 = _3 | 256;
+  _4->MISCELLANEOUS_IN ={v} _5;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _6 = 1076658176B;
+  _7 ={v} _6->MISCELLANEOUS_IN;
+  _8 = 1076658176B;
+  _9 = _7 & 4294967039;
+  _8->MISCELLANEOUS_IN ={v} _9;
+
+  <bb 5> :
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_EnableSircStdby (Clock_Ip_EnableSircStdby, funcdef_no=6, decl_uid=6584, cgraph_uid=7, symbol_order=6)
+
+Clock_Ip_EnableSircStdby (const struct Clock_Ip_IrcoscConfigType * Config)
+{
+  struct SIRC_Type * _1;
+  long unsigned int _2;
+  struct SIRC_Type * _3;
+  long unsigned int _4;
+
+  <bb 2> :
+  _1 = 1076658176B;
+  _2 ={v} _1->MISCELLANEOUS_IN;
+  _3 = 1076658176B;
+  _4 = _2 | 256;
+  _3->MISCELLANEOUS_IN ={v} _4;
+  return;
+
+}
+
+
+
+;; Function Clock_Ip_DisableSircStdby (Clock_Ip_DisableSircStdby, funcdef_no=7, decl_uid=6586, cgraph_uid=8, symbol_order=7)
+
+Clock_Ip_DisableSircStdby (Clock_Ip_NameType Name)
+{
+  struct SIRC_Type * _1;
+  long unsigned int _2;
+  struct SIRC_Type * _3;
+  long unsigned int _4;
+
+  <bb 2> :
+  _1 = 1076658176B;
+  _2 ={v} _1->MISCELLANEOUS_IN;
+  _3 = 1076658176B;
+  _4 = _2 & 4294967039;
+  _3->MISCELLANEOUS_IN ={v} _4;
+  return;
+
+}
+
+

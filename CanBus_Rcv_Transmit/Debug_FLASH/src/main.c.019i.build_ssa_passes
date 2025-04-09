@@ -1,0 +1,250 @@
+JumpToBoot ()
+{
+  uint32 func;
+
+  <bb 2> :
+  _1 = 4194316B;
+  func = *_1;
+  _2 = func + 4;
+  _3 = (volatile uint32 *) _2;
+  func = *_3;
+  func = func | 1;
+  func.10_4 = (void (*<T8c1>) (void)) func;
+  func.10_4 ();
+  return;
+
+}
+
+
+__attribute__((optimize ("O0")))
+delay_ms (uint32_t ms, volatile uint8_t * condition)
+{
+  volatile uint32_t j;
+  volatile uint32_t i;
+
+  <bb 2> :
+  i = 0;
+  goto <bb 11>; [INV]
+
+  <bb 3> :
+  j = 0;
+  goto <bb 7>; [INV]
+
+  <bb 4> :
+  _1 = *condition;
+  if (_1 != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  goto <bb 8>; [INV]
+
+  <bb 6> :
+  j.6_2 = j;
+  _3 = j.6_2 + 1;
+  j = _3;
+
+  <bb 7> :
+  j.7_4 = j;
+  if (j.7_4 <= 14544)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 8> :
+  _5 = *condition;
+  if (_5 != 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  goto <bb 12>; [INV]
+
+  <bb 10> :
+  i.8_6 = i;
+  _7 = i.8_6 + 1;
+  i = _7;
+
+  <bb 11> :
+  i.9_8 = i;
+  if (ms > i.9_8)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 12> :
+  return;
+
+}
+
+
+Comparator (uint8_t * source, uint8_t * target, uint8_t len)
+{
+  uint8_t i;
+  uint8_t D.10038;
+
+  <bb 2> :
+  i = 0;
+  goto <bb 6>; [INV]
+
+  <bb 3> :
+  _1 = (sizetype) i;
+  _2 = source + _1;
+  _3 = *_2;
+  _4 = (sizetype) i;
+  _5 = target + _4;
+  _6 = *_5;
+  if (_3 != _6)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  D.10038 = 0;
+  // predicted unlikely by early return (on trees) predictor.
+  goto <bb 8>; [INV]
+
+  <bb 5> :
+  i.5_7 = i;
+  i = i.5_7 + 1;
+
+  <bb 6> :
+  if (i < len)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 7> :
+  D.10038 = 1;
+
+  <bb 8> :
+<L5>:
+  return D.10038;
+
+}
+
+
+main ()
+{
+  int D.10034;
+  uint8_t iftmp.2;
+
+  <bb 2> :
+  _1 = 5242884B;
+  _2 = *_1;
+  if (_2 != 255)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _3 = 5242884B;
+  iftmp.2 = *_3;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.2 = 0;
+
+  <bb 5> :
+  systemid = iftmp.2;
+  Clock_Ip_Init (&Clock_Ip_aClockConfig[0]);
+  Siul2_Port_Ip_Init (5, &g_pin_mux_InitConfigArr0);
+  IntCtrl_Ip_EnableIrq (110);
+  IntCtrl_Ip_InstallHandler (110, CAN0_ORED_0_31_MB_IRQHandler, 0B);
+  tx_info.is_polling = 0;
+  rx_info.is_polling = 0;
+  setupCan ();
+  FlexCAN_Ip_Send (0, 0, &tx_info, 12648430, &dummyData);
+  FlexCAN_Ip_Receive (0, 1, &rxData, 0);
+
+  <bb 6> :
+  systemid.3_4 = systemid;
+  _5 = (unsigned int) systemid.3_4;
+  _6 = _5 + 12648430;
+  FlexCAN_Ip_Send (0, 0, &tx_info, _6, &dummyData);
+  delay_ms (1000, 0B);
+  JumpBootState.4_7 = JumpBootState;
+  if (JumpBootState.4_7 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  goto <bb 9>; [INV]
+
+  <bb 8> :
+  goto <bb 6>; [INV]
+
+  <bb 9> :
+  IntCtrl_Ip_DisableIrq (110);
+  FlexCAN_Ip_SetStopMode_Privileged (0);
+  FlexCAN_Ip_Deinit_Privileged (0);
+  JumpToBoot ();
+  D.10034 = 0;
+
+  <bb 10> :
+<L7>:
+  return D.10034;
+
+}
+
+
+setupCan ()
+{
+  <bb 2> :
+  Siul2_Dio_Ip_WritePin (1076434696B, 14, 1);
+  Siul2_Dio_Ip_WritePin (1076434714B, 12, 1);
+  FlexCAN_Ip_Init_Privileged (0, &FlexCAN_State0, &FlexCAN_Config0);
+  systemid.1_1 = systemid;
+  _2 = (int) systemid.1_1;
+  _3 = _2 + 20837;
+  _4 = (long unsigned int) _3;
+  FlexCAN_Ip_ConfigRxMb (0, 1, &rx_info, _4);
+  FlexCAN_Ip_SetStartMode_Privileged (0);
+  return;
+
+}
+
+
+flexcan0_Callback (uint8 instance, Flexcan_Ip_EventType eventType, uint32 buffIdx, const struct Flexcan_Ip_StateType * flexcanState)
+{
+  <bb 2> :
+  if (eventType == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 3> :
+<L0>:
+  _1 = Comparator (&rxData.data, "!WAKEAPP", 8);
+  if (_1 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  FlexCAN_Ip_Send (0, 0, &tx_info, 12648430, &AppStartData);
+  JumpBootState = 1;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  systemid.0_2 = systemid;
+  _3 = (unsigned int) systemid.0_2;
+  _4 = _3 + 12648430;
+  FlexCAN_Ip_Send (0, 0, &tx_info, _4, &rxData);
+  FlexCAN_Ip_Receive (0, 1, &rxData, 0);
+
+  <bb 6> :
+  goto <bb 8>; [INV]
+
+  <bb 7> :
+<L4>:
+
+  <bb 8> :
+  return;
+
+}
+
+

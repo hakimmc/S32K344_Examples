@@ -1,0 +1,205 @@
+Clock_Ip_CgmXPcfsSdurDivcDiveDivs (const struct Clock_Ip_PcfsConfigType * Config, uint32 CfgIndex)
+{
+  uint32 DivEndValue;
+  uint32 DivStartValue;
+  uint32 DivcRate;
+  uint32 DivcInit;
+  uint32 Sdur;
+  uint32 K;
+  uint32 Var3;
+  uint32 Var2;
+  uint32 Var1;
+  uint32 Index;
+  uint32 Rate;
+  uint32 AmaxBrut;
+  uint32 Fsafe;
+  uint32 Finput;
+  static uint32 Hash[1];
+  static const uint32 PcfsRate[6] = {0, 12, 48, 112, 184, 1000};
+  static const uint32 AMax[6] = {0, 5, 10, 15, 20, 100};
+  uint32 HwIndex;
+  volatile struct Clock_Ip_CgmPcfsType * CgmPcfsBase;
+
+  <bb 2> :
+  _1 = Config->SelectorName;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  _3 = (int) _2;
+  CgmPcfsBase = Clock_Ip_apxCgmPcfs[_3];
+  _4 = Config->Name;
+  _5 = Clock_Ip_au8ClockFeatures[_4][7];
+  HwIndex = (uint32) _5;
+  Finput = 0;
+  Fsafe = 0;
+  Rate = 0;
+  _6 = Hash[CfgIndex];
+  _7 = Config->ClockSourceFrequency;
+  _8 = Config->MaxAllowableIDDchange;
+  _9 = _7 ^ _8;
+  _10 = Config->Name;
+  _11 = _9 ^ _10;
+  _12 = Config->SelectorName;
+  _13 = _11 ^ _12;
+  _14 = Config->StepDuration;
+  _15 = _13 ^ _14;
+  if (_6 != _15)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 21>; [INV]
+
+  <bb 3> :
+  _16 = Config->ClockSourceFrequency;
+  _17 = Config->MaxAllowableIDDchange;
+  _18 = _16 ^ _17;
+  _19 = Config->Name;
+  _20 = _18 ^ _19;
+  _21 = Config->SelectorName;
+  _22 = _20 ^ _21;
+  _23 = Config->StepDuration;
+  _24 = _22 ^ _23;
+  Hash[CfgIndex] = _24;
+  _25 = Config->ClockSourceFrequency;
+  Finput = _25 / 1000000;
+  Clock_Ip_pxConfig.0_26 = Clock_Ip_pxConfig;
+  _27 = Clock_Ip_FreqIds[1];
+  _28 = (int) _27;
+  _29 = Clock_Ip_pxConfig.0_26->ConfiguredFrequencies[_28].ConfiguredFrequencyValue;
+  Fsafe = _29 / 1000000;
+  _30 = Config->MaxAllowableIDDchange;
+  _31 = Config->StepDuration;
+  _32 = _30 * _31;
+  _33 = _32 * 100000;
+  _34 = Finput * 2360;
+  AmaxBrut = _33 / _34;
+  Rate = AmaxBrut;
+  _35 = AMax[0];
+  if (AmaxBrut < _35)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  Rate = PcfsRate[0];
+  goto <bb 12>; [INV]
+
+  <bb 5> :
+  _36 = AMax[5];
+  if (AmaxBrut > _36)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  Rate = PcfsRate[5];
+  goto <bb 12>; [INV]
+
+  <bb 7> :
+  Index = 1;
+  goto <bb 11>; [INV]
+
+  <bb 8> :
+  _37 = Index + 4294967295;
+  _38 = AMax[_37];
+  if (AmaxBrut > _38)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  Rate = PcfsRate[Index];
+
+  <bb 10> :
+  Index = Index + 1;
+
+  <bb 11> :
+  if (Index <= 5)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 12> :
+  _39 = Finput * 2048000;
+  _40 = Fsafe * Rate;
+  _41 = _39 / _40;
+  _42 = 2048000 / Rate;
+  _43 = _41 - _42;
+  Var1 = _43 + 256;
+  Var2 = 1073741824;
+  Var3 = 0;
+  goto <bb 14>; [INV]
+
+  <bb 13> :
+  Var2 = Var2 >> 2;
+
+  <bb 14> :
+  if (Var2 > Var1)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 15>; [INV]
+
+  <bb 15> :
+  goto <bb 19>; [INV]
+
+  <bb 16> :
+  _44 = Var3 + Var2;
+  if (Var1 >= _44)
+    goto <bb 17>; [INV]
+  else
+    goto <bb 18>; [INV]
+
+  <bb 17> :
+  _45 = Var3 + Var2;
+  Var1 = Var1 - _45;
+  _46 = Var2 << 1;
+  Var3 = Var3 + _46;
+
+  <bb 18> :
+  Var3 = Var3 >> 1;
+  Var2 = Var2 >> 2;
+
+  <bb 19> :
+  if (Var2 != 0)
+    goto <bb 16>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 20> :
+  _47 = Var3 << 2;
+  _48 = _47 + 191;
+  K = _48 >> 7;
+  _49 = Config->StepDuration;
+  Sdur = Fsafe * _49;
+  DivcInit = Rate * K;
+  DivcRate = Rate;
+  _50 = Rate * K;
+  _51 = K + 1;
+  _52 = _50 * _51;
+  _53 = _52 >> 1;
+  DivStartValue = _53 + 999;
+  _54 = Finput * 1000;
+  _55 = _54 / Fsafe;
+  DivEndValue = _55 + 4294967295;
+  _56 = Sdur & 65535;
+  CgmPcfsBase->PCFS_SDUR = _56;
+  _57 = DivcRate & 255;
+  _58 = DivcInit << 16;
+  _59 = _57 | _58;
+  CgmPcfsBase->PCFS[HwIndex].DIVC = _59;
+  _60 = DivEndValue & 1048575;
+  CgmPcfsBase->PCFS[HwIndex].DIVE = _60;
+  _61 = DivStartValue & 1048575;
+  CgmPcfsBase->PCFS[HwIndex].DIVS = _61;
+
+  <bb 21> :
+  return;
+
+}
+
+
+Clock_Ip_ProgressiveFrequencyClockSwitchEmpty (const struct Clock_Ip_PcfsConfigType * Config, uint32 Index)
+{
+  <bb 2> :
+  return;
+
+}
+
+

@@ -1,0 +1,9 @@
+Mcu_Cmu_ClockFail_IRQHandler ()
+{
+  <bb 2> :
+  Clock_Ip_CMU_ClockFailInt ();
+  return;
+
+}
+
+

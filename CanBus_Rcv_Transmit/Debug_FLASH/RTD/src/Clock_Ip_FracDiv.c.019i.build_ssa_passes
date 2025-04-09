@@ -1,0 +1,22 @@
+Clock_Ip_CallbackFracDivEmptyComplete (Clock_Ip_NameType DfsName)
+{
+  Clock_Ip_DfsStatusType D.6586;
+
+  <bb 2> :
+  D.6586 = 0;
+
+  <bb 3> :
+<L0>:
+  return D.6586;
+
+}
+
+
+Clock_Ip_CallbackFracDivEmpty (const struct Clock_Ip_FracDivConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+

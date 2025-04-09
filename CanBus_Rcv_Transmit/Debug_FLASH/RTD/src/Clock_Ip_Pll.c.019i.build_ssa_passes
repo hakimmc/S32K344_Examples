@@ -1,0 +1,233 @@
+Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (const struct Clock_Ip_PllConfigType * Config)
+{
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Enable;
+  if (_3 == 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _4 = Clock_Ip_pxPll[Instance];
+  _5 = _4->PLLCR;
+  _6 = Clock_Ip_pxPll[Instance];
+  _7 = _5 & 2147483647;
+  _6->PLLCR = _7;
+
+  <bb 4> :
+  return;
+
+}
+
+
+Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (Clock_Ip_NameType PllName)
+{
+  uint32 Instance;
+  uint32 PllLockStatus;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  Clock_Ip_PllStatusReturnType PllStatus;
+  Clock_Ip_PllStatusReturnType D.6638;
+
+  <bb 2> :
+  PllStatus = 2;
+  TimeoutOccurred = 0;
+  _1 = Clock_Ip_au8ClockFeatures[PllName][0];
+  Instance = (uint32) _1;
+  _2 = Clock_Ip_pxPll[Instance];
+  _3 = _2->PLLCR;
+  _4 = (signed int) _3;
+  if (_4 >= 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 3> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 4> :
+  _5 = Clock_Ip_pxPll[Instance];
+  _6 = _5->PLLSR;
+  _7 = _6 >> 2;
+  PllLockStatus = _7 & 1;
+  TimeoutTicks.1_8 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.1_8);
+  if (PllLockStatus == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _9 = ~TimeoutOccurred;
+  if (_9 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  if (TimeoutOccurred != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 7> :
+  PllStatus = 1;
+  goto <bb 9>; [INV]
+
+  <bb 8> :
+  PllStatus = 0;
+
+  <bb 9> :
+  D.6638 = PllStatus;
+  StartTime = {CLOBBER};
+  ElapsedTime = {CLOBBER};
+  TimeoutTicks = {CLOBBER};
+
+  <bb 10> :
+<L9>:
+  return D.6638;
+
+}
+
+
+Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (const struct Clock_Ip_PllConfigType * Config)
+{
+  uint32 Value;
+  uint32 Instance;
+  long unsigned int iftmp.0;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Enable;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 3> :
+  _4 = Clock_Ip_pxPll[Instance];
+  Value = _4->PLLDV;
+  Value = Value & 4294938368;
+  _5 = Config->Predivider;
+  _6 = (long unsigned int) _5;
+  _7 = _6 << 12;
+  _8 = _7 & 28672;
+  _9 = Config->MulFactorDiv;
+  _10 = (long unsigned int) _9;
+  _11 = _8 | _10;
+  Value = Value | _11;
+  _12 = Clock_Ip_pxPll[Instance];
+  _12->PLLDV = Value;
+  _13 = Clock_Ip_pxPll[Instance];
+  Value = _13->PLLFD;
+  Value = Value & 3221192704;
+  _14 = Config->NumeratorFracLoopDiv;
+  _15 = (long unsigned int) _14;
+  _16 = _15 & 32767;
+  Value = Value | _16;
+  _17 = Config->SigmaDelta;
+  _18 = (long unsigned int) _17;
+  _19 = _18 << 30;
+  _20 = _19 & 1073741824;
+  Value = Value | _20;
+  _21 = Clock_Ip_pxPll[Instance];
+  _21->PLLFD = Value;
+  _22 = Config->ModulationFrequency;
+  if (_22 == 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.0 = 1073741824;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.0 = 0;
+
+  <bb 6> :
+  _23 = Config->ModulationType;
+  _24 = (long unsigned int) _23;
+  _25 = _24 << 29;
+  _26 = _25 & 536870912;
+  _27 = iftmp.0 | _26;
+  _28 = Config->IncrementStep;
+  _29 = (long unsigned int) _28;
+  _30 = _29 & 2047;
+  _31 = _27 | _30;
+  _32 = Config->ModulationPeriod;
+  _33 = (long unsigned int) _32;
+  _34 = _33 << 16;
+  _35 = _34 & 67043328;
+  Value = _31 | _35;
+  _36 = Clock_Ip_pxPll[Instance];
+  _36->PLLFM = Value;
+  _37 = Clock_Ip_pxPll[Instance];
+  _38 = _37->PLLCR;
+  _39 = Clock_Ip_pxPll[Instance];
+  _40 = _38 & 2147483647;
+  _39->PLLCR = _40;
+
+  <bb 7> :
+  return;
+
+}
+
+
+Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize (const struct Clock_Ip_PllConfigType * Config)
+{
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Clock_Ip_pxPll[Instance];
+  _4 = _3->PLLCR;
+  _5 = Clock_Ip_pxPll[Instance];
+  _6 = _4 | 2147483648;
+  _5->PLLCR = _6;
+  return;
+
+}
+
+
+Clock_Ip_CallbackPllEmptyDisable (Clock_Ip_NameType PllName)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_CallbackPllEmptyComplete (Clock_Ip_NameType PllName)
+{
+  Clock_Ip_PllStatusReturnType D.6624;
+
+  <bb 2> :
+  D.6624 = 0;
+
+  <bb 3> :
+<L0>:
+  return D.6624;
+
+}
+
+
+Clock_Ip_CallbackPllEmpty (const struct Clock_Ip_PllConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+

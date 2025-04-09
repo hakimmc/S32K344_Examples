@@ -1,0 +1,547 @@
+
+Marking local functions: sys_m7_cache_clean/9 sys_m7_cache_disable/8 sys_m7_cache_init/7
+
+
+Marking externally visible functions: SystemInit/6 Sys_GetCoreID/5 default_interrupt_routine/4 startup_go_to_user_mode/3
+
+
+Marking externally visible variables: RESET_CATCH_CORE/2 rasr/1 rbar/0
+
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+Symbol table:
+
+__RAM_SHAREABLE_SIZE/19 (__RAM_SHAREABLE_SIZE) @06a26e10
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: SystemInit/6 (addr) 
+  Availability: not_available
+  Varpool flags:
+__RAM_SHAREABLE_START/18 (__RAM_SHAREABLE_START) @06a26dc8
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: SystemInit/6 (addr) 
+  Availability: not_available
+  Varpool flags:
+__RAM_NO_CACHEABLE_SIZE/17 (__RAM_NO_CACHEABLE_SIZE) @06a26d80
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: SystemInit/6 (addr) 
+  Availability: not_available
+  Varpool flags:
+__RAM_NO_CACHEABLE_START/16 (__RAM_NO_CACHEABLE_START) @06a26d38
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: SystemInit/6 (addr) 
+  Availability: not_available
+  Varpool flags:
+__RAM_CACHEABLE_SIZE/15 (__RAM_CACHEABLE_SIZE) @06a26cf0
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: SystemInit/6 (addr) 
+  Availability: not_available
+  Varpool flags:
+__INT_SRAM_START/14 (__INT_SRAM_START) @06a26ca8
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: SystemInit/6 (addr) 
+  Availability: not_available
+  Varpool flags:
+__INT_DTCM_START/13 (__INT_DTCM_START) @06a26c60
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: SystemInit/6 (addr) 
+  Availability: not_available
+  Varpool flags:
+__ROM_DATA_START/12 (__ROM_DATA_START) @06a26c18
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: SystemInit/6 (addr) 
+  Availability: not_available
+  Varpool flags:
+__ROM_CODE_START/11 (__ROM_CODE_START) @06a26bd0
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: SystemInit/6 (addr) 
+  Availability: not_available
+  Varpool flags:
+__INT_ITCM_START/10 (__INT_ITCM_START) @06a26b88
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: SystemInit/6 (addr) 
+  Availability: not_available
+  Varpool flags:
+sys_m7_cache_clean/9 (sys_m7_cache_clean) @069b22a0
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: sys_m7_cache_disable/8 SystemInit/6 
+  Calls: 
+sys_m7_cache_disable/8 (sys_m7_cache_disable) @069b2000
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: SystemInit/6 
+  Calls: sys_m7_cache_clean/9 
+sys_m7_cache_init/7 (sys_m7_cache_init) @069aab60
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: SystemInit/6 
+  Calls: 
+SystemInit/6 (SystemInit) @069aa620
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: rbar/0 (write) rasr/1 (write) __INT_ITCM_START/10 (addr) rbar/0 (write) rasr/1 (write) __ROM_CODE_START/11 (addr) rbar/0 (write) rasr/1 (write) __ROM_DATA_START/12 (addr) rbar/0 (write) rasr/1 (write) __INT_DTCM_START/13 (addr) rbar/0 (write) rasr/1 (write) __INT_SRAM_START/14 (addr) rbar/0 (write) __RAM_CACHEABLE_SIZE/15 (addr) rasr/1 (write) __RAM_NO_CACHEABLE_START/16 (addr) rbar/0 (write) __RAM_NO_CACHEABLE_SIZE/17 (addr) rasr/1 (write) __RAM_SHAREABLE_START/18 (addr) rbar/0 (write) __RAM_SHAREABLE_SIZE/19 (addr) rasr/1 (write) rbar/0 (write) rasr/1 (write) rbar/0 (write) rasr/1 (write) rbar/0 (write) rasr/1 (write) rbar/0 (write) rasr/1 (write) rbar/0 (write) rasr/1 (write) rbar/0 (write) rasr/1 (write) rasr/1 (read) rbar/0 (read) rasr/1 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: sys_m7_cache_init/7 sys_m7_cache_disable/8 sys_m7_cache_clean/9 Sys_GetCoreID/5 
+Sys_GetCoreID/5 (Sys_GetCoreID) @069aad20
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: SystemInit/6 
+  Calls: 
+default_interrupt_routine/4 (default_interrupt_routine) @069aaa80
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+startup_go_to_user_mode/3 (startup_go_to_user_mode) @069aa7e0
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+RESET_CATCH_CORE/2 (RESET_CATCH_CORE) @069a8558
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Varpool flags:
+rasr/1 (rasr) @069a8438
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (read) SystemInit/6 (read) 
+  Availability: available
+  Varpool flags: initialized
+rbar/0 (rbar) @069a83a8
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (write) SystemInit/6 (read) 
+  Availability: available
+  Varpool flags: initialized
+__attribute__((always_inline))
+sys_m7_cache_clean ()
+{
+  uint32 ways;
+  uint32 sets;
+  uint32 ccsidr;
+
+  <bb 2> :
+  ccsidr = 0;
+  sets = 0;
+  ways = 0;
+  _1 = 3758153728B;
+  _1->CSSELR = 0;
+  __asm__ __volatile__("dsb");
+  _2 = 3758153728B;
+  ccsidr = _2->CCSIDR;
+  _3 = ccsidr >> 13;
+  sets = _3 & 32767;
+
+  <bb 3> :
+  _4 = ccsidr >> 3;
+  ways = _4 & 1023;
+
+  <bb 4> :
+  _5 = sets << 5;
+  _6 = _5 & 16352;
+  _7 = ways << 30;
+  _8 = 3758153728B;
+  _9 = _6 | _7;
+  _8->DCCISW = _9;
+  __asm__ __volatile__("dsb");
+  ways.12_10 = ways;
+  ways = ways.12_10 + 4294967295;
+  if (ways.12_10 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  sets.13_11 = sets;
+  sets = sets.13_11 + 4294967295;
+  if (sets.13_11 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  _12 = 3758153728B;
+  _13 = _12->CSSELR;
+  _14 = 3758153728B;
+  _15 = _13 | 1;
+  _14->CSSELR = _15;
+  _16 = 3758153728B;
+  _16->ICIALLU = 0;
+  __asm__ __volatile__("dsb");
+  return;
+
+}
+
+
+__attribute__((always_inline))
+sys_m7_cache_disable ()
+{
+  <bb 2> :
+  sys_m7_cache_clean ();
+  _1 = 3758153728B;
+  _2 = _1->CCR;
+  _3 = 3758153728B;
+  _4 = _2 & 4294836223;
+  _3->CCR = _4;
+  __asm__ __volatile__("dsb");
+  __asm__ __volatile__("isb");
+  _5 = 3758153728B;
+  _6 = _5->CCR;
+  _7 = 3758153728B;
+  _8 = _6 & 4294901759;
+  _7->CCR = _8;
+  __asm__ __volatile__("dsb");
+  __asm__ __volatile__("isb");
+  return;
+
+}
+
+
+__attribute__((always_inline))
+sys_m7_cache_init ()
+{
+  uint32 ways;
+  uint32 sets;
+  uint32 ccsidr;
+
+  <bb 2> :
+  ccsidr = 0;
+  sets = 0;
+  ways = 0;
+  _1 = 3758153728B;
+  _1->CSSELR = 0;
+  __asm__ __volatile__("dsb");
+  _2 = 3758153728B;
+  ccsidr = _2->CCSIDR;
+  _3 = ccsidr >> 13;
+  sets = _3 & 32767;
+
+  <bb 3> :
+  _4 = ccsidr >> 3;
+  ways = _4 & 1023;
+
+  <bb 4> :
+  _5 = sets << 5;
+  _6 = _5 & 16352;
+  _7 = ways << 30;
+  _8 = 3758153728B;
+  _9 = _6 | _7;
+  _8->DCISW = _9;
+  __asm__ __volatile__("dsb");
+  ways.14_10 = ways;
+  ways = ways.14_10 + 4294967295;
+  if (ways.14_10 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  sets.15_11 = sets;
+  sets = sets.15_11 + 4294967295;
+  if (sets.15_11 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  __asm__ __volatile__("dsb");
+  _12 = 3758153728B;
+  _13 = _12->CCR;
+  _14 = 3758153728B;
+  _15 = _13 | 65536;
+  _14->CCR = _15;
+  __asm__ __volatile__("dsb");
+  __asm__ __volatile__("isb");
+  __asm__ __volatile__("dsb");
+  __asm__ __volatile__("isb");
+  _16 = 3758153728B;
+  _16->ICIALLU = 0;
+  __asm__ __volatile__("dsb");
+  __asm__ __volatile__("isb");
+  _17 = 3758153728B;
+  _18 = _17->CCR;
+  _19 = 3758153728B;
+  _20 = _18 | 131072;
+  _19->CCR = _20;
+  __asm__ __volatile__("dsb");
+  __asm__ __volatile__("isb");
+  return;
+
+}
+
+
+SystemInit ()
+{
+  uint8 regionNum;
+  uint8 index;
+  uint8 coreId;
+  uint32 coreMask;
+  uint32 i;
+
+  <bb 2> :
+  coreMask = 0;
+  coreId = Sys_GetCoreID ();
+  index = 0;
+  regionNum = 0;
+  _1 = (int) coreId;
+  switch (_1) <default: <L2> [INV], case 0: <L0> [INV], case 1: <L1> [INV]>
+
+  <bb 3> :
+<L0>:
+  coreMask = 1;
+  goto <bb 6>; [INV]
+
+  <bb 4> :
+<L1>:
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+<L2>:
+  coreMask = 0;
+
+  <bb 6> :
+  i = 0;
+  goto <bb 8>; [INV]
+
+  <bb 7> :
+  _2 = 1076232192B;
+  _3 = _2->IRSPRC[i];
+  _4 = (short unsigned int) coreMask;
+  _5 = 1076232192B;
+  _6 = _3 | _4;
+  _5->IRSPRC[i] = _6;
+  i = i + 1;
+
+  <bb 8> :
+  if (i <= 239)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 9> :
+  _7 = 3758153728B;
+  _8 = _7->CPACR;
+  _9 = 3758153728B;
+  _10 = _8 | 15728640;
+  _9->CPACR = _10;
+  __asm__ __volatile__("dsb");
+  __asm__ __volatile__("isb");
+  rbar[0] = 0;
+  rasr[0] = 268697663;
+  __INT_ITCM_START.0_11 = (long unsigned int) &__INT_ITCM_START;
+  rbar[1] = __INT_ITCM_START.0_11;
+  rasr[1] = 17039391;
+  __ROM_CODE_START.1_12 = (long unsigned int) &__ROM_CODE_START;
+  rbar[2] = __ROM_CODE_START.1_12;
+  rasr[2] = 101384235;
+  __ROM_DATA_START.2_13 = (long unsigned int) &__ROM_DATA_START;
+  rbar[3] = __ROM_DATA_START.2_13;
+  rasr[3] = 369426467;
+  __INT_DTCM_START.3_14 = (long unsigned int) &__INT_DTCM_START;
+  rbar[4] = __INT_DTCM_START.3_14;
+  rasr[4] = 17039393;
+  __INT_SRAM_START.4_15 = (long unsigned int) &__INT_SRAM_START;
+  rbar[5] = __INT_SRAM_START.4_15;
+  __RAM_CACHEABLE_SIZE.5_16 = (long unsigned int) &__RAM_CACHEABLE_SIZE;
+  _17 = __RAM_CACHEABLE_SIZE.5_16 + 4294967295;
+  _18 = _17 << 1;
+  _19 = _18 | 51101697;
+  rasr[5] = _19;
+  __RAM_NO_CACHEABLE_START.6_20 = (long unsigned int) &__RAM_NO_CACHEABLE_START;
+  rbar[6] = __RAM_NO_CACHEABLE_START.6_20;
+  __RAM_NO_CACHEABLE_SIZE.7_21 = (long unsigned int) &__RAM_NO_CACHEABLE_SIZE;
+  _22 = __RAM_NO_CACHEABLE_SIZE.7_21 + 4294967295;
+  _23 = _22 << 1;
+  _24 = _23 | 319553537;
+  rasr[6] = _24;
+  __RAM_SHAREABLE_START.8_25 = (long unsigned int) &__RAM_SHAREABLE_START;
+  rbar[7] = __RAM_SHAREABLE_START.8_25;
+  __RAM_SHAREABLE_SIZE.9_26 = (long unsigned int) &__RAM_SHAREABLE_SIZE;
+  _27 = __RAM_SHAREABLE_SIZE.9_26 + 4294967295;
+  _28 = _27 << 1;
+  _29 = _28 | 319553537;
+  rasr[7] = _29;
+  rbar[8] = 1073741824;
+  rasr[8] = 319094825;
+  rbar[9] = 1075838976;
+  rasr[9] = 319094825;
+  rbar[10] = 1077936128;
+  rasr[10] = 319094825;
+  rbar[11] = 1728053248;
+  rasr[11] = 319094803;
+  rbar[12] = 1744830464;
+  rasr[12] = 51052597;
+  rbar[13] = 3758096384;
+  rasr[13] = 319029287;
+  __asm__ __volatile__("dsb");
+  __asm__ __volatile__("isb");
+  _30 = 3758153728B;
+  _31 = _30->CCR;
+  _32 = _31 & 131072;
+  if (_32 != 0)
+    goto <bb 11>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 10> :
+  _33 = 3758153728B;
+  _34 = _33->CCR;
+  _35 = _34 & 65536;
+  if (_35 != 0)
+    goto <bb 11>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 11> :
+  sys_m7_cache_clean ();
+  sys_m7_cache_disable ();
+
+  <bb 12> :
+  index = 0;
+  goto <bb 16>; [INV]
+
+  <bb 13> :
+  _36 = (int) index;
+  _37 = rasr[_36];
+  _38 = _37 & 1;
+  if (_38 == 1)
+    goto <bb 14>; [INV]
+  else
+    goto <bb 15>; [INV]
+
+  <bb 14> :
+  _39 = 3758153728B;
+  _40 = (long unsigned int) regionNum;
+  _39->RNR = _40;
+  _41 = (int) index;
+  _42 = 3758153728B;
+  _43 = rbar[_41];
+  _42->RBAR = _43;
+  _44 = (int) index;
+  _45 = 3758153728B;
+  _46 = rasr[_44];
+  _45->RASR = _46;
+  regionNum.10_47 = regionNum;
+  regionNum = regionNum.10_47 + 1;
+
+  <bb 15> :
+  index.11_48 = index;
+  index = index.11_48 + 1;
+
+  <bb 16> :
+  if (index <= 14)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 17>; [INV]
+
+  <bb 17> :
+  _49 = 3758153728B;
+  _50 = _49->CTRL;
+  _51 = 3758153728B;
+  _52 = _50 | 1;
+  _51->CTRL = _52;
+  __asm__ __volatile__("dsb");
+  __asm__ __volatile__("isb");
+  sys_m7_cache_init ();
+  return;
+
+}
+
+
+Sys_GetCoreID ()
+{
+  uint8 D.5902;
+
+  <bb 2> :
+  _1 = 1076232192B;
+  _2 = _1->CPXNUM;
+  _3 = (unsigned char) _2;
+  D.5902 = _3 & 3;
+
+  <bb 3> :
+<L0>:
+  return D.5902;
+
+}
+
+
+default_interrupt_routine ()
+{
+  <bb 2> :
+  goto <bb 2>; [INV]
+
+}
+
+
+startup_go_to_user_mode ()
+{
+  <bb 2> :
+  return;
+
+}
+
+

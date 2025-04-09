@@ -1,0 +1,278 @@
+
+Marking local functions: DevAssert/0
+
+
+Marking externally visible functions: Tspc_Port_Ip_ConfigureObeGroup/2 Tspc_Port_Ip_EnableObeGroup/1
+
+
+Marking externally visible variables:
+
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+Symbol table:
+
+SchM_Exit_Port_PORT_EXCLUSIVE_AREA_10/6 (SchM_Exit_Port_PORT_EXCLUSIVE_AREA_10) @06d259a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Tspc_Port_Ip_ConfigureObeGroup/2 
+  Calls: 
+SchM_Enter_Port_PORT_EXCLUSIVE_AREA_10/5 (SchM_Enter_Port_PORT_EXCLUSIVE_AREA_10) @06d258c0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Tspc_Port_Ip_ConfigureObeGroup/2 
+  Calls: 
+SchM_Exit_Port_PORT_EXCLUSIVE_AREA_09/4 (SchM_Exit_Port_PORT_EXCLUSIVE_AREA_09) @06d25620
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Tspc_Port_Ip_EnableObeGroup/1 
+  Calls: 
+SchM_Enter_Port_PORT_EXCLUSIVE_AREA_09/3 (SchM_Enter_Port_PORT_EXCLUSIVE_AREA_09) @06d25540
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Tspc_Port_Ip_EnableObeGroup/1 
+  Calls: 
+Tspc_Port_Ip_ConfigureObeGroup/2 (Tspc_Port_Ip_ConfigureObeGroup) @06d25000
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: SchM_Exit_Port_PORT_EXCLUSIVE_AREA_10/6 SchM_Enter_Port_PORT_EXCLUSIVE_AREA_10/5 DevAssert/0 DevAssert/0 
+Tspc_Port_Ip_EnableObeGroup/1 (Tspc_Port_Ip_EnableObeGroup) @06d1dd20
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: SchM_Exit_Port_PORT_EXCLUSIVE_AREA_09/4 SchM_Enter_Port_PORT_EXCLUSIVE_AREA_09/3 DevAssert/0 
+DevAssert/0 (DevAssert) @06cd6000
+  Type: function definition analyzed
+  Visibility: no_reorder prevailing_def_ironly
+  References: 
+  Referring: 
+  Availability: local
+  Function flags: body local
+  Called by: Tspc_Port_Ip_ConfigureObeGroup/2 Tspc_Port_Ip_ConfigureObeGroup/2 Tspc_Port_Ip_EnableObeGroup/1 
+  Calls: 
+Tspc_Port_Ip_ConfigureObeGroup (uint32 cfgCount, const struct Tspc_Port_Ip_ObeGroupConfig * config)
+{
+  uint8 groupConfig;
+  uint32 i;
+  struct TSPC_Type * tspcBase;
+
+  <bb 2> :
+  _1 = config != 0B;
+  DevAssert (_1);
+  tspcBase = 1076641792B;
+  groupConfig = 0;
+  i = 0;
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  _2 = i * 8;
+  _3 = config + _2;
+  _4 = _3->obeGroupSelect;
+  _5 = _4 <= 2;
+  DevAssert (_5);
+  _6 = i * 8;
+  _7 = config + _6;
+  _8 = _7->obeGroupSelect;
+  groupConfig = groupConfig | _8;
+  i = i + 1;
+
+  <bb 4> :
+  if (i < cfgCount)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  SchM_Enter_Port_PORT_EXCLUSIVE_AREA_10 ();
+  _9 = tspcBase->GRP_EN;
+  _10 = (long unsigned int) groupConfig;
+  _11 = ~_10;
+  _12 = _9 & _11;
+  tspcBase->GRP_EN = _12;
+  i = 0;
+  goto <bb 12>; [INV]
+
+  <bb 6> :
+  _13 = i * 8;
+  _14 = config + _13;
+  _15 = _14->obeGroupSelect;
+  if (_15 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 7> :
+  _16 = i * 8;
+  _17 = config + _16;
+  _18 = _17->obeGroupIndex;
+  if (_18 != 65535)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 8> :
+  _19 = i * 8;
+  _20 = config + _19;
+  _21 = _20->obeGroupIndex;
+  if (_21 > 31)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  _22 = i * 8;
+  _23 = config + _22;
+  _24 = _23->obeGroupSelect;
+  _25 = (unsigned int) _24;
+  _26 = _25 + 4294967295;
+  _27 = tspcBase->GROUP[_26].GRP_OBE2;
+  _28 = i * 8;
+  _29 = config + _28;
+  _30 = _29->obeGroupIndex;
+  _31 = _30 + 4294967264;
+  _32 = 1 << _31;
+  _33 = i * 8;
+  _34 = config + _33;
+  _35 = _34->obeGroupSelect;
+  _36 = (unsigned int) _35;
+  _37 = _36 + 4294967295;
+  _38 = _27 | _32;
+  tspcBase->GROUP[_37].GRP_OBE2 = _38;
+  goto <bb 11>; [INV]
+
+  <bb 10> :
+  _39 = i * 8;
+  _40 = config + _39;
+  _41 = _40->obeGroupSelect;
+  _42 = (unsigned int) _41;
+  _43 = _42 + 4294967295;
+  _44 = tspcBase->GROUP[_43].GRP_OBE1;
+  _45 = i * 8;
+  _46 = config + _45;
+  _47 = _46->obeGroupIndex;
+  _48 = 1 << _47;
+  _49 = i * 8;
+  _50 = config + _49;
+  _51 = _50->obeGroupSelect;
+  _52 = (unsigned int) _51;
+  _53 = _52 + 4294967295;
+  _54 = _44 | _48;
+  tspcBase->GROUP[_53].GRP_OBE1 = _54;
+
+  <bb 11> :
+  i = i + 1;
+
+  <bb 12> :
+  if (i < cfgCount)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 13>; [INV]
+
+  <bb 13> :
+  _55 = tspcBase->GRP_EN;
+  _56 = (long unsigned int) groupConfig;
+  _57 = _55 | _56;
+  tspcBase->GRP_EN = _57;
+  SchM_Exit_Port_PORT_EXCLUSIVE_AREA_10 ();
+  return;
+
+}
+
+
+Tspc_Port_Ip_EnableObeGroup (uint8 group)
+{
+  struct TSPC_Type * tspcBase;
+  int iftmp.0;
+
+  <bb 2> :
+  tspcBase = 1076641792B;
+  if (group <= 2)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 3> :
+  if (group != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.0 = 1;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.0 = 0;
+
+  <bb 6> :
+  _1 = (_Bool) iftmp.0;
+  DevAssert (_1);
+  SchM_Enter_Port_PORT_EXCLUSIVE_AREA_09 ();
+  if (group == 1)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  _2 = tspcBase->GRP_EN;
+  _3 = _2 | 1;
+  tspcBase->GRP_EN = _3;
+  goto <bb 9>; [INV]
+
+  <bb 8> :
+  _4 = tspcBase->GRP_EN;
+  _5 = _4 | 2;
+  tspcBase->GRP_EN = _5;
+
+  <bb 9> :
+  SchM_Exit_Port_PORT_EXCLUSIVE_AREA_09 ();
+  return;
+
+}
+
+
+DevAssert (volatile boolean x)
+{
+  <bb 2> :
+  x.1_1 = x;
+  if (x.1_1 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 3>; [INV]
+
+  <bb 3> :
+  __asm__ __volatile__("BKPT #0");
+  goto <bb 3>; [INV]
+
+  <bb 4> :
+  return;
+
+}
+
+

@@ -1,0 +1,363 @@
+Clock_Ip_SetFircDivSelHseBConfigRegGpr (const struct Clock_Ip_DividerConfigType * Config)
+{
+  uint32 WfiStatus;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  uint32 DividerValue;
+  uint32 RegValue;
+  long unsigned int _1;
+  struct MC_ME_Type * _2;
+  long unsigned int _3;
+  long unsigned int TimeoutTicks.2_4;
+  _Bool _5;
+  _Bool _6;
+  struct CONFIGURATION_GPR_Type * _7;
+  long unsigned int _8;
+  struct CONFIGURATION_GPR_Type * _9;
+
+  <bb 2> :
+  DividerValue_13 = 0;
+  TimeoutOccurred_14 = 0;
+  _1 = Config_16(D)->Value;
+  switch (_1) <default: <L3> [INV], case 1: <L0> [INV], case 2: <L1> [INV], case 16: <L2> [INV]>
+
+  <bb 3> :
+<L0>:
+  DividerValue_19 = 3;
+  goto <bb 7>; [INV]
+
+  <bb 4> :
+<L1>:
+  DividerValue_18 = 1;
+  goto <bb 7>; [INV]
+
+  <bb 5> :
+<L2>:
+  DividerValue_17 = 2;
+  goto <bb 7>; [INV]
+
+  <bb 6> :
+<L3>:
+
+  <bb 7> :
+  # DividerValue_10 = PHI <DividerValue_19(3), DividerValue_18(4), DividerValue_17(5), DividerValue_13(6)>
+  if (DividerValue_10 != 0)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 13>; [INV]
+
+  <bb 8> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 9> :
+  _2 = 1076740096B;
+  _3 ={v} _2->PRTN0_CORE2_STAT;
+  WfiStatus_21 = _3 & 2147483648;
+  TimeoutTicks.2_4 = TimeoutTicks;
+  TimeoutOccurred_23 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.2_4);
+  if (WfiStatus_21 != 2147483648)
+    goto <bb 10>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 10> :
+  _5 = ~TimeoutOccurred_23;
+  if (_5 != 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 11> :
+  _6 = ~TimeoutOccurred_23;
+  if (_6 != 0)
+    goto <bb 12>; [INV]
+  else
+    goto <bb 13>; [INV]
+
+  <bb 12> :
+  _7 = 1077526528B;
+  RegValue_24 ={v} _7->CONFIG_REG_GPR;
+  RegValue_25 = RegValue_24 & 4294967292;
+  _8 = DividerValue_10 & 3;
+  RegValue_26 = RegValue_25 | _8;
+  _9 = 1077526528B;
+  _9->CONFIG_REG_GPR ={v} RegValue_26;
+
+  <bb 13> :
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_SetPllPlldvOdiv2Output (const struct Clock_Ip_DividerConfigType * Config)
+{
+  uint32 DividerValue;
+  uint32 RegValue;
+  uint32 Instance;
+  const long unsigned int iftmp.1;
+  <unnamed type> _1;
+  unsigned char _2;
+  long unsigned int _3;
+  struct PLL_Type * _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  struct PLL_Type * _7;
+  const long unsigned int iftmp.1_8;
+  const long unsigned int iftmp.1_12;
+  const long unsigned int iftmp.1_13;
+
+  <bb 2> :
+  _1 = Config_10(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_11 = (uint32) _2;
+  _3 = Config_10(D)->Value;
+  if (_3 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  iftmp.1_13 = Config_10(D)->Value;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.1_12 = 1;
+
+  <bb 5> :
+  # iftmp.1_8 = PHI <iftmp.1_13(3), iftmp.1_12(4)>
+  DividerValue_14 = iftmp.1_8;
+  _4 = Clock_Ip_pxPll[Instance_11];
+  RegValue_15 ={v} _4->PLLDV;
+  RegValue_16 = RegValue_15 & 2181038079;
+  _5 = DividerValue_14 << 25;
+  _6 = _5 & 2113929216;
+  RegValue_17 = RegValue_16 | _6;
+  _7 = Clock_Ip_pxPll[Instance_11];
+  _7->PLLDV ={v} RegValue_17;
+  return;
+
+}
+
+
+Clock_Ip_SetPllPll0divDeDivOutput (const struct Clock_Ip_DividerConfigType * Config)
+{
+  uint32 RegValue;
+  uint32 DividerIndex;
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  struct PLL_Type * _5;
+  long unsigned int _6;
+  struct PLL_Type * _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  struct PLL_Type * _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  struct PLL_Type * _15;
+
+  <bb 2> :
+  _1 = Config_18(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_19 = (uint32) _2;
+  _3 = Config_18(D)->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][5];
+  DividerIndex_20 = (uint32) _4;
+  _5 = Clock_Ip_pxPll[Instance_19];
+  _6 ={v} _5->PLLODIV[DividerIndex_20];
+  _7 = Clock_Ip_pxPll[Instance_19];
+  _8 = _6 & 2147483647;
+  _7->PLLODIV[DividerIndex_20] ={v} _8;
+  _9 = Config_18(D)->Value;
+  if (_9 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _10 = Clock_Ip_pxPll[Instance_19];
+  RegValue_22 ={v} _10->PLLODIV[DividerIndex_20];
+  RegValue_23 = RegValue_22 | 2147483648;
+  RegValue_24 = RegValue_23 & 4293984255;
+  _11 = Config_18(D)->Value;
+  _12 = _11 + 4294967295;
+  _13 = _12 << 16;
+  _14 = _13 & 983040;
+  RegValue_25 = RegValue_24 | _14;
+  _15 = Clock_Ip_pxPll[Instance_19];
+  _15->PLLODIV[DividerIndex_20] ={v} RegValue_25;
+
+  <bb 4> :
+  return;
+
+}
+
+
+Clock_Ip_SetCgmXDeDivStatWithoutPhase (const struct Clock_Ip_DividerConfigType * Config)
+{
+  uint32 DividerStatus;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  uint32 RegValue;
+  uint32 DividerShift;
+  uint32 DividerMask;
+  uint32 DividerIndex;
+  uint32 SelectorIndex;
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  <unnamed type> _5;
+  unsigned char _6;
+  <unnamed type> _7;
+  unsigned char _8;
+  int _9;
+  <unnamed type> _10;
+  unsigned char _11;
+  int _12;
+  long unsigned int _13;
+  volatile struct Clock_Ip_CgmMuxType * _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  volatile struct Clock_Ip_CgmMuxType * _20;
+  volatile struct Clock_Ip_CgmMuxType * _21;
+  long unsigned int _22;
+  long unsigned int TimeoutTicks.0_23;
+  _Bool _24;
+  _Bool _25;
+  long unsigned int _26;
+  volatile struct Clock_Ip_CgmMuxType * _27;
+  long unsigned int _28;
+  volatile struct Clock_Ip_CgmMuxType * _29;
+  long unsigned int _30;
+  volatile struct Clock_Ip_CgmMuxType * _31;
+  long unsigned int _32;
+  volatile struct Clock_Ip_CgmMuxType * _33;
+  long unsigned int _34;
+  <unnamed type> _35;
+
+  <bb 2> :
+  _1 = Config_40(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_41 = (uint32) _2;
+  _3 = Config_40(D)->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex_42 = (uint32) _4;
+  _5 = Config_40(D)->Name;
+  _6 = Clock_Ip_au8ClockFeatures[_5][5];
+  DividerIndex_43 = (uint32) _6;
+  _7 = Config_40(D)->Name;
+  _8 = Clock_Ip_au8ClockFeatures[_7][2];
+  _9 = (int) _8;
+  DividerMask_44 = Clock_Ip_axFeatureExtensions[_9].DividerValueMask;
+  _10 = Config_40(D)->Name;
+  _11 = Clock_Ip_au8ClockFeatures[_10][2];
+  _12 = (int) _11;
+  DividerShift_45 = Clock_Ip_axFeatureExtensions[_12].DividerValueShift;
+  TimeoutOccurred_46 = 0;
+  _13 = Config_40(D)->Value;
+  if (_13 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _14 = Clock_Ip_apxCgm[Instance_41][SelectorIndex_42];
+  RegValue_47 ={v} _14->Divider[DividerIndex_43];
+  _15 = ~DividerMask_44;
+  RegValue_48 = RegValue_47 & _15;
+  _16 = Config_40(D)->Value;
+  _17 = _16 + 4294967295;
+  _18 = _17 << DividerShift_45;
+  _19 = DividerMask_44 & _18;
+  RegValue_49 = RegValue_48 | _19;
+  _20 = Clock_Ip_apxCgm[Instance_41][SelectorIndex_42];
+  _20->Divider[DividerIndex_43] ={v} RegValue_49;
+
+  <bb 4> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 5> :
+  _21 = Clock_Ip_apxCgm[Instance_41][SelectorIndex_42];
+  _22 ={v} _21->MUX_DIV_UPD_STAT;
+  DividerStatus_52 = _22 & 1;
+  TimeoutTicks.0_23 = TimeoutTicks;
+  TimeoutOccurred_54 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.0_23);
+  if (DividerStatus_52 == 1)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  _24 = ~TimeoutOccurred_54;
+  if (_24 != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 7> :
+  _25 = ~TimeoutOccurred_54;
+  if (_25 != 0)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 8> :
+  _26 = Config_40(D)->Value;
+  if (_26 != 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  _27 = Clock_Ip_apxCgm[Instance_41][SelectorIndex_42];
+  _28 ={v} _27->Divider[DividerIndex_43];
+  _29 = Clock_Ip_apxCgm[Instance_41][SelectorIndex_42];
+  _30 = _28 | 2147483648;
+  _29->Divider[DividerIndex_43] ={v} _30;
+  goto <bb 12>; [INV]
+
+  <bb 10> :
+  _31 = Clock_Ip_apxCgm[Instance_41][SelectorIndex_42];
+  _32 ={v} _31->Divider[DividerIndex_43];
+  _33 = Clock_Ip_apxCgm[Instance_41][SelectorIndex_42];
+  _34 = _32 & 2147483647;
+  _33->Divider[DividerIndex_43] ={v} _34;
+  goto <bb 12>; [INV]
+
+  <bb 11> :
+  _35 = Config_40(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _35);
+
+  <bb 12> :
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_Callback_DividerEmpty (const struct Clock_Ip_DividerConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+
