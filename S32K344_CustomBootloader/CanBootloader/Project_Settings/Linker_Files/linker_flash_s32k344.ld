@@ -38,7 +38,7 @@ ENTRY(Reset_Handler)
 
 MEMORY 
 {         
-    int_flash               : ORIGIN = 0x00400000, LENGTH = 0x00050000    /* 4096K - 176K (sBAF + HSE)*/
+    int_flash               : ORIGIN = 0x00400000, LENGTH = 0x00100000    /* 4096K - 176K (sBAF + HSE)*/
     /*int_flash               : ORIGIN = 0x00400000, LENGTH = 0x003D4000    /* 4096K - 176K (sBAF + HSE)*/
     int_itcm                : ORIGIN = 0x00000000, LENGTH = 0x00010000    /* 32K */
     int_dtcm                : ORIGIN = 0x20000000, LENGTH = 0x00020000    /* 64K */

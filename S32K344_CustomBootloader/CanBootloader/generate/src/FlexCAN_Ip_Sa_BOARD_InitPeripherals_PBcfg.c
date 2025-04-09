@@ -199,6 +199,7 @@ const Flexcan_Ip_ConfigType FlexCAN_Config0  = {
     NULL_PTR
     };
     
+
 #define CAN_STOP_SEC_CONFIG_DATA_UNSPECIFIED
 #include "Can_MemMap.h"
 
