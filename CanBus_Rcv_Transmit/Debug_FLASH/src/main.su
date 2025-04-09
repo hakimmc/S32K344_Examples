@@ -1,0 +1,6 @@
+../src/main.c:45:6:flexcan0_Callback	32	static
+../src/main.c:72:13:setupCan	8	static
+../src/main.c:83:5:main	16	static
+../src/main.c:112:9:Comparator	24	static
+../src/main.c:122:38:delay_ms	24	static
+../src/main.c:140:6:JumpToBoot	16	static

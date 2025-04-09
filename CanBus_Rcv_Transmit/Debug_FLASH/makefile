@@ -13,9 +13,7 @@ RM := rm -rf
 -include board/subdir.mk
 -include RTD/src/subdir.mk
 -include Project_Settings/Startup_Code/subdir.mk
--include FreeRTOS/Source/portable/MemMang/subdir.mk
--include FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1/subdir.mk
--include FreeRTOS/Source/subdir.mk
+-include Project_Settings/Linker_Files/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -29,23 +27,24 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_SIZE += \
-CanBus_Rcv_Transmit.siz \
+FlexCAN_Ip_Example_S32K344.siz \
 
 
 # All Target
-all: CanBus_Rcv_Transmit.elf secondary-outputs
+all: FlexCAN_Ip_Example_S32K344.elf secondary-outputs
 
 # Tool invocations
-CanBus_Rcv_Transmit.elf: $(OBJS) C:/Users/fvzdr/OneDrive/Belgeler/Github/S32_DS_Workspace/CanBus_Rcv_Transmit/Project_Settings/Linker_Files/linker_flash_s32k344.ld $(USER_OBJS)
+FlexCAN_Ip_Example_S32K344.elf: $(OBJS) C:/Users/ARGE13/Documents/cans32/FlexCAN_Ip_Example_S32K344/Project_Settings/Linker_Files/linker_flash_s32k344.ld $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Standard S32DS C Linker'
-	arm-none-eabi-gcc -o "CanBus_Rcv_Transmit.elf" "@CanBus_Rcv_Transmit.args"  $(USER_OBJS)
+	arm-none-eabi-gcc -o "FlexCAN_Ip_Example_S32K344.elf" "@FlexCAN_Ip_Example_S32K344.args"  $(USER_OBJS)  -lc -lm -lgcc
 	@echo 'Finished building target: $@'
 	@echo ' '
+	$(MAKE) --no-print-directory post-build
 
-CanBus_Rcv_Transmit.siz: CanBus_Rcv_Transmit.elf
+FlexCAN_Ip_Example_S32K344.siz: FlexCAN_Ip_Example_S32K344.elf
 	@echo 'Invoking: Standard S32DS Print Size'
-	arm-none-eabi-size --format=berkeley CanBus_Rcv_Transmit.elf
+	arm-none-eabi-size --format=berkeley FlexCAN_Ip_Example_S32K344.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -54,8 +53,12 @@ clean:
 	-$(RM) ./*
 	-@echo ' '
 
+post-build:
+	-arm-none-eabi-objcopy -v -O srec "FlexCAN_Ip_Example_S32K344.elf" "FlexCAN_Ip_Example_S32K344.s19";arm-none-eabi-objcopy -v -O ihex "FlexCAN_Ip_Example_S32K344.elf" "FlexCAN_Ip_Example_S32K344.hex";arm-none-eabi-objcopy -v -O binary "FlexCAN_Ip_Example_S32K344.elf" "FlexCAN_Ip_Example_S32K344.bin"
+	-@echo ' '
+
 secondary-outputs: $(SECONDARY_SIZE)
 
-.PHONY: all clean dependents
+.PHONY: all clean dependents post-build
 
 -include ../makefile.targets

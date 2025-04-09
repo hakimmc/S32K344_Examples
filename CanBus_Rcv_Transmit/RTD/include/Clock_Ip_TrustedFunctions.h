@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : 
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -26,7 +27,7 @@
 
 /**
 *   @file    Clock_Ip_TrustedFunctions.h
-*   @version    3.0.0
+*   @version    2.0.0
 *
 *   @brief   CLOCK IP type header file.
 *   @details CLOCK IP type header file.
@@ -52,9 +53,9 @@ extern "C"{
 ==================================================================================================*/
 #define CLOCK_IP_TRUSTEDFUNCTIONS_VENDOR_ID                       43
 #define CLOCK_IP_TRUSTEDFUNCTIONS_AR_RELEASE_MAJOR_VERSION        4
-#define CLOCK_IP_TRUSTEDFUNCTIONS_AR_RELEASE_MINOR_VERSION        7
+#define CLOCK_IP_TRUSTEDFUNCTIONS_AR_RELEASE_MINOR_VERSION        4
 #define CLOCK_IP_TRUSTEDFUNCTIONS_AR_RELEASE_REVISION_VERSION     0
-#define CLOCK_IP_TRUSTEDFUNCTIONS_SW_MAJOR_VERSION                3
+#define CLOCK_IP_TRUSTEDFUNCTIONS_SW_MAJOR_VERSION                2
 #define CLOCK_IP_TRUSTEDFUNCTIONS_SW_MINOR_VERSION                0
 #define CLOCK_IP_TRUSTEDFUNCTIONS_SW_PATCH_VERSION                0
 
@@ -172,15 +173,6 @@ extern void Clock_Ip_SetRtcRtccClksel_TrustedCall(Clock_Ip_SelectorConfigType co
 extern uint32 Clock_Ip_Get_RTC_CLK_Frequency_TrustedCall(void);
 #endif
 #endif
-
-/**
- * @brief        Set user access allowed for some clock register
- *
- * @param        None
- * @return       None
- *
- */
-extern void Clock_Ip_PowerClockIpModules(void);
 
 /* Clock stop section code */
 #define MCU_STOP_SEC_CODE

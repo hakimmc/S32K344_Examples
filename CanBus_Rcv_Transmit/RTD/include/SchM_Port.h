@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : 
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -21,20 +22,15 @@
 *   activate or otherwise use the software.
 ==================================================================================================*/
 
+#ifndef SCHM_PORT_H
+#define SCHM_PORT_H
+
 /**
-*   @file    SchM_Port.h
-*   @version 3.0.0
-*
-*   @brief   AUTOSAR Rte - module interface
-*   @details This file contains the functions prototypes and data types of the AUTOSAR Rte.
-*            This file contains sample code only. It is not part of the production code deliverables.
+*   @file
 *
 *   @addtogroup RTE_MODULE
 *   @{
 */
-
-#ifndef SCHM_PORT_H
-#define SCHM_PORT_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -50,9 +46,9 @@ extern "C" {
 *                               SOURCE FILE VERSION INFORMATION
 ==================================================================================================*/
 #define SCHM_PORT_AR_RELEASE_MAJOR_VERSION     4
-#define SCHM_PORT_AR_RELEASE_MINOR_VERSION     7
+#define SCHM_PORT_AR_RELEASE_MINOR_VERSION     4
 #define SCHM_PORT_AR_RELEASE_REVISION_VERSION  0
-#define SCHM_PORT_SW_MAJOR_VERSION             3
+#define SCHM_PORT_SW_MAJOR_VERSION             2
 #define SCHM_PORT_SW_MINOR_VERSION             0
 #define SCHM_PORT_SW_PATCH_VERSION             0
 
@@ -68,7 +64,7 @@ extern "C" {
 /*==================================================================================================
 *                                       DEFINES AND MACROS
 ==================================================================================================*/
-#define NUMBER_OF_CORES         (uint8)(4U)
+#define NUMBER_OF_CORES         (uint8)(2U)
 
 /*==================================================================================================
 *                                             ENUMS
@@ -190,8 +186,6 @@ extern void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_26(void);
 
 extern void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_27(void);
 extern void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_27(void);
-
-
 
 
 #define RTE_STOP_SEC_CODE

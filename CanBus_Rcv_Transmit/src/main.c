@@ -1,59 +1,35 @@
-/*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
-*   Platform             : CORTEXM
-*   Peripheral           : S32K3XX
-*   Dependencies         : none
-*
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
-*   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
-*
-*   Copyright 2020 - 2023 NXP Semiconductors
-*
-*   NXP Confidential. This software is owned or controlled by NXP and may only be
-*   used strictly in accordance with the applicable license terms. By expressly
-*   accepting such terms or by downloading, installing, activating and/or otherwise
-*   using the software, you are agreeing that you have read, and that you agree to
-*   comply with and are bound by, such license terms. If you do not agree to be
-*   bound by the applicable license terms, then you may not retain, install,
-*   activate or otherwise use the software.
-==================================================================================================*/
-
-/**
-*   @file main.c
-*
-*   @addtogroup main_module main module documentation
-*   @{
-*/
-
-/* Including necessary configuration files. */
+#include "Mcal.h"
 #include "Clock_Ip.h"
+#include "FlexCAN_Ip.h"
+#include "IntCtrl_Ip.h"
 #include "Siul2_Port_Ip.h"
 #include "Siul2_Dio_Ip.h"
-#include "FreeRTOS.h"
-#include "task.h"
-#include "semphr.h"
-#include "FlexCAN_Ip.h"
 
+#define MSG_ID 0xC0FFEEu
+#define RX_MB_IDX 1U
+#define TX_MB_IDX 0U
 volatile int exit_code = 0;
+
+uint8_t systemid;
+
 /* User includes */
-Siul2_Dio_Ip_GpioType* GPIOC_L = PTC_L_HALF;
-Siul2_Dio_Ip_GpioType* GPIOC_H = PTC_H_HALF;
-Siul2_Dio_Ip_GpioType* GPIOA_L = PTA_L_HALF;
-Siul2_Dio_Ip_GpioType* GPIOA_H = PTA_H_HALF;
+uint8 dummyData[8] = {1,2,3,4,5,6,7,8};
+uint8 AppStartData[8] = {'!','A','P','P','S','T','R','T'};
+Flexcan_Ip_MsgBuffType rxData;
 
-Siul2_Dio_Ip_PinsChannelType GREEN_LED = 1<<1;
-Siul2_Dio_Ip_PinsChannelType RED_LED   = 1<<5; // 16+5 need to be in high register
+Flexcan_Ip_DataInfoType rx_info = {
+            .msg_id_type = FLEXCAN_MSG_ID_EXT,
+            .data_length = 8u,
+            .is_polling = FALSE,
+            .is_remote = FALSE
+    };
 
-#define MAIN_PRIORITY                ( tskIDLE_PRIORITY + 2 )
-SemaphoreHandle_t sem;
-
-void RED_LED_TASK ( void *pvParameters );
-void GRN_LED_TASK ( void *pvParameters );
-void CAN_RECEIVE_TASK ( void *pvParameters );
-
+Flexcan_Ip_DataInfoType tx_info = {
+		.msg_id_type = FLEXCAN_MSG_ID_EXT,
+		.data_length = 8u,
+		.is_polling = FALSE,
+		.is_remote = FALSE
+	};
 
 /*!
   \brief The main function for the project.
@@ -61,114 +37,115 @@ void CAN_RECEIVE_TASK ( void *pvParameters );
  * - startup asm routine
  * - main()
 */
+extern void CAN0_ORED_0_31_MB_IRQHandler(void);
+void JumpToBoot( void );
+uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len);
+volatile uint8_t JumpBootState;
+
+void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 buffIdx,
+		const Flexcan_Ip_StateType *flexcanState)
+{
+	(void)flexcanState;
+	(void)instance;
+	(void)buffIdx;
+
+	switch(eventType)
+	{
+	case FLEXCAN_EVENT_RX_COMPLETE:
+
+		if(Comparator(rxData.data,(uint8_t*)"!WAKEAPP",8))
+		{
+		    FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, MSG_ID, (uint8 *)&AppStartData);
+		    JumpBootState = 1;
+		}
+		else
+		{
+			FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, MSG_ID+systemid, (uint8 *)&rxData);
+			FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
+		}
+		break;
+	default:
+		break;
+	}
+}
+
+static void setupCan( void )
+{
+	Siul2_Dio_Ip_WritePin(CAN0_EN_PORT, CAN0_EN_PIN, 1U);
+	Siul2_Dio_Ip_WritePin(CAN0_STB_PORT, CAN0_STB_PIN, 1U);
+	FlexCAN_Ip_Init(INST_FLEXCAN_0, &FlexCAN_State0, &FlexCAN_Config0);
+    FlexCAN_Ip_ConfigRxMb(INST_FLEXCAN_0, RX_MB_IDX, &rx_info, 0x5165+systemid);
+	FlexCAN_Ip_SetStartMode(INST_FLEXCAN_0);
+}
+
+void __attribute__((optimize("O0"))) delay_ms(uint32_t ms, volatile uint8_t *condition);
+
 int main(void)
 {
-    /* Write your code here */
-	Clock_Ip_Init(Clock_Ip_aClockConfig);
-	Siul2_Port_Ip_Init(NUM_OF_CONFIGURED_PINS0, g_pin_mux_InitConfigArr0);
+	systemid = *((volatile uint8_t*)0x500004)==0xFF?0:*((volatile uint8_t*)0x500004);
+    Clock_Ip_Init(&Clock_Ip_aClockConfig[0]);
+    Siul2_Port_Ip_Init(NUM_OF_CONFIGURED_PINS0, g_pin_mux_InitConfigArr0);
 
-	FlexCAN_Ip_Init_Privileged(INST_FLEXCAN_2, &FlexCAN_State1, &FlexCAN_Config2);
-	FlexCAN_Ip_SetStartMode_Privileged(INST_FLEXCAN_2);
+    IntCtrl_Ip_EnableIrq(FlexCAN0_1_IRQn);
+    IntCtrl_Ip_InstallHandler(FlexCAN0_1_IRQn, CAN0_ORED_0_31_MB_IRQHandler, NULL_PTR);
 
-	Siul2_Dio_Ip_ClearPins(CAN2_STBY_PORT, 1<<CAN2_STBY_PIN);	//close standby mode
+    tx_info.is_polling = FALSE;
+    rx_info.is_polling = FALSE;
+    setupCan();
 
-	//Siul2_Dio_Ip_TogglePins(GPIOA_H, RED_LED);
 
-	vSemaphoreCreateBinary(sem);
-	configASSERT(sem != NULL);
-
-	xTaskCreate(RED_LED_TASK, "RED LED TASK", configMINIMAL_STACK_SIZE, NULL, MAIN_PRIORITY, NULL);
-	xTaskCreate(GRN_LED_TASK, "GREEN LED TASK", configMINIMAL_STACK_SIZE, NULL, MAIN_PRIORITY+1, NULL);
-	xTaskCreate(CAN_RECEIVE_TASK, "CAN RECEIVE TASK", configMINIMAL_STACK_SIZE, NULL, MAIN_PRIORITY+2, NULL);
-
-	vTaskStartScheduler();
-
-    for(;;);
+    FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, MSG_ID, (uint8 *)&dummyData);
+	FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
+    while(1)
+    {
+        FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, MSG_ID+systemid, (uint8 *)&dummyData);
+    	delay_ms(1000, (uint8_t*)0);
+    	if(JumpBootState)	break;
+    }
+    IntCtrl_Ip_DisableIrq(FlexCAN0_1_IRQn);
+    FlexCAN_Ip_SetStopMode(INST_FLEXCAN_0);
+    FlexCAN_Ip_Deinit(INST_FLEXCAN_0);
+    JumpToBoot();
+    return 0;
 }
 
-void RED_LED_TASK ( void *pvParameters )
+uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len)
 {
-	BaseType_t operation_status;
-	(void)pvParameters;
-
-	for(;;)
-	{
-		vTaskDelay(pdMS_TO_TICKS(1));
-		operation_status = xSemaphoreTake(sem, portMAX_DELAY);
-		configASSERT(operation_status == pdPASS);
-
-		/* App Start */
-		Siul2_Dio_Ip_ClearPins(GPIOC_L, GREEN_LED);
-		Siul2_Dio_Ip_SetPins(GPIOA_H, RED_LED);
-		vTaskDelay(pdMS_TO_TICKS(100));
-		/* App Stop */
-
-		operation_status = xSemaphoreGive(sem);
-		configASSERT(operation_status == pdPASS);
-	}
+    for (uint8_t i = 0; i < len; i++) {
+        if (source[i] != target[i]) {
+            return 0;
+        }
+    }
+    return 1;
 }
 
-void GRN_LED_TASK ( void *pvParameters )
+void __attribute__((optimize("O0"))) delay_ms(uint32_t ms, volatile uint8_t *condition)
 {
-	BaseType_t operation_status;
-	(void)pvParameters;
-
-	for(;;)
-	{
-		vTaskDelay(pdMS_TO_TICKS(1));
-        operation_status = xSemaphoreTake(sem, portMAX_DELAY);
-		configASSERT(operation_status == pdPASS);/**/
-
-		/* App Start */
-		Siul2_Dio_Ip_ClearPins(GPIOA_H, RED_LED);
-		Siul2_Dio_Ip_SetPins(GPIOC_L, GREEN_LED);
-		vTaskDelay(pdMS_TO_TICKS(100));
-		/* App Stop */
-
-        operation_status = xSemaphoreGive(sem);
-		configASSERT(operation_status == pdPASS);/**/
-	}
+    volatile uint32_t i, j;
+    for (i = 0; i < ms; i++)
+    {
+        //for (j = 0; j < 40000; j++)removed for perfect timing with 160mhz clock : loop using 8 cycle; 8 x 40000 = 320.000 => 320.000 / 160.000.000 = 0.002S => 2mS
+		//																			2mS is too much max loop value replaced with 20000 for 1 mS;
+        for (j = 0; j < 14545; j++)
+		{
+            //__asm("NOP"); removed for perfect timing 160mhz clock; if i use nop asm block i will be used 9 cycle;
+			if(*condition) break;
+        }
+		if(*condition) break;
+    }
 }
 
-uint8_t can_data[8] = {0xCC,0xCC,0xCC,0xCC,0xCC,0xCC,0xCC,0xCC};
-
-void CAN_RECEIVE_TASK ( void *pvParameters )
+typedef void (*AppAddr)(void);
+AppAddr JumpBootAddr = NULL;
+void JumpToBoot( void )
 {
-	/*BaseType_t operation_status;*/
-	(void)pvParameters;
-
-	Flexcan_Ip_DataInfoType Tx_info = {
-			.msg_id_type = FLEXCAN_MSG_ID_STD,
-			.data_length = 8,
-			.is_polling = TRUE,
-			.is_remote = FALSE
-	};
-
-	for(;;)
-	{
-		/*vTaskDelay(pdMS_TO_TICKS(1));
-		operation_status = xSemaphoreTake(sem, portMAX_DELAY);
-		configASSERT(operation_status == pdPASS);*/
-
-		/* App Start */
-		FlexCAN_Ip_SendBlocking(INST_FLEXCAN_2, 0, &Tx_info, 0x1, (uint8_t*)&can_data, 2000);
-		vTaskDelay(pdMS_TO_TICKS(1000));
-		/* App Stop */
-
-		/*operation_status = xSemaphoreGive(sem);
-		configASSERT(operation_status == pdPASS);*/
-	}
+	uint32 func = *(uint32 volatile *)(0x400000+ 0xC);
+	func = *(uint32 volatile *)(((uint32)func) + 0x4);
+	func = ((((uint32)func) & 0xFFFFFFFEU) | 1u); // with "|1u" code worked
+	(* (void (*) (void)) func)();
 }
 
-void CAN_ERROR_IRQ( void )
-{
-	__asm__("NOP");
-}
-
-
-void CAN_IRQ( void )
-{
-	__asm__("NOP");
-}
-
-/** @} */
+/* END main */
+/*!
+** @}
+*/

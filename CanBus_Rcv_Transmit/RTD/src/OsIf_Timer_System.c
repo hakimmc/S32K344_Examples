@@ -1,16 +1,17 @@
 /*==================================================================================================
-* Project : RTD AUTOSAR 4.7
+* Project : RTD AUTOSAR 4.4
 * Platform : CORTEXM
 * Peripheral : S32K3XX
 * Dependencies : none
 *
-* Autosar Version : 4.7.0
-* Autosar Revision : ASR_REL_4_7_REV_0000
+* Autosar Version : 4.4.0
+* Autosar Revision : ASR_REL_4_4_REV_0000
 * Autosar Conf.Variant :
-* SW Version : 3.0.0
-* Build Version : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+* SW Version : 2.0.0
+* Build Version : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-* Copyright 2020 - 2023 NXP Semiconductors
+* (c) Copyright 2020 - 2022 NXP Semiconductors
+* All Rights Reserved.
 *
 * NXP Confidential. This software is owned or controlled by NXP and may only be
 * used strictly in accordance with the applicable license terms. By expressly
@@ -50,7 +51,7 @@ extern "C"{
 #elif defined(USING_OS_FREERTOS)
 #include "FreeRTOSConfig.h"
 #elif defined(USING_OS_ZEPHYR)
-#include <zephyr/kernel.h>
+#include "zephyr.h"
 #else
     /* Baremetal, make sure USING_OS_BAREMETAL is defined */
 #ifndef USING_OS_BAREMETAL
@@ -80,9 +81,9 @@ extern "C"{
 ==================================================================================================*/
 #define OSIF_TIMER_SYSTEM_VENDOR_ID_C                    43
 #define OSIF_TIMER_SYSTEM_AR_RELEASE_MAJOR_VERSION_C     4
-#define OSIF_TIMER_SYSTEM_AR_RELEASE_MINOR_VERSION_C     7
+#define OSIF_TIMER_SYSTEM_AR_RELEASE_MINOR_VERSION_C     4
 #define OSIF_TIMER_SYSTEM_AR_RELEASE_REVISION_VERSION_C  0
-#define OSIF_TIMER_SYSTEM_SW_MAJOR_VERSION_C             3
+#define OSIF_TIMER_SYSTEM_SW_MAJOR_VERSION_C             2
 #define OSIF_TIMER_SYSTEM_SW_MINOR_VERSION_C             0
 #define OSIF_TIMER_SYSTEM_SW_PATCH_VERSION_C             0
 
@@ -235,32 +236,32 @@ extern "C"{
 *                                         LOCAL VARIABLES
 ==================================================================================================*/
 #if STD_ON == OSIF_DEV_ERROR_DETECT
-#define BASENXP_START_SEC_VAR_CLEARED_BOOLEAN
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_VAR_CLEARED_BOOLEAN
+#include "Base_MemMap.h"
 
 static boolean OsIf_abMdlInit[OSIF_MAX_COREIDX_SUPPORTED];
 
-#define BASENXP_STOP_SEC_VAR_CLEARED_BOOLEAN
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_VAR_CLEARED_BOOLEAN
+#include "Base_MemMap.h"
 #endif /* STD_ON == OSIF_DEV_ERROR_DETECT */
 
 #if (defined(USING_OS_AUTOSAROS) || (STD_ON == OSIF_DEV_ERROR_DETECT))
-#define BASENXP_START_SEC_VAR_CLEARED_UNSPECIFIED
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_VAR_CLEARED_UNSPECIFIED
+#include "Base_MemMap.h"
 
 static const OsIf_ConfigType *OsIf_apxInternalCfg[OSIF_MAX_COREIDX_SUPPORTED];
 
-#define BASENXP_STOP_SEC_VAR_CLEARED_UNSPECIFIED
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_VAR_CLEARED_UNSPECIFIED
+#include "Base_MemMap.h"
 #endif /* (defined(USING_OS_AUTOSAROS) || (STD_ON == OSIF_DEV_ERROR_DETECT)) */
 
-#define BASENXP_START_SEC_VAR_CLEARED_32
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_VAR_CLEARED_32
+#include "Base_MemMap.h"
 
 static uint32 OsIf_au32InternalFrequencies[OSIF_MAX_COREIDX_SUPPORTED];
 
-#define BASENXP_STOP_SEC_VAR_CLEARED_32
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_VAR_CLEARED_32
+#include "Base_MemMap.h"
 /*==================================================================================================
 *                                        GLOBAL CONSTANTS
 ==================================================================================================*/
@@ -268,13 +269,13 @@ static uint32 OsIf_au32InternalFrequencies[OSIF_MAX_COREIDX_SUPPORTED];
 /*==================================================================================================
 *                                        GLOBAL VARIABLES
 ==================================================================================================*/
-#define BASENXP_START_SEC_CONFIG_DATA_UNSPECIFIED
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_CONFIG_DATA_UNSPECIFIED
+#include "Base_MemMap.h"
 
 extern const OsIf_ConfigType *const OsIf_apxPredefinedConfig[OSIF_MAX_COREIDX_SUPPORTED];
 
-#define BASENXP_STOP_SEC_CONFIG_DATA_UNSPECIFIED
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_CONFIG_DATA_UNSPECIFIED
+#include "Base_MemMap.h"
 /*==================================================================================================
 *                                    LOCAL FUNCTION PROTOTYPES
 ==================================================================================================*/
@@ -286,8 +287,8 @@ extern const OsIf_ConfigType *const OsIf_apxPredefinedConfig[OSIF_MAX_COREIDX_SU
 /*==================================================================================================
 *                                        GLOBAL FUNCTIONS
 ==================================================================================================*/
-#define BASENXP_START_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_CODE
+#include "Base_MemMap.h"
 
 void OsIf_Timer_System_Init(void)
 {
@@ -306,9 +307,7 @@ void OsIf_Timer_System_Init(void)
         OSIF_DEV_ASSERT(FALSE);
         #endif
     }
-    else
-    {
-        OsIf_abMdlInit[CoreId] = TRUE;
+    OsIf_abMdlInit[CoreId] = TRUE;
 #endif
 
 #if (defined(USING_OS_AUTOSAROS) || (STD_ON == OSIF_DEV_ERROR_DETECT))
@@ -327,9 +326,6 @@ void OsIf_Timer_System_Init(void)
 #elif defined(USING_OS_BAREMETAL)
     /* Baremetal */
     Trusted_OsIf_Timer_System_Internal_Init(OsIf_au32InternalFrequencies[CoreId]);
-#endif
-#if (STD_ON == OSIF_DEV_ERROR_DETECT)
-    }
 #endif
 }
 
@@ -534,8 +530,8 @@ uint32 OsIf_Timer_System_MicrosToTicks(uint32 Micros)
     return ticks;
 }
 
-#define BASENXP_STOP_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_CODE
+#include "Base_MemMap.h"
 
 #endif /* (OSIF_USE_SYSTEM_TIMER == STD_ON) */
 

@@ -1,0 +1,7 @@
+Callgraph clone;sys_m7_cache_clean;9;../Project_Settings/Startup_Code/system.c;650;20;sys_m7_cache_disable;8;../Project_Settings/Startup_Code/system.c;638;20;inlining to
+Callgraph clone;sys_m7_cache_init;7;../Project_Settings/Startup_Code/system.c;596;20;SystemInit;6;../Project_Settings/Startup_Code/system.c;447;6;inlining to
+Callgraph clone;sys_m7_cache_disable;8;../Project_Settings/Startup_Code/system.c;638;20;SystemInit;6;../Project_Settings/Startup_Code/system.c;447;6;inlining to
+Callgraph clone;sys_m7_cache_clean;9;../Project_Settings/Startup_Code/system.c;650;20;SystemInit;6;../Project_Settings/Startup_Code/system.c;447;6;inlining to
+Callgraph removal;sys_m7_cache_disable;8;../Project_Settings/Startup_Code/system.c;638;20
+Callgraph removal;sys_m7_cache_clean;9;../Project_Settings/Startup_Code/system.c;650;20
+Callgraph removal;sys_m7_cache_init;7;../Project_Settings/Startup_Code/system.c;596;20

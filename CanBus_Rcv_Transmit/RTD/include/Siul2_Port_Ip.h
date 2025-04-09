@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : SIUL2
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -42,7 +43,7 @@ extern "C" {
 * 3) internal and external interfaces from this unit
 ==================================================================================================*/
 
-#include "Std_Types.h"
+#include "StandardTypes.h"
 #include "Siul2_Port_Ip_Cfg.h"
 #include "Siul2_Port_Ip_Types.h"
 #include "Siul2_Port_Ip_Defines.h"
@@ -57,9 +58,9 @@ extern "C" {
  */
 #define SIUL2_PORT_IP_VENDOR_ID_H                     43
 #define SIUL2_PORT_IP_AR_RELEASE_MAJOR_VERSION_H      4
-#define SIUL2_PORT_IP_AR_RELEASE_MINOR_VERSION_H      7
+#define SIUL2_PORT_IP_AR_RELEASE_MINOR_VERSION_H      4
 #define SIUL2_PORT_IP_AR_RELEASE_REVISION_VERSION_H   0
-#define SIUL2_PORT_IP_SW_MAJOR_VERSION_H              3
+#define SIUL2_PORT_IP_SW_MAJOR_VERSION_H              2
 #define SIUL2_PORT_IP_SW_MINOR_VERSION_H              0
 #define SIUL2_PORT_IP_SW_PATCH_VERSION_H              0
 
@@ -178,7 +179,7 @@ extern const uint32 Port_au32Siul2BaseAddr[];
 #ifdef SIUL2_PORT_IP_HAS_ADC_INTERLEAVE
 #define  DCM_DCMRWF4_ADDR32                  (uint32)&(IP_DCM_GPR->DCMRWF4)
 #define  DCM_DCMRWF4_ADC_CLEAR_VALUE_FLAG    (uint32)0x8000UL
-#define  DCM_DCMRWF4_ADC_INTERLEAVE_MASK     (uint32)0x0000067EUL   /* Mask all adc interleave bits */
+#define  DCM_DCMRWF4_ADC_INTERLEAVE_MASK     (uint32)0x0000067EUL
 #endif /* SIUL2_PORT_IP_HAS_ADC_INTERLEAVE */
 #define  PORT_PIN_LEVEL_NOTCHANGED_U8        ((uint8)2)    /**< @brief Not changed port pin logic. */
 
@@ -251,9 +252,9 @@ void Siul2_Port_Ip_SetOutputBuffer(Siul2_Port_Ip_PortType * const base,
  * @param[in] inputMuxReg Pin muxing register slot selection
  * @param[in] inputMux Pin muxing slot selection
  *
- * @note: There are some pins controlled by both SIUL2_0, SIUL2_1, SIUL2_3, SIUL2_4 and SIUL2_5 instances
+ * @note: There are some pins controlled by both SIUL2_0 and SIUL2_1 instances
  * In order to configure correctly and be consistent with other platforms, the
- * inputMuxReg parameter of SIUL2_3 instance must be added 512 units.
+ * inputMuxReg parameter of SIUL2_1 instance must be added 512 units.
  * For example: The actual inputMuxReg is 10 then the value there must be (10 + 512)
  */
 void Siul2_Port_Ip_SetInputBuffer(Siul2_Port_Ip_PortType * const base,

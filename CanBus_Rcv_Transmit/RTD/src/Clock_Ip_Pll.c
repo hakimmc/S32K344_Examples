@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : 
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -22,7 +23,7 @@
 ==================================================================================================*/
 /**
 *   @file       Clock_Ip_Pll.c
-*   @version    3.0.0
+*   @version    2.0.0
 *
 *   @brief   CLOCK driver implementations.
 *   @details CLOCK driver implementations.
@@ -50,9 +51,9 @@ extern "C"{
 ==================================================================================================*/
 #define CLOCK_IP_PLL_VENDOR_ID_C                      43
 #define CLOCK_IP_PLL_AR_RELEASE_MAJOR_VERSION_C       4
-#define CLOCK_IP_PLL_AR_RELEASE_MINOR_VERSION_C       7
+#define CLOCK_IP_PLL_AR_RELEASE_MINOR_VERSION_C       4
 #define CLOCK_IP_PLL_AR_RELEASE_REVISION_VERSION_C    0
-#define CLOCK_IP_PLL_SW_MAJOR_VERSION_C               3
+#define CLOCK_IP_PLL_SW_MAJOR_VERSION_C               2
 #define CLOCK_IP_PLL_SW_MINOR_VERSION_C               0
 #define CLOCK_IP_PLL_SW_PATCH_VERSION_C               0
 
@@ -128,13 +129,6 @@ static Clock_Ip_PllStatusReturnType Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSssc
 static void Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize(Clock_Ip_PllConfigType const* Config);
 #endif
 
-#ifdef CLOCK_IP_PLL_RDIV_MFI_MFN_ODIV2_SDMEN
-static void Clock_Ip_ResetPllRdivMfiMfnOdiv2Sdmen(Clock_Ip_PllConfigType const* Config);
-static void Clock_Ip_SetPllRdivMfiMfnOdiv2Sdmen(Clock_Ip_PllConfigType const* Config);
-static Clock_Ip_PllStatusReturnType Clock_Ip_CompletePllRdivMfiMfnOdiv2Sdmen(Clock_Ip_NameType PllName);
-static void Clock_Ip_EnablePllRdivMfiMfnOdiv2Sdmen(Clock_Ip_PllConfigType const* Config);
-#endif
-
 
 /* Clock stop section code */
 #define MCU_STOP_SEC_CODE
@@ -160,7 +154,7 @@ static Clock_Ip_PllStatusReturnType Clock_Ip_CallbackPllEmptyComplete(Clock_Ip_N
 {
     (void)PllName;
     /* No implementation */
-    return STATUS_PLL_LOCKED;
+    return STATUS_PLL_NOT_ENABLED;
 }
 static void Clock_Ip_CallbackPllEmptyDisable(Clock_Ip_NameType PllName)
 {
@@ -171,76 +165,43 @@ static void Clock_Ip_CallbackPllEmptyDisable(Clock_Ip_NameType PllName)
 
 /* Pll with frequency modulation and VCO clock post divider for driving the PHI output clocks */
 #ifdef CLOCK_IP_PLL_RDIV_MFI_MFN_ODIV2_SDMEN_SSCGBYP_SPREADCTL_STEPNO_STEPSIZE
-/* Recommended unlock control accuracy when frequency modulation is bypassed */
-#define CLOCK_IP_RECOMMENTED_ULKCTL_BYPASSED_FM     0U
-/* Recommended unlock control accuracy when frequency modulation is not bypassed */
-#define CLOCK_IP_RECOMMENTED_ULKCTL_NOT_BYPASSED_FM 1U
 static void Clock_Ip_ResetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize(Clock_Ip_PllConfigType const* Config)
 {
-    uint32 Instance;
-    uint8 DividerIndex;
+    uint32 Instance = Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_MODULE_INSTANCE];
 
-    if (NULL_PTR != Config)
-    {
-        Instance = Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_MODULE_INSTANCE];
-
-        /* Disable output dividers */
-        for (DividerIndex = 0U; DividerIndex < Clock_Ip_apxPll[Instance].DivsNo; DividerIndex++)
-        {
-            Clock_Ip_apxPll[Instance].PllInstance->PLLODIV[DividerIndex] &= ~PLL_PLLODIV_DE_MASK;
-        }
-        /* Power down PLL */
-        Clock_Ip_apxPll[Instance].PllInstance->PLLCR |= PLL_PLLCR_PLLPD_MASK;
-    }
-    else
-    {
-        (void)Instance;
-        (void)DividerIndex;
-    }
+    /* Power down PLL */
+    Clock_Ip_pxPll[Instance]->PLLCR |= PLL_PLLCR_PLLPD_MASK;
 }
 static void Clock_Ip_SetPllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize(Clock_Ip_PllConfigType const* Config)
 {
-    uint32 Instance;
+    uint32 Instance = Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_MODULE_INSTANCE];
     uint32 Value;
 
-    if (NULL_PTR != Config)
+    if (Config->Enable != 0U)
     {
-        Instance = Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_MODULE_INSTANCE];
+        /* Configure PLL: predivider and multiplier */
+        Value = Clock_Ip_pxPll[Instance]->PLLDV;
+        Value &= ~(PLL_PLLDV_RDIV_MASK | PLL_PLLDV_MFI_MASK);
+        Value |= (uint32) (PLL_PLLDV_RDIV(Config->Predivider) |
+                          PLL_PLLDV_MFI(Config->MulFactorDiv));
+        Clock_Ip_pxPll[Instance]->PLLDV = Value;
 
-        if (Config->Enable != 0U)
-        {
-            /* Configure PLL: predivider and multiplier */
-            Value = Clock_Ip_apxPll[Instance].PllInstance->PLLDV;
-            Value &= ~(PLL_PLLDV_RDIV_MASK | PLL_PLLDV_MFI_MASK);
-            Value |= (uint32) (PLL_PLLDV_RDIV(Config->Predivider) |
-                              PLL_PLLDV_MFI(Config->MulFactorDiv));
-            Clock_Ip_apxPll[Instance].PllInstance->PLLDV = Value;
+        /* Set numerator fractional loop divider and sigma delta modulation */
+        Value = Clock_Ip_pxPll[Instance]->PLLFD;
+        Value &= ~(PLL_PLLFD_MFN_MASK | PLL_PLLFD_SDMEN_MASK);
+        Value |=  PLL_PLLFD_MFN(Config->NumeratorFracLoopDiv);
+        Value |= PLL_PLLFD_SDMEN(Config->SigmaDelta);
+        Clock_Ip_pxPll[Instance]->PLLFD = Value;
 
-            /* Set numerator fractional loop divider and sigma delta modulation */
-            Value = Clock_Ip_apxPll[Instance].PllInstance->PLLFD;
-            Value &= ~(PLL_PLLFD_MFN_MASK | PLL_PLLFD_SDMEN_MASK);
-            Value |=  PLL_PLLFD_MFN(Config->NumeratorFracLoopDiv);
-            Value |= PLL_PLLFD_SDMEN(Config->SigmaDelta);
-            Clock_Ip_apxPll[Instance].PllInstance->PLLFD = Value;
+        /* Configure modulation */
+        Value = (uint32) (PLL_PLLFM_SSCGBYP((Config->ModulationFrequency != 0U) ? 0UL : 1UL)  |
+                            PLL_PLLFM_SPREADCTL(Config->ModulationType)                |
+                            PLL_PLLFM_STEPNO(Config->IncrementStep)                    |
+                            PLL_PLLFM_STEPSIZE(Config->ModulationPeriod));
+        Clock_Ip_pxPll[Instance]->PLLFM = Value;
 
-            /* Configure modulation */
-            Value = (uint32) (PLL_PLLFM_SSCGBYP(Config->FrequencyModulationBypass)         |
-                                PLL_PLLFM_SPREADCTL(Config->ModulationType)                |
-                                PLL_PLLFM_STEPNO(Config->IncrementStep)                    |
-                                PLL_PLLFM_STEPSIZE(Config->ModulationPeriod));
-            Clock_Ip_apxPll[Instance].PllInstance->PLLFM = Value;
-
-            /* Unlock Control Accuracy - accuracy necessary to achieve unlock. */
-            Clock_Ip_apxPll[Instance].PllInstance->PLLCAL2 = PLL_PLLCAL2_ULKCTL((Config->FrequencyModulationBypass != 0U) ?  CLOCK_IP_RECOMMENTED_ULKCTL_BYPASSED_FM : CLOCK_IP_RECOMMENTED_ULKCTL_NOT_BYPASSED_FM);
-
-            /* Send command to enable PLL device. */
-            Clock_Ip_apxPll[Instance].PllInstance->PLLCR &= ~PLL_PLLCR_PLLPD_MASK;
-        }
-    }
-    else
-    {
-        (void)Instance;
-        (void)Value;
+        /* Send command to enable PLL device. */
+        Clock_Ip_pxPll[Instance]->PLLCR &= ~PLL_PLLCR_PLLPD_MASK;
     }
 }
 
@@ -255,13 +216,13 @@ static Clock_Ip_PllStatusReturnType Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSssc
     uint32 PllLockStatus;
     uint32 Instance = Clock_Ip_au8ClockFeatures[PllName][CLOCK_IP_MODULE_INSTANCE];
 
-    if (0U == (Clock_Ip_apxPll[Instance].PllInstance->PLLCR & PLL_PLLCR_PLLPD_MASK))
+    if (0U == (Clock_Ip_pxPll[Instance]->PLLCR & PLL_PLLCR_PLLPD_MASK))
     {
         Clock_Ip_StartTimeout(&StartTime, &ElapsedTime, &TimeoutTicks, CLOCK_IP_TIMEOUT_VALUE_US);
         /* Wait until this pll is locked */
         do
         {
-            PllLockStatus = ((Clock_Ip_apxPll[Instance].PllInstance->PLLSR & PLL_PLLSR_LOCK_MASK) >> PLL_PLLSR_LOCK_SHIFT);
+            PllLockStatus = ((Clock_Ip_pxPll[Instance]->PLLSR & PLL_PLLSR_LOCK_MASK) >> PLL_PLLSR_LOCK_SHIFT);
             TimeoutOccurred = Clock_Ip_TimeoutExpired(&StartTime, &ElapsedTime, TimeoutTicks);
         }
         while ((0U == PllLockStatus) && (FALSE == TimeoutOccurred));
@@ -269,35 +230,23 @@ static Clock_Ip_PllStatusReturnType Clock_Ip_CompletePllRdivMfiMfnOdiv2SdmenSssc
         if (TRUE == TimeoutOccurred)
         {
             PllStatus = STATUS_PLL_UNLOCKED;
-            /* Report timeout error */
-            Clock_Ip_ReportClockErrors(CLOCK_IP_REPORT_TIMEOUT_ERROR, PllName);
         }
     }
     else
     {
         PllStatus = STATUS_PLL_NOT_ENABLED;
     }
-
     return PllStatus;
 }
 static void Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize(Clock_Ip_PllConfigType const* Config)
 {
-    uint32 Instance;
+    uint32 Instance = Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_MODULE_INSTANCE];
 
-    if (NULL_PTR != Config)
+    /* Configure PLL. */
+    if (1U == Config->Enable)
     {
-        Instance = Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_MODULE_INSTANCE];
-
-        /* Configure PLL. */
-        if (1U == Config->Enable)
-        {
-            /* Send command to enable PLL device. */
-            Clock_Ip_apxPll[Instance].PllInstance->PLLCR &= ~PLL_PLLCR_PLLPD_MASK;
-        }
-    }
-    else
-    {
-        (void)Instance;
+        /* Send command to enable PLL device. */
+        Clock_Ip_pxPll[Instance]->PLLCR &= ~PLL_PLLCR_PLLPD_MASK;
     }
 }
 #endif
@@ -305,121 +254,6 @@ static void Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsiz
 /*==================================================================================================
 *                                        GLOBAL FUNCTIONS
 ==================================================================================================*/
-
-
-
-
-/* Pll with frequency modulation and VCO clock post divider for driving the PHI output clocks */
-#ifdef CLOCK_IP_PLL_RDIV_MFI_MFN_ODIV2_SDMEN
-
-static void Clock_Ip_ResetPllRdivMfiMfnOdiv2Sdmen(Clock_Ip_PllConfigType const* Config)
-{
-    uint32 Instance;
-    uint8 DividerIndex;
-
-    if (NULL_PTR != Config)
-    {
-        Instance = Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_MODULE_INSTANCE];
-
-        /* Disable output dividers */
-        for (DividerIndex = 0U; DividerIndex < Clock_Ip_apxPll[Instance].DivsNo; DividerIndex++)
-        {
-            Clock_Ip_apxPll[Instance].PllInstance->PLLODIV[DividerIndex] &= ~PLL_PLLODIV_DE_MASK;
-        }
-        /* Power down PLL */
-        Clock_Ip_apxPll[Instance].PllInstance->PLLCR |= PLL_PLLCR_PLLPD_MASK;
-    }
-    else
-    {
-        (void)Instance;
-        (void)DividerIndex;
-    }
-
-}
-
-static void Clock_Ip_SetPllRdivMfiMfnOdiv2Sdmen(Clock_Ip_PllConfigType const* Config)
-{
-    uint32 Instance;
-    uint32 Value;
-
-    if (NULL_PTR != Config)
-    {
-        Instance = Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_MODULE_INSTANCE];
-
-        if (Config->Enable != 0U)
-        {
-            /* Configure PLL: predivider and multiplier */
-            Value = Clock_Ip_apxPll[Instance].PllInstance->PLLDV;
-            Value &= ~(PLL_PLLDV_RDIV_MASK | PLL_PLLDV_MFI_MASK);
-            Value |= (uint32) (PLL_PLLDV_RDIV(Config->Predivider) |
-                              PLL_PLLDV_MFI(Config->MulFactorDiv));
-            Clock_Ip_apxPll[Instance].PllInstance->PLLDV = Value;
-            Clock_Ip_apxPll[Instance].PllInstance->PLLCR &= ~PLL_PLLCR_PLLPD_MASK;
-        }
-    }
-    else
-    {
-        (void)Instance;
-        (void)Value;
-    }
-}
-
-static Clock_Ip_PllStatusReturnType Clock_Ip_CompletePllRdivMfiMfnOdiv2Sdmen(Clock_Ip_NameType PllName)
-{
-    Clock_Ip_PllStatusReturnType PllStatus = STATUS_PLL_LOCKED;
-
-    boolean TimeoutOccurred = FALSE;
-    uint32 StartTime;
-    uint32 ElapsedTime;
-    uint32 TimeoutTicks;
-    uint32 PllLockStatus;
-    uint32 Instance = Clock_Ip_au8ClockFeatures[PllName][CLOCK_IP_MODULE_INSTANCE];
-
-    if (0U == (Clock_Ip_apxPll[Instance].PllInstance->PLLCR & PLL_PLLCR_PLLPD_MASK))
-    {
-        Clock_Ip_StartTimeout(&StartTime, &ElapsedTime, &TimeoutTicks, CLOCK_IP_TIMEOUT_VALUE_US);
-        /* Wait until this pll is locked */
-        do
-        {
-            PllLockStatus = ((Clock_Ip_apxPll[Instance].PllInstance->PLLSR & PLL_PLLSR_LOCK_MASK) >> PLL_PLLSR_LOCK_SHIFT);
-            TimeoutOccurred = Clock_Ip_TimeoutExpired(&StartTime, &ElapsedTime, TimeoutTicks);
-        }
-        while ((0U == PllLockStatus) && (FALSE == TimeoutOccurred));
-
-        if (TRUE == TimeoutOccurred)
-        {
-            PllStatus = STATUS_PLL_UNLOCKED;
-            /* Report timeout error */
-            Clock_Ip_ReportClockErrors(CLOCK_IP_REPORT_TIMEOUT_ERROR, PllName);
-        }
-    }
-    else
-    {
-        PllStatus = STATUS_PLL_NOT_ENABLED;
-    }
-    return PllStatus;
-}
-static void Clock_Ip_EnablePllRdivMfiMfnOdiv2Sdmen(Clock_Ip_PllConfigType const* Config)
-{
-    uint32 Instance;
-
-    if (NULL_PTR != Config)
-    {
-        Instance = Clock_Ip_au8ClockFeatures[Config->Name][CLOCK_IP_MODULE_INSTANCE];
-
-        /* Configure PLL. */
-        if (1U == Config->Enable)
-        {
-            /* Send command to enable PLL device. */
-            Clock_Ip_apxPll[Instance].PllInstance->PLLCR &= ~PLL_PLLCR_PLLPD_MASK;
-        }
-    }
-    else
-    {
-        (void)Instance;
-    }
-}
-#endif
 
 
 
@@ -454,17 +288,7 @@ const Clock_Ip_PllCallbackType Clock_Ip_axPllCallbacks[CLOCK_IP_PLL_CALLBACKS_CO
         Clock_Ip_EnablePllRdivMfiMfnOdiv2SdmenSsscgbypSpreadctlStepnoStepsize,             /* Enable */
         Clock_Ip_CallbackPllEmptyDisable,                                                 /* Disable */
     },
-#endif /* CLOCK_IP_PLL_RDIV_MFI_MFN_ODIV2_SDMEN_SSCGBYP_SPREADCTL_STEPNO_STEPSIZE */
-    /* Pll with frequency modulation and VCO clock post divider for driving the PHI output clocks */
-#ifdef CLOCK_IP_PLL_RDIV_MFI_MFN_ODIV2_SDMEN
-    {
-        Clock_Ip_ResetPllRdivMfiMfnOdiv2Sdmen,              /* Reset */
-        Clock_Ip_SetPllRdivMfiMfnOdiv2Sdmen,                /* Set */
-        Clock_Ip_CompletePllRdivMfiMfnOdiv2Sdmen,           /* Complete */
-        Clock_Ip_EnablePllRdivMfiMfnOdiv2Sdmen,             /* Enable */
-        Clock_Ip_CallbackPllEmptyDisable,                   /* Disable */
-    },
-#endif /* CLOCK_IP_PLL_RDIV_MFI_MFN_ODIV2_SDMEN */
+#endif
 };
 
 

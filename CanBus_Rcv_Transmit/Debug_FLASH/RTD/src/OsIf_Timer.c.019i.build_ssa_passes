@@ -1,0 +1,198 @@
+OsIf_MicrosToTicks (uint32 Micros, OsIf_CounterType SelectedCounter)
+{
+  uint32 Value;
+  uint32 D.5790;
+
+  <bb 2> :
+  Value = 0;
+  if (SelectedCounter == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+<L0>:
+  Value = OsIf_Timer_Dummy_MicrosToTicks (Micros);
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+<L1>:
+
+  <bb 5> :
+  D.5790 = Value;
+
+  <bb 6> :
+<L3>:
+  return D.5790;
+
+}
+
+
+OsIf_SetTimerFrequency (uint32 Freq, OsIf_CounterType SelectedCounter)
+{
+  <bb 2> :
+  if (SelectedCounter == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+<L0>:
+  OsIf_Timer_Dummy_SetTimerFrequency (Freq);
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+<L1>:
+
+  <bb 5> :
+  return;
+
+}
+
+
+OsIf_GetElapsed (uint32 * const CurrentRef, OsIf_CounterType SelectedCounter)
+{
+  uint32 Value;
+  uint32 D.5786;
+
+  <bb 2> :
+  Value = 0;
+  if (SelectedCounter == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+<L0>:
+  Value = OsIf_Timer_Dummy_GetElapsed (CurrentRef);
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+<L1>:
+
+  <bb 5> :
+  D.5786 = Value;
+
+  <bb 6> :
+<L3>:
+  return D.5786;
+
+}
+
+
+OsIf_GetCounter (OsIf_CounterType SelectedCounter)
+{
+  uint32 Value;
+  uint32 D.5782;
+
+  <bb 2> :
+  Value = 0;
+  if (SelectedCounter == 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+<L0>:
+  Value = OsIf_Timer_Dummy_GetCounter ();
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+<L1>:
+
+  <bb 5> :
+  D.5782 = Value;
+
+  <bb 6> :
+<L3>:
+  return D.5782;
+
+}
+
+
+OsIf_Init (const void * Config)
+{
+  <bb 2> :
+  if (Config != 0B)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  DevAssert (0);
+
+  <bb 4> :
+  return;
+
+}
+
+
+OsIf_Timer_Dummy_MicrosToTicks (uint32 Micros)
+{
+  uint32 D.5792;
+
+  <bb 2> :
+  D.5792 = Micros;
+
+  <bb 3> :
+<L0>:
+  return D.5792;
+
+}
+
+
+OsIf_Timer_Dummy_SetTimerFrequency (uint32 Freq)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+OsIf_Timer_Dummy_GetElapsed (const uint32 * const CurrentRef)
+{
+  uint32 D.5788;
+
+  <bb 2> :
+  D.5788 = 1;
+
+  <bb 3> :
+<L0>:
+  return D.5788;
+
+}
+
+
+OsIf_Timer_Dummy_GetCounter ()
+{
+  uint32 D.5784;
+
+  <bb 2> :
+  D.5784 = 0;
+
+  <bb 3> :
+<L0>:
+  return D.5784;
+
+}
+
+
+DevAssert (volatile boolean x)
+{
+  <bb 2> :
+  x.0_1 = x;
+  if (x.0_1 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 3>; [INV]
+
+  <bb 3> :
+  __asm__ __volatile__("BKPT #0");
+  goto <bb 3>; [INV]
+
+  <bb 4> :
+  return;
+
+}
+
+
