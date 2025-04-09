@@ -1,0 +1,10 @@
+../Project_Settings/Startup_Code/exceptions.c:80:6:NMI_Handler	0	static
+../Project_Settings/Startup_Code/exceptions.c:84:6:HardFault_Handler	0	static
+../Project_Settings/Startup_Code/exceptions.c:88:6:MemManage_Handler	0	static
+../Project_Settings/Startup_Code/exceptions.c:92:6:BusFault_Handler	0	static
+../Project_Settings/Startup_Code/exceptions.c:96:6:UsageFault_Handler	0	static
+../Project_Settings/Startup_Code/exceptions.c:103:6:SVC_Handler	0	static
+../Project_Settings/Startup_Code/exceptions.c:158:6:DebugMon_Handler	0	static
+../Project_Settings/Startup_Code/exceptions.c:162:6:PendSV_Handler	0	static
+../Project_Settings/Startup_Code/exceptions.c:166:6:SysTick_Handler	0	static
+../Project_Settings/Startup_Code/exceptions.c:170:6:undefined_handler	0	static

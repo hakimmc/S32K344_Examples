@@ -1,0 +1,271 @@
+Tspc_Port_Ip_ConfigureObeGroup (uint32 cfgCount, const struct Tspc_Port_Ip_ObeGroupConfig * config)
+{
+  uint8 groupConfig;
+  uint32 i;
+  struct TSPC_Type * tspcBase;
+  _Bool _1;
+  long unsigned int _2;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _3;
+  unsigned char _4;
+  _Bool _5;
+  long unsigned int _6;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _7;
+  unsigned char _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _14;
+  unsigned char _15;
+  long unsigned int _16;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _23;
+  unsigned char _24;
+  unsigned int _25;
+  unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _34;
+  unsigned char _35;
+  unsigned int _36;
+  unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _40;
+  unsigned char _41;
+  unsigned int _42;
+  unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  const struct Tspc_Port_Ip_ObeGroupConfig * _50;
+  unsigned char _51;
+  unsigned int _52;
+  unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+
+  <bb 2> :
+  _1 = config_64(D) != 0B;
+  DevAssert (_1);
+  tspcBase_67 = 1076641792B;
+  groupConfig_68 = 0;
+  i_69 = 0;
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  _2 = i_58 * 8;
+  _3 = config_64(D) + _2;
+  _4 = _3->obeGroupSelect;
+  _5 = _4 <= 2;
+  DevAssert (_5);
+  _6 = i_58 * 8;
+  _7 = config_64(D) + _6;
+  _8 = _7->obeGroupSelect;
+  groupConfig_80 = groupConfig_60 | _8;
+  i_81 = i_58 + 1;
+
+  <bb 4> :
+  # i_58 = PHI <i_69(2), i_81(3)>
+  # groupConfig_60 = PHI <groupConfig_68(2), groupConfig_80(3)>
+  if (i_58 < cfgCount_70(D))
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  SchM_Enter_Port_PORT_EXCLUSIVE_AREA_10 ();
+  _9 ={v} tspcBase_67->GRP_EN;
+  _10 = (long unsigned int) groupConfig_60;
+  _11 = ~_10;
+  _12 = _9 & _11;
+  tspcBase_67->GRP_EN ={v} _12;
+  i_73 = 0;
+  goto <bb 12>; [INV]
+
+  <bb 6> :
+  _13 = i_59 * 8;
+  _14 = config_64(D) + _13;
+  _15 = _14->obeGroupSelect;
+  if (_15 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 7> :
+  _16 = i_59 * 8;
+  _17 = config_64(D) + _16;
+  _18 = _17->obeGroupIndex;
+  if (_18 != 65535)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 8> :
+  _19 = i_59 * 8;
+  _20 = config_64(D) + _19;
+  _21 = _20->obeGroupIndex;
+  if (_21 > 31)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  _22 = i_59 * 8;
+  _23 = config_64(D) + _22;
+  _24 = _23->obeGroupSelect;
+  _25 = (unsigned int) _24;
+  _26 = _25 + 4294967295;
+  _27 ={v} tspcBase_67->GROUP[_26].GRP_OBE2;
+  _28 = i_59 * 8;
+  _29 = config_64(D) + _28;
+  _30 = _29->obeGroupIndex;
+  _31 = _30 + 4294967264;
+  _32 = 1 << _31;
+  _33 = i_59 * 8;
+  _34 = config_64(D) + _33;
+  _35 = _34->obeGroupSelect;
+  _36 = (unsigned int) _35;
+  _37 = _36 + 4294967295;
+  _38 = _27 | _32;
+  tspcBase_67->GROUP[_37].GRP_OBE2 ={v} _38;
+  goto <bb 11>; [INV]
+
+  <bb 10> :
+  _39 = i_59 * 8;
+  _40 = config_64(D) + _39;
+  _41 = _40->obeGroupSelect;
+  _42 = (unsigned int) _41;
+  _43 = _42 + 4294967295;
+  _44 ={v} tspcBase_67->GROUP[_43].GRP_OBE1;
+  _45 = i_59 * 8;
+  _46 = config_64(D) + _45;
+  _47 = _46->obeGroupIndex;
+  _48 = 1 << _47;
+  _49 = i_59 * 8;
+  _50 = config_64(D) + _49;
+  _51 = _50->obeGroupSelect;
+  _52 = (unsigned int) _51;
+  _53 = _52 + 4294967295;
+  _54 = _44 | _48;
+  tspcBase_67->GROUP[_53].GRP_OBE1 ={v} _54;
+
+  <bb 11> :
+  i_78 = i_59 + 1;
+
+  <bb 12> :
+  # i_59 = PHI <i_73(5), i_78(11)>
+  if (i_59 < cfgCount_70(D))
+    goto <bb 6>; [INV]
+  else
+    goto <bb 13>; [INV]
+
+  <bb 13> :
+  _55 ={v} tspcBase_67->GRP_EN;
+  _56 = (long unsigned int) groupConfig_60;
+  _57 = _55 | _56;
+  tspcBase_67->GRP_EN ={v} _57;
+  SchM_Exit_Port_PORT_EXCLUSIVE_AREA_10 ();
+  return;
+
+}
+
+
+Tspc_Port_Ip_EnableObeGroup (uint8 group)
+{
+  struct TSPC_Type * tspcBase;
+  int iftmp.0;
+  _Bool _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  int iftmp.0_6;
+  int iftmp.0_10;
+  int iftmp.0_11;
+
+  <bb 2> :
+  tspcBase_8 = 1076641792B;
+  if (group_9(D) <= 2)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 3> :
+  if (group_9(D) != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.0_10 = 1;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.0_11 = 0;
+
+  <bb 6> :
+  # iftmp.0_6 = PHI <iftmp.0_10(4), iftmp.0_11(5)>
+  _1 = (_Bool) iftmp.0_6;
+  DevAssert (_1);
+  SchM_Enter_Port_PORT_EXCLUSIVE_AREA_09 ();
+  if (group_9(D) == 1)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  _2 ={v} tspcBase_8->GRP_EN;
+  _3 = _2 | 1;
+  tspcBase_8->GRP_EN ={v} _3;
+  goto <bb 9>; [INV]
+
+  <bb 8> :
+  _4 ={v} tspcBase_8->GRP_EN;
+  _5 = _4 | 2;
+  tspcBase_8->GRP_EN ={v} _5;
+
+  <bb 9> :
+  SchM_Exit_Port_PORT_EXCLUSIVE_AREA_09 ();
+  return;
+
+}
+
+
+DevAssert (volatile boolean x)
+{
+  _Bool x.1_1;
+
+  <bb 2> :
+  x.1_1 ={v} x;
+  if (x.1_1 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 3>; [INV]
+
+  <bb 3> :
+  __asm__ __volatile__("BKPT #0");
+  goto <bb 3>; [INV]
+
+  <bb 4> :
+  return;
+
+}
+
+

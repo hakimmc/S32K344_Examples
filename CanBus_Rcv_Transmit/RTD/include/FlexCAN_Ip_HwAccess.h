@@ -1,16 +1,16 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : FLEXCAN
 *   Dependencies         : 
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   (c) Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
 *   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
@@ -55,9 +55,9 @@ extern "C"{
 ==================================================================================================*/
 #define FLEXCAN_IP_HWACCESS_VENDOR_ID_H                      43
 #define FLEXCAN_IP_HWACCESS_AR_RELEASE_MAJOR_VERSION_H       4
-#define FLEXCAN_IP_HWACCESS_AR_RELEASE_MINOR_VERSION_H       7
+#define FLEXCAN_IP_HWACCESS_AR_RELEASE_MINOR_VERSION_H       4
 #define FLEXCAN_IP_HWACCESS_AR_RELEASE_REVISION_VERSION_H    0
-#define FLEXCAN_IP_HWACCESS_SW_MAJOR_VERSION_H               3
+#define FLEXCAN_IP_HWACCESS_SW_MAJOR_VERSION_H               2
 #define FLEXCAN_IP_HWACCESS_SW_MINOR_VERSION_H               0
 #define FLEXCAN_IP_HWACCESS_SW_PATCH_VERSION_H               0
 /*==================================================================================================
@@ -122,8 +122,6 @@ extern "C"{
 #define FLEXCAN_IP_ENHANCED_RXFIFO_UNDERFLOW           (31U)
 /*! @brief FlexCAN Enhanced Fifo Embedded RAM address offset */
 #define FLEXCAN_IP_FEATURE_ENHANCED_FIFO_RAM_OFFSET        (0x00002000u)
-/*! @brief FlexCAN Enhacend Fifo FilterDepth */
-#define FLEXCAN_IP_ENHANCED_RXFIFO_FILTERDEPTH         (128U)
 #endif /* (FLEXCAN_IP_FEATURE_HAS_ENHANCED_RX_FIFO == STD_ON) */
 
 /*! @brief FlexCAN Embedded RAM address offset */
@@ -332,8 +330,8 @@ typedef struct
 /*==================================================================================================
 *                                    FUNCTION PROTOTYPES
 ==================================================================================================*/
-#define CAN_43_FLEXCAN_START_SEC_CODE
-#include "Can_43_FLEXCAN_MemMap.h"
+#define CAN_START_SEC_CODE
+#include "Can_MemMap.h"
 
 
 void FLEXCAN_ClearMsgBuffIntCmd(FLEXCAN_Type * pBase,
@@ -1231,9 +1229,9 @@ static inline boolean FlexCAN_IsListenOnlyModeEnabled(const FLEXCAN_Type * base)
  * @param   x    Number of Configured RxFIFO Filters
  * @return  number of last MB occupied by RxFIFO
  */
-static inline uint32 RxFifoOcuppiedLastMsgBuff(uint8 x)
+static inline uint32 RxFifoOcuppiedLastMsgBuff(uint32 x)
 {
-    return 5U + (((((uint32)x) + 1U) * 8U) / 4U);
+    return 5U + ((((x) + 1U) * 8U) / 4U);
 }
 
 #if (FLEXCAN_IP_FEATURE_HAS_ENHANCED_RX_FIFO == STD_ON)
@@ -1582,7 +1580,7 @@ void FlexCAN_ClearOutputLegacyFIFO(FLEXCAN_Type * base);
 
 #if (FLEXCAN_IP_FEATURE_HAS_TS_ENABLE == STD_ON)
 
-void FlexCAN_ConfigTimestamp(uint8 instance, FLEXCAN_Type * base, const Flexcan_Ip_TimeStampConfigType * config);
+void FlexCAN_ConfigTimestamp(FLEXCAN_Type * base, const Flexcan_Ip_TimeStampConfigType * config);
 
 #if (FLEXCAN_IP_FEATURE_HAS_HR_TIMER == STD_ON)
 /*!
@@ -1968,8 +1966,8 @@ static inline void FlexCAN_ClearWUMF(FLEXCAN_Type * pBase)
  */
 void FlexCAN_ResetImaskBuff(uint8 Instance);
 
-#define CAN_43_FLEXCAN_STOP_SEC_CODE
-#include "Can_43_FLEXCAN_MemMap.h"
+#define CAN_STOP_SEC_CODE
+#include "Can_MemMap.h"
 
 #ifdef __cplusplus
 }

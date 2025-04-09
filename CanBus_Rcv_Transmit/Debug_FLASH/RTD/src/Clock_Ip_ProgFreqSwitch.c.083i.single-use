@@ -1,0 +1,276 @@
+Clock_Ip_CgmXPcfsSdurDivcDiveDivs (const struct Clock_Ip_PcfsConfigType * Config, uint32 CfgIndex)
+{
+  uint32 DivEndValue;
+  uint32 DivStartValue;
+  uint32 DivcRate;
+  uint32 DivcInit;
+  uint32 Sdur;
+  uint32 K;
+  uint32 Var3;
+  uint32 Var2;
+  uint32 Var1;
+  uint32 Index;
+  uint32 Rate;
+  uint32 AmaxBrut;
+  uint32 Fsafe;
+  uint32 Finput;
+  static uint32 Hash[1];
+  static const uint32 PcfsRate[6] = {0, 12, 48, 112, 184, 1000};
+  static const uint32 AMax[6] = {0, 5, 10, 15, 20, 100};
+  uint32 HwIndex;
+  volatile struct Clock_Ip_CgmPcfsType * CgmPcfsBase;
+  <unnamed type> _1;
+  unsigned char _2;
+  int _3;
+  <unnamed type> _4;
+  unsigned char _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  <unnamed type> _10;
+  long unsigned int _11;
+  <unnamed type> _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  <unnamed type> _19;
+  long unsigned int _20;
+  <unnamed type> _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  const struct Clock_Ip_ClockConfigType * Clock_Ip_pxConfig.0_26;
+  unsigned char _27;
+  int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _60;
+  long unsigned int _61;
+
+  <bb 2> :
+  _1 = Config_74(D)->SelectorName;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  _3 = (int) _2;
+  CgmPcfsBase_75 = Clock_Ip_apxCgmPcfs[_3];
+  _4 = Config_74(D)->Name;
+  _5 = Clock_Ip_au8ClockFeatures[_4][7];
+  HwIndex_76 = (uint32) _5;
+  Finput_77 = 0;
+  Fsafe_78 = 0;
+  Rate_79 = 0;
+  _6 = Hash[CfgIndex_80(D)];
+  _7 = Config_74(D)->ClockSourceFrequency;
+  _8 = Config_74(D)->MaxAllowableIDDchange;
+  _9 = _7 ^ _8;
+  _10 = Config_74(D)->Name;
+  _11 = _9 ^ _10;
+  _12 = Config_74(D)->SelectorName;
+  _13 = _11 ^ _12;
+  _14 = Config_74(D)->StepDuration;
+  _15 = _13 ^ _14;
+  if (_6 != _15)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 21>; [INV]
+
+  <bb 3> :
+  _16 = Config_74(D)->ClockSourceFrequency;
+  _17 = Config_74(D)->MaxAllowableIDDchange;
+  _18 = _16 ^ _17;
+  _19 = Config_74(D)->Name;
+  _20 = _18 ^ _19;
+  _21 = Config_74(D)->SelectorName;
+  _22 = _20 ^ _21;
+  _23 = Config_74(D)->StepDuration;
+  _24 = _22 ^ _23;
+  Hash[CfgIndex_80(D)] = _24;
+  _25 = Config_74(D)->ClockSourceFrequency;
+  Finput_82 = _25 / 1000000;
+  Clock_Ip_pxConfig.0_26 = Clock_Ip_pxConfig;
+  _27 = Clock_Ip_FreqIds[1];
+  _28 = (int) _27;
+  _29 = Clock_Ip_pxConfig.0_26->ConfiguredFrequencies[_28].ConfiguredFrequencyValue;
+  Fsafe_83 = _29 / 1000000;
+  _30 = Config_74(D)->MaxAllowableIDDchange;
+  _31 = Config_74(D)->StepDuration;
+  _32 = _30 * _31;
+  _33 = _32 * 100000;
+  _34 = Finput_82 * 2360;
+  AmaxBrut_84 = _33 / _34;
+  Rate_85 = AmaxBrut_84;
+  _35 = AMax[0];
+  if (AmaxBrut_84 < _35)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  Rate_90 = PcfsRate[0];
+  goto <bb 12>; [INV]
+
+  <bb 5> :
+  _36 = AMax[5];
+  if (AmaxBrut_84 > _36)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  Rate_89 = PcfsRate[5];
+  goto <bb 12>; [INV]
+
+  <bb 7> :
+  Index_86 = 1;
+  goto <bb 11>; [INV]
+
+  <bb 8> :
+  _37 = Index_65 + 4294967295;
+  _38 = AMax[_37];
+  if (AmaxBrut_84 > _38)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  Rate_87 = PcfsRate[Index_65];
+
+  <bb 10> :
+  # Rate_62 = PHI <Rate_63(8), Rate_87(9)>
+  Index_88 = Index_65 + 1;
+
+  <bb 11> :
+  # Rate_63 = PHI <Rate_85(7), Rate_62(10)>
+  # Index_65 = PHI <Index_86(7), Index_88(10)>
+  if (Index_65 <= 5)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 12> :
+  # Rate_64 = PHI <Rate_90(4), Rate_89(6), Rate_63(11)>
+  _39 = Finput_82 * 2048000;
+  _40 = Fsafe_83 * Rate_64;
+  _41 = _39 / _40;
+  _42 = 2048000 / Rate_64;
+  _43 = _41 - _42;
+  Var1_91 = _43 + 256;
+  Var2_92 = 1073741824;
+  Var3_93 = 0;
+  goto <bb 14>; [INV]
+
+  <bb 13> :
+  Var2_108 = Var2_68 >> 2;
+
+  <bb 14> :
+  # Var2_68 = PHI <Var2_92(12), Var2_108(13)>
+  if (Var2_68 > Var1_91)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 15>; [INV]
+
+  <bb 15> :
+  goto <bb 19>; [INV]
+
+  <bb 16> :
+  _44 = Var3_71 + Var2_69;
+  if (Var1_67 >= _44)
+    goto <bb 17>; [INV]
+  else
+    goto <bb 18>; [INV]
+
+  <bb 17> :
+  _45 = Var3_71 + Var2_69;
+  Var1_104 = Var1_67 - _45;
+  _46 = Var2_69 << 1;
+  Var3_105 = Var3_71 + _46;
+
+  <bb 18> :
+  # Var1_66 = PHI <Var1_67(16), Var1_104(17)>
+  # Var3_70 = PHI <Var3_71(16), Var3_105(17)>
+  Var3_106 = Var3_70 >> 1;
+  Var2_107 = Var2_69 >> 2;
+
+  <bb 19> :
+  # Var1_67 = PHI <Var1_91(15), Var1_66(18)>
+  # Var2_69 = PHI <Var2_68(15), Var2_107(18)>
+  # Var3_71 = PHI <Var3_93(15), Var3_106(18)>
+  if (Var2_69 != 0)
+    goto <bb 16>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 20> :
+  _47 = Var3_71 << 2;
+  _48 = _47 + 191;
+  K_94 = _48 >> 7;
+  _49 = Config_74(D)->StepDuration;
+  Sdur_95 = Fsafe_83 * _49;
+  DivcInit_96 = Rate_64 * K_94;
+  DivcRate_97 = Rate_64;
+  _50 = Rate_64 * K_94;
+  _51 = K_94 + 1;
+  _52 = _50 * _51;
+  _53 = _52 >> 1;
+  DivStartValue_98 = _53 + 999;
+  _54 = Finput_82 * 1000;
+  _55 = _54 / Fsafe_83;
+  DivEndValue_99 = _55 + 4294967295;
+  _56 = Sdur_95 & 65535;
+  CgmPcfsBase_75->PCFS_SDUR ={v} _56;
+  _57 = DivcRate_97 & 255;
+  _58 = DivcInit_96 << 16;
+  _59 = _57 | _58;
+  CgmPcfsBase_75->PCFS[HwIndex_76].DIVC ={v} _59;
+  _60 = DivEndValue_99 & 1048575;
+  CgmPcfsBase_75->PCFS[HwIndex_76].DIVE ={v} _60;
+  _61 = DivStartValue_98 & 1048575;
+  CgmPcfsBase_75->PCFS[HwIndex_76].DIVS ={v} _61;
+
+  <bb 21> :
+  return;
+
+}
+
+
+Clock_Ip_ProgressiveFrequencyClockSwitchEmpty (const struct Clock_Ip_PcfsConfigType * Config, uint32 Index)
+{
+  <bb 2> :
+  return;
+
+}
+
+

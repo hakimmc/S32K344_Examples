@@ -1,0 +1,10 @@
+../RTD/src/Clock_Ip_Specific.c:202:13:Clock_Ip_PowerClockIpModules	24	static
+../RTD/src/Clock_Ip_Specific.c:404:6:Clock_Ip_McMeEnterKey	0	static
+../RTD/src/Clock_Ip_Specific.c:413:13:Clock_Ip_SpecificPlatformInitClock	16	static
+../RTD/src/Clock_Ip_Specific.c:426:6:DisableFircInStandbyMode	8	static
+../RTD/src/Clock_Ip_Specific.c:432:6:EnableFircInStandbyMode	24	static
+../RTD/src/Clock_Ip_Specific.c:440:6:DisableSircInStandbyMode	8	static
+../RTD/src/Clock_Ip_Specific.c:446:6:EnableSircInStandbyMode	24	static
+../RTD/src/Clock_Ip_Specific.c:454:13:Clock_Ip_ClockInitializeObjects	0	static
+../RTD/src/Clock_Ip_Specific.c:469:6:Clock_Ip_ClockPowerModeChangeNotification	8	static
+../RTD/src/Clock_Ip_Specific.c:568:6:Clock_Ip_Command	16	static

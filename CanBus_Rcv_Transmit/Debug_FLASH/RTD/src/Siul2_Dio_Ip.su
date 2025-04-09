@@ -1,0 +1,11 @@
+C:/NXP/S32DS.3.6.0/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/Devassert.h:85:20:DevAssert	8	static
+../RTD/src/Siul2_Dio_Ip.c:162:22:Siul2_Dio_Ip_Rev_Bit_16	16	static
+../RTD/src/Siul2_Dio_Ip.c:186:6:Siul2_Dio_Ip_WritePin	24	static
+../RTD/src/Siul2_Dio_Ip.c:215:6:Siul2_Dio_Ip_WritePins	16	static
+../RTD/src/Siul2_Dio_Ip.c:232:30:Siul2_Dio_Ip_GetPinsOutput	24	static
+../RTD/src/Siul2_Dio_Ip.c:251:6:Siul2_Dio_Ip_SetPins	16	static
+../RTD/src/Siul2_Dio_Ip.c:269:6:Siul2_Dio_Ip_ClearPins	16	static
+../RTD/src/Siul2_Dio_Ip.c:286:6:Siul2_Dio_Ip_TogglePins	16	static
+../RTD/src/Siul2_Dio_Ip.c:302:30:Siul2_Dio_Ip_ReadPins	24	static
+../RTD/src/Siul2_Dio_Ip.c:320:28:Siul2_Dio_Ip_ReadPin	24	static
+../RTD/src/Siul2_Dio_Ip.c:340:6:Siul2_Dio_Ip_MaskedWritePins	32	static

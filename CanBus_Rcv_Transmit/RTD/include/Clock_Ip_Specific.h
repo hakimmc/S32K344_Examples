@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : 
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -26,7 +27,7 @@
 
 /**
 *   @file    Clock_Ip_Specific.h
-*   @version    3.0.0
+*   @version    2.0.0
 *
 *   @brief   CLOCK IP specific header file.
 *   @details CLOCK IP specific header file.
@@ -47,44 +48,15 @@ extern "C"{
 #include "Clock_Ip_Cfg_Defines.h"
 #include "Mcal.h"
 
-#if defined(CLOCK_IP_DERIVATIVE_001)
-    #include "Clock_Ip_Derivative_001.h"
-#endif
-#if defined(CLOCK_IP_DERIVATIVE_002)
-    #include "Clock_Ip_Derivative_002.h"
-#endif
-#if defined(CLOCK_IP_DERIVATIVE_003)
-    #include "Clock_Ip_Derivative_003.h"
-#endif
-#if defined(CLOCK_IP_DERIVATIVE_004)
-    #include "Clock_Ip_Derivative_004.h"
-#endif
-#if defined(CLOCK_IP_DERIVATIVE_005)
-    #include "Clock_Ip_Derivative_005.h"
-#endif
-#if defined(CLOCK_IP_DERIVATIVE_006)
-    #include "Clock_Ip_Derivative_006.h"
-#endif
-#if defined(CLOCK_IP_DERIVATIVE_007)
-    #include "Clock_Ip_Derivative_007.h"
-#endif
-#if defined(CLOCK_IP_DERIVATIVE_008)
-    #include "Clock_Ip_Derivative_008.h"
-#endif
-#if defined(CLOCK_IP_DERIVATIVE_009)
-    #include "Clock_Ip_Derivative_009.h"
-#endif
-
-
 
 /*==================================================================================================
                                SOURCE FILE VERSION INFORMATION
 ==================================================================================================*/
 #define CLOCK_IP_SPECIFIC_VENDOR_ID                       43
 #define CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION        4
-#define CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION        7
+#define CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION        4
 #define CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION     0
-#define CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION                3
+#define CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION                2
 #define CLOCK_IP_SPECIFIC_SW_MINOR_VERSION                0
 #define CLOCK_IP_SPECIFIC_SW_PATCH_VERSION                0
 
@@ -110,194 +82,6 @@ extern "C"{
     #error "Software Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Cfg_Defines.h are different"
 #endif
 
-#if defined(CLOCK_IP_DERIVATIVE_001)
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_001.h file have same versions */
-    #if (CLOCK_IP_SPECIFIC_VENDOR_ID  != CLOCK_IP_DERIVATIVE_001_VENDOR_ID)
-        #error "Clock_Ip_Specific.h and Clock_Ip_Derivative_001.h have different vendor IDs"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_001.h file are of the same Autosar version */
-    #if ((CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION    != CLOCK_IP_DERIVATIVE_001_AR_RELEASE_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION    != CLOCK_IP_DERIVATIVE_001_AR_RELEASE_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION != CLOCK_IP_DERIVATIVE_001_AR_RELEASE_REVISION_VERSION))
-        #error "AutoSar Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_001.h are different"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_001.h file are of the same Software version */
-    #if ((CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION != CLOCK_IP_DERIVATIVE_001_SW_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_MINOR_VERSION != CLOCK_IP_DERIVATIVE_001_SW_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_PATCH_VERSION != CLOCK_IP_DERIVATIVE_001_SW_PATCH_VERSION))
-        #error "Software Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_001.h are different"
-    #endif
-#endif
-
-#if defined(CLOCK_IP_DERIVATIVE_002)
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_002.h file have same versions */
-    #if (CLOCK_IP_SPECIFIC_VENDOR_ID  != CLOCK_IP_DERIVATIVE_002_VENDOR_ID)
-        #error "Clock_Ip_Specific.h and Clock_Ip_Derivative_002.h have different vendor IDs"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_002.h file are of the same Autosar version */
-    #if ((CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION    != CLOCK_IP_DERIVATIVE_002_AR_RELEASE_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION    != CLOCK_IP_DERIVATIVE_002_AR_RELEASE_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION != CLOCK_IP_DERIVATIVE_002_AR_RELEASE_REVISION_VERSION))
-        #error "AutoSar Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_002.h are different"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_002.h file are of the same Software version */
-    #if ((CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION != CLOCK_IP_DERIVATIVE_002_SW_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_MINOR_VERSION != CLOCK_IP_DERIVATIVE_002_SW_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_PATCH_VERSION != CLOCK_IP_DERIVATIVE_002_SW_PATCH_VERSION))
-        #error "Software Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_002.h are different"
-    #endif
-#endif
-
-#if defined(CLOCK_IP_DERIVATIVE_003)
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_003.h file have same versions */
-    #if (CLOCK_IP_SPECIFIC_VENDOR_ID  != CLOCK_IP_DERIVATIVE_003_VENDOR_ID)
-        #error "Clock_Ip_Specific.h and Clock_Ip_Derivative_003.h have different vendor IDs"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_003.h file are of the same Autosar version */
-    #if ((CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION    != CLOCK_IP_DERIVATIVE_003_AR_RELEASE_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION    != CLOCK_IP_DERIVATIVE_003_AR_RELEASE_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION != CLOCK_IP_DERIVATIVE_003_AR_RELEASE_REVISION_VERSION))
-        #error "AutoSar Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_003.h are different"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_003.h file are of the same Software version */
-    #if ((CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION != CLOCK_IP_DERIVATIVE_003_SW_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_MINOR_VERSION != CLOCK_IP_DERIVATIVE_003_SW_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_PATCH_VERSION != CLOCK_IP_DERIVATIVE_003_SW_PATCH_VERSION))
-        #error "Software Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_003.h are different"
-    #endif
-#endif
-
-#if defined(CLOCK_IP_DERIVATIVE_004)
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_004.h file have same versions */
-    #if (CLOCK_IP_SPECIFIC_VENDOR_ID  != CLOCK_IP_DERIVATIVE_004_VENDOR_ID)
-        #error "Clock_Ip_Specific.h and Clock_Ip_Derivative_004.h have different vendor IDs"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_004.h file are of the same Autosar version */
-    #if ((CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION    != CLOCK_IP_DERIVATIVE_004_AR_RELEASE_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION    != CLOCK_IP_DERIVATIVE_004_AR_RELEASE_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION != CLOCK_IP_DERIVATIVE_004_AR_RELEASE_REVISION_VERSION))
-        #error "AutoSar Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_004.h are different"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_004.h file are of the same Software version */
-    #if ((CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION != CLOCK_IP_DERIVATIVE_004_SW_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_MINOR_VERSION != CLOCK_IP_DERIVATIVE_004_SW_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_PATCH_VERSION != CLOCK_IP_DERIVATIVE_004_SW_PATCH_VERSION))
-        #error "Software Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_004.h are different"
-    #endif
-#endif
-
-#if defined(CLOCK_IP_DERIVATIVE_005)
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_005.h file have same versions */
-    #if (CLOCK_IP_SPECIFIC_VENDOR_ID  != CLOCK_IP_DERIVATIVE_005_VENDOR_ID)
-        #error "Clock_Ip_Specific.h and Clock_Ip_Derivative_005.h have different vendor IDs"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_005.h file are of the same Autosar version */
-    #if ((CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION    != CLOCK_IP_DERIVATIVE_005_AR_RELEASE_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION    != CLOCK_IP_DERIVATIVE_005_AR_RELEASE_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION != CLOCK_IP_DERIVATIVE_005_AR_RELEASE_REVISION_VERSION))
-        #error "AutoSar Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_005.h are different"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_005.h file are of the same Software version */
-    #if ((CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION != CLOCK_IP_DERIVATIVE_005_SW_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_MINOR_VERSION != CLOCK_IP_DERIVATIVE_005_SW_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_PATCH_VERSION != CLOCK_IP_DERIVATIVE_005_SW_PATCH_VERSION))
-        #error "Software Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_005.h are different"
-    #endif
-#endif
-
-#if defined(CLOCK_IP_DERIVATIVE_006)
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_006.h file have same versions */
-    #if (CLOCK_IP_SPECIFIC_VENDOR_ID  != CLOCK_IP_DERIVATIVE_006_VENDOR_ID)
-        #error "Clock_Ip_Specific.h and Clock_Ip_Derivative_006.h have different vendor IDs"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_006.h file are of the same Autosar version */
-    #if ((CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION    != CLOCK_IP_DERIVATIVE_006_AR_RELEASE_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION    != CLOCK_IP_DERIVATIVE_006_AR_RELEASE_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION != CLOCK_IP_DERIVATIVE_006_AR_RELEASE_REVISION_VERSION))
-        #error "AutoSar Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_006.h are different"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_006.h file are of the same Software version */
-    #if ((CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION != CLOCK_IP_DERIVATIVE_006_SW_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_MINOR_VERSION != CLOCK_IP_DERIVATIVE_006_SW_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_PATCH_VERSION != CLOCK_IP_DERIVATIVE_006_SW_PATCH_VERSION))
-        #error "Software Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_006.h are different"
-    #endif
-#endif
-
-#if defined(CLOCK_IP_DERIVATIVE_007)
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_007.h file have same versions */
-    #if (CLOCK_IP_SPECIFIC_VENDOR_ID  != CLOCK_IP_DERIVATIVE_007_VENDOR_ID)
-        #error "Clock_Ip_Specific.h and Clock_Ip_Derivative_007.h have different vendor IDs"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_007.h file are of the same Autosar version */
-    #if ((CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION    != CLOCK_IP_DERIVATIVE_007_AR_RELEASE_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION    != CLOCK_IP_DERIVATIVE_007_AR_RELEASE_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION != CLOCK_IP_DERIVATIVE_007_AR_RELEASE_REVISION_VERSION))
-        #error "AutoSar Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_007.h are different"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_007.h file are of the same Software version */
-    #if ((CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION != CLOCK_IP_DERIVATIVE_007_SW_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_MINOR_VERSION != CLOCK_IP_DERIVATIVE_007_SW_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_PATCH_VERSION != CLOCK_IP_DERIVATIVE_007_SW_PATCH_VERSION))
-        #error "Software Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_007.h are different"
-    #endif
-#endif
-
-#if defined(CLOCK_IP_DERIVATIVE_008)
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_008.h file have same versions */
-    #if (CLOCK_IP_SPECIFIC_VENDOR_ID  != CLOCK_IP_DERIVATIVE_008_VENDOR_ID)
-        #error "Clock_Ip_Specific.h and Clock_Ip_Derivative_008.h have different vendor IDs"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_008.h file are of the same Autosar version */
-    #if ((CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION    != CLOCK_IP_DERIVATIVE_008_AR_RELEASE_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION    != CLOCK_IP_DERIVATIVE_008_AR_RELEASE_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION != CLOCK_IP_DERIVATIVE_008_AR_RELEASE_REVISION_VERSION))
-        #error "AutoSar Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_008.h are different"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_008.h file are of the same Software version */
-    #if ((CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION != CLOCK_IP_DERIVATIVE_008_SW_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_MINOR_VERSION != CLOCK_IP_DERIVATIVE_008_SW_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_PATCH_VERSION != CLOCK_IP_DERIVATIVE_008_SW_PATCH_VERSION))
-        #error "Software Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_008.h are different"
-    #endif
-#endif
-
-#if defined(CLOCK_IP_DERIVATIVE_009)
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_009.h file have same versions */
-    #if (CLOCK_IP_SPECIFIC_VENDOR_ID  != CLOCK_IP_DERIVATIVE_009_VENDOR_ID)
-        #error "Clock_Ip_Specific.h and Clock_Ip_Derivative_009.h have different vendor IDs"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_009.h file are of the same Autosar version */
-    #if ((CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION    != CLOCK_IP_DERIVATIVE_009_AR_RELEASE_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_MINOR_VERSION    != CLOCK_IP_DERIVATIVE_009_AR_RELEASE_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_AR_RELEASE_REVISION_VERSION != CLOCK_IP_DERIVATIVE_009_AR_RELEASE_REVISION_VERSION))
-        #error "AutoSar Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_009.h are different"
-    #endif
-
-    /* Check if Clock_Ip_Specific.h file and Clock_Ip_Derivative_009.h file are of the same Software version */
-    #if ((CLOCK_IP_SPECIFIC_SW_MAJOR_VERSION != CLOCK_IP_DERIVATIVE_009_SW_MAJOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_MINOR_VERSION != CLOCK_IP_DERIVATIVE_009_SW_MINOR_VERSION) || \
-         (CLOCK_IP_SPECIFIC_SW_PATCH_VERSION != CLOCK_IP_DERIVATIVE_009_SW_PATCH_VERSION))
-        #error "Software Version Numbers of Clock_Ip_Specific.h and Clock_Ip_Derivative_009.h are different"
-    #endif
-#endif
 #ifndef DISABLE_MCAL_INTERMODULE_ASR_CHECK
 /* Check if Clock_Ip_Specific.h file and Mcal.h file are of the same Autosar version */
 #if ((CLOCK_IP_SPECIFIC_AR_RELEASE_MAJOR_VERSION    != MCAL_AR_RELEASE_MAJOR_VERSION) || \
@@ -313,26 +97,143 @@ extern "C"{
 *                                       DEFINES AND MACROS
 ==================================================================================================*/
 
+#define CLOCK_IP_DIVIDER_CALLBACKS_COUNT                                               5U
+#define CLOCK_IP_CGM_X_DE_DIV_STAT_WITHOUT_PHASE                                       1U
+#define CLOCK_IP_PLL_PLL0DIV_DE_DIV_OUTPUT                                             2U
+#define CLOCK_IP_PLL_PLLDV_ODIV2_OUTPUT                                                3U
+#define CLOCK_IP_FIRC_DIV_SEL_HSEb_CONFIG_REG_GPR                                      4U
+
+#define CLOCK_IP_DIVIDERTRIGGER_CALLBACKS_COUNT                                        2U
+#define CLOCK_IP_CGM_X_DIV_TRIG_CTRL_TCTL_HHEN_UPD_STAT                                1U
+
+#define CLOCK_IP_XOSC_CALLBACKS_COUNT                                                  3U
+#define CLOCK_IP_FXOSC_OSCON_BYP_EOCV_GM_SEL                                           1U
+
+#ifndef CLOCK_IP_DERIVATIVE_006
+#define CLOCK_IP_SXOSC_OSCON_EOCV                                                      2U
+#endif
+
+#define CLOCK_IP_IRCOSC_CALLBACKS_COUNT                                                3U
+#define CLOCK_IP_FIRC_STDBY_ENABLE                                                     1U
+#define CLOCK_IP_SIRC_STDBY_ENABLE                                                     2U
+
+#define CLOCK_IP_GATE_CALLBACKS_COUNT                                                  2U
+#define CLOCK_IP_MC_ME_PARTITION_COFB_ENABLE_REQUEST                                   1U
+
+#define CLOCK_IP_FRACTIONAL_DIVIDER_CALLBACKS_COUNT                                    1U
+#define CLOCK_IP_NUMBER_OF_HARDWARE_DFS                                                0U
+
+#define CLOCK_IP_PLL_CALLBACKS_COUNT                                                   2U
+#define CLOCK_IP_PLL_RDIV_MFI_MFN_ODIV2_SDMEN_SSCGBYP_SPREADCTL_STEPNO_STEPSIZE        1U
+#define CLOCK_IP_NUMBER_OF_HARDWARE_PLL                                                1U
+
+#define CLOCK_IP_SELECTOR_CALLBACKS_COUNT                                              5U
+#define CLOCK_IP_CGM_X_CSC_CSS_CLK_SW_SWIP                                             1U
+#define CLOCK_IP_CGM_X_CSC_CSS_CLK_SW_RAMPDOWN_RAMPUP_SWIP                             2U
+#define CLOCK_IP_CGM_X_CSC_CSS_CS_GRIP                                                 3U
+#define CLOCK_IP_RTC_RTCC_CLKSELECT                                                    4U
+
+#define CLOCK_IP_PCFS_CALLBACKS_COUNT                                                  2U
+#define CLOCK_IP_CGM_X_PCFS_SDUR_DIVC_DIVE_DIVS                                        1U
+
+#define CLOCK_IP_CMU_CALLBACKS_COUNT                                                   2U
+#define CLOCK_IP_CMU_FC_FCE_REF_CNT_LFREF_HFREF                                        1U
+
 #define CLOCK_IP_ALL_CALLBACKS_COUNT                                                   9U
 #define CLOCK_IP_TRIGGER_VALUE               0xFFFFFFFFU              /* Trigger value. */
 
-#define CLOCK_IP_NUMBER_OF_HARDWARE_DFS                                                0U
-#if defined(CLOCK_IP_HAS_PLLAUX_CLK)
-#define CLOCK_IP_NUMBER_OF_HARDWARE_PLL                                                2U
-#else
-#define CLOCK_IP_NUMBER_OF_HARDWARE_PLL                                                1U
-#endif
+#if defined(CLOCK_IP_DERIVATIVE_001)
+
 #define CLOCK_IP_MC_CGM_INSTANCES_COUNT      1U
-#define CLOCK_IP_MC_CGM_MUXS_COUNT           20U
+#define CLOCK_IP_MC_CGM_MUXS_COUNT           7U
 #define CLOCK_IP_XOSC_INSTANCES_ARRAY_SIZE   2U
-#define CLOCK_IP_PLL_INSTANCES_ARRAY_SIZE    2U
-#define CLOCK_IP_MC_ME_PARTITIONS_COUNT      4U
+#define CLOCK_IP_PLL_INSTANCES_ARRAY_SIZE    1U
+#define CLOCK_IP_CMU_INSTANCES_ARRAY_SIZE    4U
+#define CLOCK_IP_MC_ME_PARTITIONS_COUNT      2U
+#define CLOCK_IP_CMU_INFO_SIZE               6U
+#define CLOCK_IP_GATE_INFO_SIZE              61U
+#define CLOCK_IP_EXTENSIONS_SIZE       13U
+
+#elif defined(CLOCK_IP_DERIVATIVE_002)
+
+#define CLOCK_IP_MC_CGM_INSTANCES_COUNT      1U
+#define CLOCK_IP_MC_CGM_MUXS_COUNT           12U
+#define CLOCK_IP_XOSC_INSTANCES_ARRAY_SIZE   2U
+#define CLOCK_IP_PLL_INSTANCES_ARRAY_SIZE    1U
+#define CLOCK_IP_CMU_INSTANCES_ARRAY_SIZE    4U
+#define CLOCK_IP_MC_ME_PARTITIONS_COUNT      3U
+#define CLOCK_IP_CMU_INFO_SIZE               6U
+#define CLOCK_IP_GATE_INFO_SIZE              100U
+#define CLOCK_IP_EXTENSIONS_SIZE       18U
+
+#elif defined(CLOCK_IP_DERIVATIVE_003)
+
+#define CLOCK_IP_MC_CGM_INSTANCES_COUNT      1U
+#define CLOCK_IP_MC_CGM_MUXS_COUNT           12U
+#define CLOCK_IP_XOSC_INSTANCES_ARRAY_SIZE   2U
+#define CLOCK_IP_PLL_INSTANCES_ARRAY_SIZE    1U
+#define CLOCK_IP_CMU_INSTANCES_ARRAY_SIZE    4U
+#define CLOCK_IP_MC_ME_PARTITIONS_COUNT      3U
+#define CLOCK_IP_CMU_INFO_SIZE               6U
+#define CLOCK_IP_GATE_INFO_SIZE              105U
+#define CLOCK_IP_EXTENSIONS_SIZE       19U
+
+#elif defined(CLOCK_IP_DERIVATIVE_004)
+
+#define CLOCK_IP_MC_CGM_INSTANCES_COUNT      1U
+#define CLOCK_IP_MC_CGM_MUXS_COUNT           12U
+#define CLOCK_IP_XOSC_INSTANCES_ARRAY_SIZE   2U
+#define CLOCK_IP_PLL_INSTANCES_ARRAY_SIZE    1U
+#define CLOCK_IP_CMU_INSTANCES_ARRAY_SIZE    4U
+#define CLOCK_IP_MC_ME_PARTITIONS_COUNT      3U
+#define CLOCK_IP_CMU_INFO_SIZE               6U
+#define CLOCK_IP_GATE_INFO_SIZE              102U
+#define CLOCK_IP_EXTENSIONS_SIZE       19U
+
+#elif defined(CLOCK_IP_DERIVATIVE_005)
+
+#define CLOCK_IP_MC_CGM_INSTANCES_COUNT      1U
+#define CLOCK_IP_MC_CGM_MUXS_COUNT           12U
+#define CLOCK_IP_XOSC_INSTANCES_ARRAY_SIZE   2U
+#define CLOCK_IP_PLL_INSTANCES_ARRAY_SIZE    1U
+#define CLOCK_IP_CMU_INSTANCES_ARRAY_SIZE    4U
+#define CLOCK_IP_MC_ME_PARTITIONS_COUNT      3U
+#define CLOCK_IP_CMU_INFO_SIZE               6U
+#define CLOCK_IP_GATE_INFO_SIZE              101U
+#define CLOCK_IP_EXTENSIONS_SIZE       19U
+
+#elif defined(CLOCK_IP_DERIVATIVE_006)
+
+#define CLOCK_IP_MC_CGM_INSTANCES_COUNT      1U
+#define CLOCK_IP_MC_CGM_MUXS_COUNT           14U
+#define CLOCK_IP_XOSC_INSTANCES_ARRAY_SIZE   1U
+#define CLOCK_IP_PLL_INSTANCES_ARRAY_SIZE    1U
+#define CLOCK_IP_CMU_INSTANCES_ARRAY_SIZE    5U
+#define CLOCK_IP_MC_ME_PARTITIONS_COUNT      3U
 #define CLOCK_IP_CMU_INFO_SIZE               7U
-#define CLOCK_IP_GATE_INFO_SIZE              219U
-#define CLOCK_IP_EXTENSIONS_SIZE             34U
-#define CLOCK_IP_MC_CGM_MUX_MUX_DIV_COUNT     7u
-#define CLOCK_IP_MC_CGM_PCFS_COUNT            8u
-#define CLOCK_IP_PRTN_COFB_NO                 4u
+#define CLOCK_IP_GATE_INFO_SIZE              94U
+#define CLOCK_IP_EXTENSIONS_SIZE       26U
+
+
+#elif defined(CLOCK_IP_DERIVATIVE_007)
+
+#define CLOCK_IP_MC_CGM_INSTANCES_COUNT      1U
+#define CLOCK_IP_MC_CGM_MUXS_COUNT           12U
+#define CLOCK_IP_XOSC_INSTANCES_ARRAY_SIZE   2U
+#define CLOCK_IP_PLL_INSTANCES_ARRAY_SIZE    1U
+#define CLOCK_IP_CMU_INSTANCES_ARRAY_SIZE    4U
+#define CLOCK_IP_MC_ME_PARTITIONS_COUNT      3U
+#define CLOCK_IP_CMU_INFO_SIZE               6U
+#define CLOCK_IP_GATE_INFO_SIZE              103U
+#define CLOCK_IP_EXTENSIONS_SIZE       19U
+
+
+#endif
+
+#define CLOCK_IP_MC_CGM_MUX_MUX_DIV_COUNT                  7u
+
+#define CLOCK_IP_MC_CGM_PCFS_COUNT                         8u
+#define CLOCK_IP_PRTN_COFB_NO                            4u
 
 #define MC_CGM_MUX_DC_DE_MASK                MC_CGM_MUX_0_DC_0_DE_MASK
 #define MC_CGM_MUX_DC_DE_SHIFT               MC_CGM_MUX_0_DC_0_DE_SHIFT
@@ -366,7 +267,149 @@ extern "C"{
 #define CLOCK_IP_CMU_FREQUENCY_CHECK_STOPPED          0U
 #define CLOCK_IP_CMU_ISR_MASK                         3U
 
-#define CLOCK_IP_CMU_INSTANCES_ARRAY_SIZE             7U
+#ifdef CLOCK_IP_DERIVATIVE_006
+/*! @name MUX_12_CSC - Clock Mux 12 Select Control Register */
+/*! @{ */
+
+#define MC_CGM_MUX_12_CSC_CLK_SW_MASK            (0x4U)
+#define MC_CGM_MUX_12_CSC_CLK_SW_SHIFT           (2U)
+#define MC_CGM_MUX_12_CSC_CLK_SW_WIDTH           (1U)
+#define MC_CGM_MUX_12_CSC_CLK_SW(x)              (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_CSC_CLK_SW_SHIFT)) & MC_CGM_MUX_12_CSC_CLK_SW_MASK)
+
+#define MC_CGM_MUX_12_CSC_SAFE_SW_MASK           (0x8U)
+#define MC_CGM_MUX_12_CSC_SAFE_SW_SHIFT          (3U)
+#define MC_CGM_MUX_12_CSC_SAFE_SW_WIDTH          (1U)
+#define MC_CGM_MUX_12_CSC_SAFE_SW(x)             (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_CSC_SAFE_SW_SHIFT)) & MC_CGM_MUX_12_CSC_SAFE_SW_MASK)
+
+#define MC_CGM_MUX_12_CSC_SELCTL_MASK            (0x1F000000U)
+#define MC_CGM_MUX_12_CSC_SELCTL_SHIFT           (24U)
+#define MC_CGM_MUX_12_CSC_SELCTL_WIDTH           (5U)
+#define MC_CGM_MUX_12_CSC_SELCTL(x)              (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_CSC_SELCTL_SHIFT)) & MC_CGM_MUX_12_CSC_SELCTL_MASK)
+/*! @} */
+
+/*! @name MUX_12_CSS - Clock Mux 12 Select Status Register */
+/*! @{ */
+
+#define MC_CGM_MUX_12_CSS_CLK_SW_MASK            (0x4U)
+#define MC_CGM_MUX_12_CSS_CLK_SW_SHIFT           (2U)
+#define MC_CGM_MUX_12_CSS_CLK_SW_WIDTH           (1U)
+#define MC_CGM_MUX_12_CSS_CLK_SW(x)              (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_CSS_CLK_SW_SHIFT)) & MC_CGM_MUX_12_CSS_CLK_SW_MASK)
+
+#define MC_CGM_MUX_12_CSS_SAFE_SW_MASK           (0x8U)
+#define MC_CGM_MUX_12_CSS_SAFE_SW_SHIFT          (3U)
+#define MC_CGM_MUX_12_CSS_SAFE_SW_WIDTH          (1U)
+#define MC_CGM_MUX_12_CSS_SAFE_SW(x)             (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_CSS_SAFE_SW_SHIFT)) & MC_CGM_MUX_12_CSS_SAFE_SW_MASK)
+
+#define MC_CGM_MUX_12_CSS_SWIP_MASK              (0x10000U)
+#define MC_CGM_MUX_12_CSS_SWIP_SHIFT             (16U)
+#define MC_CGM_MUX_12_CSS_SWIP_WIDTH             (1U)
+#define MC_CGM_MUX_12_CSS_SWIP(x)                (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_CSS_SWIP_SHIFT)) & MC_CGM_MUX_12_CSS_SWIP_MASK)
+
+#define MC_CGM_MUX_12_CSS_SWTRG_MASK             (0xE0000U)
+#define MC_CGM_MUX_12_CSS_SWTRG_SHIFT            (17U)
+#define MC_CGM_MUX_12_CSS_SWTRG_WIDTH            (3U)
+#define MC_CGM_MUX_12_CSS_SWTRG(x)               (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_CSS_SWTRG_SHIFT)) & MC_CGM_MUX_12_CSS_SWTRG_MASK)
+
+#define MC_CGM_MUX_12_CSS_SELSTAT_MASK           (0x1F000000U)
+#define MC_CGM_MUX_12_CSS_SELSTAT_SHIFT          (24U)
+#define MC_CGM_MUX_12_CSS_SELSTAT_WIDTH          (5U)
+#define MC_CGM_MUX_12_CSS_SELSTAT(x)             (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_CSS_SELSTAT_SHIFT)) & MC_CGM_MUX_12_CSS_SELSTAT_MASK)
+/*! @} */
+
+/*! @name MUX_12_DC_0 - Clock Mux 12 Divider 0 Control Register */
+/*! @{ */
+
+#define MC_CGM_MUX_12_DC_0_DIV_MASK              (0x70000U)
+#define MC_CGM_MUX_12_DC_0_DIV_SHIFT             (16U)
+#define MC_CGM_MUX_12_DC_0_DIV_WIDTH             (3U)
+#define MC_CGM_MUX_12_DC_0_DIV(x)                (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_DC_0_DIV_SHIFT)) & MC_CGM_MUX_12_DC_0_DIV_MASK)
+
+#define MC_CGM_MUX_12_DC_0_DE_MASK               (0x80000000U)
+#define MC_CGM_MUX_12_DC_0_DE_SHIFT              (31U)
+#define MC_CGM_MUX_12_DC_0_DE_WIDTH              (1U)
+#define MC_CGM_MUX_12_DC_0_DE(x)                 (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_DC_0_DE_SHIFT)) & MC_CGM_MUX_12_DC_0_DE_MASK)
+/*! @} */
+
+/*! @name MUX_12_DIV_UPD_STAT - Clock Mux 12 Divider Update Status Register */
+/*! @{ */
+
+#define MC_CGM_MUX_12_DIV_UPD_STAT_DIV_STAT_MASK (0x1U)
+#define MC_CGM_MUX_12_DIV_UPD_STAT_DIV_STAT_SHIFT (0U)
+#define MC_CGM_MUX_12_DIV_UPD_STAT_DIV_STAT_WIDTH (1U)
+#define MC_CGM_MUX_12_DIV_UPD_STAT_DIV_STAT(x)   (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_12_DIV_UPD_STAT_DIV_STAT_SHIFT)) & MC_CGM_MUX_12_DIV_UPD_STAT_DIV_STAT_MASK)
+/*! @} */
+
+/*! @name MUX_13_CSC - Clock Mux 13 Select Control Register */
+/*! @{ */
+
+#define MC_CGM_MUX_13_CSC_CLK_SW_MASK            (0x4U)
+#define MC_CGM_MUX_13_CSC_CLK_SW_SHIFT           (2U)
+#define MC_CGM_MUX_13_CSC_CLK_SW_WIDTH           (1U)
+#define MC_CGM_MUX_13_CSC_CLK_SW(x)              (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_CSC_CLK_SW_SHIFT)) & MC_CGM_MUX_13_CSC_CLK_SW_MASK)
+
+#define MC_CGM_MUX_13_CSC_SAFE_SW_MASK           (0x8U)
+#define MC_CGM_MUX_13_CSC_SAFE_SW_SHIFT          (3U)
+#define MC_CGM_MUX_13_CSC_SAFE_SW_WIDTH          (1U)
+#define MC_CGM_MUX_13_CSC_SAFE_SW(x)             (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_CSC_SAFE_SW_SHIFT)) & MC_CGM_MUX_13_CSC_SAFE_SW_MASK)
+
+#define MC_CGM_MUX_13_CSC_SELCTL_MASK            (0x1F000000U)
+#define MC_CGM_MUX_13_CSC_SELCTL_SHIFT           (24U)
+#define MC_CGM_MUX_13_CSC_SELCTL_WIDTH           (5U)
+#define MC_CGM_MUX_13_CSC_SELCTL(x)              (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_CSC_SELCTL_SHIFT)) & MC_CGM_MUX_13_CSC_SELCTL_MASK)
+/*! @} */
+
+/*! @name MUX_13_CSS - Clock Mux 13 Select Status Register */
+/*! @{ */
+
+#define MC_CGM_MUX_13_CSS_CLK_SW_MASK            (0x4U)
+#define MC_CGM_MUX_13_CSS_CLK_SW_SHIFT           (2U)
+#define MC_CGM_MUX_13_CSS_CLK_SW_WIDTH           (1U)
+#define MC_CGM_MUX_13_CSS_CLK_SW(x)              (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_CSS_CLK_SW_SHIFT)) & MC_CGM_MUX_13_CSS_CLK_SW_MASK)
+
+#define MC_CGM_MUX_13_CSS_SAFE_SW_MASK           (0x8U)
+#define MC_CGM_MUX_13_CSS_SAFE_SW_SHIFT          (3U)
+#define MC_CGM_MUX_13_CSS_SAFE_SW_WIDTH          (1U)
+#define MC_CGM_MUX_13_CSS_SAFE_SW(x)             (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_CSS_SAFE_SW_SHIFT)) & MC_CGM_MUX_13_CSS_SAFE_SW_MASK)
+
+#define MC_CGM_MUX_13_CSS_SWIP_MASK              (0x10000U)
+#define MC_CGM_MUX_13_CSS_SWIP_SHIFT             (16U)
+#define MC_CGM_MUX_13_CSS_SWIP_WIDTH             (1U)
+#define MC_CGM_MUX_13_CSS_SWIP(x)                (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_CSS_SWIP_SHIFT)) & MC_CGM_MUX_13_CSS_SWIP_MASK)
+
+#define MC_CGM_MUX_13_CSS_SWTRG_MASK             (0xE0000U)
+#define MC_CGM_MUX_13_CSS_SWTRG_SHIFT            (17U)
+#define MC_CGM_MUX_13_CSS_SWTRG_WIDTH            (3U)
+#define MC_CGM_MUX_13_CSS_SWTRG(x)               (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_CSS_SWTRG_SHIFT)) & MC_CGM_MUX_13_CSS_SWTRG_MASK)
+
+#define MC_CGM_MUX_13_CSS_SELSTAT_MASK           (0x1F000000U)
+#define MC_CGM_MUX_13_CSS_SELSTAT_SHIFT          (24U)
+#define MC_CGM_MUX_13_CSS_SELSTAT_WIDTH          (5U)
+#define MC_CGM_MUX_13_CSS_SELSTAT(x)             (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_CSS_SELSTAT_SHIFT)) & MC_CGM_MUX_13_CSS_SELSTAT_MASK)
+/*! @} */
+
+/*! @name MUX_13_DC_0 - Clock Mux 13 Divider 0 Control Register */
+/*! @{ */
+
+#define MC_CGM_MUX_13_DC_0_DIV_MASK              (0x30000U)
+#define MC_CGM_MUX_13_DC_0_DIV_SHIFT             (16U)
+#define MC_CGM_MUX_13_DC_0_DIV_WIDTH             (2U)
+#define MC_CGM_MUX_13_DC_0_DIV(x)                (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_DC_0_DIV_SHIFT)) & MC_CGM_MUX_13_DC_0_DIV_MASK)
+
+#define MC_CGM_MUX_13_DC_0_DE_MASK               (0x80000000U)
+#define MC_CGM_MUX_13_DC_0_DE_SHIFT              (31U)
+#define MC_CGM_MUX_13_DC_0_DE_WIDTH              (1U)
+#define MC_CGM_MUX_13_DC_0_DE(x)                 (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_DC_0_DE_SHIFT)) & MC_CGM_MUX_13_DC_0_DE_MASK)
+/*! @} */
+
+/*! @name MUX_13_DIV_UPD_STAT - Clock Mux 13 Divider Update Status Register */
+/*! @{ */
+
+#define MC_CGM_MUX_13_DIV_UPD_STAT_DIV_STAT_MASK (0x1U)
+#define MC_CGM_MUX_13_DIV_UPD_STAT_DIV_STAT_SHIFT (0U)
+#define MC_CGM_MUX_13_DIV_UPD_STAT_DIV_STAT_WIDTH (1U)
+#define MC_CGM_MUX_13_DIV_UPD_STAT_DIV_STAT(x)   (((uint32_t)(((uint32_t)(x)) << MC_CGM_MUX_13_DIV_UPD_STAT_DIV_STAT_SHIFT)) & MC_CGM_MUX_13_DIV_UPD_STAT_DIV_STAT_MASK)
+/*! @} */
+#endif
 /*==================================================================================================
 *                                              ENUMS
 ==================================================================================================*/
@@ -455,13 +498,6 @@ typedef struct
 
 }Clock_Ip_ClockExtensionType;
 
-typedef struct
-{
-    PLL_Type* PllInstance;
-    uint8 DivsNo;
-
-}Clock_Ip_PllType;
-
 /*==================================================================================================
 *                                  GLOBAL VARIABLE DECLARATIONS
 ==================================================================================================*/
@@ -472,9 +508,10 @@ typedef struct
 extern  Clock_Ip_CgmMuxType* const Clock_Ip_apxCgm[CLOCK_IP_MC_CGM_INSTANCES_COUNT][CLOCK_IP_MC_CGM_MUXS_COUNT];
 extern volatile Clock_Ip_CgmPcfsType* const Clock_Ip_apxCgmPcfs[CLOCK_IP_MC_CGM_INSTANCES_COUNT];
 extern Clock_Ip_ExtOSCType* const Clock_Ip_apxXosc[CLOCK_IP_XOSC_INSTANCES_ARRAY_SIZE];
-extern Clock_Ip_PllType const Clock_Ip_apxPll[CLOCK_IP_PLL_INSTANCES_ARRAY_SIZE];
+extern PLL_Type* const Clock_Ip_pxPll[CLOCK_IP_PLL_INSTANCES_ARRAY_SIZE];
 extern Clock_Ip_ClockMonitorType * const Clock_Ip_apxCmu[CLOCK_IP_CMU_INSTANCES_ARRAY_SIZE];
 extern Clock_Ip_NameType const Clock_Ip_aeCmuNames[CLOCK_IP_CMU_INSTANCES_ARRAY_SIZE];
+
 extern volatile Clock_Ip_McmePartitionSetType* const Clock_Ip_apxMcMeSetPartitions[CLOCK_IP_MC_ME_PARTITIONS_COUNT];
 extern volatile const Clock_Ip_McmePartitionGetType* const Clock_Ip_apxMcMeGetPartitions[CLOCK_IP_MC_ME_PARTITIONS_COUNT];
 extern volatile Clock_Ip_McmePartitionTriggerType* const Clock_Ip_apxMcMeTriggerPartitions[CLOCK_IP_MC_ME_PARTITIONS_COUNT];

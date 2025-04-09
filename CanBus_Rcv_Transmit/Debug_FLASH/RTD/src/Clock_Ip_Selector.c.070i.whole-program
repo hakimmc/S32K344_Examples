@@ -1,0 +1,1050 @@
+
+Marking local functions:
+
+
+Marking externally visible functions: Clock_Ip_SetRtcRtccClksel_TrustedCall/8
+
+
+Marking externally visible variables: Clock_Ip_axSelectorCallbacks/9
+
+
+Reclaiming functions:
+Reclaiming variables:
+Clearing address taken flags:
+Symbol table:
+
+Clock_Ip_au16SelectorEntryRtcHardwareValue/18 (Clock_Ip_au16SelectorEntryRtcHardwareValue) @06233ee8
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_SetRtcRtccClksel_TrustedCall/8 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_au8SoftwareMuxResetValue/17 (Clock_Ip_au8SoftwareMuxResetValue) @062335a0
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_ReportClockErrors/16 (Clock_Ip_ReportClockErrors) @060de000
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_SetCgmXCscCssCsGrip/6 Clock_Ip_SetCgmXCscCssCsGrip/6 Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 Clock_Ip_SetCgmXCscCssClkswSwip/2 Clock_Ip_SetCgmXCscCssClkswSwip/2 Clock_Ip_SetCgmXCscCssClkswSwip/2 Clock_Ip_SetCgmXCscCssClkswSwip/2 
+  Calls: 
+Clock_Ip_TimeoutExpired/15 (Clock_Ip_TimeoutExpired) @060d3e00
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_SetCgmXCscCssCsGrip/6 Clock_Ip_SetCgmXCscCssCsGrip/6 Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 Clock_Ip_SetCgmXCscCssClkswSwip/2 Clock_Ip_SetCgmXCscCssClkswSwip/2 Clock_Ip_SetCgmXCscCssClkswSwip/2 Clock_Ip_ResetCgmXCscCssCsGrip/5 
+  Calls: 
+Clock_Ip_StartTimeout/14 (Clock_Ip_StartTimeout) @060d32a0
+  Type: function
+  Visibility: external public
+  References: 
+  Referring: 
+  Availability: not_available
+  Function flags:
+  Called by: Clock_Ip_SetCgmXCscCssCsGrip/6 Clock_Ip_SetCgmXCscCssCsGrip/6 Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 Clock_Ip_SetCgmXCscCssClkswSwip/2 Clock_Ip_SetCgmXCscCssClkswSwip/2 Clock_Ip_SetCgmXCscCssClkswSwip/2 Clock_Ip_ResetCgmXCscCssCsGrip/5 
+  Calls: 
+Clock_Ip_au16SelectorEntryHardwareValue/13 (Clock_Ip_au16SelectorEntryHardwareValue) @060dc3f0
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_apxCgm/12 (Clock_Ip_apxCgm) @060cebd0
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip/3 (read) Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip/3 (read) Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip/3 (read) Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip/3 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_ResetCgmXCscCssClkswSwip/1 (read) Clock_Ip_ResetCgmXCscCssClkswSwip/1 (read) Clock_Ip_ResetCgmXCscCssClkswSwip/1 (read) Clock_Ip_ResetCgmXCscCssClkswSwip/1 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_axFeatureExtensions/11 (Clock_Ip_axFeatureExtensions) @060ceb88
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip/3 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_ResetCgmXCscCssClkswSwip/1 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_au8ClockFeatures/10 (Clock_Ip_au8ClockFeatures) @060ceb40
+  Type: variable
+  Body removed by symtab_remove_unreachable_nodes
+  Visibility: external public
+  References: 
+  Referring: Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip/3 (read) Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip/3 (read) Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip/3 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_ResetCgmXCscCssCsGrip/5 (read) Clock_Ip_SetCgmXCscCssClkswSwip/2 (read) Clock_Ip_ResetCgmXCscCssClkswSwip/1 (read) Clock_Ip_ResetCgmXCscCssClkswSwip/1 (read) Clock_Ip_ResetCgmXCscCssClkswSwip/1 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) Clock_Ip_SetCgmXCscCssCsGrip/6 (read) 
+  Availability: not_available
+  Varpool flags: read-only
+Clock_Ip_axSelectorCallbacks/9 (Clock_Ip_axSelectorCallbacks) @060ce798
+  Type: variable definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_CallbackSelectorEmpty/0 (addr) Clock_Ip_CallbackSelectorEmpty/0 (addr) Clock_Ip_ResetCgmXCscCssClkswSwip/1 (addr) Clock_Ip_SetCgmXCscCssClkswSwip/2 (addr) Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip/3 (addr) Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (addr) Clock_Ip_ResetCgmXCscCssCsGrip/5 (addr) Clock_Ip_SetCgmXCscCssCsGrip/6 (addr) Clock_Ip_CallbackSelectorEmpty/0 (addr) Clock_Ip_SetRtcRtccClksel/7 (addr) 
+  Referring: 
+  Availability: available
+  Varpool flags: initialized read-only const-value-known
+Clock_Ip_SetRtcRtccClksel_TrustedCall/8 (Clock_Ip_SetRtcRtccClksel_TrustedCall) @060d3540
+  Type: function definition analyzed
+  Visibility: force_output externally_visible no_reorder public
+  References: Clock_Ip_au16SelectorEntryRtcHardwareValue/18 (read) 
+  Referring: 
+  Availability: available
+  Function flags: body
+  Called by: Clock_Ip_SetRtcRtccClksel/7 
+  Calls: 
+Clock_Ip_SetRtcRtccClksel/7 (Clock_Ip_SetRtcRtccClksel) @060d31c0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axSelectorCallbacks/9 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_SetRtcRtccClksel_TrustedCall/8 
+Clock_Ip_SetCgmXCscCssCsGrip/6 (Clock_Ip_SetCgmXCscCssCsGrip) @060cfe00
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au16SelectorEntryHardwareValue/13 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_axFeatureExtensions/11 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_axFeatureExtensions/11 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) 
+  Referring: Clock_Ip_axSelectorCallbacks/9 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_ReportClockErrors/16 Clock_Ip_ReportClockErrors/16 Clock_Ip_TimeoutExpired/15 Clock_Ip_StartTimeout/14 Clock_Ip_TimeoutExpired/15 Clock_Ip_StartTimeout/14 
+Clock_Ip_ResetCgmXCscCssCsGrip/5 (Clock_Ip_ResetCgmXCscCssCsGrip) @060cf8c0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au8SoftwareMuxResetValue/17 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_axFeatureExtensions/11 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_axFeatureExtensions/11 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) 
+  Referring: Clock_Ip_axSelectorCallbacks/9 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_TimeoutExpired/15 Clock_Ip_StartTimeout/14 
+Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip/4 (Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip) @060cf380
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au16SelectorEntryHardwareValue/13 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_axFeatureExtensions/11 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_axFeatureExtensions/11 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) 
+  Referring: Clock_Ip_axSelectorCallbacks/9 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_ReportClockErrors/16 Clock_Ip_ReportClockErrors/16 Clock_Ip_ReportClockErrors/16 Clock_Ip_ReportClockErrors/16 Clock_Ip_TimeoutExpired/15 Clock_Ip_StartTimeout/14 Clock_Ip_TimeoutExpired/15 Clock_Ip_StartTimeout/14 Clock_Ip_TimeoutExpired/15 Clock_Ip_StartTimeout/14 
+Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip/3 (Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip) @060cfd20
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_axFeatureExtensions/11 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) 
+  Referring: Clock_Ip_axSelectorCallbacks/9 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_SetCgmXCscCssClkswSwip/2 (Clock_Ip_SetCgmXCscCssClkswSwip) @060cfa80
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au16SelectorEntryHardwareValue/13 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_axFeatureExtensions/11 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_axFeatureExtensions/11 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) 
+  Referring: Clock_Ip_axSelectorCallbacks/9 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: Clock_Ip_ReportClockErrors/16 Clock_Ip_ReportClockErrors/16 Clock_Ip_ReportClockErrors/16 Clock_Ip_ReportClockErrors/16 Clock_Ip_TimeoutExpired/15 Clock_Ip_StartTimeout/14 Clock_Ip_TimeoutExpired/15 Clock_Ip_StartTimeout/14 Clock_Ip_TimeoutExpired/15 Clock_Ip_StartTimeout/14 
+Clock_Ip_ResetCgmXCscCssClkswSwip/1 (Clock_Ip_ResetCgmXCscCssClkswSwip) @060cf7e0
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_au8ClockFeatures/10 (read) Clock_Ip_axFeatureExtensions/11 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) Clock_Ip_apxCgm/12 (read) 
+  Referring: Clock_Ip_axSelectorCallbacks/9 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_CallbackSelectorEmpty/0 (Clock_Ip_CallbackSelectorEmpty) @060cf540
+  Type: function definition analyzed
+  Visibility: force_output no_reorder prevailing_def_ironly
+  Address is taken.
+  References: 
+  Referring: Clock_Ip_axSelectorCallbacks/9 (addr) Clock_Ip_axSelectorCallbacks/9 (addr) Clock_Ip_axSelectorCallbacks/9 (addr) 
+  Availability: available
+  Function flags: body
+  Called by: 
+  Calls: 
+Clock_Ip_SetRtcRtccClksel_TrustedCall (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 SelectorValue;
+  uint32 RegValue;
+  <unnamed type> _1;
+  short unsigned int _2;
+  struct RTC_Type * _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  struct RTC_Type * _6;
+
+  <bb 2> :
+  _1 = Config_8(D)->Value;
+  _2 = Clock_Ip_au16SelectorEntryRtcHardwareValue[_1];
+  SelectorValue_9 = (uint32) _2;
+  _3 = 1076396032B;
+  RegValue_10 ={v} _3->RTCC;
+  RegValue_11 = RegValue_10 & 4294955007;
+  _4 = SelectorValue_9 << 12;
+  _5 = _4 & 12288;
+  RegValue_12 = RegValue_11 | _5;
+  _6 = 1076396032B;
+  _6->RTCC ={v} RegValue_12;
+  return;
+
+}
+
+
+Clock_Ip_SetRtcRtccClksel (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  <bb 2> :
+  Clock_Ip_SetRtcRtccClksel_TrustedCall (Config_2(D));
+  return;
+
+}
+
+
+Clock_Ip_SetCgmXCscCssCsGrip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  uint32 RegValue;
+  uint32 SelectorShift;
+  uint32 SelectorMask;
+  uint32 SelectorValue;
+  uint32 SelectorIndex;
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  <unnamed type> _5;
+  short unsigned int _6;
+  <unnamed type> _7;
+  unsigned char _8;
+  int _9;
+  <unnamed type> _10;
+  unsigned char _11;
+  int _12;
+  volatile struct Clock_Ip_CgmMuxType * _13;
+  long unsigned int _14;
+  volatile struct Clock_Ip_CgmMuxType * _15;
+  long unsigned int _16;
+  long unsigned int TimeoutTicks.7_17;
+  volatile struct Clock_Ip_CgmMuxType * _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  _Bool _21;
+  _Bool _22;
+  volatile struct Clock_Ip_CgmMuxType * _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  volatile struct Clock_Ip_CgmMuxType * _27;
+  volatile struct Clock_Ip_CgmMuxType * _28;
+  long unsigned int _29;
+  volatile struct Clock_Ip_CgmMuxType * _30;
+  long unsigned int _31;
+  long unsigned int TimeoutTicks.8_32;
+  volatile struct Clock_Ip_CgmMuxType * _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  _Bool _36;
+  <unnamed type> _37;
+  <unnamed type> _38;
+
+  <bb 2> :
+  _1 = Config_43(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_44 = (uint32) _2;
+  _3 = Config_43(D)->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex_45 = (uint32) _4;
+  _5 = Config_43(D)->Value;
+  _6 = Clock_Ip_au16SelectorEntryHardwareValue[_5];
+  SelectorValue_46 = (uint32) _6;
+  _7 = Config_43(D)->Name;
+  _8 = Clock_Ip_au8ClockFeatures[_7][2];
+  _9 = (int) _8;
+  SelectorMask_47 = Clock_Ip_axFeatureExtensions[_9].SelectorValueMask;
+  _10 = Config_43(D)->Name;
+  _11 = Clock_Ip_au8ClockFeatures[_10][2];
+  _12 = (int) _11;
+  SelectorShift_48 = Clock_Ip_axFeatureExtensions[_12].SelectorValueShift;
+  TimeoutOccurred_49 = 0;
+  _13 = Clock_Ip_apxCgm[Instance_44][SelectorIndex_45];
+  _14 ={v} _13->CSC;
+  _15 = Clock_Ip_apxCgm[Instance_44][SelectorIndex_45];
+  _16 = _14 | 12;
+  _15->CSC ={v} _16;
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 3> :
+  TimeoutTicks.7_17 = TimeoutTicks;
+  TimeoutOccurred_53 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.7_17);
+  _18 = Clock_Ip_apxCgm[Instance_44][SelectorIndex_45];
+  _19 ={v} _18->CSS;
+  _20 = _19 & 131072;
+  if (_20 == 131072)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  _21 = ~TimeoutOccurred_53;
+  if (_21 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  _22 = ~TimeoutOccurred_53;
+  if (_22 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 6> :
+  _23 = Clock_Ip_apxCgm[Instance_44][SelectorIndex_45];
+  RegValue_55 ={v} _23->CSC;
+  _24 = ~SelectorMask_47;
+  RegValue_56 = RegValue_55 & _24;
+  _25 = SelectorValue_46 << SelectorShift_48;
+  _26 = SelectorMask_47 & _25;
+  RegValue_57 = RegValue_56 | _26;
+  _27 = Clock_Ip_apxCgm[Instance_44][SelectorIndex_45];
+  _27->CSC ={v} RegValue_57;
+  _28 = Clock_Ip_apxCgm[Instance_44][SelectorIndex_45];
+  _29 ={v} _28->CSC;
+  _30 = Clock_Ip_apxCgm[Instance_44][SelectorIndex_45];
+  _31 = _29 & 4294967283;
+  _30->CSC ={v} _31;
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 7> :
+  TimeoutTicks.8_32 = TimeoutTicks;
+  TimeoutOccurred_62 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.8_32);
+  _33 = Clock_Ip_apxCgm[Instance_44][SelectorIndex_45];
+  _34 ={v} _33->CSS;
+  _35 = _34 & 131072;
+  if (_35 != 131072)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 8> :
+  _36 = ~TimeoutOccurred_62;
+  if (_36 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 9> :
+  if (TimeoutOccurred_62 != 0)
+    goto <bb 10>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 10> :
+  _37 = Config_43(D)->Name;
+  Clock_Ip_ReportClockErrors (3, _37);
+  goto <bb 12>; [INV]
+
+  <bb 11> :
+  _38 = Config_43(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _38);
+
+  <bb 12> :
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_ResetCgmXCscCssCsGrip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  uint32 RegValue;
+  uint32 SelectorShift;
+  uint32 SelectorMask;
+  uint32 SelectorResetValue;
+  uint32 SelectorIndex;
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  <unnamed type> _5;
+  unsigned char _6;
+  <unnamed type> _7;
+  unsigned char _8;
+  int _9;
+  <unnamed type> _10;
+  unsigned char _11;
+  int _12;
+  volatile struct Clock_Ip_CgmMuxType * _13;
+  long unsigned int _14;
+  volatile struct Clock_Ip_CgmMuxType * _15;
+  long unsigned int _16;
+  long unsigned int TimeoutTicks.6_17;
+  volatile struct Clock_Ip_CgmMuxType * _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  _Bool _21;
+  _Bool _22;
+  volatile struct Clock_Ip_CgmMuxType * _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  volatile struct Clock_Ip_CgmMuxType * _27;
+  volatile struct Clock_Ip_CgmMuxType * _28;
+  long unsigned int _29;
+  volatile struct Clock_Ip_CgmMuxType * _30;
+  long unsigned int _31;
+
+  <bb 2> :
+  _1 = Config_35(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_36 = (uint32) _2;
+  _3 = Config_35(D)->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex_37 = (uint32) _4;
+  _5 = Config_35(D)->Name;
+  _6 = Clock_Ip_au8SoftwareMuxResetValue[_5];
+  SelectorResetValue_38 = (uint32) _6;
+  _7 = Config_35(D)->Name;
+  _8 = Clock_Ip_au8ClockFeatures[_7][2];
+  _9 = (int) _8;
+  SelectorMask_39 = Clock_Ip_axFeatureExtensions[_9].SelectorValueMask;
+  _10 = Config_35(D)->Name;
+  _11 = Clock_Ip_au8ClockFeatures[_10][2];
+  _12 = (int) _11;
+  SelectorShift_40 = Clock_Ip_axFeatureExtensions[_12].SelectorValueShift;
+  TimeoutOccurred_41 = 0;
+  _13 = Clock_Ip_apxCgm[Instance_36][SelectorIndex_37];
+  _14 ={v} _13->CSC;
+  _15 = Clock_Ip_apxCgm[Instance_36][SelectorIndex_37];
+  _16 = _14 | 12;
+  _15->CSC ={v} _16;
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 3> :
+  TimeoutTicks.6_17 = TimeoutTicks;
+  TimeoutOccurred_45 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.6_17);
+  _18 = Clock_Ip_apxCgm[Instance_36][SelectorIndex_37];
+  _19 ={v} _18->CSS;
+  _20 = _19 & 131072;
+  if (_20 == 131072)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  _21 = ~TimeoutOccurred_45;
+  if (_21 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  _22 = ~TimeoutOccurred_45;
+  if (_22 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  _23 = Clock_Ip_apxCgm[Instance_36][SelectorIndex_37];
+  RegValue_46 ={v} _23->CSC;
+  _24 = ~SelectorMask_39;
+  RegValue_47 = RegValue_46 & _24;
+  _25 = SelectorResetValue_38 << SelectorShift_40;
+  _26 = SelectorMask_39 & _25;
+  RegValue_48 = RegValue_47 | _26;
+  _27 = Clock_Ip_apxCgm[Instance_36][SelectorIndex_37];
+  _27->CSC ={v} RegValue_48;
+  _28 = Clock_Ip_apxCgm[Instance_36][SelectorIndex_37];
+  _29 ={v} _28->CSC;
+  _30 = Clock_Ip_apxCgm[Instance_36][SelectorIndex_37];
+  _31 = _29 & 4294967283;
+  _30->CSC ={v} _31;
+
+  <bb 7> :
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  uint32 RegValue;
+  uint32 SelectorShift;
+  uint32 SelectorMask;
+  uint32 SelectorValue;
+  uint32 SelectorIndex;
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  <unnamed type> _5;
+  short unsigned int _6;
+  <unnamed type> _7;
+  unsigned char _8;
+  int _9;
+  <unnamed type> _10;
+  unsigned char _11;
+  int _12;
+  volatile struct Clock_Ip_CgmMuxType * _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int TimeoutTicks.3_17;
+  volatile struct Clock_Ip_CgmMuxType * _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  _Bool _21;
+  _Bool _22;
+  volatile struct Clock_Ip_CgmMuxType * _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  volatile struct Clock_Ip_CgmMuxType * _27;
+  long unsigned int TimeoutTicks.4_28;
+  volatile struct Clock_Ip_CgmMuxType * _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  _Bool _32;
+  _Bool _33;
+  long unsigned int TimeoutTicks.5_34;
+  volatile struct Clock_Ip_CgmMuxType * _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  _Bool _38;
+  _Bool _39;
+  volatile struct Clock_Ip_CgmMuxType * _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  <unnamed type> _44;
+  <unnamed type> _45;
+  <unnamed type> _46;
+  <unnamed type> _47;
+
+  <bb 2> :
+  _1 = Config_53(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_54 = (uint32) _2;
+  _3 = Config_53(D)->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex_55 = (uint32) _4;
+  _5 = Config_53(D)->Value;
+  _6 = Clock_Ip_au16SelectorEntryHardwareValue[_5];
+  SelectorValue_56 = (uint32) _6;
+  _7 = Config_53(D)->Name;
+  _8 = Clock_Ip_au8ClockFeatures[_7][2];
+  _9 = (int) _8;
+  SelectorMask_57 = Clock_Ip_axFeatureExtensions[_9].SelectorValueMask;
+  _10 = Config_53(D)->Name;
+  _11 = Clock_Ip_au8ClockFeatures[_10][2];
+  _12 = (int) _11;
+  SelectorShift_58 = Clock_Ip_axFeatureExtensions[_12].SelectorValueShift;
+  TimeoutOccurred_59 = 0;
+  _13 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _14 ={v} _13->CSS;
+  _15 = SelectorMask_57 & _14;
+  _16 = _15 >> SelectorShift_58;
+  if (SelectorValue_56 != _16)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 3> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 4> :
+  TimeoutTicks.3_17 = TimeoutTicks;
+  TimeoutOccurred_62 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.3_17);
+  _18 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _19 ={v} _18->CSS;
+  _20 = _19 & 65536;
+  if (_20 == 65536)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _21 = ~TimeoutOccurred_62;
+  if (_21 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  _22 = ~TimeoutOccurred_62;
+  if (_22 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 19>; [INV]
+
+  <bb 7> :
+  _23 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  RegValue_64 ={v} _23->CSC;
+  _24 = ~SelectorMask_57;
+  RegValue_65 = RegValue_64 & _24;
+  _25 = SelectorValue_56 << SelectorShift_58;
+  _26 = SelectorMask_57 & _25;
+  RegValue_66 = RegValue_65 | _26;
+  RegValue_67 = RegValue_66 | 7;
+  _27 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _27->CSC ={v} RegValue_67;
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 8> :
+  TimeoutTicks.4_28 = TimeoutTicks;
+  TimeoutOccurred_71 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.4_28);
+  _29 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _30 ={v} _29->CSS;
+  _31 = _30 & 4;
+  if (_31 == 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  _32 = ~TimeoutOccurred_71;
+  if (_32 != 0)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 10> :
+  _33 = ~TimeoutOccurred_71;
+  if (_33 != 0)
+    goto <bb 11>; [INV]
+  else
+    goto <bb 18>; [INV]
+
+  <bb 11> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 12> :
+  TimeoutTicks.5_34 = TimeoutTicks;
+  TimeoutOccurred_75 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.5_34);
+  _35 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _36 ={v} _35->CSS;
+  _37 = _36 & 65536;
+  if (_37 == 65536)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 13> :
+  _38 = ~TimeoutOccurred_75;
+  if (_38 != 0)
+    goto <bb 12>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 14> :
+  _39 = ~TimeoutOccurred_75;
+  if (_39 != 0)
+    goto <bb 15>; [INV]
+  else
+    goto <bb 17>; [INV]
+
+  <bb 15> :
+  _40 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _41 ={v} _40->CSS;
+  _42 = _41 >> 17;
+  _43 = _42 & 7;
+  if (_43 != 1)
+    goto <bb 16>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 16> :
+  _44 = Config_53(D)->Name;
+  Clock_Ip_ReportClockErrors (3, _44);
+  goto <bb 20>; [INV]
+
+  <bb 17> :
+  _45 = Config_53(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _45);
+  goto <bb 20>; [INV]
+
+  <bb 18> :
+  _46 = Config_53(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _46);
+  goto <bb 20>; [INV]
+
+  <bb 19> :
+  _47 = Config_53(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _47);
+
+  <bb 20> :
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 SelectorMask;
+  uint32 SelectorIndex;
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  <unnamed type> _5;
+  unsigned char _6;
+  int _7;
+  volatile struct Clock_Ip_CgmMuxType * _8;
+  long unsigned int _9;
+  volatile struct Clock_Ip_CgmMuxType * _10;
+  long unsigned int _11;
+  volatile struct Clock_Ip_CgmMuxType * _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  volatile struct Clock_Ip_CgmMuxType * _15;
+  long unsigned int _16;
+
+  <bb 2> :
+  _1 = Config_18(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_19 = (uint32) _2;
+  _3 = Config_18(D)->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex_20 = (uint32) _4;
+  _5 = Config_18(D)->Name;
+  _6 = Clock_Ip_au8ClockFeatures[_5][2];
+  _7 = (int) _6;
+  SelectorMask_21 = Clock_Ip_axFeatureExtensions[_7].SelectorValueMask;
+  _8 = Clock_Ip_apxCgm[Instance_19][SelectorIndex_20];
+  _9 ={v} _8->CSC;
+  _10 = Clock_Ip_apxCgm[Instance_19][SelectorIndex_20];
+  _11 = _9 | 8;
+  _10->CSC ={v} _11;
+  _12 = Clock_Ip_apxCgm[Instance_19][SelectorIndex_20];
+  _13 ={v} _12->CSC;
+  _14 = ~SelectorMask_21;
+  _15 = Clock_Ip_apxCgm[Instance_19][SelectorIndex_20];
+  _16 = _13 & _14;
+  _15->CSC ={v} _16;
+  return;
+
+}
+
+
+Clock_Ip_SetCgmXCscCssClkswSwip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  uint32 RegValue;
+  uint32 SelectorShift;
+  uint32 SelectorMask;
+  uint32 SelectorValue;
+  uint32 SelectorIndex;
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  <unnamed type> _5;
+  short unsigned int _6;
+  <unnamed type> _7;
+  unsigned char _8;
+  int _9;
+  <unnamed type> _10;
+  unsigned char _11;
+  int _12;
+  volatile struct Clock_Ip_CgmMuxType * _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int TimeoutTicks.0_17;
+  volatile struct Clock_Ip_CgmMuxType * _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  _Bool _21;
+  _Bool _22;
+  volatile struct Clock_Ip_CgmMuxType * _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  volatile struct Clock_Ip_CgmMuxType * _27;
+  long unsigned int TimeoutTicks.1_28;
+  volatile struct Clock_Ip_CgmMuxType * _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  _Bool _32;
+  _Bool _33;
+  long unsigned int TimeoutTicks.2_34;
+  volatile struct Clock_Ip_CgmMuxType * _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  _Bool _38;
+  _Bool _39;
+  volatile struct Clock_Ip_CgmMuxType * _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  <unnamed type> _44;
+  <unnamed type> _45;
+  <unnamed type> _46;
+  <unnamed type> _47;
+
+  <bb 2> :
+  _1 = Config_53(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_54 = (uint32) _2;
+  _3 = Config_53(D)->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex_55 = (uint32) _4;
+  _5 = Config_53(D)->Value;
+  _6 = Clock_Ip_au16SelectorEntryHardwareValue[_5];
+  SelectorValue_56 = (uint32) _6;
+  _7 = Config_53(D)->Name;
+  _8 = Clock_Ip_au8ClockFeatures[_7][2];
+  _9 = (int) _8;
+  SelectorMask_57 = Clock_Ip_axFeatureExtensions[_9].SelectorValueMask;
+  _10 = Config_53(D)->Name;
+  _11 = Clock_Ip_au8ClockFeatures[_10][2];
+  _12 = (int) _11;
+  SelectorShift_58 = Clock_Ip_axFeatureExtensions[_12].SelectorValueShift;
+  TimeoutOccurred_59 = 0;
+  _13 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _14 ={v} _13->CSS;
+  _15 = SelectorMask_57 & _14;
+  _16 = _15 >> SelectorShift_58;
+  if (SelectorValue_56 != _16)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 3> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 4> :
+  TimeoutTicks.0_17 = TimeoutTicks;
+  TimeoutOccurred_62 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.0_17);
+  _18 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _19 ={v} _18->CSS;
+  _20 = _19 & 65536;
+  if (_20 == 65536)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _21 = ~TimeoutOccurred_62;
+  if (_21 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  _22 = ~TimeoutOccurred_62;
+  if (_22 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 19>; [INV]
+
+  <bb 7> :
+  _23 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  RegValue_64 ={v} _23->CSC;
+  _24 = ~SelectorMask_57;
+  RegValue_65 = RegValue_64 & _24;
+  _25 = SelectorValue_56 << SelectorShift_58;
+  _26 = SelectorMask_57 & _25;
+  RegValue_66 = RegValue_65 | _26;
+  RegValue_67 = RegValue_66 | 4;
+  _27 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _27->CSC ={v} RegValue_67;
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 8> :
+  TimeoutTicks.1_28 = TimeoutTicks;
+  TimeoutOccurred_71 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.1_28);
+  _29 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _30 ={v} _29->CSS;
+  _31 = _30 & 4;
+  if (_31 == 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  _32 = ~TimeoutOccurred_71;
+  if (_32 != 0)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 10> :
+  _33 = ~TimeoutOccurred_71;
+  if (_33 != 0)
+    goto <bb 11>; [INV]
+  else
+    goto <bb 18>; [INV]
+
+  <bb 11> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 12> :
+  TimeoutTicks.2_34 = TimeoutTicks;
+  TimeoutOccurred_75 = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.2_34);
+  _35 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _36 ={v} _35->CSS;
+  _37 = _36 & 65536;
+  if (_37 == 65536)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 13> :
+  _38 = ~TimeoutOccurred_75;
+  if (_38 != 0)
+    goto <bb 12>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 14> :
+  _39 = ~TimeoutOccurred_75;
+  if (_39 != 0)
+    goto <bb 15>; [INV]
+  else
+    goto <bb 17>; [INV]
+
+  <bb 15> :
+  _40 = Clock_Ip_apxCgm[Instance_54][SelectorIndex_55];
+  _41 ={v} _40->CSS;
+  _42 = _41 >> 17;
+  _43 = _42 & 7;
+  if (_43 != 1)
+    goto <bb 16>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 16> :
+  _44 = Config_53(D)->Name;
+  Clock_Ip_ReportClockErrors (3, _44);
+  goto <bb 20>; [INV]
+
+  <bb 17> :
+  _45 = Config_53(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _45);
+  goto <bb 20>; [INV]
+
+  <bb 18> :
+  _46 = Config_53(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _46);
+  goto <bb 20>; [INV]
+
+  <bb 19> :
+  _47 = Config_53(D)->Name;
+  Clock_Ip_ReportClockErrors (1, _47);
+
+  <bb 20> :
+  StartTime ={v} {CLOBBER};
+  ElapsedTime ={v} {CLOBBER};
+  TimeoutTicks ={v} {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_ResetCgmXCscCssClkswSwip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 SelectorMask;
+  uint32 SelectorIndex;
+  uint32 Instance;
+  <unnamed type> _1;
+  unsigned char _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  <unnamed type> _5;
+  unsigned char _6;
+  int _7;
+  volatile struct Clock_Ip_CgmMuxType * _8;
+  long unsigned int _9;
+  volatile struct Clock_Ip_CgmMuxType * _10;
+  long unsigned int _11;
+  volatile struct Clock_Ip_CgmMuxType * _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  volatile struct Clock_Ip_CgmMuxType * _15;
+  long unsigned int _16;
+
+  <bb 2> :
+  _1 = Config_18(D)->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance_19 = (uint32) _2;
+  _3 = Config_18(D)->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex_20 = (uint32) _4;
+  _5 = Config_18(D)->Name;
+  _6 = Clock_Ip_au8ClockFeatures[_5][2];
+  _7 = (int) _6;
+  SelectorMask_21 = Clock_Ip_axFeatureExtensions[_7].SelectorValueMask;
+  _8 = Clock_Ip_apxCgm[Instance_19][SelectorIndex_20];
+  _9 ={v} _8->CSC;
+  _10 = Clock_Ip_apxCgm[Instance_19][SelectorIndex_20];
+  _11 = _9 | 8;
+  _10->CSC ={v} _11;
+  _12 = Clock_Ip_apxCgm[Instance_19][SelectorIndex_20];
+  _13 ={v} _12->CSC;
+  _14 = ~SelectorMask_21;
+  _15 = Clock_Ip_apxCgm[Instance_19][SelectorIndex_20];
+  _16 = _13 & _14;
+  _15->CSC ={v} _16;
+  return;
+
+}
+
+
+Clock_Ip_CallbackSelectorEmpty (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+

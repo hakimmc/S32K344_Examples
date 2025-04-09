@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : 
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -22,12 +23,7 @@
 ==================================================================================================*/
 
 /**
-*   @file    SchM_Port.c
-*   @version 3.0.0
-*
-*   @brief   AUTOSAR Rte - module implementation
-*   @details This module implements stubs for the AUTOSAR Rte
-*            This file contains sample code only. It is not part of the production code deliverables.
+*   @file
 *
 *   @addtogroup RTE_MODULE
 *   @{
@@ -55,9 +51,9 @@ extern "C"{
 *                               SOURCE FILE VERSION INFORMATION
 ==================================================================================================*/
 #define SCHM_PORT_AR_RELEASE_MAJOR_VERSION_C     4
-#define SCHM_PORT_AR_RELEASE_MINOR_VERSION_C     7
+#define SCHM_PORT_AR_RELEASE_MINOR_VERSION_C     4
 #define SCHM_PORT_AR_RELEASE_REVISION_VERSION_C  0
-#define SCHM_PORT_SW_MAJOR_VERSION_C             3
+#define SCHM_PORT_SW_MAJOR_VERSION_C             2
 #define SCHM_PORT_SW_MINOR_VERSION_C             0
 #define SCHM_PORT_SW_PATCH_VERSION_C             0
 
@@ -436,24 +432,22 @@ uint32 Port_schm_read_msr(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_00(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_00[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_00[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_00[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_00[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_00[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_00[u32CoreId]++;
 }
@@ -474,24 +468,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_00(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_01(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_01[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_01[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_01[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_01[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_01[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_01[u32CoreId]++;
 }
@@ -512,24 +504,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_01(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_02(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_02[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_02[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_02[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_02[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_02[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_02[u32CoreId]++;
 }
@@ -550,24 +540,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_02(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_03(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_03[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_03[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_03[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_03[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_03[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_03[u32CoreId]++;
 }
@@ -588,24 +576,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_03(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_04(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_04[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_04[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_04[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_04[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_04[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_04[u32CoreId]++;
 }
@@ -626,24 +612,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_04(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_05(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_05[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_05[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_05[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_05[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_05[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_05[u32CoreId]++;
 }
@@ -664,24 +648,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_05(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_06(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_06[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_06[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_06[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_06[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_06[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_06[u32CoreId]++;
 }
@@ -702,24 +684,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_06(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_07(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_07[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_07[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_07[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_07[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_07[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_07[u32CoreId]++;
 }
@@ -740,24 +720,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_07(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_08(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_08[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_08[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_08[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_08[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_08[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_08[u32CoreId]++;
 }
@@ -778,24 +756,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_08(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_09(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_09[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_09[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_09[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_09[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_09[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_09[u32CoreId]++;
 }
@@ -816,24 +792,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_09(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_10(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_10[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_10[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_10[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_10[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_10[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_10[u32CoreId]++;
 }
@@ -854,24 +828,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_10(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_11(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_11[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_11[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_11[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_11[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_11[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_11[u32CoreId]++;
 }
@@ -892,24 +864,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_11(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_12(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_12[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_12[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_12[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_12[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_12[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_12[u32CoreId]++;
 }
@@ -930,24 +900,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_12(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_13(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_13[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_13[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_13[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_13[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_13[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_13[u32CoreId]++;
 }
@@ -968,24 +936,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_13(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_14(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_14[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_14[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_14[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_14[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_14[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_14[u32CoreId]++;
 }
@@ -1006,24 +972,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_14(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_15(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_15[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_15[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_15[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_15[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_15[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_15[u32CoreId]++;
 }
@@ -1044,24 +1008,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_15(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_16(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_16[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_16[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_16[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_16[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_16[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_16[u32CoreId]++;
 }
@@ -1082,24 +1044,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_16(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_17(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_17[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_17[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_17[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_17[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_17[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_17[u32CoreId]++;
 }
@@ -1120,24 +1080,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_17(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_18(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_18[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_18[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_18[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_18[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_18[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_18[u32CoreId]++;
 }
@@ -1158,24 +1116,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_18(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_19(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_19[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_19[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_19[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_19[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_19[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_19[u32CoreId]++;
 }
@@ -1196,24 +1152,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_19(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_20(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_20[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_20[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_20[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_20[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_20[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_20[u32CoreId]++;
 }
@@ -1234,24 +1188,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_20(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_21(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_21[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_21[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_21[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_21[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_21[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_21[u32CoreId]++;
 }
@@ -1272,24 +1224,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_21(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_22(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_22[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_22[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_22[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_22[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_22[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_22[u32CoreId]++;
 }
@@ -1310,24 +1260,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_22(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_23(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_23[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_23[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_23[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_23[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_23[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_23[u32CoreId]++;
 }
@@ -1348,24 +1296,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_23(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_24(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_24[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_24[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_24[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_24[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_24[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_24[u32CoreId]++;
 }
@@ -1386,24 +1332,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_24(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_25(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_25[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_25[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_25[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_25[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_25[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_25[u32CoreId]++;
 }
@@ -1424,24 +1368,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_25(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_26(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_26[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_26[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_26[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_26[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_26[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_26[u32CoreId]++;
 }
@@ -1462,24 +1404,22 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_26(void)
 
 void SchM_Enter_Port_PORT_EXCLUSIVE_AREA_27(void)
 {
-    uint32 msr;
     uint32 u32CoreId = (uint32)OsIf_GetCoreID();
 
     if(0UL == reentry_guard_PORT_EXCLUSIVE_AREA_27[u32CoreId])
     {
 #if (defined MCAL_ENABLE_USER_MODE_SUPPORT)
-        msr = OsIf_Trusted_Call_Return(Port_schm_read_msr);
+        msr_PORT_EXCLUSIVE_AREA_27[u32CoreId] = OsIf_Trusted_Call_Return(Port_schm_read_msr);
 #else
-        msr = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
+        msr_PORT_EXCLUSIVE_AREA_27[u32CoreId] = Port_schm_read_msr();  /*read MSR (to store interrupts state)*/
 #endif /* MCAL_ENABLE_USER_MODE_SUPPORT */
-        if (ISR_ON(msr)) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
+        if (ISR_ON(msr_PORT_EXCLUSIVE_AREA_27[u32CoreId])) /*if MSR[EE] = 0, skip calling Suspend/Resume AllInterrupts*/
         {
             OsIf_SuspendAllInterrupts();
 #ifdef _ARM_DS5_C_S32K3XX_
             ASM_KEYWORD(" nop ");/* Compiler fix - forces the CSPID instruction to be generated with -02, -Ospace are selected*/
 #endif
         }
-        msr_PORT_EXCLUSIVE_AREA_27[u32CoreId] = msr;
     }
     reentry_guard_PORT_EXCLUSIVE_AREA_27[u32CoreId]++;
 }
@@ -1497,7 +1437,6 @@ void SchM_Exit_Port_PORT_EXCLUSIVE_AREA_27(void)
 #endif
     }
 }
-
 
 #ifdef MCAL_TESTING_ENVIRONMENT
 /** 

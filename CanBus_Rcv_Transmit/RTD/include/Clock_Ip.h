@@ -1,16 +1,17 @@
 /*==================================================================================================
-*   Project              : RTD AUTOSAR 4.7
+*   Project              : RTD AUTOSAR 4.4
 *   Platform             : CORTEXM
 *   Peripheral           : 
 *   Dependencies         : none
 *
-*   Autosar Version      : 4.7.0
-*   Autosar Revision     : ASR_REL_4_7_REV_0000
+*   Autosar Version      : 4.4.0
+*   Autosar Revision     : ASR_REL_4_4_REV_0000
 *   Autosar Conf.Variant :
-*   SW Version           : 3.0.0
-*   Build Version        : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+*   SW Version           : 2.0.0
+*   Build Version        : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-*   Copyright 2020 - 2023 NXP Semiconductors
+*   (c) Copyright 2020 - 2022 NXP Semiconductors
+*   All Rights Reserved.
 *
 *   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
@@ -26,7 +27,7 @@
 
 /**
 *   @file    Clock_Ip.h
-*   @version    3.0.0
+*   @version    2.0.0
 *
 *   @brief   CLOCK IP driver header file.
 *   @details CLOCK IP driver header file.
@@ -53,9 +54,9 @@ extern "C"{
 ==================================================================================================*/
 #define CLOCK_IP_VENDOR_ID                       43
 #define CLOCK_IP_AR_RELEASE_MAJOR_VERSION        4
-#define CLOCK_IP_AR_RELEASE_MINOR_VERSION        7
+#define CLOCK_IP_AR_RELEASE_MINOR_VERSION        4
 #define CLOCK_IP_AR_RELEASE_REVISION_VERSION     0
-#define CLOCK_IP_SW_MAJOR_VERSION                3
+#define CLOCK_IP_SW_MAJOR_VERSION                2
 #define CLOCK_IP_SW_MINOR_VERSION                0
 #define CLOCK_IP_SW_PATCH_VERSION                0
 
@@ -202,10 +203,31 @@ void Clock_Ip_DistributePll(void);
  * @param[in] Clock_Ip_NotificationsCallbackType  notifications callback
  *
  * @return void
- *
- * @implements Clock_Ip_InstallNotificationsCallback_Activity
  */
 void Clock_Ip_InstallNotificationsCallback(Clock_Ip_NotificationsCallbackType Callback);
+
+/*!
+ * @brief Clears status flags for a monitor clock.
+ *
+ * This function clears status flags for a monitor clock.
+ *
+ * @param[in] ClockName  Clock Name.
+ *
+ * @return void
+ */
+void Clock_Ip_ClearClockMonitorStatus(Clock_Ip_NameType ClockName);
+
+/*!
+ * @brief Returns the clock monitor status.
+ *
+ * This function returns status of the clock monitor: undefined, lower, higher, in range.
+ * This function returns undefined status if this function is called when corresponding
+ * cmu is not enabled.
+ *
+ * @return Status.  Cmu status
+ */
+Clock_Ip_CmuStatusType Clock_Ip_GetClockMonitorStatus(Clock_Ip_NameType ClockName);
+
 /*!
  * @brief Disables a clock monitor.
  *
@@ -216,6 +238,7 @@ void Clock_Ip_InstallNotificationsCallback(Clock_Ip_NotificationsCallbackType Ca
  * @return void
  */
 void Clock_Ip_DisableClockMonitor(Clock_Ip_NameType ClockName);
+
 /*!
  * @brief Disables clock for a peripheral.
  *

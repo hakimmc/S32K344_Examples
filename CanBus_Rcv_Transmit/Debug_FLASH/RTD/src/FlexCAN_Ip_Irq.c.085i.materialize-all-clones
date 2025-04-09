@@ -1,0 +1,144 @@
+CAN5_ORED_0_31_MB_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_IRQHandler (5, 0, 31, 0);
+  return;
+
+}
+
+
+CAN5_ORED_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_Busoff_Error_IRQHandler (5);
+  return;
+
+}
+
+
+CAN4_ORED_0_31_MB_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_IRQHandler (4, 0, 31, 0);
+  return;
+
+}
+
+
+CAN4_ORED_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_Busoff_Error_IRQHandler (4);
+  return;
+
+}
+
+
+CAN3_ORED_0_31_MB_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_IRQHandler (3, 0, 31, 0);
+  return;
+
+}
+
+
+CAN3_ORED_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_Busoff_Error_IRQHandler (3);
+  return;
+
+}
+
+
+CAN2_ORED_32_63_MB_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_IRQHandler (2, 32, 63, 0);
+  return;
+
+}
+
+
+CAN2_ORED_0_31_MB_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_IRQHandler (2, 0, 31, 0);
+  return;
+
+}
+
+
+CAN2_ORED_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_Busoff_Error_IRQHandler (2);
+  return;
+
+}
+
+
+CAN1_ORED_32_63_MB_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_IRQHandler (1, 32, 63, 0);
+  return;
+
+}
+
+
+CAN1_ORED_0_31_MB_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_IRQHandler (1, 0, 31, 0);
+  return;
+
+}
+
+
+CAN1_ORED_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_Busoff_Error_IRQHandler (1);
+  return;
+
+}
+
+
+CAN0_ORED_64_95_MB_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_IRQHandler (0, 64, 95, 0);
+  return;
+
+}
+
+
+CAN0_ORED_32_63_MB_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_IRQHandler (0, 32, 63, 0);
+  return;
+
+}
+
+
+CAN0_ORED_0_31_MB_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_IRQHandler (0, 0, 31, 1);
+  return;
+
+}
+
+
+CAN0_ORED_IRQHandler ()
+{
+  <bb 2> :
+  FlexCAN_Busoff_Error_IRQHandler (0);
+  return;
+
+}
+
+

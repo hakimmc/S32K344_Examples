@@ -1,16 +1,17 @@
 /*==================================================================================================
-* Project : RTD AUTOSAR 4.7
+* Project : RTD AUTOSAR 4.4
 * Platform : CORTEXM
 * Peripheral : S32K3XX
 * Dependencies : none
 *
-* Autosar Version : 4.7.0
-* Autosar Revision : ASR_REL_4_7_REV_0000
+* Autosar Version : 4.4.0
+* Autosar Revision : ASR_REL_4_4_REV_0000
 * Autosar Conf.Variant :
-* SW Version : 3.0.0
-* Build Version : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+* SW Version : 2.0.0
+* Build Version : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-* Copyright 2020 - 2023 NXP Semiconductors.
+* (c) Copyright 2020 - 2022 NXP Semiconductors
+* All Rights Reserved.
 *
 * NXP Confidential. This software is owned or controlled by NXP and may only be
 * used strictly in accordance with the applicable license terms. By expressly
@@ -42,16 +43,16 @@ extern "C"{
 #include "OsIf_Interrupts.h"
 
 #if defined(USING_OS_ZEPHYR)
-#include <zephyr/kernel.h>
+#include "zephyr.h"
 
 /*==================================================================================================
 *                                 SOURCE FILE VERSION INFORMATION
 ==================================================================================================*/
 #define OSIF_INTERRUPTS_VENDOR_ID_C                    43
 #define OSIF_INTERRUPTS_AR_RELEASE_MAJOR_VERSION_C     4
-#define OSIF_INTERRUPTS_AR_RELEASE_MINOR_VERSION_C     7
+#define OSIF_INTERRUPTS_AR_RELEASE_MINOR_VERSION_C     4
 #define OSIF_INTERRUPTS_AR_RELEASE_REVISION_VERSION_C  0
-#define OSIF_INTERRUPTS_SW_MAJOR_VERSION_C             3
+#define OSIF_INTERRUPTS_SW_MAJOR_VERSION_C             2
 #define OSIF_INTERRUPTS_SW_MINOR_VERSION_C             0
 #define OSIF_INTERRUPTS_SW_PATCH_VERSION_C             0
 
@@ -109,14 +110,14 @@ extern "C"{
 /*==================================================================================================
 *                                         LOCAL VARIABLES
 ==================================================================================================*/
-#define BASENXP_START_SEC_VAR_CLEARED_32
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_VAR_CLEARED_32
+#include "Base_MemMap.h"
 
 static uint32 OsIf_au32OldIrqMask[OSIF_MAX_COREIDX_SUPPORTED];
 static uint32 OsIf_au32SuspendLevel[OSIF_MAX_COREIDX_SUPPORTED];
 
-#define BASENXP_STOP_SEC_VAR_CLEARED_32
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_VAR_CLEARED_32
+#include "Base_MemMap.h"
 
 /*==================================================================================================
 *                                        GLOBAL CONSTANTS
@@ -137,8 +138,8 @@ static uint32 OsIf_au32SuspendLevel[OSIF_MAX_COREIDX_SUPPORTED];
 /*==================================================================================================
 *                                        GLOBAL FUNCTIONS
 ==================================================================================================*/
-#define BASENXP_START_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_CODE
+#include "Base_MemMap.h"
 
 void OsIf_Interrupts_SuspendAllInterrupts(void)
 {
@@ -160,8 +161,8 @@ void OsIf_Interrupts_ResumeAllInterrupts(void)
     }
 }
 
-#define BASENXP_STOP_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_CODE
+#include "Base_MemMap.h"
 
 #endif /* defined(USING_OS_ZEPHYR) */
 

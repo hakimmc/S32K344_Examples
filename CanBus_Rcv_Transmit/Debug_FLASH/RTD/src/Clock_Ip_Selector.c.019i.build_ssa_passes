@@ -1,0 +1,663 @@
+Clock_Ip_SetRtcRtccClksel_TrustedCall (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 SelectorValue;
+  uint32 RegValue;
+
+  <bb 2> :
+  _1 = Config->Value;
+  _2 = Clock_Ip_au16SelectorEntryRtcHardwareValue[_1];
+  SelectorValue = (uint32) _2;
+  _3 = 1076396032B;
+  RegValue = _3->RTCC;
+  RegValue = RegValue & 4294955007;
+  _4 = SelectorValue << 12;
+  _5 = _4 & 12288;
+  RegValue = RegValue | _5;
+  _6 = 1076396032B;
+  _6->RTCC = RegValue;
+  return;
+
+}
+
+
+Clock_Ip_SetRtcRtccClksel (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  <bb 2> :
+  Clock_Ip_SetRtcRtccClksel_TrustedCall (Config);
+  return;
+
+}
+
+
+Clock_Ip_SetCgmXCscCssCsGrip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  uint32 RegValue;
+  uint32 SelectorShift;
+  uint32 SelectorMask;
+  uint32 SelectorValue;
+  uint32 SelectorIndex;
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex = (uint32) _4;
+  _5 = Config->Value;
+  _6 = Clock_Ip_au16SelectorEntryHardwareValue[_5];
+  SelectorValue = (uint32) _6;
+  _7 = Config->Name;
+  _8 = Clock_Ip_au8ClockFeatures[_7][2];
+  _9 = (int) _8;
+  SelectorMask = Clock_Ip_axFeatureExtensions[_9].SelectorValueMask;
+  _10 = Config->Name;
+  _11 = Clock_Ip_au8ClockFeatures[_10][2];
+  _12 = (int) _11;
+  SelectorShift = Clock_Ip_axFeatureExtensions[_12].SelectorValueShift;
+  TimeoutOccurred = 0;
+  _13 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _14 = _13->CSC;
+  _15 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _16 = _14 | 12;
+  _15->CSC = _16;
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 3> :
+  TimeoutTicks.7_17 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.7_17);
+  _18 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _19 = _18->CSS;
+  _20 = _19 & 131072;
+  if (_20 == 131072)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  _21 = ~TimeoutOccurred;
+  if (_21 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  _22 = ~TimeoutOccurred;
+  if (_22 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 11>; [INV]
+
+  <bb 6> :
+  _23 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  RegValue = _23->CSC;
+  _24 = ~SelectorMask;
+  RegValue = RegValue & _24;
+  _25 = SelectorValue << SelectorShift;
+  _26 = SelectorMask & _25;
+  RegValue = RegValue | _26;
+  _27 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _27->CSC = RegValue;
+  _28 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _29 = _28->CSC;
+  _30 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _31 = _29 & 4294967283;
+  _30->CSC = _31;
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 7> :
+  TimeoutTicks.8_32 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.8_32);
+  _33 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _34 = _33->CSS;
+  _35 = _34 & 131072;
+  if (_35 != 131072)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 8> :
+  _36 = ~TimeoutOccurred;
+  if (_36 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 9> :
+  if (TimeoutOccurred != 0)
+    goto <bb 10>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 10> :
+  _37 = Config->Name;
+  Clock_Ip_ReportClockErrors (3, _37);
+  goto <bb 12>; [INV]
+
+  <bb 11> :
+  _38 = Config->Name;
+  Clock_Ip_ReportClockErrors (1, _38);
+
+  <bb 12> :
+  StartTime = {CLOBBER};
+  ElapsedTime = {CLOBBER};
+  TimeoutTicks = {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_ResetCgmXCscCssCsGrip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  uint32 RegValue;
+  uint32 SelectorShift;
+  uint32 SelectorMask;
+  uint32 SelectorResetValue;
+  uint32 SelectorIndex;
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex = (uint32) _4;
+  _5 = Config->Name;
+  _6 = Clock_Ip_au8SoftwareMuxResetValue[_5];
+  SelectorResetValue = (uint32) _6;
+  _7 = Config->Name;
+  _8 = Clock_Ip_au8ClockFeatures[_7][2];
+  _9 = (int) _8;
+  SelectorMask = Clock_Ip_axFeatureExtensions[_9].SelectorValueMask;
+  _10 = Config->Name;
+  _11 = Clock_Ip_au8ClockFeatures[_10][2];
+  _12 = (int) _11;
+  SelectorShift = Clock_Ip_axFeatureExtensions[_12].SelectorValueShift;
+  TimeoutOccurred = 0;
+  _13 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _14 = _13->CSC;
+  _15 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _16 = _14 | 12;
+  _15->CSC = _16;
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 3> :
+  TimeoutTicks.6_17 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.6_17);
+  _18 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _19 = _18->CSS;
+  _20 = _19 & 131072;
+  if (_20 == 131072)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  _21 = ~TimeoutOccurred;
+  if (_21 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  _22 = ~TimeoutOccurred;
+  if (_22 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  _23 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  RegValue = _23->CSC;
+  _24 = ~SelectorMask;
+  RegValue = RegValue & _24;
+  _25 = SelectorResetValue << SelectorShift;
+  _26 = SelectorMask & _25;
+  RegValue = RegValue | _26;
+  _27 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _27->CSC = RegValue;
+  _28 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _29 = _28->CSC;
+  _30 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _31 = _29 & 4294967283;
+  _30->CSC = _31;
+
+  <bb 7> :
+  StartTime = {CLOBBER};
+  ElapsedTime = {CLOBBER};
+  TimeoutTicks = {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_SetCgmXCscCssClkswRampupRampdownSwip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  uint32 RegValue;
+  uint32 SelectorShift;
+  uint32 SelectorMask;
+  uint32 SelectorValue;
+  uint32 SelectorIndex;
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex = (uint32) _4;
+  _5 = Config->Value;
+  _6 = Clock_Ip_au16SelectorEntryHardwareValue[_5];
+  SelectorValue = (uint32) _6;
+  _7 = Config->Name;
+  _8 = Clock_Ip_au8ClockFeatures[_7][2];
+  _9 = (int) _8;
+  SelectorMask = Clock_Ip_axFeatureExtensions[_9].SelectorValueMask;
+  _10 = Config->Name;
+  _11 = Clock_Ip_au8ClockFeatures[_10][2];
+  _12 = (int) _11;
+  SelectorShift = Clock_Ip_axFeatureExtensions[_12].SelectorValueShift;
+  TimeoutOccurred = 0;
+  _13 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _14 = _13->CSS;
+  _15 = SelectorMask & _14;
+  _16 = _15 >> SelectorShift;
+  if (SelectorValue != _16)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 3> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 4> :
+  TimeoutTicks.3_17 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.3_17);
+  _18 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _19 = _18->CSS;
+  _20 = _19 & 65536;
+  if (_20 == 65536)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _21 = ~TimeoutOccurred;
+  if (_21 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  _22 = ~TimeoutOccurred;
+  if (_22 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 19>; [INV]
+
+  <bb 7> :
+  _23 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  RegValue = _23->CSC;
+  _24 = ~SelectorMask;
+  RegValue = RegValue & _24;
+  _25 = SelectorValue << SelectorShift;
+  _26 = SelectorMask & _25;
+  RegValue = RegValue | _26;
+  RegValue = RegValue | 7;
+  _27 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _27->CSC = RegValue;
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 8> :
+  TimeoutTicks.4_28 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.4_28);
+  _29 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _30 = _29->CSS;
+  _31 = _30 & 4;
+  if (_31 == 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  _32 = ~TimeoutOccurred;
+  if (_32 != 0)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 10> :
+  _33 = ~TimeoutOccurred;
+  if (_33 != 0)
+    goto <bb 11>; [INV]
+  else
+    goto <bb 18>; [INV]
+
+  <bb 11> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 12> :
+  TimeoutTicks.5_34 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.5_34);
+  _35 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _36 = _35->CSS;
+  _37 = _36 & 65536;
+  if (_37 == 65536)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 13> :
+  _38 = ~TimeoutOccurred;
+  if (_38 != 0)
+    goto <bb 12>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 14> :
+  _39 = ~TimeoutOccurred;
+  if (_39 != 0)
+    goto <bb 15>; [INV]
+  else
+    goto <bb 17>; [INV]
+
+  <bb 15> :
+  _40 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _41 = _40->CSS;
+  _42 = _41 >> 17;
+  _43 = _42 & 7;
+  if (_43 != 1)
+    goto <bb 16>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 16> :
+  _44 = Config->Name;
+  Clock_Ip_ReportClockErrors (3, _44);
+  goto <bb 20>; [INV]
+
+  <bb 17> :
+  _45 = Config->Name;
+  Clock_Ip_ReportClockErrors (1, _45);
+  goto <bb 20>; [INV]
+
+  <bb 18> :
+  _46 = Config->Name;
+  Clock_Ip_ReportClockErrors (1, _46);
+  goto <bb 20>; [INV]
+
+  <bb 19> :
+  _47 = Config->Name;
+  Clock_Ip_ReportClockErrors (1, _47);
+
+  <bb 20> :
+  StartTime = {CLOBBER};
+  ElapsedTime = {CLOBBER};
+  TimeoutTicks = {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_ResetCgmXCscCssClkswRampupRampdownSwip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 SelectorMask;
+  uint32 SelectorIndex;
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex = (uint32) _4;
+  _5 = Config->Name;
+  _6 = Clock_Ip_au8ClockFeatures[_5][2];
+  _7 = (int) _6;
+  SelectorMask = Clock_Ip_axFeatureExtensions[_7].SelectorValueMask;
+  _8 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _9 = _8->CSC;
+  _10 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _11 = _9 | 8;
+  _10->CSC = _11;
+  _12 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _13 = _12->CSC;
+  _14 = ~SelectorMask;
+  _15 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _16 = _13 & _14;
+  _15->CSC = _16;
+  return;
+
+}
+
+
+Clock_Ip_SetCgmXCscCssClkswSwip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  uint32 RegValue;
+  uint32 SelectorShift;
+  uint32 SelectorMask;
+  uint32 SelectorValue;
+  uint32 SelectorIndex;
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex = (uint32) _4;
+  _5 = Config->Value;
+  _6 = Clock_Ip_au16SelectorEntryHardwareValue[_5];
+  SelectorValue = (uint32) _6;
+  _7 = Config->Name;
+  _8 = Clock_Ip_au8ClockFeatures[_7][2];
+  _9 = (int) _8;
+  SelectorMask = Clock_Ip_axFeatureExtensions[_9].SelectorValueMask;
+  _10 = Config->Name;
+  _11 = Clock_Ip_au8ClockFeatures[_10][2];
+  _12 = (int) _11;
+  SelectorShift = Clock_Ip_axFeatureExtensions[_12].SelectorValueShift;
+  TimeoutOccurred = 0;
+  _13 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _14 = _13->CSS;
+  _15 = SelectorMask & _14;
+  _16 = _15 >> SelectorShift;
+  if (SelectorValue != _16)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 3> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 4> :
+  TimeoutTicks.0_17 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.0_17);
+  _18 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _19 = _18->CSS;
+  _20 = _19 & 65536;
+  if (_20 == 65536)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _21 = ~TimeoutOccurred;
+  if (_21 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  _22 = ~TimeoutOccurred;
+  if (_22 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 19>; [INV]
+
+  <bb 7> :
+  _23 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  RegValue = _23->CSC;
+  _24 = ~SelectorMask;
+  RegValue = RegValue & _24;
+  _25 = SelectorValue << SelectorShift;
+  _26 = SelectorMask & _25;
+  RegValue = RegValue | _26;
+  RegValue = RegValue | 4;
+  _27 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _27->CSC = RegValue;
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 8> :
+  TimeoutTicks.1_28 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.1_28);
+  _29 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _30 = _29->CSS;
+  _31 = _30 & 4;
+  if (_31 == 0)
+    goto <bb 9>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 9> :
+  _32 = ~TimeoutOccurred;
+  if (_32 != 0)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 10> :
+  _33 = ~TimeoutOccurred;
+  if (_33 != 0)
+    goto <bb 11>; [INV]
+  else
+    goto <bb 18>; [INV]
+
+  <bb 11> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 12> :
+  TimeoutTicks.2_34 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.2_34);
+  _35 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _36 = _35->CSS;
+  _37 = _36 & 65536;
+  if (_37 == 65536)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 13> :
+  _38 = ~TimeoutOccurred;
+  if (_38 != 0)
+    goto <bb 12>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 14> :
+  _39 = ~TimeoutOccurred;
+  if (_39 != 0)
+    goto <bb 15>; [INV]
+  else
+    goto <bb 17>; [INV]
+
+  <bb 15> :
+  _40 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _41 = _40->CSS;
+  _42 = _41 >> 17;
+  _43 = _42 & 7;
+  if (_43 != 1)
+    goto <bb 16>; [INV]
+  else
+    goto <bb 20>; [INV]
+
+  <bb 16> :
+  _44 = Config->Name;
+  Clock_Ip_ReportClockErrors (3, _44);
+  goto <bb 20>; [INV]
+
+  <bb 17> :
+  _45 = Config->Name;
+  Clock_Ip_ReportClockErrors (1, _45);
+  goto <bb 20>; [INV]
+
+  <bb 18> :
+  _46 = Config->Name;
+  Clock_Ip_ReportClockErrors (1, _46);
+  goto <bb 20>; [INV]
+
+  <bb 19> :
+  _47 = Config->Name;
+  Clock_Ip_ReportClockErrors (1, _47);
+
+  <bb 20> :
+  StartTime = {CLOBBER};
+  ElapsedTime = {CLOBBER};
+  TimeoutTicks = {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_ResetCgmXCscCssClkswSwip (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  uint32 SelectorMask;
+  uint32 SelectorIndex;
+  uint32 Instance;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][0];
+  Instance = (uint32) _2;
+  _3 = Config->Name;
+  _4 = Clock_Ip_au8ClockFeatures[_3][4];
+  SelectorIndex = (uint32) _4;
+  _5 = Config->Name;
+  _6 = Clock_Ip_au8ClockFeatures[_5][2];
+  _7 = (int) _6;
+  SelectorMask = Clock_Ip_axFeatureExtensions[_7].SelectorValueMask;
+  _8 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _9 = _8->CSC;
+  _10 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _11 = _9 | 8;
+  _10->CSC = _11;
+  _12 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _13 = _12->CSC;
+  _14 = ~SelectorMask;
+  _15 = Clock_Ip_apxCgm[Instance][SelectorIndex];
+  _16 = _13 & _14;
+  _15->CSC = _16;
+  return;
+
+}
+
+
+Clock_Ip_CallbackSelectorEmpty (const struct Clock_Ip_SelectorConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+

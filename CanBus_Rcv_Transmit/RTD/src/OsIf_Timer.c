@@ -1,16 +1,16 @@
 /*==================================================================================================
-* Project : RTD AUTOSAR 4.7
+* Project : RTD AUTOSAR 4.4
 * Platform : CORTEXM
 * Peripheral : S32K3XX
 * Dependencies : none
 *
-* Autosar Version : 4.7.0
-* Autosar Revision : ASR_REL_4_7_REV_0000
+* Autosar Version : 4.4.0
+* Autosar Revision : ASR_REL_4_4_REV_0000
 * Autosar Conf.Variant :
-* SW Version : 3.0.0
-* Build Version : S32K3_RTD_3_0_0_D2303_ASR_REL_4_7_REV_0000_20230331
+* SW Version : 2.0.0
+* Build Version : S32K3_RTD_2_0_0_D2203_ASR_REL_4_4_REV_0000_20220331
 *
-* Copyright 2020 - 2023 NXP Semiconductors
+* (c) Copyright 2020 - 2022 NXP Semiconductors
 * All Rights Reserved.
 *
 * NXP Confidential. This software is owned or controlled by NXP and may only be
@@ -58,9 +58,9 @@ extern "C"{
 ==================================================================================================*/
 #define OSIF_TIMER_VENDOR_ID_C                    43
 #define OSIF_TIMER_AR_RELEASE_MAJOR_VERSION_C     4
-#define OSIF_TIMER_AR_RELEASE_MINOR_VERSION_C     7
+#define OSIF_TIMER_AR_RELEASE_MINOR_VERSION_C     4
 #define OSIF_TIMER_AR_RELEASE_REVISION_VERSION_C  0
-#define OSIF_TIMER_SW_MAJOR_VERSION_C             3
+#define OSIF_TIMER_SW_MAJOR_VERSION_C             2
 #define OSIF_TIMER_SW_MINOR_VERSION_C             0
 #define OSIF_TIMER_SW_PATCH_VERSION_C             0
 
@@ -178,21 +178,21 @@ extern "C"{
 /*==================================================================================================
 *                                    LOCAL FUNCTION PROTOTYPES
 ==================================================================================================*/
-#define BASENXP_START_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_CODE
+#include "Base_MemMap.h"
 
 static inline uint32 OsIf_Timer_Dummy_GetCounter(void);
 static inline uint32 OsIf_Timer_Dummy_GetElapsed(const uint32 * const CurrentRef);
 static inline void OsIf_Timer_Dummy_SetTimerFrequency(uint32 Freq);
 static inline uint32 OsIf_Timer_Dummy_MicrosToTicks(uint32 Micros);
 
-#define BASENXP_STOP_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_CODE
+#include "Base_MemMap.h"
 /*==================================================================================================
 *                                         LOCAL FUNCTIONS
 ==================================================================================================*/
-#define BASENXP_START_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_CODE
+#include "Base_MemMap.h"
 
 /* OsIf_Timer_Dummy_GetCounter_Activity */
 static inline uint32 OsIf_Timer_Dummy_GetCounter(void)
@@ -219,13 +219,13 @@ static inline uint32 OsIf_Timer_Dummy_MicrosToTicks(uint32 Micros)
     return Micros;
 }
 
-#define BASENXP_STOP_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_CODE
+#include "Base_MemMap.h"
 /*==================================================================================================
 *                                        GLOBAL FUNCTIONS
 ==================================================================================================*/
-#define BASENXP_START_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_START_SEC_CODE
+#include "Base_MemMap.h"
 
 /* @implements OsIf_Init_Activity */
 void OsIf_Init(const void* Config)
@@ -344,8 +344,8 @@ uint32 OsIf_MicrosToTicks(uint32 Micros, OsIf_CounterType SelectedCounter)
     return Value;
 }
 
-#define BASENXP_STOP_SEC_CODE
-#include "BaseNXP_MemMap.h"
+#define BASE_STOP_SEC_CODE
+#include "Base_MemMap.h"
 
 #ifdef __cplusplus
 }

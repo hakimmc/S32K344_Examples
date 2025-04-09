@@ -1,0 +1,43 @@
+1. Example Description
+        This is an FlexCAN IP driver component LoopBack example.
+        
+    1.1 The application software functionality
+            Using Clock_Ip_Init it initializes the clock sources, the clock tree and to configures the clock gating of the peripherals. The clock configuration that is used will enable and use the PLL as source clock.
+            With IntCtrl_Ip_Init it initializes the interrupt controller and it applies the interrupt configuration according to the Platform configuration. The interrupt handlers are mapped using calls of  IntCtrl_Ip_InstallHandler. The application will register CAN0_ORED_0_7_MB_IRQHandler ISR handler and will configure for loopback the FlexCAN0.
+            Application then will send through ISR and receive as polling, 1 CAN Frame in loopback !
+            
+2. Installation steps
+    2.1 Hardware installation
+        2.1.1 Supported boards
+           - EVB: S32K3X4EVB-Q257 47827 PCB RevX1 SCH RevA
+           - EVB: S32K3XXEVB-Q172 51972 PCB RevA SCH RevA
+        2.1.2 Connections
+            No special wiring connections are needed for this example.
+        2.1.3 Debugger
+            - For S32K3X4EVB-Q257 47827 PCB RevX1 SCH RevA:
+                - The debugger must be connected to J365 20-pin JTAG Cortex Debug connector.
+            - For S32K3XXEVB-Q172 51972 PCB RevA  SCH RevA:
+                - The debugger must be connected to J12 20-pin Cortex Debug D ETM connector.
+    2.2 Software installation
+        2.2.1 Importing the S32 Design Studio project
+            After opening S32 Design Studio, go to "File -> New -> S32DS Project From Example" and select this example. Then click on "Finish".
+            The project should now be copied into you current workspace.
+         
+3. Generating, building and running the example application
+    3.1 Generating the S32 configuration
+        Before running the example a configuration needs to be generated.  First go to Project Explorer View in S32 DS and select the current project. Select the "S32 Configuration Tool" menu then click on the desired configuration tool (Pins, Cocks, Peripherals etc...). Clicking on any one of those will generate all the components. Make the desired changes(if any) then click on the "S32 Configuration Tool->Update Code" button.
+    3.2 Compiling the application
+        Select the configuration to be built: RAM (Debug_RAM) or FLASH (Debug_FLASH) by left clicking on the downward arrow corresponding to the build button in eclipse. 
+        Use Project > Build to build the project.
+        Wait for the build action to be completed before continuing to the next step. Check the compiler console for error messages; upon completion, the *.elf binary file
+        should be created.
+    3.2 Running the application on the board
+        Go to Run and select Debug Configurations. There will be a debug configuration for this project:
+        
+        Configuration Name                                  Description
+        -------------------------------                     -----------------------
+        FlexCAN_Ip_Example_S32K344_Debug_FLASH_PNE          Debug the FLASH configuration using PE Micro Debugger
+        FlexCAN_Ip_Example_S32K344_Debug_RAM_PNE            Debug the RAM configuration using PE Micro Debugger
+        
+        Select the desired debug configuration and click on Launch. Now the perspective will change to the Debug Perspective.
+        Use the controls to control the program flow.

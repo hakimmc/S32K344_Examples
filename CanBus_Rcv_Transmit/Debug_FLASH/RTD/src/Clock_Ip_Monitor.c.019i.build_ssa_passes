@@ -1,0 +1,452 @@
+Clock_Ip_CMU_ClockFailInt ()
+{
+  uint32 IndexCmu;
+  uint32 CmuIsrValue;
+  uint32 CmuIerValue;
+
+  <bb 2> :
+  IndexCmu = 0;
+  goto <bb 7>; [INV]
+
+  <bb 3> :
+  _1 = Clock_Ip_apxCmu[IndexCmu];
+  _2 = _1->SR;
+  CmuIsrValue = _2 & 3;
+  _3 = Clock_Ip_apxCmu[IndexCmu];
+  _3->SR = CmuIsrValue;
+  Clock_Ip_pxConfig.3_4 = Clock_Ip_pxConfig;
+  if (Clock_Ip_pxConfig.3_4 != 0B)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 4> :
+  _5 = Clock_Ip_apxCmu[IndexCmu];
+  _6 = _5->IER;
+  CmuIerValue = _6 & 3;
+  CmuIsrValue = CmuIsrValue & CmuIerValue;
+  if (CmuIsrValue != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _7 = Clock_Ip_aeCmuNames[IndexCmu];
+  Clock_Ip_ReportClockErrors (0, _7);
+
+  <bb 6> :
+  IndexCmu = IndexCmu + 1;
+
+  <bb 7> :
+  if (IndexCmu <= 3)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 8> :
+  return;
+
+}
+
+
+Clock_Ip_CMU_GetInterruptStatus (uint8 IndexCmu)
+{
+  uint32 CmuIsrValue;
+  uint32 D.6723;
+
+  <bb 2> :
+  _1 = (int) IndexCmu;
+  _2 = Clock_Ip_apxCmu[_1];
+  _3 = _2->SR;
+  CmuIsrValue = _3 & 3;
+  D.6723 = CmuIsrValue;
+
+  <bb 3> :
+<L0>:
+  return D.6723;
+
+}
+
+
+Clock_Ip_EnableCmuFcFceRefCntLfrefHfref (const struct Clock_Ip_CmuConfigType * Config)
+{
+  struct Clock_Ip_ClockMonitorType * const CmuFc;
+  const struct Clock_Ip_CmuInfoType * CmuInformation;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][8];
+  _3 = (int) _2;
+  CmuInformation = &Clock_Ip_axCmuInfo[_3];
+  CmuFc = CmuInformation->CmuInstance;
+  _4 = Config->Enable;
+  if (_4 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _5 = CmuFc->GCR;
+  _6 = _5 | 1;
+  CmuFc->GCR = _6;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _7 = CmuFc->GCR;
+  _8 = _7 & 4294967294;
+  CmuFc->GCR = _8;
+
+  <bb 5> :
+  return;
+
+}
+
+
+Clock_Ip_GetStatusCmuFcFceRefCntLfrefHfref (Clock_Ip_NameType Name)
+{
+  uint32 CmuIsrValue;
+  uint32 CmuIerValue;
+  Clock_Ip_CmuStatusType Status;
+  const struct Clock_Ip_ClockMonitorType * CmuFc;
+  const struct Clock_Ip_CmuInfoType * CmuInformation;
+  Clock_Ip_CmuStatusType D.6718;
+
+  <bb 2> :
+  _1 = Clock_Ip_au8ClockFeatures[Name][8];
+  _2 = (int) _1;
+  CmuInformation = &Clock_Ip_axCmuInfo[_2];
+  CmuFc = CmuInformation->CmuInstance;
+  Status = 3;
+  _3 = CmuFc->SR;
+  CmuIsrValue = _3 & 3;
+  _4 = CmuFc->IER;
+  CmuIerValue = _4 & 3;
+  CmuIsrValue = CmuIsrValue & CmuIerValue;
+  _5 = CmuFc->GCR;
+  _6 = _5 & 1;
+  if (_6 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 3> :
+  _7 = CmuIsrValue & 2;
+  if (_7 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  Status = 1;
+  goto <bb 8>; [INV]
+
+  <bb 5> :
+  _8 = CmuIsrValue & 1;
+  if (_8 != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  Status = 2;
+  goto <bb 8>; [INV]
+
+  <bb 7> :
+  Status = 0;
+
+  <bb 8> :
+  D.6718 = Status;
+
+  <bb 9> :
+<L8>:
+  return D.6718;
+
+}
+
+
+Clock_Ip_ClearStatusCmuFcFceRefCntLfrefHfref (Clock_Ip_NameType Name)
+{
+  uint32 CmuIsrValue;
+  struct Clock_Ip_ClockMonitorType * const CmuFc;
+  const struct Clock_Ip_CmuInfoType * CmuInformation;
+
+  <bb 2> :
+  _1 = Clock_Ip_au8ClockFeatures[Name][8];
+  _2 = (int) _1;
+  CmuInformation = &Clock_Ip_axCmuInfo[_2];
+  CmuFc = CmuInformation->CmuInstance;
+  _3 = CmuFc->SR;
+  CmuIsrValue = _3 & 3;
+  CmuFc->SR = CmuIsrValue;
+  return;
+
+}
+
+
+Clock_Ip_SetCmuFcFceRefCntLfrefHfref (const struct Clock_Ip_CmuConfigType * Config, uint32 Index)
+{
+  uint32 ModuloValue;
+  uint32 DividerResult;
+  uint32 DivideBy;
+  uint32 Cmp2;
+  uint32 Cmp1;
+  uint32 LfRef;
+  uint32 HfRef;
+  uint32 RefCount;
+  uint32 BusClk;
+  uint32 MonitoredClk;
+  uint32 ReferenceClk;
+  static uint32 Hash[4];
+  struct Clock_Ip_ClockMonitorType * const CmuFc;
+  const struct Clock_Ip_CmuInfoType * CmuInformation;
+
+  <bb 2> :
+  _1 = Config->Name;
+  _2 = Clock_Ip_au8ClockFeatures[_1][8];
+  _3 = (int) _2;
+  CmuInformation = &Clock_Ip_axCmuInfo[_3];
+  CmuFc = CmuInformation->CmuInstance;
+  ReferenceClk = 0;
+  MonitoredClk = 0;
+  BusClk = 0;
+  RefCount = 0;
+  HfRef = 0;
+  LfRef = 0;
+  _4 = Hash[Index];
+  _5 = Config->Enable;
+  _6 = (long unsigned int) _5;
+  _7 = Config->Interrupt;
+  _8 = _6 ^ _7;
+  _9 = Config->MonitoredClockFrequency;
+  _10 = _8 ^ _9;
+  _11 = Config->Name;
+  _12 = _10 ^ _11;
+  if (_4 != _12)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 3> :
+  _13 = Config->Enable;
+  _14 = (long unsigned int) _13;
+  _15 = Config->Interrupt;
+  _16 = _14 ^ _15;
+  _17 = Config->MonitoredClockFrequency;
+  _18 = _16 ^ _17;
+  _19 = Config->Name;
+  _20 = _18 ^ _19;
+  Hash[Index] = _20;
+  Clock_Ip_pxConfig.1_21 = Clock_Ip_pxConfig;
+  _22 = CmuInformation->Reference;
+  _23 = Clock_Ip_FreqIds[_22];
+  _24 = (int) _23;
+  _25 = Clock_Ip_pxConfig.1_21->ConfiguredFrequencies[_24].ConfiguredFrequencyValue;
+  ReferenceClk = _25 / 1000;
+  Clock_Ip_pxConfig.2_26 = Clock_Ip_pxConfig;
+  _27 = CmuInformation->Bus;
+  _28 = Clock_Ip_FreqIds[_27];
+  _29 = (int) _28;
+  _30 = Clock_Ip_pxConfig.2_26->ConfiguredFrequencies[_29].ConfiguredFrequencyValue;
+  BusClk = _30 / 1000;
+  _31 = Config->MonitoredClockFrequency;
+  MonitoredClk = _31 / 1000;
+  if (ReferenceClk != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 4> :
+  if (BusClk != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 5> :
+  if (MonitoredClk != 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 6> :
+  _32 = ReferenceClk * 3;
+  _33 = _32 / BusClk;
+  Cmp1 = _33 + 1;
+  _34 = ReferenceClk * 5;
+  _35 = _34 / MonitoredClk;
+  Cmp2 = _35 + 9;
+  RefCount = MAX_EXPR <Cmp2, Cmp1>;
+  _36 = MonitoredClk * RefCount;
+  HfRef = _36 * 1011;
+  DivideBy = ReferenceClk * 967;
+  DividerResult = HfRef / DivideBy;
+  _37 = DivideBy * DividerResult;
+  ModuloValue = HfRef - _37;
+  _38 = DividerResult * 10;
+  _39 = ModuloValue * 10;
+  _40 = _39 / DivideBy;
+  _41 = _38 + _40;
+  HfRef = _41 + 4;
+  _42 = MonitoredClk * RefCount;
+  LfRef = _42 * 989;
+  DivideBy = ReferenceClk * 1033;
+  DividerResult = LfRef / DivideBy;
+  _43 = DivideBy * DividerResult;
+  ModuloValue = LfRef - _43;
+  _44 = DividerResult * 10;
+  _45 = ModuloValue * 10;
+  _46 = _45 / DivideBy;
+  _47 = _44 + _46;
+  LfRef = _47 + 4294967293;
+  _48 = RefCount * 10;
+  CmuFc->RCCR = _48;
+  CmuFc->HTCR = HfRef;
+  CmuFc->LTCR = LfRef;
+
+  <bb 7> :
+  _49 = Config->Interrupt;
+  CmuFc->IER = _49;
+  return;
+
+}
+
+
+Clock_Ip_ResetCmuFcFceRefCntLfrefHfref (const struct Clock_Ip_CmuConfigType * Config)
+{
+  <bb 2> :
+  _1 = Config->Name;
+  Clock_Ip_DisableCmuFcFceRefCntLfrefHfref (_1);
+  return;
+
+}
+
+
+Clock_Ip_DisableCmuFcFceRefCntLfrefHfref (Clock_Ip_NameType Name)
+{
+  uint32 FrequencyCheckStatus;
+  uint32 TimeoutTicks;
+  uint32 ElapsedTime;
+  uint32 StartTime;
+  boolean TimeoutOccurred;
+  struct Clock_Ip_ClockMonitorType * const CmuFc;
+  const struct Clock_Ip_CmuInfoType * CmuInformation;
+
+  <bb 2> :
+  _1 = Clock_Ip_au8ClockFeatures[Name][8];
+  _2 = (int) _1;
+  CmuInformation = &Clock_Ip_axCmuInfo[_2];
+  CmuFc = CmuInformation->CmuInstance;
+  TimeoutOccurred = 0;
+  SchM_Enter_Mcu_MCU_EXCLUSIVE_AREA_01 ();
+  _3 = CmuFc->GCR;
+  _4 = _3 & 1;
+  if (_4 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 9>; [INV]
+
+  <bb 3> :
+  Clock_Ip_StartTimeout (&StartTime, &ElapsedTime, &TimeoutTicks, 50000);
+
+  <bb 4> :
+  _5 = CmuFc->SR;
+  FrequencyCheckStatus = _5 & 16;
+  TimeoutTicks.0_6 = TimeoutTicks;
+  TimeoutOccurred = Clock_Ip_TimeoutExpired (&StartTime, &ElapsedTime, TimeoutTicks.0_6);
+  if (FrequencyCheckStatus == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 5> :
+  _7 = ~TimeoutOccurred;
+  if (_7 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 6>; [INV]
+
+  <bb 6> :
+  if (TimeoutOccurred != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  Clock_Ip_ReportClockErrors (1, Name);
+  goto <bb 10>; [INV]
+
+  <bb 8> :
+  _8 = CmuFc->GCR;
+  _9 = _8 & 4294967294;
+  CmuFc->GCR = _9;
+  _10 = CmuFc->IER;
+  _11 = _10 & 4294967280;
+  CmuFc->IER = _11;
+  _12 = CmuFc->SR;
+  _13 = _12 | 3;
+  CmuFc->SR = _13;
+  goto <bb 10>; [INV]
+
+  <bb 9> :
+  _14 = CmuFc->IER;
+  _15 = _14 & 4294967280;
+  CmuFc->IER = _15;
+  _16 = CmuFc->SR;
+  _17 = _16 | 3;
+  CmuFc->SR = _17;
+
+  <bb 10> :
+  SchM_Exit_Mcu_MCU_EXCLUSIVE_AREA_01 ();
+  StartTime = {CLOBBER};
+  ElapsedTime = {CLOBBER};
+  TimeoutTicks = {CLOBBER};
+  return;
+
+}
+
+
+Clock_Ip_ClockMonitorEmpty_GetStatus (Clock_Ip_NameType Name)
+{
+  Clock_Ip_CmuStatusType D.6693;
+
+  <bb 2> :
+  D.6693 = 3;
+
+  <bb 3> :
+<L0>:
+  return D.6693;
+
+}
+
+
+Clock_Ip_ClockMonitorEmpty_ClearStatus (Clock_Ip_NameType Name)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_ClockMonitorEmpty_Disable (Clock_Ip_NameType Name)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_ClockMonitorEmpty_Set (const struct Clock_Ip_CmuConfigType * Config, uint32 Index)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+Clock_Ip_ClockMonitorEmpty (const struct Clock_Ip_CmuConfigType * Config)
+{
+  <bb 2> :
+  return;
+
+}
+
+
