@@ -111,10 +111,7 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 		default:
 			break;
 	}
-    if(BootState)
-    {
-    	IntCtrl_Ip_EnableIrq(FlexCAN0_1_IRQn);
-    }
+    IntCtrl_Ip_EnableIrq(FlexCAN0_1_IRQn);
 }
 
 
