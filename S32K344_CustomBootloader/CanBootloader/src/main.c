@@ -1,9 +1,6 @@
 #include "bl_config.h"
 
-extern void CAN0_ORED_0_31_MB_IRQHandler(void);
-
 #define BIT(x) 	(1<<(x))
-
 int main(void)
 {
 	config = (MyConfig_t*)0x500000;

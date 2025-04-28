@@ -45,6 +45,7 @@ Flexcan_Ip_DataInfoType tx_info =
 };
 
 MyConfig_t* config;
+MyConfig_t* check_config;
 
 void setupCan( void )
 {
@@ -167,84 +168,32 @@ void JumpToUserApplication( void )
 	(* (void (*) (void)) func)();
 }
 
-void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 buffIdx, const Flexcan_Ip_StateType *flexcanState)
+#ifdef SwVersionControl_Enable
+/**
+ * @brief Check if software version matches expected version.
+ *
+ * @param SwVersion Expected software version
+ * @return 1 if match, 0 otherwise
+ */
+uint8_t CheckSwVersion(uint8_t MajorVersion, uint8_t MinorVersion, uint8_t PatchVersion)
 {
-    IntCtrl_Ip_DisableIrq(FlexCAN0_1_IRQn);
-	(void)flexcanState;
-	(void)instance;
-	/* Commented this block because the incoming buffIdx ignores itself via the void tag.
-	(void)buffIdx;*/
-
-	switch(eventType)
-	{
-		case FLEXCAN_EVENT_RX_COMPLETE:
-			switch (buffIdx)
-			{
-				case RX_MB_IDW: // for wakeup
-					if(Comparator(rxData.data, APP_MagicWORD, 4))
-					{
-						BootMode = APPLICATION;
-					}
-					else if(Comparator(rxData.data, CFG_MagicWORD, 4))
-					{
-						BootMode = CONFIG;
-					}
-					if(BootMode == APPLICATION  || BootMode == CONFIG)
-					{
-						BootState = 1;
-						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, TX_BOOT_ID + config->system_id, startWORD);
-						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
-					}
-					else
-					{
-						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDW, &rxData, FALSE);
-					}
-					break;
-				case RX_MB_IDX: // for boot
-					if(BootState)
-					{
-						if(Comparator(rxData.data, jumpWORD, 8))
-						{
-							BootState = 0;
-							JumpState = 1;
-							break;
-						}
-						if(CalculateCRC(rxData.data, 6) != (uint16_t)((rxData.data[6]*256) + rxData.data[7])){ break;}
-						if(!rxData.data[1])
-						{
-							for(int fi=0; fi<4; fi++)
-							{
-								FlashData[fi] = rxData.data[2+fi];
-							}
-						}
-						else if(rxData.data[1])
-						{
-							for(int fi=0; fi<4; fi++)
-							{
-								FlashData[fi+4] = rxData.data[2+fi];
-							}
-							FlashWrite(CFG_ADDR_START+WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
-							WriteIndex+=8;
-							if(BootMode == APPLICATION && !BoolOfJumpToAppCfg)
-							{
-								if(Comparator(FlashData, JumpToAppFromCfgData, 8))
-								{
-									WriteIndex = 0x2000;
-									BoolOfJumpToAppCfg = 1;
-								}
-							}
-						}
-
-						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, RX_BOOT_ID + config->system_id, skipWORD);
-						//memset(rxData.data,'\0', 8);
-						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
-					}
-					break;
-			}
-			break;
-		default:
-			break;
-	}
-    IntCtrl_Ip_EnableIrq(FlexCAN0_1_IRQn);
+	if(MajorVersion >= config->sw_version_major) return 1;
+	if(MinorVersion >= config->sw_version_minor) return 1;
+	if(PatchVersion >= config->sw_version_bugfix) return 1;
+	return 0;
 }
+#endif
+
+#ifdef SwLastDateControl_Enable
+/**
+ * @brief Check if software date matches expected date.
+ *
+ * @param Date Expected date
+ * @return 1 if match, 0 otherwise
+ */
+uint8_t CheckSwDate(uint32_t Date)
+{
+	return (Date > config->unix_timestamp);
+}
+#endif
 
