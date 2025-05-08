@@ -4218,26 +4218,23 @@ LOAD ./generate/src/FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.o
 LOAD ./generate/src/IntCtrl_Ip_Cfg.o
 LOAD ./generate/src/OsIf_Cfg.o
 LOAD ./src/main.o
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/thumb/v7e-m+fp/hard\libgcc.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/thumb/v7e-m+fp/hard\libgcc.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/thumb/v7e-m+fp/hard\libgcc.a
 START GROUP
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/thumb/v7e-m+fp/hard\libgcc.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/thumb/v7e-m+fp/hard\libgcc.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
 END GROUP
 START GROUP
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/thumb/v7e-m+fp/hard\libgcc.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/thumb/v7e-m+fp/hard\libgcc.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a
 END GROUP
 START GROUP
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/thumb/v7e-m+fp/hard\libgcc.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
-LOAD c:/nxp/s32ds.3.6.0/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/thumb/v7e-m+fp/hard\libgcc.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
+LOAD c:/nxp/s32ds.3.5/s32ds/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/bin/../lib/gcc/arm-none-eabi/10.2.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a
 END GROUP
                 0x00002000                HEAP_SIZE = DEFINED (__heap_size__)?__heap_size__:0x2000
 
@@ -5698,141 +5695,141 @@ LOAD linker stubs
  .debug_macro   0x0005c3a1       0x22 ./src/main.o
  .debug_macro   0x0005c3c3       0x94 ./src/main.o
 
-.debug_line     0x00000000    0x16ed3
- .debug_line    0x00000000      0x527 ./Project_Settings/Startup_Code/exceptions.o
- .debug_line    0x00000527      0x9cf ./Project_Settings/Startup_Code/nvic.o
- .debug_line    0x00000ef6      0x43e ./Project_Settings/Startup_Code/startup.o
- .debug_line    0x00001334      0x135 ./Project_Settings/Startup_Code/startup_cm7.o
- .debug_line    0x00001469      0x80e ./Project_Settings/Startup_Code/system.o
- .debug_line    0x00001c77      0xf21 ./RTD/src/Clock_Ip.o
- .debug_line    0x00002b98      0x623 ./RTD/src/Clock_Ip_Data.o
- .debug_line    0x000031bb      0x803 ./RTD/src/Clock_Ip_Divider.o
- .debug_line    0x000039be      0x6d0 ./RTD/src/Clock_Ip_DividerTrigger.o
- .debug_line    0x0000408e      0x7cd ./RTD/src/Clock_Ip_ExtOsc.o
- .debug_line    0x0000485b      0x640 ./RTD/src/Clock_Ip_FracDiv.o
- .debug_line    0x00004e9b      0x63b ./RTD/src/Clock_Ip_Frequency.o
- .debug_line    0x000054d6      0x74c ./RTD/src/Clock_Ip_Gate.o
- .debug_line    0x00005c22      0x67c ./RTD/src/Clock_Ip_IntOsc.o
- .debug_line    0x0000629e      0x63a ./RTD/src/Clock_Ip_Irq.o
- .debug_line    0x000068d8      0x881 ./RTD/src/Clock_Ip_Monitor.o
- .debug_line    0x00007159      0x74e ./RTD/src/Clock_Ip_Pll.o
- .debug_line    0x000078a7      0x781 ./RTD/src/Clock_Ip_ProgFreqSwitch.o
- .debug_line    0x00008028      0xad7 ./RTD/src/Clock_Ip_Selector.o
- .debug_line    0x00008aff      0x7c9 ./RTD/src/Clock_Ip_Specific.o
- .debug_line    0x000092c8      0x550 ./RTD/src/Det.o
- .debug_line    0x00009818      0x791 ./RTD/src/Det_stub.o
- .debug_line    0x00009fa9     0x2410 ./RTD/src/FlexCAN_Ip.o
- .debug_line    0x0000c3b9     0x1cae ./RTD/src/FlexCAN_Ip_HwAccess.o
- .debug_line    0x0000e067      0xb16 ./RTD/src/FlexCAN_Ip_Irq.o
- .debug_line    0x0000eb7d      0x811 ./RTD/src/IntCtrl_Ip.o
- .debug_line    0x0000f38e      0x4b3 ./RTD/src/OsIf_Interrupts.o
- .debug_line    0x0000f841      0x59c ./RTD/src/OsIf_Timer.o
- .debug_line    0x0000fddd      0x508 ./RTD/src/OsIf_Timer_System.o
- .debug_line    0x000102e5      0x50b ./RTD/src/OsIf_Timer_System_Internal_Systick.o
- .debug_line    0x000107f0      0xb59 ./RTD/src/SchM_Can.o
- .debug_line    0x00011349      0x5b5 ./RTD/src/SchM_Dio.o
- .debug_line    0x000118fe      0x601 ./RTD/src/SchM_Mcu.o
- .debug_line    0x00011eff      0xd6f ./RTD/src/SchM_Port.o
- .debug_line    0x00012c6e      0x686 ./RTD/src/Siul2_Dio_Ip.o
- .debug_line    0x000132f4      0x9ea ./RTD/src/Siul2_Port_Ip.o
- .debug_line    0x00013cde      0x717 ./RTD/src/Tspc_Port_Ip.o
- .debug_line    0x000143f5      0x49d ./board/Siul2_Port_Ip_Cfg.o
- .debug_line    0x00014892      0x40b ./board/Tspc_Port_Ip_Cfg.o
- .debug_line    0x00014c9d      0x627 ./generate/src/Clock_Ip_Cfg.o
- .debug_line    0x000152c4      0x534 ./generate/src/FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.o
- .debug_line    0x000157f8      0x4af ./generate/src/IntCtrl_Ip_Cfg.o
- .debug_line    0x00015ca7      0x4bf ./generate/src/OsIf_Cfg.o
- .debug_line    0x00016166      0xd6d ./src/main.o
+.debug_line     0x00000000    0x16fa8
+ .debug_line    0x00000000      0x52c ./Project_Settings/Startup_Code/exceptions.o
+ .debug_line    0x0000052c      0x9c1 ./Project_Settings/Startup_Code/nvic.o
+ .debug_line    0x00000eed      0x434 ./Project_Settings/Startup_Code/startup.o
+ .debug_line    0x00001321      0x135 ./Project_Settings/Startup_Code/startup_cm7.o
+ .debug_line    0x00001456      0x811 ./Project_Settings/Startup_Code/system.o
+ .debug_line    0x00001c67      0xf26 ./RTD/src/Clock_Ip.o
+ .debug_line    0x00002b8d      0x628 ./RTD/src/Clock_Ip_Data.o
+ .debug_line    0x000031b5      0x808 ./RTD/src/Clock_Ip_Divider.o
+ .debug_line    0x000039bd      0x6d5 ./RTD/src/Clock_Ip_DividerTrigger.o
+ .debug_line    0x00004092      0x7d2 ./RTD/src/Clock_Ip_ExtOsc.o
+ .debug_line    0x00004864      0x645 ./RTD/src/Clock_Ip_FracDiv.o
+ .debug_line    0x00004ea9      0x640 ./RTD/src/Clock_Ip_Frequency.o
+ .debug_line    0x000054e9      0x751 ./RTD/src/Clock_Ip_Gate.o
+ .debug_line    0x00005c3a      0x681 ./RTD/src/Clock_Ip_IntOsc.o
+ .debug_line    0x000062bb      0x63f ./RTD/src/Clock_Ip_Irq.o
+ .debug_line    0x000068fa      0x886 ./RTD/src/Clock_Ip_Monitor.o
+ .debug_line    0x00007180      0x753 ./RTD/src/Clock_Ip_Pll.o
+ .debug_line    0x000078d3      0x786 ./RTD/src/Clock_Ip_ProgFreqSwitch.o
+ .debug_line    0x00008059      0xadc ./RTD/src/Clock_Ip_Selector.o
+ .debug_line    0x00008b35      0x7ce ./RTD/src/Clock_Ip_Specific.o
+ .debug_line    0x00009303      0x555 ./RTD/src/Det.o
+ .debug_line    0x00009858      0x796 ./RTD/src/Det_stub.o
+ .debug_line    0x00009fee     0x2415 ./RTD/src/FlexCAN_Ip.o
+ .debug_line    0x0000c403     0x1cb3 ./RTD/src/FlexCAN_Ip_HwAccess.o
+ .debug_line    0x0000e0b6      0xb1b ./RTD/src/FlexCAN_Ip_Irq.o
+ .debug_line    0x0000ebd1      0x816 ./RTD/src/IntCtrl_Ip.o
+ .debug_line    0x0000f3e7      0x4b8 ./RTD/src/OsIf_Interrupts.o
+ .debug_line    0x0000f89f      0x5a1 ./RTD/src/OsIf_Timer.o
+ .debug_line    0x0000fe40      0x50d ./RTD/src/OsIf_Timer_System.o
+ .debug_line    0x0001034d      0x510 ./RTD/src/OsIf_Timer_System_Internal_Systick.o
+ .debug_line    0x0001085d      0xb5e ./RTD/src/SchM_Can.o
+ .debug_line    0x000113bb      0x5ba ./RTD/src/SchM_Dio.o
+ .debug_line    0x00011975      0x606 ./RTD/src/SchM_Mcu.o
+ .debug_line    0x00011f7b      0xd74 ./RTD/src/SchM_Port.o
+ .debug_line    0x00012cef      0x68b ./RTD/src/Siul2_Dio_Ip.o
+ .debug_line    0x0001337a      0xa00 ./RTD/src/Siul2_Port_Ip.o
+ .debug_line    0x00013d7a      0x72d ./RTD/src/Tspc_Port_Ip.o
+ .debug_line    0x000144a7      0x4a2 ./board/Siul2_Port_Ip_Cfg.o
+ .debug_line    0x00014949      0x3ff ./board/Tspc_Port_Ip_Cfg.o
+ .debug_line    0x00014d48      0x62c ./generate/src/Clock_Ip_Cfg.o
+ .debug_line    0x00015374      0x539 ./generate/src/FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.o
+ .debug_line    0x000158ad      0x4b4 ./generate/src/IntCtrl_Ip_Cfg.o
+ .debug_line    0x00015d61      0x4c4 ./generate/src/OsIf_Cfg.o
+ .debug_line    0x00016225      0xd83 ./src/main.o
 
-.debug_str      0x00000000   0x2190d1
- .debug_str     0x00000000     0x8097 ./Project_Settings/Startup_Code/exceptions.o
-                               0x82a2 (size before relaxing)
- .debug_str     0x00008097   0x1f2f0d ./Project_Settings/Startup_Code/nvic.o
-                             0x1f9b2d (size before relaxing)
- .debug_str     0x001fafa4       0xd1 ./Project_Settings/Startup_Code/startup.o
-                               0x60eb (size before relaxing)
- .debug_str     0x001fb075       0x3b ./Project_Settings/Startup_Code/startup_cm7.o
-                                 0x83 (size before relaxing)
- .debug_str     0x001fb0b0     0x2c47 ./Project_Settings/Startup_Code/system.o
-                              0x1795c (size before relaxing)
- .debug_str     0x001fdcf7     0x4eeb ./RTD/src/Clock_Ip.o
-                              0x38092 (size before relaxing)
- .debug_str     0x00202be2     0x1fa0 ./RTD/src/Clock_Ip_Data.o
-                              0x38ad9 (size before relaxing)
- .debug_str     0x00204b82      0x363 ./RTD/src/Clock_Ip_Divider.o
-                              0x37147 (size before relaxing)
- .debug_str     0x00204ee5      0x201 ./RTD/src/Clock_Ip_DividerTrigger.o
-                              0x36d92 (size before relaxing)
- .debug_str     0x002050e6      0x2f8 ./RTD/src/Clock_Ip_ExtOsc.o
-                              0x36e35 (size before relaxing)
- .debug_str     0x002053de      0x181 ./RTD/src/Clock_Ip_FracDiv.o
-                              0x36af6 (size before relaxing)
- .debug_str     0x0020555f       0x4f ./RTD/src/Clock_Ip_Frequency.o
-                              0x3689e (size before relaxing)
- .debug_str     0x002055ae      0x20b ./RTD/src/Clock_Ip_Gate.o
-                              0x36df9 (size before relaxing)
- .debug_str     0x002057b9      0x253 ./RTD/src/Clock_Ip_IntOsc.o
-                              0x36bb5 (size before relaxing)
- .debug_str     0x00205a0c      0x13a ./RTD/src/Clock_Ip_Irq.o
-                              0x36246 (size before relaxing)
- .debug_str     0x00205b46      0x775 ./RTD/src/Clock_Ip_Monitor.o
-                              0x379b8 (size before relaxing)
- .debug_str     0x002062bb      0x29e ./RTD/src/Clock_Ip_Pll.o
-                              0x36de6 (size before relaxing)
- .debug_str     0x00206559      0x2ef ./RTD/src/Clock_Ip_ProgFreqSwitch.o
-                              0x3722a (size before relaxing)
- .debug_str     0x00206848      0x2ec ./RTD/src/Clock_Ip_Selector.o
-                              0x36ef9 (size before relaxing)
- .debug_str     0x00206b34      0x4ed ./RTD/src/Clock_Ip_Specific.o
-                              0x37967 (size before relaxing)
- .debug_str     0x00207021      0x5b2 ./RTD/src/Det.o
-                               0x8969 (size before relaxing)
- .debug_str     0x002075d3       0xc1 ./RTD/src/Det_stub.o
-                               0x88fb (size before relaxing)
- .debug_str     0x00207694     0x623e ./RTD/src/FlexCAN_Ip.o
-                             0x201370 (size before relaxing)
- .debug_str     0x0020d8d2      0xbb5 ./RTD/src/FlexCAN_Ip_HwAccess.o
-                             0x20057b (size before relaxing)
- .debug_str     0x0020e487      0x2d1 ./RTD/src/FlexCAN_Ip_Irq.o
-                             0x1ff2d5 (size before relaxing)
- .debug_str     0x0020e758     0x188b ./RTD/src/IntCtrl_Ip.o
-                              0x203d0 (size before relaxing)
- .debug_str     0x0020ffe3       0x30 ./RTD/src/OsIf_Interrupts.o
-                               0x7958 (size before relaxing)
- .debug_str     0x00210013      0x445 ./RTD/src/OsIf_Timer.o
-                               0x8802 (size before relaxing)
- .debug_str     0x00210458      0x14c ./RTD/src/OsIf_Timer_System.o
-                               0x86ee (size before relaxing)
- .debug_str     0x002105a4      0x66a ./RTD/src/OsIf_Timer_System_Internal_Systick.o
-                               0x75da (size before relaxing)
- .debug_str     0x00210c0e      0xd3e ./RTD/src/SchM_Can.o
-                               0x9295 (size before relaxing)
- .debug_str     0x0021194c      0x2d4 ./RTD/src/SchM_Dio.o
-                               0x8890 (size before relaxing)
- .debug_str     0x00211c20      0x28c ./RTD/src/SchM_Mcu.o
-                               0x8917 (size before relaxing)
- .debug_str     0x00211eac     0x1141 ./RTD/src/SchM_Port.o
-                               0x96fd (size before relaxing)
- .debug_str     0x00212fed     0x1cbe ./RTD/src/Siul2_Dio_Ip.o
-                              0x424fc (size before relaxing)
- .debug_str     0x00214cab     0x353a ./RTD/src/Siul2_Port_Ip.o
-                              0x5b3bc (size before relaxing)
- .debug_str     0x002181e5      0x5d9 ./RTD/src/Tspc_Port_Ip.o
-                              0x5aa13 (size before relaxing)
- .debug_str     0x002187be      0x15c ./board/Siul2_Port_Ip_Cfg.o
-                              0x571a5 (size before relaxing)
- .debug_str     0x0021891a      0x13b ./board/Tspc_Port_Ip_Cfg.o
-                               0x8c75 (size before relaxing)
- .debug_str     0x00218a55      0x138 ./generate/src/Clock_Ip_Cfg.o
-                              0x36f95 (size before relaxing)
- .debug_str     0x00218b8d      0x229 ./generate/src/FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.o
-                               0x9b10 (size before relaxing)
- .debug_str     0x00218db6      0x111 ./generate/src/IntCtrl_Ip_Cfg.o
-                              0x1d81b (size before relaxing)
- .debug_str     0x00218ec7      0x102 ./generate/src/OsIf_Cfg.o
-                               0x8426 (size before relaxing)
- .debug_str     0x00218fc9      0x108 ./src/main.o
-                             0x205b33 (size before relaxing)
+.debug_str      0x00000000   0x2190e2
+ .debug_str     0x00000000     0x80a8 ./Project_Settings/Startup_Code/exceptions.o
+                               0x82b3 (size before relaxing)
+ .debug_str     0x000080a8   0x1f2f0d ./Project_Settings/Startup_Code/nvic.o
+                             0x1f9b3e (size before relaxing)
+ .debug_str     0x001fafb5       0xd1 ./Project_Settings/Startup_Code/startup.o
+                               0x60fc (size before relaxing)
+ .debug_str     0x001fb086       0x3b ./Project_Settings/Startup_Code/startup_cm7.o
+                                 0x94 (size before relaxing)
+ .debug_str     0x001fb0c1     0x2c47 ./Project_Settings/Startup_Code/system.o
+                              0x1796d (size before relaxing)
+ .debug_str     0x001fdd08     0x4eeb ./RTD/src/Clock_Ip.o
+                              0x380a3 (size before relaxing)
+ .debug_str     0x00202bf3     0x1fa0 ./RTD/src/Clock_Ip_Data.o
+                              0x38aea (size before relaxing)
+ .debug_str     0x00204b93      0x363 ./RTD/src/Clock_Ip_Divider.o
+                              0x37158 (size before relaxing)
+ .debug_str     0x00204ef6      0x201 ./RTD/src/Clock_Ip_DividerTrigger.o
+                              0x36da3 (size before relaxing)
+ .debug_str     0x002050f7      0x2f8 ./RTD/src/Clock_Ip_ExtOsc.o
+                              0x36e46 (size before relaxing)
+ .debug_str     0x002053ef      0x181 ./RTD/src/Clock_Ip_FracDiv.o
+                              0x36b07 (size before relaxing)
+ .debug_str     0x00205570       0x4f ./RTD/src/Clock_Ip_Frequency.o
+                              0x368af (size before relaxing)
+ .debug_str     0x002055bf      0x20b ./RTD/src/Clock_Ip_Gate.o
+                              0x36e0a (size before relaxing)
+ .debug_str     0x002057ca      0x253 ./RTD/src/Clock_Ip_IntOsc.o
+                              0x36bc6 (size before relaxing)
+ .debug_str     0x00205a1d      0x13a ./RTD/src/Clock_Ip_Irq.o
+                              0x36257 (size before relaxing)
+ .debug_str     0x00205b57      0x775 ./RTD/src/Clock_Ip_Monitor.o
+                              0x379c9 (size before relaxing)
+ .debug_str     0x002062cc      0x29e ./RTD/src/Clock_Ip_Pll.o
+                              0x36df7 (size before relaxing)
+ .debug_str     0x0020656a      0x2ef ./RTD/src/Clock_Ip_ProgFreqSwitch.o
+                              0x3723b (size before relaxing)
+ .debug_str     0x00206859      0x2ec ./RTD/src/Clock_Ip_Selector.o
+                              0x36f0a (size before relaxing)
+ .debug_str     0x00206b45      0x4ed ./RTD/src/Clock_Ip_Specific.o
+                              0x37978 (size before relaxing)
+ .debug_str     0x00207032      0x5b2 ./RTD/src/Det.o
+                               0x897a (size before relaxing)
+ .debug_str     0x002075e4       0xc1 ./RTD/src/Det_stub.o
+                               0x890c (size before relaxing)
+ .debug_str     0x002076a5     0x623e ./RTD/src/FlexCAN_Ip.o
+                             0x201381 (size before relaxing)
+ .debug_str     0x0020d8e3      0xbb5 ./RTD/src/FlexCAN_Ip_HwAccess.o
+                             0x20058c (size before relaxing)
+ .debug_str     0x0020e498      0x2d1 ./RTD/src/FlexCAN_Ip_Irq.o
+                             0x1ff2e6 (size before relaxing)
+ .debug_str     0x0020e769     0x188b ./RTD/src/IntCtrl_Ip.o
+                              0x203e1 (size before relaxing)
+ .debug_str     0x0020fff4       0x30 ./RTD/src/OsIf_Interrupts.o
+                               0x7969 (size before relaxing)
+ .debug_str     0x00210024      0x445 ./RTD/src/OsIf_Timer.o
+                               0x8813 (size before relaxing)
+ .debug_str     0x00210469      0x14c ./RTD/src/OsIf_Timer_System.o
+                               0x86ff (size before relaxing)
+ .debug_str     0x002105b5      0x66a ./RTD/src/OsIf_Timer_System_Internal_Systick.o
+                               0x75eb (size before relaxing)
+ .debug_str     0x00210c1f      0xd3e ./RTD/src/SchM_Can.o
+                               0x92a6 (size before relaxing)
+ .debug_str     0x0021195d      0x2d4 ./RTD/src/SchM_Dio.o
+                               0x88a1 (size before relaxing)
+ .debug_str     0x00211c31      0x28c ./RTD/src/SchM_Mcu.o
+                               0x8928 (size before relaxing)
+ .debug_str     0x00211ebd     0x1141 ./RTD/src/SchM_Port.o
+                               0x970e (size before relaxing)
+ .debug_str     0x00212ffe     0x1cbe ./RTD/src/Siul2_Dio_Ip.o
+                              0x4250d (size before relaxing)
+ .debug_str     0x00214cbc     0x353a ./RTD/src/Siul2_Port_Ip.o
+                              0x5b3cd (size before relaxing)
+ .debug_str     0x002181f6      0x5d9 ./RTD/src/Tspc_Port_Ip.o
+                              0x5aa24 (size before relaxing)
+ .debug_str     0x002187cf      0x15c ./board/Siul2_Port_Ip_Cfg.o
+                              0x571b6 (size before relaxing)
+ .debug_str     0x0021892b      0x13b ./board/Tspc_Port_Ip_Cfg.o
+                               0x8c86 (size before relaxing)
+ .debug_str     0x00218a66      0x138 ./generate/src/Clock_Ip_Cfg.o
+                              0x36fa6 (size before relaxing)
+ .debug_str     0x00218b9e      0x229 ./generate/src/FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.o
+                               0x9b21 (size before relaxing)
+ .debug_str     0x00218dc7      0x111 ./generate/src/IntCtrl_Ip_Cfg.o
+                              0x1d82c (size before relaxing)
+ .debug_str     0x00218ed8      0x102 ./generate/src/OsIf_Cfg.o
+                               0x8437 (size before relaxing)
+ .debug_str     0x00218fda      0x108 ./src/main.o
+                             0x205b44 (size before relaxing)
 
 .debug_frame    0x00000000     0x33b8
  .debug_frame   0x00000000       0xb0 ./Project_Settings/Startup_Code/exceptions.o

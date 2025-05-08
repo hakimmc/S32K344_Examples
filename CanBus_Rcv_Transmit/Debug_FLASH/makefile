@@ -34,10 +34,10 @@ FlexCAN_Ip_Example_S32K344.siz \
 all: FlexCAN_Ip_Example_S32K344.elf secondary-outputs
 
 # Tool invocations
-FlexCAN_Ip_Example_S32K344.elf: $(OBJS) C:/Users/ARGE13/Documents/cans32/FlexCAN_Ip_Example_S32K344/Project_Settings/Linker_Files/linker_flash_s32k344.ld $(USER_OBJS)
+FlexCAN_Ip_Example_S32K344.elf: $(OBJS) C:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/Project_Settings/Linker_Files/linker_flash_s32k344.ld $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Standard S32DS C Linker'
-	arm-none-eabi-gcc -o "FlexCAN_Ip_Example_S32K344.elf" "@FlexCAN_Ip_Example_S32K344.args"  $(USER_OBJS)  -lc -lm -lgcc
+	arm-none-eabi-gcc -o "FlexCAN_Ip_Example_S32K344.elf" "@FlexCAN_Ip_Example_S32K344.args"  $(USER_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build

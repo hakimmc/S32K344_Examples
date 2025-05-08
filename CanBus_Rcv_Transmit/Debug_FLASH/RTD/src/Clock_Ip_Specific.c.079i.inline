@@ -37,7 +37,7 @@ IPA summary for Clock_Ip_McMeEnterKey/3 is missing.
 IPA summary for Clock_Ip_PowerClockIpModules/2 is missing.
 Symbol table:
 
-Clock_Ip_axIntOscCallbacks/17 (Clock_Ip_axIntOscCallbacks) @06c7f3f0
+Clock_Ip_axIntOscCallbacks/17 (Clock_Ip_axIntOscCallbacks) @0608f3f0
   Type: variable
   Body removed by symtab_remove_unreachable_nodes
   Visibility: external public
@@ -45,7 +45,7 @@ Clock_Ip_axIntOscCallbacks/17 (Clock_Ip_axIntOscCallbacks) @06c7f3f0
   Referring: Clock_Ip_ClockInitializeObjects/9 (addr) Clock_Ip_ClockInitializeObjects/9 (addr) 
   Availability: not_available
   Varpool flags: read-only
-Clock_Ip_au8IrcoscCallbackIndex/16 (Clock_Ip_au8IrcoscCallbackIndex) @06c7f3a8
+Clock_Ip_au8IrcoscCallbackIndex/16 (Clock_Ip_au8IrcoscCallbackIndex) @0608f3a8
   Type: variable
   Body removed by symtab_remove_unreachable_nodes
   Visibility: external public
@@ -53,14 +53,14 @@ Clock_Ip_au8IrcoscCallbackIndex/16 (Clock_Ip_au8IrcoscCallbackIndex) @06c7f3a8
   Referring: Clock_Ip_ClockInitializeObjects/9 (read) Clock_Ip_ClockInitializeObjects/9 (read) 
   Availability: not_available
   Varpool flags: read-only
-Clock_Ip_bObjectsAreInitialized.0/15 (Clock_Ip_bObjectsAreInitialized) @06c7f360
+Clock_Ip_bObjectsAreInitialized.0/15 (Clock_Ip_bObjectsAreInitialized) @0608f360
   Type: variable definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   References: 
   Referring: Clock_Ip_ClockInitializeObjects/9 (read) Clock_Ip_ClockInitializeObjects/9 (write) 
   Availability: available
   Varpool flags: initialized
-Clock_Ip_ReportClockErrors/14 (Clock_Ip_ReportClockErrors) @06e22540
+Clock_Ip_ReportClockErrors/14 (Clock_Ip_ReportClockErrors) @0608e000
   Type: function
   Visibility: external public
   References: 
@@ -69,7 +69,7 @@ Clock_Ip_ReportClockErrors/14 (Clock_Ip_ReportClockErrors) @06e22540
   Function flags:
   Called by: Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 
   Calls: 
-Clock_Ip_TimeoutExpired/13 (Clock_Ip_TimeoutExpired) @06e22460
+Clock_Ip_TimeoutExpired/13 (Clock_Ip_TimeoutExpired) @06070e00
   Type: function
   Visibility: external public
   References: 
@@ -78,7 +78,7 @@ Clock_Ip_TimeoutExpired/13 (Clock_Ip_TimeoutExpired) @06e22460
   Function flags:
   Called by: Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 
   Calls: 
-Clock_Ip_StartTimeout/12 (Clock_Ip_StartTimeout) @06e22380
+Clock_Ip_StartTimeout/12 (Clock_Ip_StartTimeout) @06070b60
   Type: function
   Visibility: external public
   References: 
@@ -87,7 +87,7 @@ Clock_Ip_StartTimeout/12 (Clock_Ip_StartTimeout) @06e22380
   Function flags:
   Called by: Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 
   Calls: 
-Clock_Ip_Command/11 (Clock_Ip_Command) @06e1e620
+Clock_Ip_Command/11 (Clock_Ip_Command) @06070d20
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
@@ -96,7 +96,7 @@ Clock_Ip_Command/11 (Clock_Ip_Command) @06e1e620
   Function flags: body
   Called by: 
   Calls: Clock_Ip_SpecificPlatformInitClock/4 Clock_Ip_ClockInitializeObjects/9 
-Clock_Ip_ClockPowerModeChangeNotification/10 (Clock_Ip_ClockPowerModeChangeNotification) @06e1e0e0
+Clock_Ip_ClockPowerModeChangeNotification/10 (Clock_Ip_ClockPowerModeChangeNotification) @06070a80
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
@@ -105,7 +105,7 @@ Clock_Ip_ClockPowerModeChangeNotification/10 (Clock_Ip_ClockPowerModeChangeNotif
   Function flags: body
   Called by: 
   Calls: 
-Clock_Ip_ClockInitializeObjects/9 (Clock_Ip_ClockInitializeObjects) @06e1ed20
+Clock_Ip_ClockInitializeObjects/9 (Clock_Ip_ClockInitializeObjects) @060707e0
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   References: Clock_Ip_bObjectsAreInitialized.0/15 (read) Clock_Ip_bObjectsAreInitialized.0/15 (write) Clock_Ip_au8IrcoscCallbackIndex/16 (read) Clock_Ip_axIntOscCallbacks/17 (addr) Clock_Ip_pxSircStdbyClock/0 (write) Clock_Ip_au8IrcoscCallbackIndex/16 (read) Clock_Ip_axIntOscCallbacks/17 (addr) Clock_Ip_pxFircStdbyClock/1 (write) 
@@ -114,7 +114,7 @@ Clock_Ip_ClockInitializeObjects/9 (Clock_Ip_ClockInitializeObjects) @06e1ed20
   Function flags: body
   Called by: Clock_Ip_Command/11 
   Calls: 
-EnableSircInStandbyMode/8 (EnableSircInStandbyMode) @06e1ea80
+EnableSircInStandbyMode/8 (EnableSircInStandbyMode) @06070540
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: Clock_Ip_pxSircStdbyClock/0 (read) 
@@ -124,7 +124,7 @@ EnableSircInStandbyMode/8 (EnableSircInStandbyMode) @06e1ea80
   Called by: 
   Calls: 
    Indirect call Num speculative call targets: 0
-DisableSircInStandbyMode/7 (DisableSircInStandbyMode) @06e1e7e0
+DisableSircInStandbyMode/7 (DisableSircInStandbyMode) @060702a0
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: Clock_Ip_pxSircStdbyClock/0 (read) 
@@ -134,7 +134,7 @@ DisableSircInStandbyMode/7 (DisableSircInStandbyMode) @06e1e7e0
   Called by: 
   Calls: 
    Indirect call Num speculative call targets: 0
-EnableFircInStandbyMode/6 (EnableFircInStandbyMode) @06e1e540
+EnableFircInStandbyMode/6 (EnableFircInStandbyMode) @06070000
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: Clock_Ip_pxFircStdbyClock/1 (read) 
@@ -144,7 +144,7 @@ EnableFircInStandbyMode/6 (EnableFircInStandbyMode) @06e1e540
   Called by: 
   Calls: 
    Indirect call Num speculative call targets: 0
-DisableFircInStandbyMode/5 (DisableFircInStandbyMode) @06e1e2a0
+DisableFircInStandbyMode/5 (DisableFircInStandbyMode) @060558c0
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: Clock_Ip_pxFircStdbyClock/1 (read) 
@@ -154,7 +154,7 @@ DisableFircInStandbyMode/5 (DisableFircInStandbyMode) @06e1e2a0
   Called by: 
   Calls: 
    Indirect call Num speculative call targets: 0
-Clock_Ip_SpecificPlatformInitClock/4 (Clock_Ip_SpecificPlatformInitClock) @06e1e000
+Clock_Ip_SpecificPlatformInitClock/4 (Clock_Ip_SpecificPlatformInitClock) @06055d20
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   References: 
@@ -163,7 +163,7 @@ Clock_Ip_SpecificPlatformInitClock/4 (Clock_Ip_SpecificPlatformInitClock) @06e1e
   Function flags: body
   Called by: Clock_Ip_Command/11 
   Calls: Clock_Ip_PowerClockIpModules/2 
-Clock_Ip_McMeEnterKey/3 (Clock_Ip_McMeEnterKey) @06c40e00
+Clock_Ip_McMeEnterKey/3 (Clock_Ip_McMeEnterKey) @06055a80
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
@@ -172,7 +172,7 @@ Clock_Ip_McMeEnterKey/3 (Clock_Ip_McMeEnterKey) @06c40e00
   Function flags: body
   Called by: Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 Clock_Ip_PowerClockIpModules/2 
   Calls: 
-Clock_Ip_PowerClockIpModules/2 (Clock_Ip_PowerClockIpModules) @06c40a80
+Clock_Ip_PowerClockIpModules/2 (Clock_Ip_PowerClockIpModules) @060557e0
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   References: 
@@ -181,14 +181,14 @@ Clock_Ip_PowerClockIpModules/2 (Clock_Ip_PowerClockIpModules) @06c40a80
   Function flags: body
   Called by: Clock_Ip_SpecificPlatformInitClock/4 
   Calls: Clock_Ip_ReportClockErrors/14 Clock_Ip_TimeoutExpired/13 Clock_Ip_StartTimeout/12 Clock_Ip_McMeEnterKey/3 Clock_Ip_ReportClockErrors/14 Clock_Ip_TimeoutExpired/13 Clock_Ip_StartTimeout/12 Clock_Ip_McMeEnterKey/3 Clock_Ip_ReportClockErrors/14 Clock_Ip_TimeoutExpired/13 Clock_Ip_StartTimeout/12 Clock_Ip_McMeEnterKey/3 Clock_Ip_ReportClockErrors/14 Clock_Ip_TimeoutExpired/13 Clock_Ip_StartTimeout/12 Clock_Ip_McMeEnterKey/3 
-Clock_Ip_pxFircStdbyClock/1 (Clock_Ip_pxFircStdbyClock) @06c3e1f8
+Clock_Ip_pxFircStdbyClock/1 (Clock_Ip_pxFircStdbyClock) @060531f8
   Type: variable definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   References: 
   Referring: DisableFircInStandbyMode/5 (read) EnableFircInStandbyMode/6 (read) Clock_Ip_ClockInitializeObjects/9 (write) 
   Availability: available
   Varpool flags:
-Clock_Ip_pxSircStdbyClock/0 (Clock_Ip_pxSircStdbyClock) @06c3e168
+Clock_Ip_pxSircStdbyClock/0 (Clock_Ip_pxSircStdbyClock) @06053168
   Type: variable definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   References: 

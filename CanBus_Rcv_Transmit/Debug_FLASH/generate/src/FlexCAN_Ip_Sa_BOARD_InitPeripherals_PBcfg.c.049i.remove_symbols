@@ -4,7 +4,7 @@ Reclaiming variables:
 Clearing address taken flags:
 Symbol table:
 
-flexcan0_Callback/2 (flexcan0_Callback) @069e2c40
+flexcan0_Callback/2 (flexcan0_Callback) @05d14700
   Type: function
   Visibility: external public
   Address is taken.
@@ -14,14 +14,14 @@ flexcan0_Callback/2 (flexcan0_Callback) @069e2c40
   Function flags:
   Called by: 
   Calls: 
-FlexCAN_Config0/1 (FlexCAN_Config0) @069e6bd0
+FlexCAN_Config0/1 (FlexCAN_Config0) @05d18bd0
   Type: variable definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: flexcan0_Callback/2 (addr) 
   Referring: 
   Availability: available
   Varpool flags: initialized read-only const-value-known
-FlexCAN_State0/0 (FlexCAN_State0) @069e6a68
+FlexCAN_State0/0 (FlexCAN_State0) @05d18a68
   Type: variable definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
