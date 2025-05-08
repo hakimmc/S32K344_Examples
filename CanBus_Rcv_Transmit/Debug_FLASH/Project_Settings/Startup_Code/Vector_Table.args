@@ -1,15 +1,15 @@
 -c
 -I../RTD/include
--I"C:/Users/ARGE13/Documents/cans32/FlexCAN_Ip_Example_S32K344/generate/include"
--I"C:/Users/ARGE13/Documents/cans32/FlexCAN_Ip_Example_S32K344/RTD/include"
--I"C:/Users/ARGE13/Documents/cans32/FlexCAN_Ip_Example_S32K344/include"
--I"C:/Users/ARGE13/Documents/cans32/FlexCAN_Ip_Example_S32K344/board"
--I"C:/Users/ARGE13/Documents/cans32/FlexCAN_Ip_Example_S32K344/generate/include"
--I"C:/Users/ARGE13/Documents/cans32/FlexCAN_Ip_Example_S32K344/generate/src"
--I"C:/NXP/S32DS.3.6.0/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header"
--I"C:/NXP/S32DS.3.6.0/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include"
--I"C:/NXP/S32DS.3.6.0/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Platform_TS_T40D34M20I0R0/include"
--I"C:/NXP/S32DS.3.6.0/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Platform_TS_T40D34M20I0R0/startup/include"
+-I"C:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include"
+-I"C:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/RTD/include"
+-I"C:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/include"
+-I"C:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/board"
+-I"C:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include"
+-I"C:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/src"
+-I"C:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header"
+-I"C:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include"
+-I"C:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Platform_TS_T40D34M20I0R0/include"
+-I"C:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Platform_TS_T40D34M20I0R0/startup/include"
 -x assembler-with-cpp
 -g3
 -mcpu=cortex-m7
@@ -19,4 +19,4 @@
 -mfpu=fpv5-sp-d16
 -specs=nano.specs
 -specs=nosys.specs
---sysroot="C:/NXP/S32DS.3.6.0/S32DS/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/arm-none-eabi/lib"
+--sysroot="C:/NXP/S32DS.3.5/S32DS/build_tools/gcc_v10.2/gcc-10.2-arm32-eabi/arm-none-eabi/lib"
