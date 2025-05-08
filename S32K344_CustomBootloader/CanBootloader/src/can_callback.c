@@ -16,7 +16,6 @@
  */
 void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 buffIdx, const Flexcan_Ip_StateType *flexcanState)
 {
-    IntCtrl_Ip_DisableIrq(FlexCAN0_1_IRQn);
 	(void)flexcanState;
 	(void)instance;
 
@@ -26,23 +25,35 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 			switch (buffIdx)
 			{
 				case RX_MB_IDW: // Wakeup message
-					if (Comparator(rxData.data, APP_MagicWORD, 4))
+					if (Comparator(rxData.data, ReadConfig_TX, 7))
 					{
-						BootMode = APPLICATION;
+						if (rxData.data[7] == 0) {
+							BootState = 1;
+						} else __asm("NOP");
+						ReportConfig(config, rxData.data[7]);
+						return;
 					}
-					else if (Comparator(rxData.data, CFG_MagicWORD, 4))
-					{
-						BootMode = CONFIG;
-					}
-					if (BootMode == APPLICATION || BootMode == CONFIG)
+					if (Comparator(rxData.data, BootStartWord_TX, 8))
 					{
 						BootState = 1;
-						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, TX_BOOT_ID + config->system_id, startWORD);
+						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, TX_BOOT_ID + config->system_id, BootStartWord_RX);
+						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDW, &rxData, FALSE);
+						return;
+					}
+					BootMode = Comparator(rxData.data, APP_MagicWORD, 4)?
+							APPLICATION:(Comparator(rxData.data, CFG_MagicWORD, 4)?
+							CONFIG:
+							NONE
+					);
+					if (BootMode != NONE)
+					{
+						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, TX_BOOT_ID + config->system_id, ModestartWORD);
 						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
 					}
 					else
 					{
-						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDW, &rxData, FALSE);
+						BootState = 0;
+						JumpState = 1;
 					}
 					break;
 				case RX_MB_IDX: // Bootloader message
@@ -73,23 +84,28 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 							if (BootMode == APPLICATION && !BoolOfJumpToAppCfg)
 							{
 								//*(uint64_t*)((uint8_t*)&check_config + WriteIndex) = *(uint64_t*)FlashData;
-								if(WriteIndex == 0)
+								if(WriteIndex == 0 || WriteIndex == 8)
 								{
-#ifdef SwLastDateControl_Enable
-									if(	!CheckSwDate(*(uint32_t*)FlashData)||//check_config->unix_timestamp) ||
-#else
-											if(0 ||
-#endif
-#ifdef SwVersionControl_Enable
-										!CheckSwVersion(FlashData[5], FlashData[6], FlashData[7])//check_config->sw_version_major, check_config->sw_version_minor, check_config->sw_version_bugfix)
-#else
-										0
-#endif
-									  )
+									switch (WriteIndex)
 									{
-										IntCtrl_Ip_DisableIrq(FlexCAN0_1_IRQn);
-										BootState = 0;
-										return;
+										case 0:
+//#ifdef SwLastDateControl_Enable & SwVersionControl_Enable
+											if(	!CheckSwDate(*(uint32_t*)FlashData) && !CheckSwVersion(FlashData[5], FlashData[6], FlashData[7]))
+											{
+												BootState = 0;
+												JumpState = 1;
+												return;
+											}
+//#endif
+											break;
+										case 8:
+											if(!CheckMacAddr(FlashData))
+											{
+												BootState = 0;
+												JumpState = 1;
+												return;
+											}
+											break;
 									}
 								}
 								if (Comparator(FlashData, JumpToAppFromCfgData, 8))
@@ -111,7 +127,14 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 		default:
 			break;
 	}
-    IntCtrl_Ip_EnableIrq(FlexCAN0_1_IRQn);
+}
+
+uint8_t by[8];
+
+void ReportConfig(MyConfig_t* Config, uint8_t ConfigIndex)
+{
+	FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, TX_BOOT_ID + config->system_id, (uint8*)(((uint64*)Config) + ConfigIndex));
+	FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDW, &rxData, FALSE);
 }
 
 

@@ -8,11 +8,16 @@
 #include "bl_config.h"
 
 uint8_t HelloFromBoot[8] = {'C','R','7','>','L','M','1','0'};
-uint8_t startWORD[8] = {'!','O','T','T','O','S','T','R'};
+uint8_t ModestartWORD[8] = {'!','O','T','T','O','S','T','R'};
 uint8_t jumpWORD[8]  = {'!','O','T','T','O','J','M','P'};
 uint8_t skipWORD[8]  = {'!','O','T','T','O','N','X','T'};
 uint8_t APP_MagicWORD[8] = {'!','A','P','P','D','A','T','E'};
 uint8_t CFG_MagicWORD[8] = {'!','C','F','G','D','A','T','E'};
+uint8_t BootStartWord_TX[8] = {'!','B','O','O','T','S','T','T'};
+uint8_t BootStartWord_RX[8] = {'!','B','O','O','T','S','T','D'};
+uint8_t ReadConfig_TX[8] = {'R','E','A','D','C','F','G',';'};
+uint8_t ReadConfig_RX[8] = {'!','C','F','G','W','R','G','T'};
+
 volatile uint8_t BootState = 0;
 volatile uint8_t JumpState = 0;
 BootMode_Enum BootMode = APPLICATION;
@@ -45,7 +50,6 @@ Flexcan_Ip_DataInfoType tx_info =
 };
 
 MyConfig_t* config;
-MyConfig_t* check_config;
 
 void setupCan( void )
 {
@@ -177,9 +181,9 @@ void JumpToUserApplication( void )
  */
 uint8_t CheckSwVersion(uint8_t MajorVersion, uint8_t MinorVersion, uint8_t PatchVersion)
 {
-	if(MajorVersion >= config->sw_version_major) return 1;
-	if(MinorVersion >= config->sw_version_minor) return 1;
-	if(PatchVersion >= config->sw_version_bugfix) return 1;
+	if(MajorVersion >= config->sw_version_major || config->sw_version_major == 0xFF) return 1;
+	if(MinorVersion >= config->sw_version_minor || config->sw_version_minor == 0xFF) return 1;
+	if(PatchVersion >= config->sw_version_bugfix || config->sw_version_bugfix == 0xFF) return 1;
 	return 0;
 }
 #endif
@@ -193,7 +197,25 @@ uint8_t CheckSwVersion(uint8_t MajorVersion, uint8_t MinorVersion, uint8_t Patch
  */
 uint8_t CheckSwDate(uint32_t Date)
 {
-	return (Date > config->unix_timestamp);
+	return (Date >= config->unix_timestamp || config->unix_timestamp == 4294967295);
+}
+#endif
+
+#ifdef SwMacAddressControl_Enable
+/**
+ * @brief Check if software mac adress expected mac address.
+ *
+ * @param Mac Mac address
+ * @return 1 if match, 0 otherwise
+ */
+uint8_t CheckMacAddr(uint8_t Mac[8])
+{
+	for(int indx = 1; indx<7;indx++)
+	{
+		if(Mac[indx] == config->mac_address[indx-1] || config->mac_address[indx-1] == 0xFF)	continue;
+		else return 0;
+	}
+	return 1;
 }
 #endif
 

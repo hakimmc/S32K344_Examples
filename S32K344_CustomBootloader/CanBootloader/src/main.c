@@ -1,6 +1,5 @@
 #include "bl_config.h"
 
-#define BIT(x) 	(1<<(x))
 int main(void)
 {
 	config = (MyConfig_t*)0x500000;
@@ -24,8 +23,7 @@ int main(void)
     	delay_ms(5000 + (config->boot_timeout*1000), &BootState);
     	JumpState = 1;
     	while(BootState);
-    }
-    IntCtrl_Ip_DisableIrq(FlexCAN0_1_IRQn);
+    }    IntCtrl_Ip_DisableIrq(FlexCAN0_1_IRQn);
     FlexCAN_Ip_SetStopMode(INST_FLEXCAN_0);
     FlexCAN_Ip_Deinit(INST_FLEXCAN_0);
     JumpToUserApplication();

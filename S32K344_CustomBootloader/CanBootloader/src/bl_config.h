@@ -6,8 +6,8 @@
  * @author hakimmc
  */
 
-#ifndef BL_CONFIG_H_
-#define BL_CONFIG_H_
+#ifndef BL_CONFIG_H__
+#define BL_CONFIG_H__
 
 #include "FlexCAN_Ip.h"
 #include <machine/_default_types.h>
@@ -22,6 +22,9 @@
 
 /** @brief Enable software last date control feature */
 #define SwLastDateControl_Enable
+
+/** @brief Enable software mac address control feature */
+#define SwMacAddressControl_Enable
 
 /** @defgroup ENUMS Enumerations
  *  @{
@@ -82,10 +85,15 @@ typedef enum {
 typedef struct
 {
     uint32_t unix_timestamp;          /**< Date in Unix timestamp format (0x00 - 0x03) */
+
     uint8_t system_id;                /**< System ID (0x04) */
     uint8_t sw_version_major;         /**< Software version major (0x05) */
     uint8_t sw_version_minor;         /**< Software version minor (0x06) */
     uint8_t sw_version_bugfix;        /**< Software version bugfix (0x07) */
+
+    uint8_t padding1;                  /**< Padding byte (0x1B) */
+    uint8_t mac_address[6];             /**< MAC address (0x1C - 0x21) */
+    uint8_t padding2;                  /**< Padding byte (0x1B) */
 
     BootType boot_mode : 1;            /**< Boot mode selection (0x08) */
     uint8_t boot_timeout : 7;          /**< Boot timeout value (0x08) */
@@ -111,9 +119,7 @@ typedef struct
     uint8_t max_temp;                  /**< Maximum temperature (0x18) */
     uint8_t min_temp;                  /**< Minimum temperature (0x19) */
     uint8_t temp_sensor_count;         /**< Number of temperature sensors (0x1A) */
-    uint8_t padding1;                  /**< Padding byte (0x1B) */
-    uint8_t mac_address[6];             /**< MAC address (0x1C - 0x21) */
-    uint8_t padding2[6];                /**< Additional padding (0x22 - 0x27) */
+    uint8_t padding3[5];                /**< Additional padding (0x22 - 0x27) */
     char signature[8];                 /**< Configuration signature "!CFGEOC;" (0x28 - 0x2F) */
 
 } MyConfig_t;
@@ -147,11 +153,15 @@ extern MyConfig_t* check_config;
 #define BOOT_CCITT_KEY 0xCEFA
 
 extern uint8_t HelloFromBoot[8];
-extern uint8_t startWORD[8];
+extern uint8_t ModestartWORD[8];
 extern uint8_t jumpWORD[8];
 extern uint8_t skipWORD[8];
 extern uint8_t APP_MagicWORD[8];
 extern uint8_t CFG_MagicWORD[8];
+extern uint8_t BootStartWord_TX[8];
+extern uint8_t BootStartWord_RX[8];
+extern uint8_t ReadConfig_TX[8];
+extern uint8_t ReadConfig_RX[8];
 
 extern volatile uint8_t BootState;
 extern volatile uint8_t JumpState;
@@ -243,6 +253,12 @@ DelayState __attribute__((optimize("O0"))) delay_ms(uint32_t ms, volatile uint8_
  */
 void JumpToUserApplication(void);
 
+/**
+ * @brief Report Config to Gui
+ */
+void ReportConfig(MyConfig_t* Config, uint8_t ConfigIndex);
+
+
 #ifdef SwVersionControl_Enable
 /**
  * @brief Check if software version matches expected version.
@@ -261,6 +277,16 @@ uint8_t CheckSwVersion(uint8_t MajorVersion, uint8_t MinorVersion, uint8_t Patch
  * @return 1 if match, 0 otherwise
  */
 uint8_t CheckSwDate(uint32_t Date);
+#endif
+
+#ifdef SwMacAddressControl_Enable
+/**
+ * @brief Check if software date matches expected date.
+ *
+ * @param Date Expected date
+ * @return 1 if match, 0 otherwise
+ */
+uint8_t CheckMacAddr(uint8_t Mac[8]);
 #endif
 
 #endif /* BL_CONFIG_H_ */
