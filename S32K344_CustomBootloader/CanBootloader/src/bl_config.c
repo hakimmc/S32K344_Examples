@@ -8,11 +8,16 @@
 #include "bl_config.h"
 
 uint8_t HelloFromBoot[8] = {'C','R','7','>','L','M','1','0'};
-uint8_t startWORD[8] = {'!','O','T','T','O','S','T','R'};
+uint8_t ModestartWORD[8] = {'!','O','T','T','O','S','T','R'};
 uint8_t jumpWORD[8]  = {'!','O','T','T','O','J','M','P'};
 uint8_t skipWORD[8]  = {'!','O','T','T','O','N','X','T'};
 uint8_t APP_MagicWORD[8] = {'!','A','P','P','D','A','T','E'};
 uint8_t CFG_MagicWORD[8] = {'!','C','F','G','D','A','T','E'};
+uint8_t BootStartWord_TX[8] = {'!','B','O','O','T','S','T','T'};
+uint8_t BootStartWord_RX[8] = {'!','B','O','O','T','S','T','D'};
+uint8_t ReadConfig_TX[8] = {'R','E','A','D','C','F','G',';'};
+uint8_t ReadConfig_RX[8] = {'!','C','F','G','W','R','G','T'};
+
 volatile uint8_t BootState = 0;
 volatile uint8_t JumpState = 0;
 BootMode_Enum BootMode = APPLICATION;
@@ -167,84 +172,50 @@ void JumpToUserApplication( void )
 	(* (void (*) (void)) func)();
 }
 
-void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 buffIdx, const Flexcan_Ip_StateType *flexcanState)
+#ifdef SwVersionControl_Enable
+/**
+ * @brief Check if software version matches expected version.
+ *
+ * @param SwVersion Expected software version
+ * @return 1 if match, 0 otherwise
+ */
+uint8_t CheckSwVersion(uint8_t MajorVersion, uint8_t MinorVersion, uint8_t PatchVersion)
 {
-    IntCtrl_Ip_DisableIrq(FlexCAN0_1_IRQn);
-	(void)flexcanState;
-	(void)instance;
-	/* Commented this block because the incoming buffIdx ignores itself via the void tag.
-	(void)buffIdx;*/
-
-	switch(eventType)
-	{
-		case FLEXCAN_EVENT_RX_COMPLETE:
-			switch (buffIdx)
-			{
-				case RX_MB_IDW: // for wakeup
-					if(Comparator(rxData.data, APP_MagicWORD, 4))
-					{
-						BootMode = APPLICATION;
-					}
-					else if(Comparator(rxData.data, CFG_MagicWORD, 4))
-					{
-						BootMode = CONFIG;
-					}
-					if(BootMode == APPLICATION  || BootMode == CONFIG)
-					{
-						BootState = 1;
-						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, TX_BOOT_ID + config->system_id, startWORD);
-						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
-					}
-					else
-					{
-						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDW, &rxData, FALSE);
-					}
-					break;
-				case RX_MB_IDX: // for boot
-					if(BootState)
-					{
-						if(Comparator(rxData.data, jumpWORD, 8))
-						{
-							BootState = 0;
-							JumpState = 1;
-							break;
-						}
-						if(CalculateCRC(rxData.data, 6) != (uint16_t)((rxData.data[6]*256) + rxData.data[7])){ break;}
-						if(!rxData.data[1])
-						{
-							for(int fi=0; fi<4; fi++)
-							{
-								FlashData[fi] = rxData.data[2+fi];
-							}
-						}
-						else if(rxData.data[1])
-						{
-							for(int fi=0; fi<4; fi++)
-							{
-								FlashData[fi+4] = rxData.data[2+fi];
-							}
-							FlashWrite(CFG_ADDR_START+WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
-							WriteIndex+=8;
-							if(BootMode == APPLICATION && !BoolOfJumpToAppCfg)
-							{
-								if(Comparator(FlashData, JumpToAppFromCfgData, 8))
-								{
-									WriteIndex = 0x2000;
-									BoolOfJumpToAppCfg = 1;
-								}
-							}
-						}
-
-						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, RX_BOOT_ID + config->system_id, skipWORD);
-						//memset(rxData.data,'\0', 8);
-						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
-					}
-					break;
-			}
-			break;
-		default:
-			break;
-	}
-    IntCtrl_Ip_EnableIrq(FlexCAN0_1_IRQn);
+	if(MajorVersion >= config->sw_version_major || config->sw_version_major == 0xFF) return 1;
+	if(MinorVersion >= config->sw_version_minor || config->sw_version_minor == 0xFF) return 1;
+	if(PatchVersion >= config->sw_version_bugfix || config->sw_version_bugfix == 0xFF) return 1;
+	return 0;
 }
+#endif
+
+#ifdef SwLastDateControl_Enable
+/**
+ * @brief Check if software date matches expected date.
+ *
+ * @param Date Expected date
+ * @return 1 if match, 0 otherwise
+ */
+uint8_t CheckSwDate(uint32_t Date)
+{
+	return (Date >= config->unix_timestamp || config->unix_timestamp == 4294967295);
+}
+#endif
+
+#ifdef SwMacAddressControl_Enable
+/**
+ * @brief Check if software mac adress expected mac address.
+ *
+ * @param Mac Mac address
+ * @return 1 if match, 0 otherwise
+ */
+uint8_t CheckMacAddr(uint8_t Mac[8])
+{
+	for(int indx = 1; indx<7;indx++)
+	{
+		if(Mac[indx] == config->mac_address[indx-1] || config->mac_address[indx-1] == 0xFF)	continue;
+		else return 0;
+	}
+	return 1;
+}
+#endif
 
