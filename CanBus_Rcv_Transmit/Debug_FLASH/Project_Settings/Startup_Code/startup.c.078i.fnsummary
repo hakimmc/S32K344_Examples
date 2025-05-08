@@ -1,6 +1,6 @@
 Symbol table:
 
-__ZERO_TABLE/2 (__ZERO_TABLE) @0698c168
+__ZERO_TABLE/2 (__ZERO_TABLE) @06a40168
   Type: variable
   Body removed by symtab_remove_unreachable_nodes
   Visibility: external public
@@ -8,7 +8,7 @@ __ZERO_TABLE/2 (__ZERO_TABLE) @0698c168
   Referring: init_data_bss/0 (addr) 
   Availability: not_available
   Varpool flags:
-__INIT_TABLE/1 (__INIT_TABLE) @0698c120
+__INIT_TABLE/1 (__INIT_TABLE) @06a40120
   Type: variable
   Body removed by symtab_remove_unreachable_nodes
   Visibility: external public
@@ -16,7 +16,7 @@ __INIT_TABLE/1 (__INIT_TABLE) @0698c120
   Referring: init_data_bss/0 (addr) 
   Availability: not_available
   Varpool flags:
-init_data_bss/0 (init_data_bss) @06922ee0
+init_data_bss/0 (init_data_bss) @069d7e00
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: __INIT_TABLE/1 (addr) __ZERO_TABLE/2 (addr) 

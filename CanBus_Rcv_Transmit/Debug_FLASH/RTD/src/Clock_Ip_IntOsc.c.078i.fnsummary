@@ -1,13 +1,13 @@
 Symbol table:
 
-Clock_Ip_axIntOscCallbacks/8 (Clock_Ip_axIntOscCallbacks) @06dae360
+Clock_Ip_axIntOscCallbacks/8 (Clock_Ip_axIntOscCallbacks) @06134360
   Type: variable definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: Clock_Ip_InternalOscillatorEmpty/0 (addr) Clock_Ip_InternalOscillatorEmpty/0 (addr) Clock_Ip_InternalOscillatorEmpty_Disable/1 (addr) Clock_Ip_SetFircStdby/2 (addr) Clock_Ip_EnableFircStdby/3 (addr) Clock_Ip_DisableFircStdby/4 (addr) Clock_Ip_SetSircStdby/5 (addr) Clock_Ip_EnableSircStdby/6 (addr) Clock_Ip_DisableSircStdby/7 (addr) 
   Referring: 
   Availability: available
   Varpool flags: initialized read-only const-value-known
-Clock_Ip_DisableSircStdby/7 (Clock_Ip_DisableSircStdby) @06eb3000
+Clock_Ip_DisableSircStdby/7 (Clock_Ip_DisableSircStdby) @0618b540
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
@@ -17,7 +17,7 @@ Clock_Ip_DisableSircStdby/7 (Clock_Ip_DisableSircStdby) @06eb3000
   Function flags: body
   Called by: 
   Calls: 
-Clock_Ip_EnableSircStdby/6 (Clock_Ip_EnableSircStdby) @06dafa80
+Clock_Ip_EnableSircStdby/6 (Clock_Ip_EnableSircStdby) @0618b2a0
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
@@ -27,7 +27,7 @@ Clock_Ip_EnableSircStdby/6 (Clock_Ip_EnableSircStdby) @06dafa80
   Function flags: body
   Called by: 
   Calls: 
-Clock_Ip_SetSircStdby/5 (Clock_Ip_SetSircStdby) @06daf540
+Clock_Ip_SetSircStdby/5 (Clock_Ip_SetSircStdby) @0618b000
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
@@ -37,7 +37,7 @@ Clock_Ip_SetSircStdby/5 (Clock_Ip_SetSircStdby) @06daf540
   Function flags: body
   Called by: 
   Calls: 
-Clock_Ip_DisableFircStdby/4 (Clock_Ip_DisableFircStdby) @06dafee0
+Clock_Ip_DisableFircStdby/4 (Clock_Ip_DisableFircStdby) @06133b60
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
@@ -47,7 +47,7 @@ Clock_Ip_DisableFircStdby/4 (Clock_Ip_DisableFircStdby) @06dafee0
   Function flags: body
   Called by: 
   Calls: 
-Clock_Ip_EnableFircStdby/3 (Clock_Ip_EnableFircStdby) @06dafc40
+Clock_Ip_EnableFircStdby/3 (Clock_Ip_EnableFircStdby) @06133620
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
@@ -57,7 +57,7 @@ Clock_Ip_EnableFircStdby/3 (Clock_Ip_EnableFircStdby) @06dafc40
   Function flags: body
   Called by: 
   Calls: 
-Clock_Ip_SetFircStdby/2 (Clock_Ip_SetFircStdby) @06daf9a0
+Clock_Ip_SetFircStdby/2 (Clock_Ip_SetFircStdby) @06133d20
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
@@ -67,7 +67,7 @@ Clock_Ip_SetFircStdby/2 (Clock_Ip_SetFircStdby) @06daf9a0
   Function flags: body
   Called by: 
   Calls: 
-Clock_Ip_InternalOscillatorEmpty_Disable/1 (Clock_Ip_InternalOscillatorEmpty_Disable) @06daf700
+Clock_Ip_InternalOscillatorEmpty_Disable/1 (Clock_Ip_InternalOscillatorEmpty_Disable) @06133a80
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
@@ -77,7 +77,7 @@ Clock_Ip_InternalOscillatorEmpty_Disable/1 (Clock_Ip_InternalOscillatorEmpty_Dis
   Function flags: body
   Called by: 
   Calls: 
-Clock_Ip_InternalOscillatorEmpty/0 (Clock_Ip_InternalOscillatorEmpty) @06daf460
+Clock_Ip_InternalOscillatorEmpty/0 (Clock_Ip_InternalOscillatorEmpty) @061337e0
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
