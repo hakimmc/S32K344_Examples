@@ -17,7 +17,7 @@ Why inlining failed?
 IPA summary for Clock_Ip_SetExternalSignalFrequency/0 is missing.
 Symbol table:
 
-Clock_Ip_SetExternalSignalFrequency/0 (Clock_Ip_SetExternalSignalFrequency) @06c6bb60
+Clock_Ip_SetExternalSignalFrequency/0 (Clock_Ip_SetExternalSignalFrequency) @060a9000
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
