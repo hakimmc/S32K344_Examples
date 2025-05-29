@@ -1,46 +1,91 @@
-/*
- * bl_config.c
- *
- *  Created on: 9 Mar 2025
- *      Author: hakimmc
+/**
+ * @file bl_config.c
+ * @brief Bootloader configuration and flash utility functions.
+ * @date 9 Mar 2025
+ * @author hakimmc
  */
 
 #include "bl_config.h"
 
+/** @brief Bootloader startup message */
 uint8_t HelloFromBoot[8] = {'C','R','7','>','L','M','1','0'};
+
+/** @brief Mode start trigger word */
 uint8_t ModestartWORD[8] = {'!','O','T','T','O','S','T','R'};
+
+/** @brief Jump command word */
 uint8_t jumpWORD[8]  = {'!','O','T','T','O','J','M','P'};
+
+/** @brief Skip command word */
 uint8_t skipWORD[8]  = {'!','O','T','T','O','N','X','T'};
+
+/** @brief Application magic word */
 uint8_t APP_MagicWORD[8] = {'!','A','P','P','D','A','T','E'};
+
+/** @brief Configuration magic word */
 uint8_t CFG_MagicWORD[8] = {'!','C','F','G','D','A','T','E'};
+
+/** @brief Bootloader transmit word */
 uint8_t BootStartWord_TX[8] = {'!','B','O','O','T','S','T','T'};
+
+/** @brief Bootloader receive word */
 uint8_t BootStartWord_RX[8] = {'!','B','O','O','T','S','T','D'};
+
+/** @brief Configuration read transmit word */
 uint8_t ReadConfig_TX[8] = {'R','E','A','D','C','F','G',';'};
+
+/** @brief Configuration read response word */
 uint8_t ReadConfig_RX[8] = {'!','C','F','G','W','R','G','T'};
 
+/** @brief Bootloader state variable */
 volatile uint8_t BootState = 0;
+
+/** @brief Jump state variable */
 volatile uint8_t JumpState = 0;
+
+/** @brief Current boot mode */
 BootMode_Enum BootMode = APPLICATION;
+
+/** @brief Configuration flash start address */
 uint32_t CFG_ADDR_START = 0x00500000;
+
+/** @brief Application flash start address */
 uint32_t APP_ADDR_START = 0x00502000;
+
+/** @brief Last unlocked flash sector */
 uint32_t UNLOCKED_LAST_SECTOR = 0;
+
+/** @brief Last erased flash sector */
 uint32_t ERASED_LAST_SECTOR = 0;
+
+/** @brief Flash write index */
 volatile uint32_t WriteIndex = 0;
+
+/** @brief Dummy data to write to flash */
 uint8_t FlashData[8] = {1,2,3,4,5,6,7,8};
+
+/** @brief Data to signal jump from config */
 uint8_t JumpToAppFromCfgData[8] = {'!','C','F','G','E','O','C',';'};
+
+/** @brief Jump control flag */
 volatile uint8_t BoolOfJumpToAppCfg = 0;
+
+/** @brief CAN read buffer index */
 uint8_t readCanIndx = 0;
 
+/** @brief CAN receive buffer */
 Flexcan_Ip_MsgBuffType rxData;
 
+/** @brief CAN RX configuration */
 Flexcan_Ip_DataInfoType rx_info =
 {
-		.msg_id_type = FLEXCAN_MSG_ID_EXT,
-		.data_length = 8u,
-		.is_polling = FALSE,
-		.is_remote = FALSE
+	.msg_id_type = FLEXCAN_MSG_ID_EXT,
+	.data_length = 8u,
+	.is_polling = FALSE,
+	.is_remote = FALSE
 };
 
+/** @brief CAN TX configuration */
 Flexcan_Ip_DataInfoType tx_info =
 {
 	.msg_id_type = FLEXCAN_MSG_ID_EXT,
@@ -49,9 +94,13 @@ Flexcan_Ip_DataInfoType tx_info =
 	.is_remote = FALSE
 };
 
+/** @brief Pointer to configuration structure */
 MyConfig_t* config;
 
-void setupCan( void )
+/**
+ * @brief Initialize CAN interface and configure receive mailboxes.
+ */
+void setupCan(void)
 {
 	Siul2_Dio_Ip_WritePin(CAN0_EN_PORT, CAN0_EN_PIN, 1U);
 	Siul2_Dio_Ip_WritePin(CAN0_STB_PORT, CAN0_STB_PIN, 1U);
@@ -61,26 +110,37 @@ void setupCan( void )
 	FlexCAN_Ip_SetStartMode(INST_FLEXCAN_0);
 }
 
+/**
+ * @brief Delay loop with condition-based break.
+ *
+ * @param ms Number of milliseconds to delay.
+ * @param condition Pointer to condition variable to interrupt delay.
+ * @return DelayState Final state of condition (0 or 1).
+ */
 DelayState __attribute__((optimize("O0"))) delay_ms(uint32_t ms, volatile uint8_t *condition)
 {
-    volatile uint32_t i, j;//2 cycle
+    volatile uint32_t i, j;
     for (i = 0; i < ms; i++)
     {
-        //for (j = 0; j < 40000; j++)removed for perfect timing with 160mhz clock : loop using 8 cycle; 8 x 40000 = 320.000 => 320.000 / 160.000.000 = 0.002S => 2mS
-		//																			2mS is too much max loop value replaced with 20000 for 1 mS;
         for (j = 0; j < 14545; j++)
-		{
-            //__asm("NOP"); removed for perfect timing 160mhz clock; if i use nop asm block i will be used 9 cycle;
-			if(*condition) break;
+        {
+            if(*condition) break;
         }
 		if(*condition) break;
     }
 	return *condition;
 }
 
+/**
+ * @brief Calculate CRC-CCITT checksum.
+ *
+ * @param data Pointer to data array.
+ * @param Length Length of data array.
+ * @return uint16_t Computed CRC value.
+ */
 uint16_t CalculateCRC(uint8_t *data, uint32_t Length)
 {
-    const uint16_t poly = 0x1021; // 0x1021 = 4129 (CRC-CCITT poly)
+    const uint16_t poly = 0x1021;
     uint16_t table[256];
     uint16_t initialValue = BOOT_CCITT_KEY;
     uint16_t temp, a;
@@ -100,6 +160,7 @@ uint16_t CalculateCRC(uint8_t *data, uint32_t Length)
         }
         table[i] = temp;
     }
+
     for (uint32_t i = 0; i < Length; ++i)
     {
         crc = (uint16_t)((crc << 8) ^ table[((crc >> 8) ^ data[i])]);
@@ -107,12 +168,19 @@ uint16_t CalculateCRC(uint8_t *data, uint32_t Length)
     return crc;
 }
 
+/**
+ * @brief Write data to flash memory with lock/unlock and erase management.
+ *
+ * @param Addr Target flash address.
+ * @param Data Pointer to data buffer.
+ * @param Length Length of data in bytes.
+ * @param MASTER_ID Flash master ID.
+ * @return uint8_t 1 on success, 0 on failure.
+ */
 uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_ID)
 {
 	C40_Ip_StatusType c40Status;
 
-
-	/* Flash Lock */
 	if(UNLOCKED_LAST_SECTOR < (uint32_t)C40_Ip_GetSectorNumberFromAddress(Addr))
 	{
 		while(STATUS_C40_IP_SECTOR_PROTECTED != C40_Ip_GetLock(C40_Ip_GetSectorNumberFromAddress(Addr))){
@@ -121,7 +189,6 @@ uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_I
 		UNLOCKED_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(Addr);
 	}
 
-	/* Flash Unlock */
 	if (STATUS_C40_IP_SECTOR_PROTECTED == C40_Ip_GetLock(C40_Ip_GetSectorNumberFromAddress(Addr)))
 	{
 		while(STATUS_C40_IP_SECTOR_UNPROTECTED != C40_Ip_GetLock(C40_Ip_GetSectorNumberFromAddress(Addr))){
@@ -129,7 +196,6 @@ uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_I
 		}
 	}
 
-	/* Erase Flash */
 	if(C40_Ip_GetSectorNumberFromAddress(Addr) != ERASED_LAST_SECTOR)
 	{
 	    C40_Ip_MainInterfaceSectorErase(C40_Ip_GetSectorNumberFromAddress(Addr), FLS_MASTER_ID);
@@ -141,9 +207,7 @@ uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_I
 		ERASED_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(Addr);
 	}
 
-	/* Write Flash */
     C40_Ip_MainInterfaceWrite(Addr, Length, Data, MASTER_ID);
-    /* Check Last Status */
     do
 	{
 		c40Status = C40_Ip_MainInterfaceWriteStatus();
@@ -152,6 +216,14 @@ uint8_t FlashWrite(uint32_t Addr, uint8_t* Data, uint32 Length, uint8_t MASTER_I
     return (c40Status==STATUS_C40_IP_SUCCESS?1:0);
 }
 
+/**
+ * @brief Compare two byte arrays.
+ *
+ * @param source Source data array.
+ * @param target Target data array.
+ * @param len Length to compare.
+ * @return uint8_t 1 if equal, 0 otherwise.
+ */
 uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len)
 {
     for (uint8_t i = 0; i < len; i++) {
@@ -162,22 +234,25 @@ uint8_t Comparator(uint8_t* source, uint8_t* target, uint8_t len)
     return 1;
 }
 
-typedef void (*AppAddr)(void);
-AppAddr JumpAppAddr = NULL;
-void JumpToUserApplication( void )
+/**
+ * @brief Jump to user application.
+ */
+void JumpToUserApplication(void)
 {
 	uint32 func = *(uint32 volatile *)(APP_ADDR_START+ 0xC);
 	func = *(uint32 volatile *)(((uint32)func) + 0x4);
-	func = ((((uint32)func) & 0xFFFFFFFEU) | 1u); // with "|1u" code worked
+	func = ((((uint32)func) & 0xFFFFFFFEU) | 1u);
 	(* (void (*) (void)) func)();
 }
 
 #ifdef SwVersionControl_Enable
 /**
- * @brief Check if software version matches expected version.
+ * @brief Check software version compatibility.
  *
- * @param SwVersion Expected software version
- * @return 1 if match, 0 otherwise
+ * @param MajorVersion Major version to check.
+ * @param MinorVersion Minor version to check.
+ * @param PatchVersion Patch (bugfix) version to check.
+ * @return uint8_t 1 if compatible, 0 otherwise.
  */
 uint8_t CheckSwVersion(uint8_t MajorVersion, uint8_t MinorVersion, uint8_t PatchVersion)
 {
@@ -190,10 +265,10 @@ uint8_t CheckSwVersion(uint8_t MajorVersion, uint8_t MinorVersion, uint8_t Patch
 
 #ifdef SwLastDateControl_Enable
 /**
- * @brief Check if software date matches expected date.
+ * @brief Check software build date compatibility.
  *
- * @param Date Expected date
- * @return 1 if match, 0 otherwise
+ * @param Date Software build date as UNIX timestamp.
+ * @return uint8_t 1 if date is valid or newer, 0 otherwise.
  */
 uint8_t CheckSwDate(uint32_t Date)
 {
@@ -203,19 +278,19 @@ uint8_t CheckSwDate(uint32_t Date)
 
 #ifdef SwMacAddressControl_Enable
 /**
- * @brief Check if software mac adress expected mac address.
+ * @brief Check if MAC address matches expected configuration.
  *
- * @param Mac Mac address
- * @return 1 if match, 0 otherwise
+ * @param Mac Pointer to MAC address array (8 bytes).
+ * @return uint8_t 1 if match or wildcard, 0 otherwise.
  */
 uint8_t CheckMacAddr(uint8_t Mac[8])
 {
-	for(int indx = 1; indx<7;indx++)
+	for(int indx = 1; indx < 7; indx++)
 	{
-		if(Mac[indx] == config->mac_address[indx-1] || config->mac_address[indx-1] == 0xFF)	continue;
+		if(Mac[indx] == config->mac_address[indx-1] || config->mac_address[indx-1] == 0xFF)
+			continue;
 		else return 0;
 	}
 	return 1;
 }
 #endif
-
