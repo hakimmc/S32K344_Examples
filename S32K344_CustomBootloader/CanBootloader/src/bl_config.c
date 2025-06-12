@@ -100,13 +100,13 @@ MyConfig_t* config;
 /**
  * @brief Initialize CAN interface and configure receive mailboxes.
  */
-void setupCan(void)
+void setupCan(MyConfig_t* Conf)
 {
 	Siul2_Dio_Ip_WritePin(CAN0_EN_PORT, CAN0_EN_PIN, 1U);
 	Siul2_Dio_Ip_WritePin(CAN0_STB_PORT, CAN0_STB_PIN, 1U);
 	FlexCAN_Ip_Init(INST_FLEXCAN_0, &FlexCAN_State0, &FlexCAN_Config0);
-    FlexCAN_Ip_ConfigRxMb(INST_FLEXCAN_0, RX_MB_IDX, &rx_info, RX_BOOT_ID + config->system_id);
-    FlexCAN_Ip_ConfigRxMb(INST_FLEXCAN_0, RX_MB_IDW, &rx_info, RX_BOOT_WAKE_ID + config->system_id);
+    FlexCAN_Ip_ConfigRxMb(INST_FLEXCAN_0, RX_MB_IDX, &rx_info, RX_BOOT_ID + Conf->system_id);
+    FlexCAN_Ip_ConfigRxMb(INST_FLEXCAN_0, RX_MB_IDW, &rx_info, RX_BOOT_WAKE_ID + Conf->system_id);
 	FlexCAN_Ip_SetStartMode(INST_FLEXCAN_0);
 }
 
