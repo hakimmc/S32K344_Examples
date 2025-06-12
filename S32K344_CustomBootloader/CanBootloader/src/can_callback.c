@@ -140,13 +140,19 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 							}
 
 							/* Write 8 bytes to flash */
-							FlashWrite(CFG_ADDR_START + WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
-							WriteIndex += 8;
+							if(BootState)
+							{
+								FlashWrite(CFG_ADDR_START + WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
+								WriteIndex += 8;
+							}
 						}
 
 						/* Acknowledge reception and prepare for next */
-						FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, RX_BOOT_ID + config->system_id, skipWORD);
-						FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
+						if(BootState)
+						{
+							FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, RX_BOOT_ID + config->system_id, skipWORD);
+							FlexCAN_Ip_Receive(INST_FLEXCAN_0, RX_MB_IDX, &rxData, FALSE);
+						}
 					}
 					break;
 			}

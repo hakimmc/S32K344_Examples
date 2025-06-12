@@ -18,13 +18,13 @@
 #include "Siul2_Dio_Ip.h"
 
 /** @brief Enable software version control feature */
-#define SwVersionControl_Enable
+//#define SwVersionControl_Enable
 
 /** @brief Enable software last date control feature */
-#define SwLastDateControl_Enable
+//#define SwLastDateControl_Enable
 
 /** @brief Enable software mac address control feature */
-#define SwMacAddressControl_Enable
+//#define SwMacAddressControl_Enable
 
 /** @defgroup ENUMS Enumerations
  *  @{
@@ -179,7 +179,7 @@ extern Flexcan_Ip_MsgBuffType rxData;
 /**
  * @brief Setup CAN communication parameters.
  */
-void setupCan(void);
+void setupCan(MyConfig_t* Conf);
 
 /** @brief Macro to reverse endianness of a 32-bit value */
 #define REVERSE_ENDIAN_32(x) ( \

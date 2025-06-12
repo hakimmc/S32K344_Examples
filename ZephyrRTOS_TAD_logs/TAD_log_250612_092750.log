@@ -1,0 +1,6 @@
+"Task Aware Debugger for GDB" version 11.7.0 (202411221248)
+(c) 2016-2022 NXP Semiconductors, Inc.
+==================================
+09:27:47.566 INFO: [ZephyrRTOS] .config file could not be read [C:\Users\ARGE13\Documents\S32K344_Examples\S32K344_CustomBootloader\CanBootloader\Debug_FLASH\.config (Sistem belirtilen dosyayı bulamıyor)]
+09:27:47.566 INFO: [TadModel] DSF session ID 19 has started.
+09:27:50.401 INFO: [TadModel] DSF session ID 19 has ended.

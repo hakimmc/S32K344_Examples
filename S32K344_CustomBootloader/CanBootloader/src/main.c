@@ -33,10 +33,10 @@ int main(void)
     rx_info.is_polling = FALSE;
 
     /* Setup CAN peripheral configuration */
-    setupCan();
+    setupCan(config);
 
     /* Determine flash sector locations for unlocking/erasing */
-    UNLOCKED_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(APP_ADDR_START);
+    UNLOCKED_LAST_SECTOR = C40_Ip_GetSectorNumberFromAddress(CFG_ADDR_START);
 	ERASED_LAST_SECTOR = UNLOCKED_LAST_SECTOR - 1;
 
     /* Send initial "Hello from Bootloader" message */
@@ -68,3 +68,5 @@ int main(void)
 
     return 0;
 }
+
+
