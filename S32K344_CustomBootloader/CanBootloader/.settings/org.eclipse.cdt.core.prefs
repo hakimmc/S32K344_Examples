@@ -1,4 +1,14 @@
 eclipse.preferences.version=1
+environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501.2108407239/PATH/delimiter=;
+environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501.2108407239/PATH/operation=prepend
+environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501.2108407239/PATH/value=
+environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501.2108407239/append=true
+environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501.2108407239/appendContributed=true
+environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501.432281063/PATH/delimiter=;
+environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501.432281063/PATH/operation=prepend
+environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501.432281063/PATH/value=
+environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501.432281063/append=true
+environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501.432281063/appendContributed=true
 environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501/PATH/delimiter=;
 environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501/PATH/operation=prepend
 environment/project/com.nxp.s32ds.cle.arm.mbs.arm32.bare.gnu.10.2.exe.debug.120441501/PATH/value=

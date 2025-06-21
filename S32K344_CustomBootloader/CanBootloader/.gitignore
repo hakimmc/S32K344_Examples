@@ -1,2 +1,6 @@
 /Debug_FLASH/
 /Release_FLASH/
+/Debug_RAM/
+/Release_RAM/
+/WithoutProtectBoot/
+/WithProtectBoot/

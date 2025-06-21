@@ -258,7 +258,6 @@ void JumpToUserApplication(void);
  */
 void ReportConfig(MyConfig_t* Config, uint8_t ConfigIndex);
 
-
 #ifdef SwVersionControl_Enable
 /**
  * @brief Check if software version matches expected version.
