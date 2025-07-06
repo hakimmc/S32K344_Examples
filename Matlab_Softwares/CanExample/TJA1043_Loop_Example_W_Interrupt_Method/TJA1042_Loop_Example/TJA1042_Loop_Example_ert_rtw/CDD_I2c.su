@@ -1,0 +1,8 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/CDD_I2c.c:480:6:I2c_Init	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/CDD_I2c.c:521:6:I2c_DeInit	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/CDD_I2c.c:568:16:I2c_PrepareSlaveBuffer	24	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/CDD_I2c.c:613:16:I2c_SyncTransmit	32	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/CDD_I2c.c:678:16:I2c_AsyncTransmit	32	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/CDD_I2c.c:744:17:I2c_StartListening	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/CDD_I2c.c:789:16:I2c_GetStatus	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/CDD_I2c.c:843:6:I2c_GetVersionInfo	0	static

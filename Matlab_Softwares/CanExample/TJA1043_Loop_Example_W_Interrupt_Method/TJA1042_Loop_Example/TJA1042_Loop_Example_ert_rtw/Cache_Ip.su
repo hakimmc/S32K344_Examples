@@ -1,0 +1,6 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Cache_Ip.c:347:16:Cache_Ip_Enable	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Cache_Ip.c:400:16:Cache_Ip_Disable	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Cache_Ip.c:455:16:Cache_Ip_Invalidate	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Cache_Ip.c:511:16:Cache_Ip_Clean	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Cache_Ip.c:567:16:Cache_Ip_InvalidateByAddr	24	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Cache_Ip.c:624:16:Cache_Ip_CleanByAddr	24	static

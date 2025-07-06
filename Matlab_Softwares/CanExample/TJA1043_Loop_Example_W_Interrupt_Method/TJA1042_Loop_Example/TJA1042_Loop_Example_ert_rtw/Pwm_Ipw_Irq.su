@@ -1,0 +1,4 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Pwm_Ipw_Irq.c:186:6:Pwm_Ipw_EmiosNotification	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Pwm_Ipw_Irq.c:201:6:Pwm_Ipw_FlexioNotification	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Pwm_Ipw_Irq.c:216:6:Pwm_Ipw_FlexPwmNotification	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Pwm_Ipw_Irq.c:231:6:Pwm_Ipw_EtpuNotification	0	static

@@ -1,0 +1,9 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/Project_Settings/Startup_Code/sys_init.c:208:6:sys_enableAllInterrupts	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/Project_Settings/Startup_Code/sys_init.c:218:6:sys_disableAllInterrupts	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/Project_Settings/Startup_Code/sys_init.c:228:6:sys_disableIsrSource	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/Project_Settings/Startup_Code/sys_init.c:238:6:sys_enableIsrSource	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/Project_Settings/Startup_Code/sys_init.c:249:6:sys_registerIsrHandler	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/Project_Settings/Startup_Code/sys_init.c:982:16:sys_init	56	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/Project_Settings/Startup_Code/sys_init.c:1010:6:sys_halt	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/Project_Settings/Startup_Code/sys_init.c:1022:6:sys_stop	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/Project_Settings/Startup_Code/sys_init.c:1027:7:EUnit_GetCoreID	0	static

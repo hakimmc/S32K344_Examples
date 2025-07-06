@@ -1,0 +1,9 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Mem_43_INFLS_Ipw.c:625:16:Mem_43_INFLS_IPW_Init	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Mem_43_INFLS_Ipw.c:661:28:Mem_43_INFLS_IPW_Erase	24	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Mem_43_INFLS_Ipw.c:764:28:Mem_43_INFLS_IPW_Write	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Mem_43_INFLS_Ipw.c:871:28:Mem_43_INFLS_IPW_Read	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Mem_43_INFLS_Ipw.c:918:28:Mem_43_INFLS_IPW_Compare	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Mem_43_INFLS_Ipw.c:966:28:Mem_43_INFLS_IPW_BlankCheck	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Mem_43_INFLS_Ipw.c:1012:28:Mem_43_INFLS_IPW_GetJobResult	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Mem_43_INFLS_Ipw.c:1067:28:Mem_43_INFLS_IPW_Cancel	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Mem_43_INFLS_Ipw.c:1084:6:Mem_43_INFLS_IPW_ReportEccValueToLayerUnder	0	static

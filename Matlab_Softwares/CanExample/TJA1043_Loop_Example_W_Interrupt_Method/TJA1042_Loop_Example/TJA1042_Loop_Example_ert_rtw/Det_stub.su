@@ -1,0 +1,6 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Det_stub.c:162:9:Det_TestLastReportError	32	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Det_stub.c:203:9:Det_TestLastReportRuntimeError	32	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Det_stub.c:246:9:Det_TestLastReportTransientFault	32	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Det_stub.c:282:9:Det_TestNoError	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Det_stub.c:315:9:Det_TestNoRuntimeError	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Det_stub.c:348:9:Det_TestNoTransientFault	16	static

@@ -1,0 +1,11 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:307:8:Ocotp_schm_read_msr	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:391:6:SchM_Enter_Ocotp_OCOTP_EXCLUSIVE_AREA_00	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:415:6:SchM_Exit_Ocotp_OCOTP_EXCLUSIVE_AREA_00	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:429:6:SchM_Enter_Ocotp_OCOTP_EXCLUSIVE_AREA_01	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:453:6:SchM_Exit_Ocotp_OCOTP_EXCLUSIVE_AREA_01	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:467:6:SchM_Enter_Ocotp_OCOTP_EXCLUSIVE_AREA_02	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:491:6:SchM_Exit_Ocotp_OCOTP_EXCLUSIVE_AREA_02	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:505:6:SchM_Enter_Ocotp_OCOTP_EXCLUSIVE_AREA_03	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:529:6:SchM_Exit_Ocotp_OCOTP_EXCLUSIVE_AREA_03	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:543:6:SchM_Enter_Ocotp_OCOTP_EXCLUSIVE_AREA_04	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/SchM_Ocotp.c:567:6:SchM_Exit_Ocotp_OCOTP_EXCLUSIVE_AREA_04	8	static

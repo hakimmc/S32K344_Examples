@@ -1,0 +1,9 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Clock_Ip_ExtOsc.c:171:13:Clock_Ip_ExternalOscillatorEmpty	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Clock_Ip_ExtOsc.c:312:13:Clock_Ip_EnableFxoscOsconBypEocvGmSel	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Clock_Ip_ExtOsc.c:335:13:Clock_Ip_ResetSxoscOsconEocv	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Clock_Ip_ExtOsc.c:383:13:Clock_Ip_CompleteSxoscOsconEocv	32	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Clock_Ip_ExtOsc.c:255:13:Clock_Ip_CompleteFxoscOsconBypEocvGmSel	32	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Clock_Ip_ExtOsc.c:353:13:Clock_Ip_SetSxoscOsconEocv	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Clock_Ip_ExtOsc.c:216:13:Clock_Ip_SetFxoscOsconBypEocvGmSel	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Clock_Ip_ExtOsc.c:179:13:Clock_Ip_ResetFxoscOsconBypEocvGmSel	32	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Clock_Ip_ExtOsc.c:435:13:Clock_Ip_EnableSxoscOsconEocv	0	static

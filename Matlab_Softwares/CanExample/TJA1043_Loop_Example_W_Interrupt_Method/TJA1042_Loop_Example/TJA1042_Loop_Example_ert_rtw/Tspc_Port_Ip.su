@@ -1,0 +1,4 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Tspc_Port_Ip.c:132:6:Tspc_Port_Ip_EnableObeGroup	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Tspc_Port_Ip.c:161:6:Tspc_Port_Ip_DisableObeGroup	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Tspc_Port_Ip.c:190:6:Tspc_Port_Ip_MaskObeGroup	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Tspc_Port_Ip.c:214:6:Tspc_Port_Ip_ConfigureObeGroup	32	static
