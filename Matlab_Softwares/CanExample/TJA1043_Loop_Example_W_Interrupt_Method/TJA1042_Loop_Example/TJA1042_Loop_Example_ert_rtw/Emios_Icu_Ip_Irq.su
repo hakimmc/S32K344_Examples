@@ -1,0 +1,4 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Emios_Icu_Ip_Irq.c:434:22:Emios_Icu_Ip_ReadCounterBus	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Emios_Icu_Ip_Irq.c:944:6:Emios_Icu_Ip_SignalMeasurementHandler.part.0	56	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Emios_Icu_Ip_Irq.c:944:6:Emios_Icu_Ip_SignalMeasurementHandler	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Emios_Icu_Ip_Irq.c:988:6:Emios_Icu_Ip_IrqHandler	40	static

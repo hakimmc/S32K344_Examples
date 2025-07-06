@@ -1,0 +1,11 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:676:13:Lin_Ipw_HandleTxSleepCmd	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:775:16:Lin_43_LPUART_FLEXIO_Ipw_CheckWakeup	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:800:6:Lin_43_LPUART_FLEXIO_Ipw_InitChannel	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:862:16:Lin_43_LPUART_FLEXIO_Ipw_SendFrame	24	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:968:16:Lin_43_LPUART_FLEXIO_Ipw_GoToSleep	32	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:1043:16:Lin_43_LPUART_FLEXIO_Ipw_GoToSleepInternal	16	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:1117:16:Lin_43_LPUART_FLEXIO_Ipw_HardwareGetStatus	8	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:1155:6:Lin_43_LPUART_FLEXIO_Ipw_WakeUp	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:1189:6:Lin_43_LPUART_FLEXIO_Ipw_WakeUpInternal	0	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:1221:6:Lin_43_LPUART_FLEXIO_Ipw_Callback	32	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Lin_43_LPUART_FLEXIO_Ipw.c:1316:6:Flexio_Lin_Ipw_Callback	32	static

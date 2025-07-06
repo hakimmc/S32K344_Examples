@@ -1,0 +1,4 @@
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Adc_Ipw_Irq.c:525:30:Adc_Ipw_RecordResult	80	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Adc_Ipw_Irq.c:821:20:Adc_Ipw_UpdateGroupState.constprop	48	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Adc_Ipw_Irq.c:2170:6:Adc_Ipw_Adc1EndNormalChainNotification	48	static
+C:/Users/acalg/OneDrive/Belgeler/github/S32EX/Matlab_Softwares/TJA1042_Loop_Example/TJA1042_Loop_Example_Config/RTD/src/Adc_Ipw_Irq.c:2276:6:Adc_Ipw_Adc2EndNormalChainNotification	48	static
