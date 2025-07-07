@@ -93,7 +93,7 @@
     #define INTCTRL_IP_CORE_MASK                      (1U)
 /* System interrupt routing through MSCM */
 #define INT_CTRL_IP_MSCM_SYSTEM_INTERRUPT_ROUTER  (STD_ON)
-#define INT_CTRL_IP_DEV_ERROR_DETECT              (STD_ON)
+#define INT_CTRL_IP_DEV_ERROR_DETECT              (STD_OFF)
 /* CPU to CPU interrupt (MSI) routing through MSCM */
 #define INT_CTRL_IP_MSI_AVAILABLE                 (STD_OFF)
 #if (INT_CTRL_IP_MSI_AVAILABLE == STD_ON)
