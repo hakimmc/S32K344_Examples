@@ -33,6 +33,14 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 			switch (buffIdx)
 			{
 				case RX_MB_IDW: /**< Wakeup message buffer */
+
+					if (Comparator(rxData.data, jumpWORD, 8))
+					{
+						BootState = 0;
+						JumpState = 1;
+						break;
+					}
+
 					if (Comparator(rxData.data, ReadConfig_TX, 7))
 					{
 						if (rxData.data[7] == 0) {
@@ -100,7 +108,7 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 								FlashData[fi + 4] = rxData.data[2 + fi];
 							}
 
-							if (BootMode == APPLICATION && !BoolOfJumpToAppCfg)
+							if ((BootMode == APPLICATION || BootMode == CONFIG)  && !BoolOfJumpToAppCfg)
 							{
 								if (WriteIndex == 0 || WriteIndex == 8)
 								{
@@ -135,6 +143,13 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 								if (Comparator(FlashData, JumpToAppFromCfgData, 8))
 								{
 									WriteIndex = 0x2000 - 8;
+									if(BootMode == CONFIG)
+									{
+										FlashWrite(CFG_ADDR_START + WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
+										BootState = 0;
+										JumpState = 1;
+										FlexCAN_Ip_Send(INST_FLEXCAN_0, TX_MB_IDX, &tx_info, RX_BOOT_ID + config->system_id, skipWORD);
+									}
 									BoolOfJumpToAppCfg = 1;
 								}
 							}
@@ -142,7 +157,14 @@ void flexcan0_Callback(uint8 instance, Flexcan_Ip_EventType eventType, uint32 bu
 							/* Write 8 bytes to flash */
 							if(BootState)
 							{
-								FlashWrite(CFG_ADDR_START + WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
+#ifdef FAST_PROGRAM_ENABLE
+								if(!Comparator(FlashData, ((uint8_t*)(CFG_ADDR_START + WriteIndex)), 8))
+								{
+#endif
+									FlashWrite(CFG_ADDR_START + WriteIndex, FlashData, FLS_BUF_SIZE, FLS_MASTER_ID);
+#ifdef FAST_PROGRAM_ENABLE
+								}
+#endif
 								WriteIndex += 8;
 							}
 						}
