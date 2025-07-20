@@ -1,6 +1,6 @@
 Symbol table:
 
-Clock_Ip_CMU_ClockFailInt/1 (Clock_Ip_CMU_ClockFailInt) @05fbe620
+Clock_Ip_CMU_ClockFailInt/1 (Clock_Ip_CMU_ClockFailInt) @05f0d620
   Type: function
   Visibility: external public
   References: 
@@ -9,7 +9,7 @@ Clock_Ip_CMU_ClockFailInt/1 (Clock_Ip_CMU_ClockFailInt) @05fbe620
   Function flags:
   Called by: Mcu_Cmu_ClockFail_IRQHandler/0 
   Calls: 
-Mcu_Cmu_ClockFail_IRQHandler/0 (Mcu_Cmu_ClockFail_IRQHandler) @05fbe1c0
+Mcu_Cmu_ClockFail_IRQHandler/0 (Mcu_Cmu_ClockFail_IRQHandler) @05f0d1c0
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 

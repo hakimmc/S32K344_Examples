@@ -1,6 +1,6 @@
 Symbol table:
 
-OsIf_Timer_System_Internal_GetElapsed/2 (OsIf_Timer_System_Internal_GetElapsed) @05cd6a80
+OsIf_Timer_System_Internal_GetElapsed/2 (OsIf_Timer_System_Internal_GetElapsed) @05b92a80
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
@@ -9,7 +9,7 @@ OsIf_Timer_System_Internal_GetElapsed/2 (OsIf_Timer_System_Internal_GetElapsed) 
   Function flags: body
   Called by: 
   Calls: 
-OsIf_Timer_System_Internal_GetCounter/1 (OsIf_Timer_System_Internal_GetCounter) @05cd67e0
+OsIf_Timer_System_Internal_GetCounter/1 (OsIf_Timer_System_Internal_GetCounter) @05b927e0
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
@@ -18,7 +18,7 @@ OsIf_Timer_System_Internal_GetCounter/1 (OsIf_Timer_System_Internal_GetCounter) 
   Function flags: body
   Called by: 
   Calls: 
-OsIf_Timer_System_Internal_Init/0 (OsIf_Timer_System_Internal_Init) @05cd6540
+OsIf_Timer_System_Internal_Init/0 (OsIf_Timer_System_Internal_Init) @05b92540
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 

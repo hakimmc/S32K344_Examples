@@ -2,7 +2,7 @@
 --entry=Reset_Handler
 -ggdb3
 -T
-"C:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/Project_Settings/Linker_Files/linker_flash_s32k344.ld"
+"C:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/Project_Settings/Linker_Files/linker_flash_s32k344.ld"
 -Wl,-Map,"FlexCAN_Ip_Example_S32K344.map"
 -mcpu=cortex-m7
 -mthumb

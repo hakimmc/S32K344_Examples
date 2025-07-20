@@ -34,7 +34,7 @@ FlexCAN_Ip_Example_S32K344.siz \
 all: FlexCAN_Ip_Example_S32K344.elf secondary-outputs
 
 # Tool invocations
-FlexCAN_Ip_Example_S32K344.elf: $(OBJS) C:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/Project_Settings/Linker_Files/linker_flash_s32k344.ld $(USER_OBJS)
+FlexCAN_Ip_Example_S32K344.elf: $(OBJS) C:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/Project_Settings/Linker_Files/linker_flash_s32k344.ld $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Standard S32DS C Linker'
 	arm-none-eabi-gcc -o "FlexCAN_Ip_Example_S32K344.elf" "@FlexCAN_Ip_Example_S32K344.args"  $(USER_OBJS)
@@ -54,7 +54,7 @@ clean:
 	-@echo ' '
 
 post-build:
-	-arm-none-eabi-objcopy -v -O srec "FlexCAN_Ip_Example_S32K344.elf" "FlexCAN_Ip_Example_S32K344.s19";arm-none-eabi-objcopy -v -O ihex "FlexCAN_Ip_Example_S32K344.elf" "FlexCAN_Ip_Example_S32K344.hex";arm-none-eabi-objcopy -v -O binary "FlexCAN_Ip_Example_S32K344.elf" "FlexCAN_Ip_Example_S32K344.bin"
+	-arm-none-eabi-objcopy -v -O srec "FlexCAN_Ip_Example_S32K344.elf" "FlexCAN_Ip_Example_S32K344.s19";arm-none-eabi-objcopy -v -O ihex "FlexCAN_Ip_Example_S32K344.elf" "FlexCAN_Ip_Example_S32K344.hex";arm-none-eabi-objcopy -v -O binary "FlexCAN_Ip_Example_S32K344.elf" "FlexCAN_Ip_Example_S32K344.bin";  C:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit\\..\\NXPBuggerTools\\nbc.exe  C:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit\\ConfigFile\\nbc.cfg "FlexCAN_Ip_Example_S32K344.bin" "FlexCAN_Ip_Example_S32K344.cwa"
 	-@echo ' '
 
 secondary-outputs: $(SECONDARY_SIZE)

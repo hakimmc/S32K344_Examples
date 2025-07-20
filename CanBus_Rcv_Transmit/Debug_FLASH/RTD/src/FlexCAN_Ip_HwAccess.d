@@ -11,14 +11,14 @@ RTD/src/FlexCAN_Ip_HwAccess.o: ../RTD/src/FlexCAN_Ip_HwAccess.c \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/IpVersionMacros.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/Reg_eSys.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/OsIf_Internal.h \
- C\:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/OsIf_Cfg.h \
- C\:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/OsIf_ArchCfg.h \
+ C\:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/OsIf_Cfg.h \
+ C\:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/OsIf_ArchCfg.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/StandardTypes.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_SYSTICK.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_COMMON.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/BasicTypes.h \
  ../RTD/include/FlexCAN_Ip_DeviceReg.h \
- C\:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_CfgDefines.h \
+ C\:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_CfgDefines.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_ADC.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_AXBS_LITE.h \
@@ -86,8 +86,8 @@ RTD/src/FlexCAN_Ip_HwAccess.o: ../RTD/src/FlexCAN_Ip_HwAccess.c \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_SYSTICK.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_MPU.h \
  ../RTD/include/FlexCAN_Ip_Types.h \
- C\:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_Cfg.h \
- C\:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.h \
+ C\:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_Cfg.h \
+ C\:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.h \
  ../RTD/include/OsIf.h ../RTD/include/OsIf_Internal.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/Base_MemMap.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/Reg_eSys.h \
@@ -108,14 +108,14 @@ C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/IpVersionMacros.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/Reg_eSys.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/OsIf_Internal.h:
-C\:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/OsIf_Cfg.h:
-C\:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/OsIf_ArchCfg.h:
+C\:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/OsIf_Cfg.h:
+C\:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/OsIf_ArchCfg.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/StandardTypes.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_SYSTICK.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_COMMON.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/BasicTypes.h:
 ../RTD/include/FlexCAN_Ip_DeviceReg.h:
-C\:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_CfgDefines.h:
+C\:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_CfgDefines.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_ADC.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_AXBS_LITE.h:
@@ -183,8 +183,8 @@ C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_SYSTICK.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/header/S32K344_MPU.h:
 ../RTD/include/FlexCAN_Ip_Types.h:
-C\:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_Cfg.h:
-C\:/Users/acalg/OneDrive/Belgeler/GitHub/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.h:
+C\:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_Cfg.h:
+C\:/Users/acalg/OneDrive/Belgeler/github/S32K344_Examples/CanBus_Rcv_Transmit/generate/include/FlexCAN_Ip_Sa_BOARD_InitPeripherals_PBcfg.h:
 ../RTD/include/OsIf.h:
 ../RTD/include/OsIf_Internal.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3_2022_03/SW32K3_RTD_4_4_2_0_0_D2203/Base_TS_T40D34M20I0R0/include/Base_MemMap.h:

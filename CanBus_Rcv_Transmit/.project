@@ -23,4 +23,10 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>NBCompiler</name>
+			<value>$%7BPARENT-1-PROJECT_LOC%7D/NXPBuggerTools/nbc.exe</value>
+		</variable>
+	</variableList>
 </projectDescription>

@@ -2,7 +2,7 @@
 
 Initial Symbol table:
 
-DevAssert/0 (DevAssert) @05bb9380
+DevAssert/0 (DevAssert) @05bec380
   Type: function definition
   Visibility: no_reorder
   References: 

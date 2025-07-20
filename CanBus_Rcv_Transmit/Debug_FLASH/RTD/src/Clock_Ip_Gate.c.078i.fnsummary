@@ -1,6 +1,6 @@
 Symbol table:
 
-Clock_Ip_ReportClockErrors/13 (Clock_Ip_ReportClockErrors) @06023380
+Clock_Ip_ReportClockErrors/13 (Clock_Ip_ReportClockErrors) @05f4d380
   Type: function
   Visibility: external public
   References: 
@@ -9,7 +9,7 @@ Clock_Ip_ReportClockErrors/13 (Clock_Ip_ReportClockErrors) @06023380
   Function flags:
   Called by: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 
   Calls: 
-Clock_Ip_apxMcMeGetPartitions/12 (Clock_Ip_apxMcMeGetPartitions) @05fc5f78
+Clock_Ip_apxMcMeGetPartitions/12 (Clock_Ip_apxMcMeGetPartitions) @05fbff78
   Type: variable
   Body removed by symtab_remove_unreachable_nodes
   Visibility: external public
@@ -17,7 +17,7 @@ Clock_Ip_apxMcMeGetPartitions/12 (Clock_Ip_apxMcMeGetPartitions) @05fc5f78
   Referring: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) 
   Availability: not_available
   Varpool flags: read-only
-Clock_Ip_TimeoutExpired/11 (Clock_Ip_TimeoutExpired) @060232a0
+Clock_Ip_TimeoutExpired/11 (Clock_Ip_TimeoutExpired) @05f4d2a0
   Type: function
   Visibility: external public
   References: 
@@ -26,7 +26,7 @@ Clock_Ip_TimeoutExpired/11 (Clock_Ip_TimeoutExpired) @060232a0
   Function flags:
   Called by: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 
   Calls: 
-Clock_Ip_StartTimeout/10 (Clock_Ip_StartTimeout) @060231c0
+Clock_Ip_StartTimeout/10 (Clock_Ip_StartTimeout) @05f4d1c0
   Type: function
   Visibility: external public
   References: 
@@ -35,7 +35,7 @@ Clock_Ip_StartTimeout/10 (Clock_Ip_StartTimeout) @060231c0
   Function flags:
   Called by: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 
   Calls: 
-Clock_Ip_McMeEnterKey/9 (Clock_Ip_McMeEnterKey) @060230e0
+Clock_Ip_McMeEnterKey/9 (Clock_Ip_McMeEnterKey) @05f4d0e0
   Type: function
   Visibility: external public
   References: 
@@ -44,7 +44,7 @@ Clock_Ip_McMeEnterKey/9 (Clock_Ip_McMeEnterKey) @060230e0
   Function flags:
   Called by: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 
   Calls: 
-Clock_Ip_apxMcMeTriggerPartitions/8 (Clock_Ip_apxMcMeTriggerPartitions) @05fc5e58
+Clock_Ip_apxMcMeTriggerPartitions/8 (Clock_Ip_apxMcMeTriggerPartitions) @05fbfe58
   Type: variable
   Body removed by symtab_remove_unreachable_nodes
   Visibility: external public
@@ -52,7 +52,7 @@ Clock_Ip_apxMcMeTriggerPartitions/8 (Clock_Ip_apxMcMeTriggerPartitions) @05fc5e5
   Referring: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) 
   Availability: not_available
   Varpool flags: read-only
-Clock_Ip_apxMcMeSetPartitions/7 (Clock_Ip_apxMcMeSetPartitions) @05fc5e10
+Clock_Ip_apxMcMeSetPartitions/7 (Clock_Ip_apxMcMeSetPartitions) @05fbfe10
   Type: variable
   Body removed by symtab_remove_unreachable_nodes
   Visibility: external public
@@ -60,7 +60,7 @@ Clock_Ip_apxMcMeSetPartitions/7 (Clock_Ip_apxMcMeSetPartitions) @05fc5e10
   Referring: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) 
   Availability: not_available
   Varpool flags: read-only
-Clock_Ip_axGateInfo/6 (Clock_Ip_axGateInfo) @05fc5dc8
+Clock_Ip_axGateInfo/6 (Clock_Ip_axGateInfo) @05fbfdc8
   Type: variable
   Body removed by symtab_remove_unreachable_nodes
   Visibility: external public
@@ -68,7 +68,7 @@ Clock_Ip_axGateInfo/6 (Clock_Ip_axGateInfo) @05fc5dc8
   Referring: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (addr) 
   Availability: not_available
   Varpool flags: read-only
-Clock_Ip_au8ClockFeatures/5 (Clock_Ip_au8ClockFeatures) @05fc5d80
+Clock_Ip_au8ClockFeatures/5 (Clock_Ip_au8ClockFeatures) @05fbfd80
   Type: variable
   Body removed by symtab_remove_unreachable_nodes
   Visibility: external public
@@ -76,14 +76,14 @@ Clock_Ip_au8ClockFeatures/5 (Clock_Ip_au8ClockFeatures) @05fc5d80
   Referring: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (read) 
   Availability: not_available
   Varpool flags: read-only
-Clock_Ip_axGateCallbacks/4 (Clock_Ip_axGateCallbacks) @05fc53a8
+Clock_Ip_axGateCallbacks/4 (Clock_Ip_axGateCallbacks) @05fbf3a8
   Type: variable definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: Clock_Ip_ClockSetGateEmpty/0 (addr) Clock_Ip_ClockUpdateGateEmpty/1 (addr) Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (addr) Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest/3 (addr) 
   Referring: 
   Availability: available
   Varpool flags: initialized read-only const-value-known
-Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest/3 (Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest) @05fc3c40
+Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest/3 (Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest) @05fbdc40
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
@@ -93,7 +93,7 @@ Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest/3 (Clock_Ip_ClockUpd
   Function flags: body
   Called by: 
   Calls: Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 
-Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest) @05fc39a0
+Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest) @05fbd9a0
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
@@ -103,7 +103,7 @@ Clock_Ip_ClockSetGateMcMePartitionCollectionClockRequest/2 (Clock_Ip_ClockSetGat
   Function flags: body
   Called by: Clock_Ip_ClockUpdateGateMcMePartitionCollectionClockRequest/3 
   Calls: Clock_Ip_ReportClockErrors/13 Clock_Ip_TimeoutExpired/11 Clock_Ip_StartTimeout/10 Clock_Ip_McMeEnterKey/9 Clock_Ip_ReportClockErrors/13 Clock_Ip_TimeoutExpired/11 Clock_Ip_StartTimeout/10 Clock_Ip_McMeEnterKey/9 
-Clock_Ip_ClockUpdateGateEmpty/1 (Clock_Ip_ClockUpdateGateEmpty) @05fc3700
+Clock_Ip_ClockUpdateGateEmpty/1 (Clock_Ip_ClockUpdateGateEmpty) @05fbd700
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.
@@ -113,7 +113,7 @@ Clock_Ip_ClockUpdateGateEmpty/1 (Clock_Ip_ClockUpdateGateEmpty) @05fc3700
   Function flags: body
   Called by: 
   Calls: 
-Clock_Ip_ClockSetGateEmpty/0 (Clock_Ip_ClockSetGateEmpty) @05fc3460
+Clock_Ip_ClockSetGateEmpty/0 (Clock_Ip_ClockSetGateEmpty) @05fbd460
   Type: function definition analyzed
   Visibility: force_output no_reorder prevailing_def_ironly
   Address is taken.

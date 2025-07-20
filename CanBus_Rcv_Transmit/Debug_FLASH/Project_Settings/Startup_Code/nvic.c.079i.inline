@@ -23,7 +23,7 @@ IPA summary for NVIC_EnableIRQ/1 is missing.
 IPA summary for NVIC_SetPriorityGrouping/0 is missing.
 Symbol table:
 
-NVIC_SetPriority/3 (NVIC_SetPriority) @06d7a000
+NVIC_SetPriority/3 (NVIC_SetPriority) @07a33000
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
@@ -32,7 +32,7 @@ NVIC_SetPriority/3 (NVIC_SetPriority) @06d7a000
   Function flags: body
   Called by: 
   Calls: 
-NVIC_DisableIRQ/2 (NVIC_DisableIRQ) @06d64c40
+NVIC_DisableIRQ/2 (NVIC_DisableIRQ) @07a1dc40
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
@@ -41,7 +41,7 @@ NVIC_DisableIRQ/2 (NVIC_DisableIRQ) @06d64c40
   Function flags: body
   Called by: 
   Calls: 
-NVIC_EnableIRQ/1 (NVIC_EnableIRQ) @06d64e00
+NVIC_EnableIRQ/1 (NVIC_EnableIRQ) @07a1de00
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
@@ -50,7 +50,7 @@ NVIC_EnableIRQ/1 (NVIC_EnableIRQ) @06d64e00
   Function flags: body
   Called by: 
   Calls: 
-NVIC_SetPriorityGrouping/0 (NVIC_SetPriorityGrouping) @06d64b60
+NVIC_SetPriorityGrouping/0 (NVIC_SetPriorityGrouping) @07a1db60
   Type: function definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 

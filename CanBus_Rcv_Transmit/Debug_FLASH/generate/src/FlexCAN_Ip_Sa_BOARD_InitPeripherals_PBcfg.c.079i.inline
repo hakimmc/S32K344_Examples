@@ -15,7 +15,7 @@ Overall time estimate: 0.000000 weighted by profile: 0.000000
 Why inlining failed?
 Symbol table:
 
-flexcan0_Callback/2 (flexcan0_Callback) @05d14700
+flexcan0_Callback/2 (flexcan0_Callback) @05c54700
   Type: function
   Visibility: external public
   Address is taken.
@@ -25,14 +25,14 @@ flexcan0_Callback/2 (flexcan0_Callback) @05d14700
   Function flags:
   Called by: 
   Calls: 
-FlexCAN_Config0/1 (FlexCAN_Config0) @05d18bd0
+FlexCAN_Config0/1 (FlexCAN_Config0) @05c58bd0
   Type: variable definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: flexcan0_Callback/2 (addr) 
   Referring: 
   Availability: available
   Varpool flags: initialized read-only const-value-known
-FlexCAN_State0/0 (FlexCAN_State0) @05d18a68
+FlexCAN_State0/0 (FlexCAN_State0) @05c58a68
   Type: variable definition analyzed
   Visibility: force_output externally_visible no_reorder public
   References: 
